@@ -76,8 +76,8 @@ class Arena extends React.Component {
     render() {
 
         return (
-            <main>
-                <div className="test-project-frame">
+            <main className="battle-frame">
+
                     <div className="battle-container">
                         <div className="battle-arena">
 
@@ -93,7 +93,7 @@ class Arena extends React.Component {
                         </div>
                         <MessageBoard />
                     </div>
-                </div>
+
 
                 {/*<AudioPlayer />*/}
                 {/*

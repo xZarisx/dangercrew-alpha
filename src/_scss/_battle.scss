@@ -8,12 +8,9 @@ body {
     margin:0;
 }
 
-.test-project-frame {
-    width: 704px; /* Real stuff would live inside the resizer-ed container in walker2 project */
-    height: 448px; /* 11x7 ratio */
-    margin:0 auto;
-    border:1px solid #ddd;
-    margin-top:80px;
+.battle-frame {
+    width:100%;
+    height:100%;
 }
 
 .battle-container {

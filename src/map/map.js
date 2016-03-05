@@ -6,6 +6,8 @@ import Textbox from '../messaging/textbox';
 import Person from '../people/person';
 import BattleRequestBox from '../battle-requests/battle-request-box'
 
+import BattleArena from '../battles/components/battle-arena'
+
 @connect((state, props) => {
     return {
         x: state.people.player.x,
@@ -23,7 +25,10 @@ import BattleRequestBox from '../battle-requests/battle-request-box'
         isPaused: state.game.isPaused,
         isShowingTextbox: state.game.isShowingTextbox,
 
-        showRequest: state.battleRequests.showRequest
+        showRequest: state.battleRequests.showRequest,
+
+        gameArea: state.game.gameArea
+
     }
 })
 
@@ -48,6 +53,23 @@ class Map extends React.Component {
         }
 
         return `${xValue}, ${yValue}, 0px`;
+    }
+
+    renderGameArea() {
+
+
+        if (this.props.isPaused) { /* TODO: CHANGE TO GAMEAREA */
+            return <PauseScreen />
+        }
+        if (this.props.gameArea == "battle") {
+            return <BattleArena />
+        }
+        if (this.props.gameArea == "map") {
+            return this.renderMap();
+        }
+
+
+        return null;
     }
 
     renderMap() {
@@ -89,7 +111,7 @@ class Map extends React.Component {
             height: this.props.vpHeight
         };
 
-        const screenState = (this.props.isPaused) ? <PauseScreen /> : this.renderMap() ;
+        const screenState = this.renderGameArea();
         const textbox = this.props.isShowingTextbox ? <Textbox /> : null;
         const battleRequestBox = this.props.showRequest ? <BattleRequestBox /> : null;
 
