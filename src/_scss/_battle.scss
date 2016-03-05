@@ -1,0 +1,153 @@
+@import 'reset';
+
+* {
+    box-sizing:border-box;
+}
+body {
+    padding:0;
+    margin:0;
+}
+
+.test-project-frame {
+    width: 704px; /* Real stuff would live inside the resizer-ed container in walker2 project */
+    height: 448px; /* 11x7 ratio */
+    margin:0 auto;
+    border:1px solid #ddd;
+    margin-top:80px;
+}
+
+.battle-container {
+    display:flex;
+    flex-direction: column;
+    height:100%;
+    //background:skyblue;
+    background: linear-gradient(-330deg, #58a, #ff0090);
+}
+
+
+.battle-arena {
+    overflow:hidden;
+    width:100%;
+    align-self:flex-start;
+    height:70%;
+    position:relative;
+}
+
+/* Combatants */
+.battle-player {
+    position:absolute;
+    left:8%;
+    bottom:-15%;
+    transition: left 0.4s ease-out;
+
+    width : 220px; /* Might need to have these be adaptive pixel sizes */
+    height: 220px;
+
+    //background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/svJacob-2.svg');
+    background-repeat:no-repeat;
+    background-size:400%;
+    background-position: 100% 33.3%;
+
+    &.is-introing {
+        left: -70%;
+    }
+}
+.battle-enemy {
+    position:absolute;
+    right:22%;
+    transition: right 0.4s ease-out;
+    top:13%;
+
+    height:150px; /* Might need to have these be adaptive pixel sizes */
+    width:150px;
+
+    //background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-orange.svg');
+    background-repeat:no-repeat;
+    background-size:400%;
+    background-position: 33.3% 33.3%;
+
+    &.is-introing {
+        right: -22%;
+    }
+
+}
+
+
+.battle-scoreboard-player {
+    font-family:"Source Code Pro", monospace;
+    position: absolute;
+    left: 7%;
+    top:13%;
+}
+.battle-scoreboard-enemy {
+    font-family:"Source Code Pro", monospace;
+    position: absolute;
+    left: 67%;
+    top:62%;
+}
+
+
+
+/* MESSAGE BOARD / TERMINAL */
+
+.message-board {
+    width:100%;
+    align-self:flex-end;
+    height:30%;
+    position:relative;
+    z-index:10;
+}
+$window-header-height: 9%;
+.terminal-header {
+    height:$window-header-height;
+    border-top:1px solid #F6F6F6;
+    border-bottom:1px solid #686868;
+    background-image: linear-gradient(-180deg, #EBEBEB 7%, #D3D3D3 100%);
+
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    line-height:9px;
+    padding-left:3px;
+
+    .terminal-header-color-circle {
+
+        width: 7px;
+        height: 7px;
+        border-radius:50%;
+        background:#333;
+        display:inline-block;
+        margin-right:5px;
+        &.red { background: #F56059; border: 1px solid darken(#F56059, 7%) }
+        &.green { background: #42CE42; border: 1px solid darken(#42CE42, 7%) }
+    }
+}
+.terminal-body {
+    font-family: "Source Code Pro", monospace;
+    background:#333;
+    color:#fff;
+    padding:2%;
+    height:100% - $window-header-height;
+}
+
+.terminal-items-list {
+    width:100%;
+    padding:0;
+    margin:0;
+}
+
+.terminal-item {
+    &.terminal-item-active {
+        background: rgba(#fff, 0.95);
+        color: #333;
+    }
+    td {
+        padding-top:2px;
+        padding-bottom:2px;
+    }
+    td.command-title {width:26%;}
+    td.command-price-quantity {
+        width:8%;
+    }
+    td.command-description {width:66%;}
+}

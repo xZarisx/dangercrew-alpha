@@ -1,0 +1,128 @@
+/* SPIN */
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+/* PROJECTILE */
+@keyframes projectile {
+    from {
+        top:80%;
+        left:5%;
+        width:100px;
+    }
+    to {
+        width:30px;
+        left:73%;
+        top:20%;
+    }
+}
+
+/* RISE */
+@keyframes rise {
+    from {
+        transform: translate3d(0,0px,0);
+    }
+    to {
+        transform: translate3d(0,-200px,0);
+    }
+}
+
+/* SHAKE */
+@keyframes shake {
+    from, to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+/* TADA */
+@keyframes tada {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    10%, 20% {
+        -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    }
+    30%, 50%, 70%, 90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+    40%, 60%, 80% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* CELEBRATE */
+@keyframes celebrate {
+    from {
+        transform: scale3d(1, 1, 1) translate3d(0,0,0);
+    }
+    10%, 20% {
+        transform: scale3d(1,1,1) rotate3d(0, 0, 1, -5deg) translate3d(0,10px,0);
+    }
+    30%, 50%, 70%, 90% {
+        transform: scale3d(1,1,1) rotate3d(0, 0, 1, 5deg) translate3d(0,0px,0);
+    }
+    40%, 60%, 80% {
+        transform: scale3d(1,1,1) rotate3d(0, 0, 1, -5deg) translate3d(0,10px,0);
+    }
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* SLIDE-OUT-DOWN */
+@keyframes slideOutDown {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    76% {
+        transform: translate3d(0, 60%, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0%, 0);
+    }
+}
+
+/* BLINK */
+@keyframes blink {
+    /* EX: blink 0.3s steps(2, start) infinite*/
+    to {
+        visibility: hidden;
+    }
+}
+
+
+/* DIE */
+@keyframes die {
+    from {
+        filter: blur(0);
+        -webkit-filter: blur(0px);
+        opacity:1;
+    }
+    to {
+        filter: blur(10px);
+        -webkit-filter: blur(20px);
+        opacity:0;
+    }
+}

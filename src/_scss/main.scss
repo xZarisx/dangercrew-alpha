@@ -1,20 +1,18 @@
-* {
-    box-sizing: border-box;
+@import 'reset';
+
+
+html, #app-root {
+    height: 100%;
 }
-
-
-html,
-#app-root {
-    height: 100%; }
 
 body {
     height: 100%;
     background-image: linear-gradient(#E8E8E8, #8E9092);
-    margin:0;
-    padding:0;
     overflow:hidden;
 }
 
 
 @import 'game';
+@import 'battle';
+@import 'battle-animations';
 @import 'person';
