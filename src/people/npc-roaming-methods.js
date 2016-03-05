@@ -49,7 +49,7 @@ export function npcRoamingBehavior(npc) {
 
             self.timeout = setTimeout(() => {
                 self.startMoving()
-            }, 1000)
+            }, 1000);
             return;
         }
 
@@ -58,7 +58,6 @@ export function npcRoamingBehavior(npc) {
         store.dispatch({ type: 'START_MOVING', mover_id: npc })
 
         Move(npc, () => {
-
             //on Done...
             LocationService.removeReservedCell(getUpdatedX(direction, currentNodeState.x), getUpdatedY(direction, currentNodeState.y));
 
@@ -75,19 +74,40 @@ export function npcRoamingBehavior(npc) {
                 type:"SET_NPC_PATH_INDEX",
                 mover_id: npc,
                 pathIndex: pathIndex
-            })
+            });
 
-            if (!store.getState().game.isPaused) {
-                /* Move again if Game is not paused */
-                self.clearNpcTimeout(); //Clear in case something is waiting to fire
-                self.startMoving();
+            /* Move again if Game is still in map mode */
+            if (store.getState().game.gameArea == "map") {
+
+                function attemptMoveIfClose() {
+                    const playerNode = store.getState().people.player;
+                    const myNode = store.getState().people[npc];
+                    if (inViewOfPlayer(playerNode.x, playerNode.y, myNode.x, myNode.y)) {
+                        //move again
+                        //console.log('inView');
+                        self.clearNpcTimeout(); //Clear in case something is waiting to fire
+                        self.startMoving();
+                    } else {
+                        /* Wait a second, then check again */
+                        /* TODO: This is a little dumb. Shouldn't it just listen to the player's X/Y value? */
+                        self.timeout = setTimeout(() => {
+                            //console.log('attempt')
+                            attemptMoveIfClose();
+                        }, 1000);
+                    }
+                }
+                attemptMoveIfClose();
             }
 
         });
     };
 
     self.startMoving();
+}
 
+function inViewOfPlayer(playerX, playerY, myX, myY) {
+    const xDiff = Math.abs(playerX - myX);
+    const yDiff = Math.abs(playerY - myY);
 
-
+    return (xDiff < 10 && yDiff < 7);
 }

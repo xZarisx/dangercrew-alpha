@@ -5,7 +5,7 @@ import Textbox from '../messaging/textbox';
 
 import Person from '../people/person';
 import BattleRequestBox from '../battle-requests/battle-request-box'
-
+import MovementController from '../people/movement-controller'
 import BattleArena from '../battles/components/battle-arena'
 
 @connect((state, props) => {
@@ -98,6 +98,7 @@ class Map extends React.Component {
 
         return (
             <div style={mapStyle} className="map">
+                <MovementController />
                 <img className="mapImage" style={mapImageStyle} src={this.props.backgroundImage} />
                 {persons}
             </div>

@@ -12,20 +12,25 @@ export default function ActionButtonController() {
 
     const actionKey = 32; //THIS SHOULD BE LOADED IN FROM A SETTING?
 
-    $(document).on('keydown', (e) => {
+    $(document).on('keydown.action-button-controller', (e) => {
         if (e.which == actionKey && ctrl.btnSafe) {
             ctrl.btnSafe = false;
             //Callback...
             ctrl.handleActionButton();
         }
-    }).on('keyup', (e) => {
+    }).on('keyup.action-button-controller', (e) => {
         if (e.which == actionKey) {
             ctrl.btnSafe = true;
         }
     });
 
     ctrl.handleActionButton = () => {
-        if (store.getState().game.isPaused) {
+
+        if (store.getState().game.gameArea != "map") {
+            return;
+        }
+
+        if (store.getState().game.isPaused) { /* TODO: remove this logic. It's old. gameArea is the way to go */
             console.log('action button during pause state')
             return;
         }

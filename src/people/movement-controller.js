@@ -19,8 +19,8 @@ class MovementController extends React.Component {
 
     //TODO: This module is tied to "player" being the mover_id. That could probably be variable so other things could use this guy.
 
-    constructor(props) {
-        super(props);
+    componentDidMount() {
+        console.log('Movement controller mounted')
 
         /* --------- KEY QUEUE ------------ */
         this.keyQueue = [];
@@ -41,14 +41,14 @@ class MovementController extends React.Component {
             if (keyCode == 83) {return "down"}
         }
 
-        $(document).on('keydown', (e) => {
+        $(document).on('keydown.player-movement', (e) => {
             if (e.which == 37 || e.which == 38 ||
                 e.which == 39 || e.which == 40 ||
                 e.which == 65 || e.which == 68 ||
                 e.which == 83 || e.which == 87) {
                 this.addKey( getDirection(e.which) )
             }
-        }).on('keyup', (e) => {
+        }).on('keyup.player-movement', (e) => {
             if (e.which == 37 || e.which == 38 ||
                 e.which == 39 || e.which == 40 ||//{
             /*if (*/e.which == 65 || e.which == 68 ||
@@ -61,6 +61,13 @@ class MovementController extends React.Component {
         this.addKey = this.addKey.bind(this);
         this.releaseKey = this.releaseKey.bind(this);
 
+    }
+
+    componentWillUnmount() {
+        console.log('UNMOUNT')
+        this.keyQueue = [];
+        $(document).off('.player-movement');
+        $(document).off('.action-button-controller'); /* TODO: move this to a better spot */
     }
 
     addKey(key) {
@@ -79,7 +86,7 @@ class MovementController extends React.Component {
             this.keyQueue.splice( this.keyQueue.indexOf(key), 1 );
         } else {
             //Try again if we released a key that wasn't there (DPad double taps)
-            console.log('setTimeout, releaseKey')
+            //console.log('setTimeout, releaseKey')
             setTimeout(() => {
                 this.releaseKey(key);
             }, 20);

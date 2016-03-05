@@ -8,7 +8,6 @@ import GameAreaSwitcher from './dev-tools/game-area-switcher'
 /* World, Player and NPCs */
 import Person from './people/person';
 import Map from './map/map';
-import MovementController from './people/movement-controller'
 import PauseController from './pause/pause-controller'
 import ActionButtonController from './people/action-btn-controller'
 
@@ -31,7 +30,7 @@ class GameIndex extends React.Component {
         loadMap(mapToLoad);
 
         //Init User controls controller
-        new PauseController();
+        //new PauseController();
         new ActionButtonController();
     }
 
@@ -43,7 +42,6 @@ class GameIndex extends React.Component {
                 <GameAreaSwitcher />
 
                 <Map />
-                <MovementController />
                 <ReduxStateDisplayer />
             </div>
         );
