@@ -9,13 +9,27 @@ import { connect } from 'react-redux'
 
 class GameAreaSwitcher extends React.Component {
 
+
+    componentDidMount() {
+        /* Eliminate forms on the page */
+        //var self = this;
+        //window.setGameArea = function(area) {
+        //    self.props.dispatch({
+        //        type: "SET_GAME_AREA",
+        //        payload: {
+        //            gameArea: area
+        //        }
+        //    });
+        //}
+    }
+
     handleSwitch() {
         this.props.dispatch({
             type: "SET_GAME_AREA",
             payload: {
                 gameArea: this.refs.select.value
             }
-        })
+        });
     }
 
     render() {

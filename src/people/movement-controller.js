@@ -3,6 +3,7 @@ import $ from 'jquery'
 import { connect } from 'react-redux'
 import LocationService from './location-service'
 import Move from './move'
+import ActionButtonController from '../people/action-btn-controller'
 import store from '../init/store'
 
 //import DPad from './dpad'
@@ -20,7 +21,8 @@ class MovementController extends React.Component {
     //TODO: This module is tied to "player" being the mover_id. That could probably be variable so other things could use this guy.
 
     componentDidMount() {
-        console.log('Movement controller mounted')
+        console.log('Movement controller mounted');
+        new ActionButtonController(); /* TODO: weird spot for this. Bind action button too */
 
         /* --------- KEY QUEUE ------------ */
         this.keyQueue = [];

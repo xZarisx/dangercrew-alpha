@@ -32,7 +32,7 @@ import BattleArena from '../battles/components/battle-arena'
     }
 })
 
-class Map extends React.Component {
+class Map extends React.Component { /* Considering this the "frame" rather than the "map" */
 
     getTranslateValue() {
 
@@ -98,7 +98,7 @@ class Map extends React.Component {
 
         return (
             <div style={mapStyle} className="map">
-                <MovementController />
+                <MovementController /> {/* Also does the overworld Action Button controller */}
                 <img className="mapImage" style={mapImageStyle} src={this.props.backgroundImage} />
                 {persons}
             </div>

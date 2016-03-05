@@ -37,7 +37,7 @@ class Person extends React.Component {
 
     componentWillUnmount() {
         if (this.props.useBehavior == "stationary" || this.props.useBehavior == "roaming") {
-            this.clearNpcTimeout();
+            this.clearNpcTimeout(); /* Defined inside npcBehavior files */
         }
     }
 
