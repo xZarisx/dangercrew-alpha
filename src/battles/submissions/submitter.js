@@ -1,4 +1,4 @@
-import store from '../../store'
+import store from '../../init/store'
 import randomFromArray from '../../helpers/random-from-array'
 import getOtherCombatants from '../services/get-other-combatants'
 import Combatant from '../combatants/combatant-model'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {makeSubmission} from '../../battles/submissions/submitter' //AI
-import randomFromArray from '../../helpers/random-from-array'
+import {makeSubmission} from '../../submissions/submitter' //AI
+import randomFromArray from '../../../helpers/random-from-array'
 
 @connect((state, props) => {
     return {

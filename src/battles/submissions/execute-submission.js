@@ -1,4 +1,4 @@
-import store from '../../store'
+import store from '../../init/store'
 import Actions from '../actions/battle-actions'
 import Combatant from '../combatants/combatant-model'
 import {percentChance, getRandomInRange} from '../../helpers/numbers-helper'

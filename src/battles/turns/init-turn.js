@@ -1,4 +1,4 @@
-import store from '../../store'
+import store from '../../init/store'
 import orderSubmissions from '../submissions/order-submissions'
 import {extractQueuedSubmissions, removeQueueSlot} from '../submissions/queued-submissions'
 import executeSubmission from '../submissions/execute-submission'

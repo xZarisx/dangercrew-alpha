@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import TextMessageLine from '../messaging/text-message-line'
 import convertText from '../messaging/convert-text'
 import PagingPrompt from '../messaging/paging-prompt'
-import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../../helpers/single-keypress-binding';
+import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../../../helpers/single-keypress-binding';
 
 @connect((state, props) => {
     return {

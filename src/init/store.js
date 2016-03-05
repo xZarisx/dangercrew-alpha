@@ -19,7 +19,8 @@ const store = createStore({
         requesterLevel: 21
     },
     game: {
-        isPaused: false
+        isPaused: false,
+        gameArea: "battle" //I think only these are possible: [ map | battle | pause | title | credits? | levelup? ]
     },
 
     //b3

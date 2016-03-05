@@ -1,4 +1,4 @@
-import store from '../../store';
+import store from '../../init/store';
 import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../../helpers/single-keypress-binding';
 
 /* ACTION CREATORS */

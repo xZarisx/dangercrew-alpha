@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import kickoffBattleCombatants from '../battles/combatants/kickoff-battle-combatants'
+import kickoffBattleCombatants from '../combatants/kickoff-battle-combatants'
 import CombatantStatForm from './throwaway-ui/combatant-stat-form'
-import {incrementRolloutStation} from '../battles/rollout/rollout-station-navigator'
+import {incrementRolloutStation} from '../rollout/rollout-station-navigator'
 
 
 /* Battle components */
@@ -13,7 +13,7 @@ import Animations from '../components/battle/animations'
 import getIntroMessage from '../components/messaging/get-intro-message'
 
 /* DEV COMPONENTS */
-import AudioPlayer from '../audio-player'
+//import AudioPlayer from '../audio-player'
 
 
 @connect((state, props) => {
@@ -95,7 +95,7 @@ class Arena extends React.Component {
                     </div>
                 </div>
 
-                <AudioPlayer />
+                {/*<AudioPlayer />*/}
 
                 <div>
                     <CombatantStatForm id="a" color="#9b59b6" />

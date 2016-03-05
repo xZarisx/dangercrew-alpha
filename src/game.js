@@ -9,10 +9,20 @@ import PauseController from './pause/pause-controller'
 import ActionButtonController from './people/action-btn-controller'
 import ReduxStateDisplayer from './dev-tools/redux-state-displayer'
 
+/* Battles */
+import BattleArena from './battles/components/battle-arena'
+
 /* Loading a map */
 import {loadMap, getJSON} from './map/load-map'
 import { getQueryVariable } from './helpers/get-url-parameter'
 import TestMap from './_data/maps/dev-colorstreet-map'
+
+
+@connect((state, props) => {
+    return {
+        gameArea: state.game.gameArea
+    }
+})
 
 class GameIndex extends React.Component {
 
@@ -32,12 +42,20 @@ class GameIndex extends React.Component {
 
 
 
+    renderGameArea() {
+        if (this.props.gameArea == "map") {
+            return <Map />
+        }
+        if (this.props.gameArea == "battle") {
+            return <BattleArena />
+        }
+        return null;
+    }
 
     render() {
-
         return (
             <div className="ui-wrapper">
-                <Map />
+                {this.renderGameArea()}
                 <MovementController />
                 <ReduxStateDisplayer />
             </div>
