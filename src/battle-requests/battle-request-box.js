@@ -2,6 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../helpers/single-keypress-binding'
 import initBattleFromRequest from './init-battle-from-request'
+import {Howl} from 'howler'
+
+var exclaimUp = new Howl({
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/exclaim-up.wav']
+});
+var exclaimDown = new Howl({
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/exclaim-down.wav']
+});
 
 @connect((state, props) => {
     return {
@@ -20,6 +28,9 @@ class BattleRequestBox extends React.Component {
     }
 
     componentDidMount() {
+
+        exclaimUp.play();
+
         this.timeout = setTimeout(() => {
             this.reduceTime();
         }, 1000);
@@ -32,6 +43,7 @@ class BattleRequestBox extends React.Component {
         addKeyboardSinglePress(27, () => {
             clearTimeout(this.timeout);
             this.setState({time:0});
+            exclaimDown.play();
             this.props.dispatch({
                 type: "DECLINE_BATTLE_REQUEST"
             })
@@ -51,6 +63,7 @@ class BattleRequestBox extends React.Component {
             if (self.state.time > 0) {
                 self.timeout = setTimeout(() => {self.reduceTime()}, 1000);
             } else {
+                exclaimDown.play();
                 self.props.dispatch({
                     type: "DECLINE_BATTLE_REQUEST"
                 })
@@ -111,18 +124,5 @@ class BattleRequestBox extends React.Component {
     }
 }
 
-BattleRequestBox.propTypes = {
-    /*someRequiredProp: React.PropTypes.string.isRequired*/
-}
 
-BattleRequestBox.defaultProps = {
-}
-
-
-
-export default BattleRequestBox;/**
- * Created by drewconley on 2/24/16.
- */
-define(function () {
-    return {};
-});
+export default BattleRequestBox;
