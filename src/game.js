@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
+/* Dev Tools */
+import ReduxStateDisplayer from './dev-tools/redux-state-displayer'
+import GameAreaSwitcher from './dev-tools/game-area-switcher'
+
 /* World, Player and NPCs */
 import Person from './people/person';
 import Map from './map/map';
 import MovementController from './people/movement-controller'
 import PauseController from './pause/pause-controller'
 import ActionButtonController from './people/action-btn-controller'
-import ReduxStateDisplayer from './dev-tools/redux-state-displayer'
 
 /* Battles */
 import BattleArena from './battles/components/battle-arena'
@@ -55,6 +58,8 @@ class GameIndex extends React.Component {
     render() {
         return (
             <div className="ui-wrapper">
+                <GameAreaSwitcher />
+
                 {this.renderGameArea()}
                 <MovementController />
                 <ReduxStateDisplayer />

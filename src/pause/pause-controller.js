@@ -12,7 +12,7 @@ export default function PauseController() {
         if (e.which == pauseKey && ctrl.btnSafe) {
             ctrl.btnSafe = false;
             //Callback...
-            ctrl.handlePauseButton();
+            // ctrl.handlePauseButton(); /* TODO: taking pause out for now */
         }
     }).on('keyup', (e) => {
         if (e.which == pauseKey) {

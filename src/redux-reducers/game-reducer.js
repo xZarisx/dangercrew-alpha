@@ -25,6 +25,12 @@ export function game(state = {}, action) {
                 isShowingTextbox: false
             }
 
+        case 'SET_GAME_AREA':
+            return {
+                ...state,
+                gameArea: action.payload.gameArea
+            }
+
         default:
             return state;
     }

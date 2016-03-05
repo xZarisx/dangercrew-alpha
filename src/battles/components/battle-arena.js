@@ -96,11 +96,12 @@ class Arena extends React.Component {
                 </div>
 
                 {/*<AudioPlayer />*/}
-
+                {/*
                 <div>
                     <CombatantStatForm id="a" color="#9b59b6" />
                     <CombatantStatForm id="b" color="#3498db" />
                 </div>
+                */}
             </main>
         );
     }
