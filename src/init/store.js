@@ -20,7 +20,41 @@ const store = createStore({
     },
     game: {
         isPaused: false
-    }
+    },
+
+    //b3
+    battleUi: {
+        terminalMenuKey: "menuRoot",
+        terminalMenuSelectedIndex: 0,
+
+        playerId: "a", /* Theses are hardcoded for now */
+        playerTargeting: "b",
+
+        rolloutIndex: 0, /* Which event am I looking at? */
+        rolloutEventStation: "init", /* Which step am I on? */
+        textMessage: "The Cat's Pajamas", /* Will be 'null' between messages */
+        textMessageDoneRolling: false,
+
+        combatantStyles: {
+        }, /* augment appearance/animations with these inline styles */
+
+        introMessage: null
+
+    },
+    battle: {
+        isAutoplayMode: false,
+        seriesWinnerCount: 0,
+        seriesBattleLength: 1,
+        winners: [],
+        backgroundImage: "some-image-url-or-css-class?",
+        music: "some-mp3-url",
+        submissions: [],
+        queuedSubmissions: [
+        ]
+    },
+    rollout: [],
+    combatants: {},
+    combatProcessor: {}
 });
 
 export default store;
