@@ -1,5 +1,5 @@
-import store from './redux/store'
-import { addReversePath } from './services/add-reverse-path'
+import store from '../init/store'
+import { addReversePath } from '../people/add-reverse-path'
 import LocationService from './location-service'
 import {getUpdatedX, getUpdatedY, getOppositeDirection} from './location-helpers'
 import Move from './move'

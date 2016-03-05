@@ -1,4 +1,19 @@
-import store from '../redux/store';
+import store from '../init/store';
+
+export function getJSON(urlvar) {
+    var data = JSON.parse(decodeURIComponent(urlvar));
+
+    //HACK! add a Player if the map from URL doesnt have one. TODO: The mapmaker should enforce a Player being present.
+    data.people = data.people || {
+            "player": {
+                x: 0,
+                y: 0,
+                dir: "down"
+            }
+        };
+    return data;
+}
+
 
 export function loadMap(map = {}) {
 

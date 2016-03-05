@@ -2,7 +2,7 @@ import React from 'react'
 import $ from 'jquery'
 import { connect } from 'react-redux'
 import TextPage from './text-page'
-import store from '../redux/store'
+import store from '../init/store'
 import { Howl } from 'howler'
 
 var typeBlip = new Howl({

@@ -1,6 +1,6 @@
-import store from '../redux/store'
+import store from '../init/store'
 import {randomFromArray} from '../helpers/random-from-array'
-import {percentChance} from '../services/numbers'
+import {percentChance} from '../helpers/numbers-helper'
 
 /* These are temporary for Alpha. */
 /* In real game, need to maybe match these to real personalities in a database */

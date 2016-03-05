@@ -1,8 +1,11 @@
-import store from './redux/store';
-import {loadMap} from './services/load-map'
-import {TestCoffeeMap} from './data/test-coffee-map'
+import store from '../init/store';
+import {loadMap} from '../map/load-map'
 import {getUpdatedX, getUpdatedY} from './location-helpers'
-import handleBattleZoneTrigger from './battle-requests/battle-request-handler'
+import handleBattleZoneTrigger from '../battle-requests/battle-request-handler'
+
+/* HARDCODED FOR TESTING */
+import {TestCoffeeMap} from '../_data/maps/alpha-coffeeshop-map'
+
 
 var LocationService = function() {
     var self = this;
@@ -65,7 +68,7 @@ var LocationService = function() {
 
         /* MAP TRANSITION */
         if (action && action.type == "map-transition") {
-            console.log('LOAD', TestCoffeeMap)
+            console.log('LOAD', TestCoffeeMap); /* HARDCODED FOR NOW */
             loadMap(TestCoffeeMap)
         }
 

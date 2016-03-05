@@ -1,6 +1,6 @@
-import store from './redux/store';
-import { getRandomInRange } from './services/numbers'
-import { randomFromArray } from './helpers/random-from-array'
+import store from '../init/store';
+import { getRandomInRange } from '../helpers/numbers-helper'
+import { randomFromArray } from '../helpers/random-from-array'
 
 
 export function npcStationaryBehavior(npc) {

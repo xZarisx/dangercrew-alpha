@@ -3,9 +3,9 @@ import $ from 'jquery'
 import { connect } from 'react-redux'
 import LocationService from './location-service'
 import Move from './move'
-import store from './redux/store'
+import store from '../init/store'
 
-import DPad from './dpad'
+//import DPad from './dpad'
 
 @connect((state, props) => {
     return {
