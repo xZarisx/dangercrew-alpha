@@ -20,7 +20,7 @@ const store = createStore({
     },
     game: {
         isPaused: false,
-        gameArea: "battle" //I think only these are possible: [ map | battle | pause | title | credits? | levelup? ]
+        gameArea: "map" //I think only these are possible: [ map | battle | pause | title | credits? | levelup? ]
     },
 
     //b3

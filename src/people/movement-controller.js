@@ -64,6 +64,7 @@ class MovementController extends React.Component {
     }
 
     addKey(key) {
+
         if (this.keyQueue.indexOf(key) == -1) {
             this.keyQueue.unshift(key);
         }
