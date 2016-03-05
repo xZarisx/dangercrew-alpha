@@ -15,8 +15,9 @@ const store = createStore({
     },
     battleRequests: {
         showRequest: false,
-        requesterName: "Drew",
-        requesterLevel: 21
+        //requesterName: "Drew", /* This is all for dev. Doesnt need to have initial value */
+        //requesterLevel: 21,
+        //requesterSkin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew.svg"
     },
     game: {
         isPaused: false,

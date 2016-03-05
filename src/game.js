@@ -35,7 +35,7 @@ class GameIndex extends React.Component {
                 <GameAreaSwitcher />
 
                 <Map />
-                {/*<ReduxStateDisplayer />*/}
+                <ReduxStateDisplayer />
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../helpers/single-keypress-binding'
+import initBattleFromRequest from './init-battle-from-request'
 
 @connect((state, props) => {
     return {
@@ -24,9 +25,8 @@ class BattleRequestBox extends React.Component {
         }, 1000);
 
 
-        addKeyboardSinglePress(66, () => {
-            /*TODO unify the action button. Using "B" for now */
-            console.log('ACCEPT THE BATTLE');
+        addKeyboardSinglePress(13, () => {
+            initBattleFromRequest();
         }, 'battle-request-box');
 
         addKeyboardSinglePress(27, () => {
@@ -39,7 +39,7 @@ class BattleRequestBox extends React.Component {
     }
 
     componentWillUnmount() {
-        removeKeyboardSinglePress('battle-request-box')
+        removeKeyboardSinglePress('battle-request-box');
         clearTimeout(this.timeout)
     }
 
@@ -72,10 +72,22 @@ class BattleRequestBox extends React.Component {
             fontSize: '3vw',
             fontFamily: 'monospace',
             width:'46vw', //temp
-            //height: '20vw', //temp
             background: '#333',
             color: '#fff'
-        }
+        };
+
+        const avatar = {
+            background: `url(${this.props.battleRequests.requesterSkin}), linear-gradient(-330deg, #58a, #ff0090) `,
+            width: '8vw',
+            height: '8vw',
+            float: 'left',
+            marginRight: '1vw',
+            backgroundPosition: `300% 100%`,
+            backgroundSize:'400%',
+            borderRadius: '50%'
+        };
+
+
         return (
            <div style={style}>
                <div>
@@ -84,7 +96,9 @@ class BattleRequestBox extends React.Component {
                        {this.state.time}
                    </div>
                </div>
+
                <div> {/* MEDIA OBJECT */}
+                   <div style={avatar} />
                    {this.props.battleRequests.requesterName}
                    <span>(Level {this.props.battleRequests.requesterLevel})</span>
                </div>

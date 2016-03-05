@@ -7,9 +7,11 @@ export function battleRequests(state = {}, action) {
                 //...state,
                 showRequest: true,
                 requesterName: action.payload.requesterName,
-                requesterLevel: action.payload.requesterLevel
+                requesterLevel: action.payload.requesterLevel,
+                requesterSkin: action.payload.requesterSkin
             };
 
+        case 'HIDE_BATTLE_REQUEST':
         case 'DECLINE_BATTLE_REQUEST':
             return {
                 ...state,

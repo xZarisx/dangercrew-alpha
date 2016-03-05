@@ -36,6 +36,7 @@ export default function(action={}) {
         type: "SET_BATTLE_REQUEST",
         payload: {
             requesterName: challenger.name,
+            requesterSkin: challenger.skin,
             requesterLevel: challenger.level
         }
     })

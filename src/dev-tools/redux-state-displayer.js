@@ -9,7 +9,9 @@ import { connect } from 'react-redux'
 
 class ReduxStateDisplayer extends React.Component {
 
-    componentDidMount() {
+    constructor() {
+        super();
+
         var self = this;
         window.showState = function() {
             console.log(self.props.reduxState);
@@ -18,11 +20,12 @@ class ReduxStateDisplayer extends React.Component {
     }
 
     render() {
-        return (
-            <pre style={style}>
-                { JSON.stringify(this.props.reduxState, null, 2) }
-            </pre>
-        );
+        return null;
+        //return (
+        //    <pre style={style}>
+        //        { JSON.stringify(this.props.reduxState, null, 2) }
+        //    </pre>
+        //);
     }
 }
 
