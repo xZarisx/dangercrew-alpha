@@ -82,6 +82,9 @@ export function npcRoamingBehavior(npc) {
                 function attemptMoveIfClose() {
                     const playerNode = store.getState().people.player;
                     const myNode = store.getState().people[npc];
+                    if (!myNode) {
+                        return false;
+                    }
                     if (inViewOfPlayer(playerNode.x, playerNode.y, myNode.x, myNode.y)) {
                         //move again
                         //console.log('inView');

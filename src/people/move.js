@@ -10,7 +10,6 @@ var Move = (mover_id, callback) => {
     for (var s=0; s<= stepCount-1; s++) {
         steps.push( (cellSize / stepCount) * s)
     }
-
     var step = function() {
         if (i < steps.length) {
 
@@ -32,7 +31,7 @@ var Move = (mover_id, callback) => {
             });
             callback();
         }
-    }
+    };
 
     requestAnimationFrame(step);
 

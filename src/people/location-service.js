@@ -4,7 +4,7 @@ import {getUpdatedX, getUpdatedY} from './location-helpers'
 import handleBattleZoneTrigger from '../battle-requests/battle-request-handler'
 
 /* HARDCODED FOR TESTING */
-import {TestCoffeeMap} from '../_data/maps/alpha-coffeeshop-map'
+import TestCoffeeMap from '../_data/maps/alpha-coffeeshop-map'
 
 
 var LocationService = function() {
