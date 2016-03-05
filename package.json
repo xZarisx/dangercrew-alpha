@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "analyze": "webpack --config webpack.production.config.js --json > analysis/webpack.json",
-    "start": "webpack-dev-server",
+    "start": "gulp & webpack-dev-server",
     "test": "mocha",
     "local": "python -m SimpleHTTPServer 3000",
     "build": "webpack --config webpack.production.config.js",
@@ -43,6 +43,8 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0",
     "howler": "^1.1.29",
     "mocha": "^2.4.5",
     "mockery": "^1.4.0",

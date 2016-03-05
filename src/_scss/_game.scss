@@ -1,0 +1,162 @@
+html {
+    overflow:hidden;
+}
+
+.cell {
+    position: absolute;
+    width:16px;
+    height:16px;
+}
+body {
+    background:lightblue;
+}
+
+.ui-wrapper {
+    height: 100%;
+    overflow: hidden; }
+
+
+.viewport {
+    display:flex; /* for pause menu */
+    background:white; /*for testing;*/
+    position:relative;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    top: 50%;
+    width:176px; /* init */
+    height:112px; /* init */
+    overflow:hidden;
+    border:1px solid #ccc;
+}
+
+.map {
+    position:relative;
+}
+
+.pause-screen {
+    position:relative;
+    width:100%;
+    background:#333;
+    text-align:center;
+    color:green;
+    font-family:monospace;
+}
+
+.cell.player {
+    background-size:400%;
+}
+
+
+
+.cell.person-left {
+    background-position: 0px 33.333%;
+}
+.cell.person-left.is-walking {
+    animation: walk-left 0.4s steps(4) infinite;
+}
+
+.cell.person-right {
+    background-position: 66.666% 33.333%;
+}
+.cell.person-right.is-walking {
+    animation: walk-right 0.4s steps(4) infinite;
+}
+
+.cell.person-up {
+    background-position: 100% 33.333%;
+}
+.cell.person-up.is-walking {
+    animation: walk-up 0.4s steps(4) infinite;
+}
+
+.cell.person-down {
+    background-position: 33.333% 33.333%;
+}
+.cell.person-down.is-walking {
+    animation: walk-down 0.4s steps(4) infinite;
+}
+
+@keyframes walk-left {
+    from {background-position: 0 0%;}
+    to {background-position: 0 133.33%;}
+}
+@keyframes walk-right {
+    from {background-position: 66.66% 0%;}
+    to {background-position: 66.66% 133.33%;}
+}
+@keyframes walk-up {
+    from {background-position: 100% 0%;}
+    to {background-position: 100% 133.33%}
+}
+@keyframes walk-down {
+    from {background-position: 33.333% 0%;}
+    to {background-position: 33.333% 133.33%}
+}
+
+/* TEXTBOX */
+.textbox {
+    position:absolute;
+    z-index:10;
+    top:1vw;
+    left:1vw;
+    right:1vw;
+    font-family: monospace;
+    font-size: 3vw;
+    height:16vw;
+    margin:0 auto;
+    background:#333;
+    color:#fff;
+    overflow:hidden;
+
+    transition: transform 0.3s cubic-bezier(.81,.23,.36,1);
+    transform: scale3d(0.75,0, 1);
+}
+.textbox.open {
+     transform: scale3d(1,1, 1);
+}
+
+.textbox-page {
+    padding:0 2vw;
+    line-height:3vw;
+    position:absolute;
+    left:0;
+    right:0;
+    top:2vw;
+    bottom:0;
+    transition: transform 0.5s;
+}
+.textbox-page.done {
+     transform: translateY(-100%);
+ }
+
+.paging-icon {
+    position: absolute;
+    right: 2vw;
+    bottom: 2vw;
+    color: white;
+}
+.paging-icon.paging-icon-arrow {
+     width: 0;
+     height: 0;
+     border-left: 10px solid transparent;
+     border-right: 10px solid transparent;
+     border-top: 10px solid #fff;
+     animation: blink 1s step-start infinite;
+ }
+.paging-icon.paging-icon-square {
+    width: 15px;
+    height: 15px;
+    background:#fff;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}

@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+#app-root {
+    height: 100%; }
+
+body {
+    height: 100%;
+    background-image: linear-gradient(#E8E8E8, #8E9092);
+    margin:0;
+    padding:0;
+    overflow:hidden;
+}
+
+
+@import 'game';
+@import 'person';
