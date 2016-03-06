@@ -19,10 +19,15 @@ var LocationService = function() {
 
         const locations = {...store.getState().map.walls};
 
-        //First check if location is on the map.
-        /* if x < 0 || x >= this map's width || y < 0 || y >= this map's height
+        /* Don't let Character walk off the map */
+        if (x < 0 || x >= store.getState().map.width) {
             return false;
-         */
+        }
+        if (y < 0 || y == store.getState().map.height-1) {
+            return false;
+        }
+
+
 
         //First check Statics & Reserved
         if (typeof locations[location] != "undefined" || typeof self.reserved[location] != "undefined") {
