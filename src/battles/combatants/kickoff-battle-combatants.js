@@ -3,7 +3,6 @@ import store from '../../init/store'
 import Combatant from './combatant-schema'
 
 export default function() {
-    console.log('kickoff');
     [
         {
             id: "a",
@@ -25,7 +24,6 @@ export default function() {
             items: ["action_item_hp_001", "action_item_clearStatus_lag_001", "action_item_pp_001"]
         }
     ].map((sim) => {
-        console.log('sim', sim)
         return {
             //...Combatant,
             ...sim

@@ -30,7 +30,6 @@ class IntroText extends React.Component {
     }
 
     introDoneCallback() {
-        console.log('intro is done');
         this.props.dispatch({
             type: "SET_ROLLOUT_EVENT_STATION",
             payload: {
