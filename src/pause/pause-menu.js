@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PauseSidebar from './pause-sidebar'
+import PauseContent from './pause-content'
 
 @connect((state, props) => {
     return {
@@ -16,13 +17,14 @@ class PauseMenu extends React.Component {
             left: 0,
             top:0,
             right:0,
-            bottom:0
+            bottom:0,
+            fontFamily: `"Source Code Pro", monospace`
         };
 
         return (
            <div style={style}>
                <PauseSidebar />
-               <div>HELLO</div>
+               <PauseContent />
            </div>
         );
     }

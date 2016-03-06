@@ -1,11 +1,17 @@
+.pause-content {
+    margin-top:2vw;
+    float:left;
+    width: 70%;
+    color:#fff;
+}
 .pause-sidebar {
     width: 25%;
     height:100%;
+    float:left;
     font-size:1.8vw;
     line-height:2.7vw;
     background:#111;
     color:#fff;
-    font-family: "Source Code Pro", monospace;
 }
 .pause-sidebar-profile {
     padding:1vw;
@@ -34,4 +40,27 @@
 .pause-sidebar-status-item {
     display:flex;
     justify-content: space-between;
+}
+
+
+
+/* Pause Content pages */
+.pause-content-title,
+.pause-content-body,
+.pause-content-textbox {
+    padding-left:4vw;
+    padding-top:1vw;
+    padding-bottom:1vw;
+}
+
+.pause-content-title {
+    background:#111;
+    font-size:3.3vw;
+    text-transform: uppercase;
+}
+.pause-content-body {
+    background:#2D2D2D;
+}
+.pause-content-textbox {
+    background:#393939;
 }
