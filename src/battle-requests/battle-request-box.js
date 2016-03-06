@@ -90,7 +90,7 @@ class BattleRequestBox extends React.Component {
         };
 
         const avatar = {
-            background: `url(${this.props.battleRequests.requesterSkin}), linear-gradient(-330deg, #58a, #ff0090) `,
+            background: `url(${this.props.battleRequests.requesterSkin}), linear-gradient(-330deg, #58a, #ff0090)`,
             width: '6vw',
             height: '6vw',
             float: 'left',

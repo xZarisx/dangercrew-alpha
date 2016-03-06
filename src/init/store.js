@@ -17,7 +17,11 @@ const store = createStore({
         name: "Jacob",
         skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/svJacob-2.svg",
         level: 1,
+        hp: 20,
         maxHp: 20,
+
+        xp: 0,
+        coins: 10,
 
         attackStatPoints: 3,
         defenseStatPoints: 2,

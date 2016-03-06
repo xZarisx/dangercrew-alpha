@@ -2,26 +2,33 @@
     width: 25%;
     height:100%;
     font-size:1.8vw;
-    line-height:2.4vw;
+    line-height:2.7vw;
     background:#111;
     color:#fff;
     font-family: "Source Code Pro", monospace;
 }
 .pause-sidebar-profile {
     padding:1vw;
+    line-height:2vw;
 }
 .pause-sidebar-avatar {
     display:block;
     width: 5vw;
     height: 5vw;
     margin-right:1vw;
-    background: #999;
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/svJacob-2.svg), linear-gradient(-330deg, #58a, #ff0090);
+    background-size:400%;
+    background-position: 300% 100%;
 }
 .pause-sidebar-status {
     padding-left:1vw;
     padding-right:1vw;
     padding-bottom:1vw;
     border-bottom:1px solid #777;
+}
+
+.pause-sidebar-tabs {
+    padding:1vw;
 }
 
 .pause-sidebar-status-item {
