@@ -10,6 +10,7 @@ import * as combatantsRolloutReducer from '../redux-reducers/rollout-reducer'
 import * as battleReducer from '../redux-reducers/battle-reducer'
 import * as battleUiReducer from '../redux-reducers/battle-ui-reducer'
 import * as playerDataReducer from '../redux-reducers/player-data-reducer'
+import * as pauseMenuReducer from '../redux-reducers/pause-menu-reducer'
 
 
 export default function(data) {
@@ -24,7 +25,8 @@ export default function(data) {
         ...combatantsProcessorReducer,
         ...combatantsRolloutReducer,
         ...combatantsReducer,
-        ...playerDataReducer
+        ...playerDataReducer,
+        ...pauseMenuReducer
     });
 
     var store = createStore(reducer, data);

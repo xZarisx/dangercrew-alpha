@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PauseMenuData from './pause-menu-data'
 
 @connect((state, props) => {
     return {

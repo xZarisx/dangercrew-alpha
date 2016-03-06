@@ -44,6 +44,9 @@ const store = createStore({
         isPaused: false,
         gameArea: "pause" //I think only these are possible: [ map | battle | pause | title | credits? | levelup? ]
     },
+    pauseMenu: {
+      selectedMenuItem: "pauseRoot-stats"
+    },
 
     //b3
     battleUi: {
