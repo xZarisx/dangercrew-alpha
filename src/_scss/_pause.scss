@@ -1,0 +1,30 @@
+.pause-sidebar {
+    width: 25%;
+    height:100%;
+    font-size:1.8vw;
+    line-height:2.4vw;
+    background:#111;
+    color:#fff;
+    font-family: "Source Code Pro", monospace;
+}
+.pause-sidebar-profile {
+    padding:1vw;
+}
+.pause-sidebar-avatar {
+    display:block;
+    width: 5vw;
+    height: 5vw;
+    margin-right:1vw;
+    background: #999;
+}
+.pause-sidebar-status {
+    padding-left:1vw;
+    padding-right:1vw;
+    padding-bottom:1vw;
+    border-bottom:1px solid #777;
+}
+
+.pause-sidebar-status-item {
+    display:flex;
+    justify-content: space-between;
+}

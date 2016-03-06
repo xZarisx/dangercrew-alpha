@@ -11,8 +11,14 @@ body {
     overflow:hidden;
 }
 
+._ibm {
+    display:inline-block;
+    vertical-align:middle;
+}
+
 
 @import 'game';
 @import 'battle';
 @import 'battle-animations';
 @import 'person';
+@import 'pause';

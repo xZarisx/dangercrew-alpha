@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import PauseScreen from '../pause/pause-screen';
+import PauseMenu from '../pause/pause-menu'
 import Textbox from '../messaging/textbox';
 
 import Person from '../people/person';
@@ -57,10 +57,14 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
 
     renderGameArea() {
 
+        //if (this.props.isPaused) { /* TODO: CHANGE TO GAMEAREA */
+        //    return <PauseScreen />
+        //}
 
-        if (this.props.isPaused) { /* TODO: CHANGE TO GAMEAREA */
-            return <PauseScreen />
+        if (this.props.gameArea == "pause") {
+            return this.renderPause();
         }
+
         if (this.props.gameArea == "battle") {
             return <BattleArena />
         }
@@ -97,10 +101,37 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
 
 
         return (
-            <div style={mapStyle} className="map">
-                <MovementController /> {/* Also does the overworld Action Button controller */}
-                <img className="mapImage" style={mapImageStyle} src={this.props.backgroundImage} />
-                {persons}
+            <div>
+                {/* This extra container div helps consistency with renderPause */}
+                <div style={mapStyle} className="map">
+                    <MovementController /> {/* Also does the overworld Action Button controller */}
+                    <img className="mapImage" style={mapImageStyle} src={this.props.backgroundImage} />
+                    {persons}
+                </div>
+            </div>
+        )
+    }
+
+    renderPause() {
+        var CELL = (this.props.vpWidth / 11);
+        const translate = this.getTranslateValue();
+        const mapStyle = {
+            left: (this.props.x * -CELL) + (CELL * 5),
+            top: (this.props.y * -CELL) + (CELL * 3),
+            transform: `translate3d( ${translate} )`,
+            WebkitTransform: `translate3d( ${translate} )`,
+        };
+
+        const mapImageStyle = {
+            width: CELL * this.props.mapWidth
+        };
+
+        return (
+            <div>
+                <div style={mapStyle} className="map">
+                    <img className="mapImage" style={mapImageStyle} src={this.props.backgroundImage} />
+                </div>
+                <PauseMenu />
             </div>
         )
     }
