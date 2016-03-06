@@ -33,6 +33,8 @@ class GameAreaSwitcher extends React.Component {
     }
 
     render() {
+        return null;
+
         return (
             <div style={style}>
                 <div>Game Area:</div>

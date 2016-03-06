@@ -12,7 +12,7 @@ export default function() {
             attacks: ["action_attack_basic_001", "action_attack_basic_002", "action_attack_theft_001", "action_attack_status_002", "action_attack_repetitions_001"],
             items: ["action_item_hp_001", "action_item_hp_001", "action_item_pp_001"],
 
-            attackStatPoints: 3,
+            attackStatPoints: 30,
             defenseStatPoints: 3,
             speedStatPoints: 20,
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import kickoffBattleCombatants from '../combatants/kickoff-battle-combatants'
+import resetBattleState from '../services/reset-battle-state'
 import CombatantStatForm from './throwaway-ui/combatant-stat-form'
 import {incrementRolloutStation} from '../rollout/rollout-station-navigator'
 
@@ -29,6 +30,7 @@ import getIntroMessage from '../components/messaging/get-intro-message'
 class Arena extends React.Component {
 
     componentWillMount() {
+        resetBattleState();
         kickoffBattleCombatants();
     }
 

@@ -145,7 +145,16 @@ export function incrementRolloutStation2() {
     if (station == "battleOver") {
         /* DO TRANSITION-OUT-OF-BATTLE stuff here*/
         const handleExitBattleEnter = function() {
-            console.log('ENTER PRESSED! TRANSITION OUT OF BATTLE and unbind');
+            //console.log('ENTER PRESSED! TRANSITION OUT OF BATTLE and unbind');
+
+            /* Back to map gameArea */
+            store.dispatch({
+                type: "SET_GAME_AREA",
+                payload: {
+                    gameArea: "map"
+                }
+            });
+
             removeKeyboardSinglePress('exitBattle');
         };
 
