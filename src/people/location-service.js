@@ -23,7 +23,7 @@ var LocationService = function() {
         if (x < 0 || x >= store.getState().map.width) {
             return false;
         }
-        if (y < 0 || y == store.getState().map.height-1) {
+        if (y < 0 || y == store.getState().map.height) {
             return false;
         }
 

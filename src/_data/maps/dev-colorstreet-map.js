@@ -1,7 +1,7 @@
 export default {
     backgroundImage: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/dangerMap.svg",
     width: 16, //this is a real value. the map will appear incorrectly if this number does not match the backgroundImage
-    height: 17, //this one I made up
+    height: 16, //this one I made up
     walls: {
         "8x2": {type:"solid"} /* this is for a sign */
     },
@@ -27,7 +27,7 @@ export default {
         }
     },
     footEvents: {
-        "6x-1": {type: "map-transition", map: "someMapToLoad"},
+        "6x0": {type: "map-transition", map: "someMapToLoad"},
 
         //Battle Zones
         "8x6": {
