@@ -6,6 +6,7 @@ export function battleRequests(state = {}, action) {
             return {
                 //...state,
                 showRequest: true,
+                requesterId: action.payload.requesterId,
                 requesterName: action.payload.requesterName,
                 requesterLevel: action.payload.requesterLevel,
                 requesterSkin: action.payload.requesterSkin

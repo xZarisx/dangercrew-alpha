@@ -8,7 +8,7 @@ html {
     height:16px;
 }
 body {
-    background:lightblue;
+    background:#fff;
 }
 
 .ui-wrapper {
@@ -18,7 +18,7 @@ body {
 
 .viewport {
     display:flex; /* for pause menu */
-    background:white; /*for testing;*/
+    background:#111;
     position:relative;
     margin: 0 auto;
     transform: translateY(-50%);
@@ -26,7 +26,10 @@ body {
     width:176px; /* init */
     height:112px; /* init */
     overflow:hidden;
-    border:1px solid #ccc;
+}
+
+.mapImage {
+    border-bottom:2vw solid #444;
 }
 
 .map {

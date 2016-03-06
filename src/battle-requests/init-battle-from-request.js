@@ -1,23 +1,38 @@
 import store from '../init/store'
+import People from '../_data/people/people'
+import Combatant from '../battles/combatants/combatant-schema'
 
 export default function() {
 
-    const request = store.getState().battleRequests;
+    const opponent = {...People[store.getState().battleRequests.requesterId]}
+    console.log(opponent)
 
     /* Hide the Battle Request window (not that it should be mounted) */
     store.dispatch({
         type: "HIDE_BATTLE_REQUEST"
     });
 
-    /* Set any state needed for the battle */
+
+    /* Set up the player */
+    store.dispatch({
+        type: "MERGE_COMBATANT",
+        payload: {
+            key: "a",
+            changes: {
+                ...Combatant
+            }
+        }
+    });
+
+    /* Set up the opponent */
     store.dispatch({
         type: "MERGE_COMBATANT",
         payload: {
             key: "b",
             changes: {
-                name: request.requesterName,
-                skin: request.requesterSkin,
-                //level: request.r
+                ...Combatant,
+                ...opponent,
+                hp: opponent.maxHp
             }
         }
     });
