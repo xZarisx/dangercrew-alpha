@@ -105,7 +105,7 @@ class BattleCombatantScoreboard extends React.Component {
 
         return (
            <div className={positionClass} style={style}>
-               <div>{this.props.combatant.name}</div>
+               <div>{this.props.combatant.name} (L{this.props.combatant.level})</div>
                <div>HP: {displayHp} / {this.props.combatant.maxHp}</div>
                <ScorboardHealthbar percent={hpPercent} />
                <div>Status: {this.props.combatant.status}</div>

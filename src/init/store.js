@@ -13,6 +13,23 @@ const store = createStore({
     people: {
         /* Populated on mount */
     },
+    playerData: {
+        name: "Jacob",
+        skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/svJacob-2.svg",
+        level: 1,
+        maxHp: 20,
+
+        attackStatPoints: 3,
+        defenseStatPoints: 2,
+        speedStatPoints: 2,
+
+        attacks: [
+            "action_attack_basic_001",
+            "action_attack_theft_001",
+            "action_attack_status_002",
+            "action_attack_repetitions_001"
+        ]
+    },
     battleRequests: {
         showRequest: false,
         //requesterName: "Drew", /* This is all for dev. Doesnt need to have initial value */

@@ -1,17 +1,13 @@
+/* Launch the game in battle mode for development shortcut */
+
 import store from '../init/store'
 import People from '../_data/people/people'
 import Combatant from '../battles/combatants/combatant-schema'
 
 export default function() {
 
-    const opponent = {...People[store.getState().battleRequests.requesterId]}
+    const opponent = {...People["drew"]}
     const playerData = {...store.getState().playerData}
-
-    /* Hide the Battle Request window */
-    store.dispatch({
-        type: "HIDE_BATTLE_REQUEST"
-    });
-
 
     /* Set up the player */
     store.dispatch({
