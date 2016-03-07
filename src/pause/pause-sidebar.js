@@ -9,23 +9,23 @@ import PauseMenuData from './pause-menu-data'
         hp: state.playerData.hp,
         maxHp: state.playerData.maxHp,
         xp: state.playerData.xp,
-        coins: state.playerData.coins
+        coins: state.playerData.coins,
+
+        selectedMenuItem: state.pauseMenu.selectedMenuItem
     }
 })
 
 class PauseSidebar extends React.Component {
 
     renderTabs() {
-        return (
-            <div>
-                <div>STATS</div>
-                <div>LAPTOP</div>
-                <div>ATTACKS</div>
-                <div>ITEMS</div>
-                {/* MAP */}
-                {/* SAVE GAME */}
-            </div>
-        )
+        return PauseMenuData.pauseRoot.map(item => {
+            const activeClass = (item.id == this.props.selectedMenuItem) ? "is-active" : "";
+            return (
+                <div key={item.id} className={`${activeClass} tab-item`}>
+                    {item.label}
+                </div>
+            )
+        });
     }
 
     render() {

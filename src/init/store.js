@@ -46,7 +46,7 @@ const store = createStore({
     },
     pauseMenu: {
         selectedMenuItem: "pauseRoot-stats",
-        showMenuTab: "stats"
+        showMenuTab: "pauseRoot-stats"
     },
 
     //b3

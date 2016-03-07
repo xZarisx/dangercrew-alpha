@@ -35,6 +35,13 @@
 
 .pause-sidebar-tabs {
     padding:1vw;
+    .tab-item {
+        padding-left:0.5vw;
+        &.is-active {
+            background:#fff;
+            color:#111;
+        }
+    }
 }
 
 .pause-sidebar-status-item {

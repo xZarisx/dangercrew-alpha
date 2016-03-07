@@ -2,20 +2,25 @@ export default {
     "pauseRoot": [
         {
             "id": "pauseRoot-stats",
-            "label": "STATS"
+            "label": "STATS",
+            "pageTitle": "Stats & Skills"
         },
         {
             "id": "pauseRoot-laptop",
-            "label": "LAPTOP"
+            "label": "LAPTOP",
+            "pageTitle": "Laptop"
         },
         {
             "id": "pauseRoot-attacks",
-            "label": "ATTACKS"
+            "label": "ATTACKS",
+            "pageTitle": "Attacks"
         },
         {
             "id": "pauseRoot-items",
-            "label": "ITEMS"
+            "label": "ITEMS",
+            "pageTitle": "Items"
         }
+        /* Someday: MAP?, SAVE GAME? */
     ],
     "pauseStatsMenu": [
         {
