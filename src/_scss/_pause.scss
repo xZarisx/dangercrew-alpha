@@ -1,9 +1,3 @@
-.pause-content {
-    margin-top:2vw;
-    float:left;
-    width: 70%;
-    color:#fff;
-}
 .pause-sidebar {
     width: 25%;
     height:100%;
@@ -44,7 +38,16 @@
     }
 }
 
-
+.pause-content {
+    padding-top:2vw;
+    padding-bottom:2vw;
+    float:left;
+    display:flex;
+    flex-direction: column;
+    width: 70%;
+    height:100%;
+    color:#fff;
+}
 
 /* Pause Content pages */
 .pause-content-title,
@@ -64,6 +67,7 @@
     background:#2D2D2D;
     font-size:2vw;
     line-height:2.7vw;
+    flex-grow:1;
 
     .pause-stat-item {
         margin-bottom:1vw;
@@ -75,4 +79,5 @@
 }
 .pause-content-textbox {
     background:#393939;
+    height:24%; /* If this is problematic, just use a fixed value based on the viewport class */
 }
