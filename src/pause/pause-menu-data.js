@@ -20,7 +20,7 @@ export default {
             "label": "ITEMS",
             "pageTitle": "Items"
         }
-        /* Someday: MAP?, SAVE GAME? */
+        /* Some day: MAP?, SAVE GAME? */
     ],
     "pauseStatsMenu": [
         {
