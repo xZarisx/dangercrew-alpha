@@ -1,6 +1,6 @@
 @import 'reset';
 
-
+/* TODO PUT EVERYTHING HERE IN BETTER FILES */
 html, #app-root {
     height: 100%;
 }
@@ -11,9 +11,16 @@ body {
     overflow:hidden;
 }
 
+
 ._ibm {
     display:inline-block;
     vertical-align:middle;
+}
+
+._spreading-list-item {
+    /* Text on left and right of container */
+    display:flex;
+    justify-content: space-between;
 }
 
 

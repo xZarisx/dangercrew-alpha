@@ -44,11 +44,6 @@
     }
 }
 
-.pause-sidebar-status-item {
-    display:flex;
-    justify-content: space-between;
-}
-
 
 
 /* Pause Content pages */
@@ -67,6 +62,16 @@
 }
 .pause-content-body {
     background:#2D2D2D;
+    font-size:2vw;
+    line-height:2.7vw;
+
+    .pause-stat-item {
+        margin-bottom:1vw;
+        .pause-stat-value {
+            padding-left:4vw;
+            padding-right:4vw;
+        }
+    }
 }
 .pause-content-textbox {
     background:#393939;

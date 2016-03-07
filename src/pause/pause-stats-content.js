@@ -18,8 +18,9 @@ class PauseStatsContent extends React.Component {
             { id: "pauseStats-efficiency", label: "Efficiency", value: 2 }
         ].map(stat => {
             return (
-                <div key={stat.id}>
-                    {stat.label} - {stat.value}
+                <div key={stat.id} className="_spreading-list-item pause-stat-item">
+                    <div>{stat.label}</div>
+                    <div className="pause-stat-value">{stat.value}</div>
                 </div>
             )
         });

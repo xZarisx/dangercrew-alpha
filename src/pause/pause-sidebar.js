@@ -41,16 +41,16 @@ class PauseSidebar extends React.Component {
                    </div>
                </div>
                <div className="pause-sidebar-status">
-                   <div className="pause-sidebar-status-item">
+                   <div className="_spreading-list-item">
                        <div>HP</div><div>{this.props.hp}/{this.props.maxHp}</div>
                    </div>
-                   <div className="pause-sidebar-status-item">
+                   <div className="_spreading-list-item">
                        <div>XP</div><div>{this.props.xp}</div>
                    </div>
-                   <div className="pause-sidebar-status-item">
+                   <div className="_spreading-list-item">
                        <div>NEXT LVL</div><div>XX</div>
                    </div>
-                   <div className="pause-sidebar-status-item">
+                   <div className="_spreading-list-item">
                        <div>COINS</div><div>{this.props.coins}</div>
                    </div>
                </div>
