@@ -71,6 +71,11 @@
 
     .pause-stat-item {
         margin-bottom:1vw;
+        &.is-active {
+            background:#fff;
+            color:#2D2D2D;
+        }
+
         .pause-stat-value {
             padding-left:4vw;
             padding-right:4vw;

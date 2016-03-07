@@ -53,7 +53,7 @@ export default function(namespace="") {
         const prev = getPreviousInList( store.getState().pauseMenu.selectedMenuItem, PauseMenuData[store.getState().pauseMenu.currentCursoringList]);
         setPauseMenuValue({
             selectedMenuItem: prev,
-            showMenuTab: updatedMenuTab(store.getState().pauseMenu.currentCursoringList, store.getState().pauseMenu.selectedMenuItem, prev)
+            showMenuTab: updatedMenuTab(store.getState().pauseMenu.currentCursoringList, store.getState().pauseMenu.showMenuTab, prev)
         });
 
     };
@@ -61,10 +61,27 @@ export default function(namespace="") {
         const next = getNextInList( store.getState().pauseMenu.selectedMenuItem, PauseMenuData[store.getState().pauseMenu.currentCursoringList]);
         setPauseMenuValue({
             selectedMenuItem: next,
-            showMenuTab: updatedMenuTab(store.getState().pauseMenu.currentCursoringList, store.getState().pauseMenu.selectedMenuItem, next)
+            showMenuTab: updatedMenuTab(store.getState().pauseMenu.currentCursoringList, store.getState().pauseMenu.showMenuTab, next)
         });
     };
 
+    /* Up/Down */
     addKeyboardSinglePress(38, handleUp, namespace);
     addKeyboardSinglePress(40, handleDown, namespace);
+
+
+    /* Right */
+    var handleRight = function() {
+        if (store.getState().pauseMenu.currentCursoringList == "pauseRoot") {
+            //if ("")
+            setPauseMenuValue({
+                currentCursoringList: "pauseStatsMenu",
+                selectedMenuItem: "pauseStats-health"
+            });
+        }
+    }
+    addKeyboardSinglePress(39, handleRight, namespace);
+
+
+
 }
