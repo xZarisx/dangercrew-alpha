@@ -73,14 +73,26 @@ export default function(namespace="") {
     /* Right */
     var handleRight = function() {
         if (store.getState().pauseMenu.currentCursoringList == "pauseRoot") {
-            //if ("")
+             /* TODO: make dynamic for future use. Is hardcoded for testing right now */
             setPauseMenuValue({
-                currentCursoringList: "pauseStatsMenu",
-                selectedMenuItem: "pauseStats-health"
+                currentCursoringList: "pauseStatsMenu", //needs to change based on current tab
+                selectedMenuItem: "pauseStats-health" //needs to change based on current tab
             });
         }
     }
     addKeyboardSinglePress(39, handleRight, namespace);
+
+    /* Left */
+    var handleLeft = function() {
+        if (store.getState().pauseMenu.currentCursoringList != "pauseRoot") {
+            /* TODO: make dynamic for future use. Is hardcoded for testing right now */
+            setPauseMenuValue({
+                currentCursoringList: "pauseRoot",
+                selectedMenuItem: "pauseRoot-stats" //needs to change based on current tab
+            });
+        }
+    }
+    addKeyboardSinglePress(37, handleLeft, namespace);
 
 
 
