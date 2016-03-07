@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PauseSidebar from './pause-sidebar'
 import PauseContent from './pause-content'
+import initPauseMenuKeyboardControl from './init-pause-menu-keyboard-control'
 
 @connect((state, props) => {
     return {
@@ -10,8 +11,15 @@ import PauseContent from './pause-content'
 
 class PauseMenu extends React.Component {
 
-    render() {
+    componentDidMount() {
+        initPauseMenuKeyboardControl('pause-menu-namespace');
+    }
 
+    componentWillUnmount() {
+        $(document).off('pause-menu-namespace');
+    }
+
+    render() {
         const style = {
             position: 'absolute',
             left: 0,
