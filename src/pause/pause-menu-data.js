@@ -1,4 +1,5 @@
 export default {
+    /* The structure of these objects will not be the same. Different functionalities */
     "pauseRoot": [
         {
             "id": "pauseRoot-stats",
@@ -9,8 +10,9 @@ export default {
         {
             "id": "pauseRoot-laptop",
             "label": "LAPTOP",
-            "pageTitle": "Laptop"
+            "pageTitle": "Laptop",
             //"rightKeyDest": "pauseStats-whateverFirstOptionIdIs"
+            infoBoxDescription: "Your laptop can be configured with parts and components."
         },
         {
             "id": "pauseRoot-attacks",
@@ -30,23 +32,33 @@ export default {
     "pauseStatsMenu": [
         {
             id: "pauseStats-health",
-            label: "Health"
+            label: "Health",
+            infoBoxTitle: "Health",
+            infoBoxDescription: "--Some description for health--"
         },
         {
             id: "pauseStats-attack",
-            label: "Attack"
+            label: "Attack",
+            infoBoxTitle: "Attack",
+            infoBoxDescription: "--Some description for attack--"
         },
         {
             id: "pauseStats-defense",
-            label: "Defense"
+            label: "Defense",
+            infoBoxTitle: "Defense",
+            infoBoxDescription: "--Some description for defense--"
         },
         {
             id: "pauseStats-speed",
-            label: "Speed"
+            label: "Speed",
+            infoBoxTitle: "Speed",
+            infoBoxDescription: "--Some description for speed--"
         },
         {
             id: "pauseStats-efficiency",
-            label: "Efficiency"
+            label: "Efficiency",
+            infoBoxTitle: "Efficiency",
+            infoBoxDescription: "--Some description for eff--"
         }
     ]
 }

@@ -54,6 +54,7 @@
 .pause-content-body,
 .pause-content-textbox {
     padding-left:4vw;
+    padding-right:4vw;
     padding-top:1vw;
     padding-bottom:1vw;
 }
@@ -84,5 +85,23 @@
 }
 .pause-content-textbox {
     background:#393939;
+    padding-top:2vw;
     height:24%; /* If this is problematic, just use a fixed value based on the viewport class */
+}
+
+/* Laptop blocks */
+.pause-laptop-container {
+    display:flex;
+    padding-top:2vw;
+    padding-bottom:2vw;
+    justify-content: space-between;
+    .pause-laptop-block {
+        width:11vw;
+        height:11vw;
+        background:#555;
+    }
+}
+.pause-laptop-helper-text {
+    color: rgba(white, 0.6);
+    text-align:center;
 }

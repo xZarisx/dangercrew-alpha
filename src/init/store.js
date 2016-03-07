@@ -47,7 +47,7 @@ const store = createStore({
     pauseMenu: {
         currentCursoringList: "pauseRoot",
         selectedMenuItem: "pauseRoot-stats",
-        showMenuTab: "pauseRoot-stats"
+        showMenuTab: "pauseRoot-laptop"//"pauseRoot-stats"
     },
 
     //b3

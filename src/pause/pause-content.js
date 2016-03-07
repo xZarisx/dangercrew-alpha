@@ -15,9 +15,15 @@ import PauseItemsContent from './pause-items-content'
         return page.id == state.pauseMenu.showMenuTab
     })[0];
 
+    const selectedNode = PauseMenuData[state.pauseMenu.currentCursoringList].filter(page => {
+        return page.id == state.pauseMenu.selectedMenuItem
+    })[0];
+
     return {
         title: pageNode.pageTitle || "unknown",
-        showMenuTab: state.pauseMenu.showMenuTab
+        showMenuTab: state.pauseMenu.showMenuTab,
+        infoBoxTitle: selectedNode.infoBoxTitle || null,
+        infoBoxDescription: selectedNode.infoBoxDescription || null
     }
 })
 
@@ -46,7 +52,8 @@ class PauseContent extends React.Component {
                    {this.renderBody()}
                </div>
                <div className="pause-content-textbox">
-                   textbox
+                   <div>{this.props.infoBoxTitle}</div>
+                   <div>{this.props.infoBoxDescription}</div>
                </div>
            </div>
         );
