@@ -105,3 +105,13 @@
     color: rgba(white, 0.6);
     text-align:center;
 }
+
+/* Attacks */
+.pause-attack-item {
+    padding-left:0.5vw;
+    margin-bottom:0.5vw;
+    &.is-active {
+        background:#fff;
+        color:#2D2D2D;
+    }
+}

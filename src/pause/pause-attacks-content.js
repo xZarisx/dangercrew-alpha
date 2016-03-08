@@ -5,7 +5,8 @@ import PauseMenuData from './pause-menu-data'
 @connect((state, props) => {
     return {
         playerAttacks: state.playerData.attacks,
-        playerLevel: state.playerData.level
+        playerLevel: state.playerData.level,
+        selectedMenuItem: state.pauseMenu.selectedMenuItem
     }
 })
 
@@ -17,9 +18,10 @@ class PauseAttacksContent extends React.Component {
 
             const checked = (this.props.playerAttacks.indexOf(attack.attackId) != -1);
             const isMystery = (attack.levelRequirement > this.props.playerLevel);
-            return <AttackListing id={attack.id} checked={checked} isMystery={isMystery} label={attack.name} />
+            const isCursored = (attack.id == this.props.selectedMenuItem);
+            return <AttackListing id={attack.id} isCursored={isCursored} checked={checked} isMystery={isMystery} label={attack.name} />
         });
-        console.log(attackItems)
+
         return (
             <div>
                 {attackItems}
@@ -34,11 +36,12 @@ class AttackListing extends React.Component {
             width:'2vw',
             height:'2vw',
             marginRight: '1vw',
-            background: (this.props.checked) ? '#fff' : '#393939'
+            background: (this.props.checked) ? '#5FA4DE' : '#393939'
         };
-        const label = (this.props.isMystery) ? '??????' : this.props.label
+        const label = (this.props.isMystery) ? '??????' : this.props.label;
+        const activeClass = (this.props.isCursored) ? "is-active" : "";
         return (
-            <div>
+            <div className={`pause-attack-item ${activeClass}`}>
                 <div className="_ibm" style={bulletStyle}></div>
                 <div className="_ibm">{label}</div>
             </div>

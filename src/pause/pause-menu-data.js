@@ -107,6 +107,7 @@ function mergeAttackData(id) {
         id: `pauseAttacks-${id}`, //for cursoring stuff
         attackId: id, //for checking if turned on/off
         name: Attacks[id].name,
-        description: Attacks[id].description
+        infoBoxTitle: Attacks[id].name,
+        infoBoxDescription: Attacks[id].description
     }
 };

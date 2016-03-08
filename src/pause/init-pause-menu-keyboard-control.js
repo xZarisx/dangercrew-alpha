@@ -75,11 +75,13 @@ export default function(namespace="") {
         if (store.getState().pauseMenu.currentCursoringList == "pauseRoot") {
              /* TODO: make dynamic for future use. Is hardcoded for testing right now */
             setPauseMenuValue({
-                currentCursoringList: "pauseStatsMenu", //needs to change based on current tab
-                selectedMenuItem: "pauseStats-health" //needs to change based on current tab
+                //currentCursoringList: "pauseStatsMenu", //needs to change based on current tab
+                //selectedMenuItem: "pauseStats-health" //needs to change based on current tab
+                currentCursoringList: "pauseAttacksMenu", //needs to change based on current tab
+                selectedMenuItem: "pauseAttacks-action_attack_basic_001" //needs to change based on current tab
             });
         }
-    }
+    };
     addKeyboardSinglePress(39, handleRight, namespace);
 
     /* Left */
@@ -91,7 +93,7 @@ export default function(namespace="") {
                 selectedMenuItem: "pauseRoot-stats" //needs to change based on current tab
             });
         }
-    }
+    };
     addKeyboardSinglePress(37, handleLeft, namespace);
 
 

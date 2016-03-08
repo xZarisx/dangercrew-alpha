@@ -6,7 +6,7 @@ import PauseStatsContent from './pause-stats-content'
 import PauseLaptopContent from './pause-laptop-content'
 import PauseAttacksContent from './pause-attacks-content'
 import PauseItemsContent from './pause-items-content'
-
+import pauseInfoDescriptionMiddleware from './pause-info-middleware'
 
 @connect((state, props) => {
 
@@ -19,11 +19,13 @@ import PauseItemsContent from './pause-items-content'
         return page.id == state.pauseMenu.selectedMenuItem
     })[0];
 
+
+
     return {
         title: pageNode.pageTitle || "unknown",
         showMenuTab: state.pauseMenu.showMenuTab,
-        infoBoxTitle: selectedNode.infoBoxTitle || null,
-        infoBoxDescription: selectedNode.infoBoxDescription || null
+        infoBoxTitle: pauseInfoDescriptionMiddleware(selectedNode)[0],
+        infoBoxDescription: pauseInfoDescriptionMiddleware(selectedNode)[1]
     }
 })
 
