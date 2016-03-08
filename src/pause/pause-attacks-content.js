@@ -24,7 +24,7 @@ class PauseAttacksContent extends React.Component {
         return (
             <div className="pause-attack-content-container">
                 <div>{attackItems}</div>
-                <div>Using 2 of 3 attack slots</div>
+                <div>Using {this.props.playerAttacks.length} of 3 attack slots</div>
             </div>
         );
     }
