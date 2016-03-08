@@ -2,6 +2,7 @@ import store from '../init/store'
 import {addKeyboardSinglePress} from '../helpers/single-keypress-binding'
 import PauseMenuData from './pause-menu-data'
 import togglePlayerAttack from './toggle-player-attack'
+import togglePlayerItem from './toggle-player-item'
 
 
 /*
@@ -80,8 +81,8 @@ export default function(namespace="") {
             setPauseMenuValue({
                 //currentCursoringList: "pauseStatsMenu", //needs to change based on current tab
                 //selectedMenuItem: "pauseStats-health" //needs to change based on current tab
-                currentCursoringList: "pauseAttacksMenu", //needs to change based on current tab
-                selectedMenuItem: "pauseAttacks-action_attack_basic_001" //needs to change based on current tab
+                currentCursoringList: "pauseItemsMenu", //needs to change based on current tab
+                selectedMenuItem: "pauseItems-action_item_hp_001" //needs to change based on current tab
             });
         }
     };
@@ -107,6 +108,11 @@ export default function(namespace="") {
         /* Toggle an attack from the Attacks Menu */
         if (store.getState().pauseMenu.currentCursoringList == "pauseAttacksMenu") {
             togglePlayerAttack( store.getState().pauseMenu.selectedMenuItem );
+        }
+
+        /* Toggle an item from the Items Menu */
+        if (store.getState().pauseMenu.currentCursoringList == "pauseItemsMenu") {
+            togglePlayerItem( store.getState().pauseMenu.selectedMenuItem );
         }
     };
     addKeyboardSinglePress(13, handleEnter, namespace);

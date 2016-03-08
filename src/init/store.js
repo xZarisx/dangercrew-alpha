@@ -32,7 +32,8 @@ const store = createStore({
             "action_attack_theft_001",
             //"action_attack_status_002",
             //"action_attack_repetitions_001"
-        ]
+        ],
+        items: ["action_item_hp_001"]
     },
     battleRequests: {
         showRequest: false
@@ -47,7 +48,7 @@ const store = createStore({
     pauseMenu: {
         currentCursoringList: "pauseRoot",
         selectedMenuItem: "pauseRoot-stats",
-        showMenuTab: "pauseRoot-attacks"//"pauseRoot-stats"
+        showMenuTab: "pauseRoot-items"//"pauseRoot-stats"
     },
 
     //b3

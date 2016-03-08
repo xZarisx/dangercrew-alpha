@@ -1,4 +1,5 @@
 import Attacks from '../battles/actions/attacks'
+import Items from '../battles/actions/items'
 
 export default {
     /* The structure of these objects will not be the same. Different functionalities */
@@ -97,9 +98,20 @@ export default {
         {
             ...mergeAttackData("action_attack_repetitions_002"),
             levelRequirement: 7,
-        },
+        }
+    ],
 
+    "pauseItemsMenu": [
+        {...mergeItemData("action_item_hp_001")},
+        {...mergeItemData("action_item_accuracy_001")},
+        {...mergeItemData("action_item_clearStatus_lag_001")},
+        {...mergeItemData("action_item_clearStatus_memoryLeak_001")},
+        {...mergeItemData("action_item_sticker_attack_001")},
+        {...mergeItemData("action_item_sticker_defense_001")},
+        {...mergeItemData("action_item_sticker_speed_001")},
     ]
+
+
 }
 
 function mergeAttackData(id) {
@@ -110,4 +122,14 @@ function mergeAttackData(id) {
         infoBoxTitle: Attacks[id].name,
         infoBoxDescription: Attacks[id].description
     }
-};
+}
+
+function mergeItemData(id) {
+    return {
+        id: `pauseItems-${id}`, //for cursoring stuff
+        itemId: id, //for checking if turned on/off
+        name: Items[id].name,
+        infoBoxTitle: Items[id].name,
+        infoBoxDescription: Items[id].description
+    }
+}

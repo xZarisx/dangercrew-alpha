@@ -9,7 +9,7 @@ export default function() {
             //name: "Player",
             //skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/svJacob-2.svg",
             //attacks: ["action_attack_basic_001", "action_attack_basic_002", "action_attack_theft_001", "action_attack_status_002", "action_attack_repetitions_001"],
-            items: ["action_item_hp_001", "action_item_hp_001", "action_item_pp_001"],
+            //items: ["action_item_hp_001", "action_item_hp_001", "action_item_pp_001"],
 
             //attackStatPoints: 3,
             //defenseStatPoints: 3,
