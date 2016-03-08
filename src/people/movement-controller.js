@@ -1,5 +1,4 @@
 import React from 'react'
-import $ from 'jquery'
 import { connect } from 'react-redux'
 import LocationService from './location-service'
 import Move from './move'
