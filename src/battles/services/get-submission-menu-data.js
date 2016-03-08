@@ -51,7 +51,8 @@ export default function(playerId="") {
         console.warn('player combatant not found in `getSubmissionMenuData`')
     }
 
-    const attacks = combatant.attacks.map(attack => {
+    //const attacks = combatant.attacks.map(attack => { /* OLD WAY */
+    const attacks = store.getState().playerData.attacks.map(attack => { /* New way: Hooks into playerData */
         const action = Actions[attack];
         return {
             label: action.name,
