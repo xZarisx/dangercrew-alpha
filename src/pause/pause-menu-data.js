@@ -71,19 +71,41 @@ export default {
             levelRequirement: 1,
         },
         {
-            ...mergeAttackData("action_attack_basic_002"),
+            ...mergeAttackData("action_attack_theft_001"),
             levelRequirement: 1,
         },
         {
             ...mergeAttackData("action_attack_repetitions_001"),
-            levelRequirement: 1,
-        }
+            levelRequirement: 2,
+        },
+        {
+            ...mergeAttackData("action_attack_status_002"),
+            levelRequirement: 3,
+        },
+        {
+            ...mergeAttackData("action_attack_basic_002"),
+            levelRequirement: 3,
+        },
+        {
+            ...mergeAttackData("action_attack_status_001"),
+            levelRequirement: 4,
+        },
+        {
+            ...mergeAttackData("action_attack_theft_002"),
+            levelRequirement: 6,
+        },
+        {
+            ...mergeAttackData("action_attack_repetitions_002"),
+            levelRequirement: 7,
+        },
+
     ]
 }
 
 function mergeAttackData(id) {
     return {
-        id: `pauseAttacks-${id}`,
+        id: `pauseAttacks-${id}`, //for cursoring stuff
+        attackId: id, //for checking if turned on/off
         name: Attacks[id].name,
         description: Attacks[id].description
     }

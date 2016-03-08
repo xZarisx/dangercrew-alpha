@@ -30,8 +30,8 @@ const store = createStore({
         attacks: [
             "action_attack_basic_001",
             "action_attack_theft_001",
-            "action_attack_status_002",
-            "action_attack_repetitions_001"
+            //"action_attack_status_002",
+            //"action_attack_repetitions_001"
         ]
     },
     battleRequests: {
