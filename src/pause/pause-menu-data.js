@@ -8,7 +8,7 @@ export default {
             "id": "pauseRoot-stats",
             "label": "STATS",
             "pageTitle": "Stats & Skills",
-            "rightKeyDest": "pauseStats-health"
+            "rightKeyDest": ["pauseStatsMenu", "pauseStats-health"]
         },
         {
             "id": "pauseRoot-laptop",
@@ -21,13 +21,13 @@ export default {
             "id": "pauseRoot-attacks",
             "label": "ATTACKS",
             "pageTitle": "Attacks",
-            //"rightKeyDest": "pauseStats-health"
+            "rightKeyDest": ["pauseAttacksMenu", "pauseAttacks-action_attack_basic_001"]
         },
         {
             "id": "pauseRoot-items",
             "label": "ITEMS",
             "pageTitle": "Items",
-            //"rightKeyDest": "pauseStats-health"
+            "rightKeyDest": ["pauseItemsMenu", "pauseItems-action_item_hp_001"]
         }
         /* Some day: MAP?, SAVE GAME? */
     ],

@@ -19,8 +19,6 @@ import pauseInfoDescriptionMiddleware from './pause-info-middleware'
         return page.id == state.pauseMenu.selectedMenuItem
     })[0];
 
-
-
     return {
         title: pageNode.pageTitle || "unknown",
         showMenuTab: state.pauseMenu.showMenuTab,

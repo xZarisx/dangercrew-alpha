@@ -4,7 +4,6 @@ import PauseMenuData from './pause-menu-data'
 import togglePlayerAttack from './toggle-player-attack'
 import togglePlayerItem from './toggle-player-item'
 
-
 /*
  37 "left"
  39 "right"
@@ -77,24 +76,36 @@ export default function(namespace="") {
     /* Right */
     var handleRight = function() {
         if (store.getState().pauseMenu.currentCursoringList == "pauseRoot") {
-             /* TODO: make dynamic for future use. Is hardcoded for testing right now */
-            setPauseMenuValue({
-                //currentCursoringList: "pauseStatsMenu", //needs to change based on current tab
-                //selectedMenuItem: "pauseStats-health" //needs to change based on current tab
-                currentCursoringList: "pauseItemsMenu", //needs to change based on current tab
-                selectedMenuItem: "pauseItems-action_item_hp_001" //needs to change based on current tab
-            });
+
+            /* Find the selected node */
+            const selectedNode = PauseMenuData.pauseRoot.filter(item => {
+                return item.id == store.getState().pauseMenu.selectedMenuItem
+            })[0];
+
+            /* Use the selected node's destination info */
+            if (selectedNode.rightKeyDest) {
+                setPauseMenuValue({
+                    currentCursoringList: selectedNode.rightKeyDest[0], //needs to change based on current tab
+                    selectedMenuItem: selectedNode.rightKeyDest[1] //needs to change based on current tab
+                });
+            }
         }
     };
     addKeyboardSinglePress(39, handleRight, namespace);
 
     /* Left */
+    const leftMap = {
+        pauseStatsMenu:"pauseRoot-stats",
+        //pauseLaptopMenu:"pauseRoot-laptop",
+        pauseAttacksMenu:"pauseRoot-attacks",
+        pauseItemsMenu:"pauseRoot-items"
+    };
     var handleLeft = function() {
-        if (store.getState().pauseMenu.currentCursoringList != "pauseRoot") {
-            /* TODO: make dynamic for future use. Is hardcoded for testing right now */
+        const currentCursoring = store.getState().pauseMenu.currentCursoringList;
+        if (currentCursoring != "pauseRoot") {
             setPauseMenuValue({
                 currentCursoringList: "pauseRoot",
-                selectedMenuItem: "pauseRoot-stats" //needs to change based on current tab
+                selectedMenuItem: leftMap[currentCursoring]
             });
         }
     };
