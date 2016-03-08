@@ -1,6 +1,9 @@
 import store from '../init/store'
 import {addKeyboardSinglePress} from '../helpers/single-keypress-binding'
 import PauseMenuData from './pause-menu-data'
+import togglePlayerAttack from './toggle-player-attack'
+
+
 /*
  37 "left"
  39 "right"
@@ -96,6 +99,17 @@ export default function(namespace="") {
     };
     addKeyboardSinglePress(37, handleLeft, namespace);
 
+
+
+    /* ENTER */
+    var handleEnter = function() {
+
+        /* Toggle an attack from the Attacks Menu */
+        if (store.getState().pauseMenu.currentCursoringList == "pauseAttacksMenu") {
+            togglePlayerAttack( store.getState().pauseMenu.selectedMenuItem );
+        }
+    };
+    addKeyboardSinglePress(13, handleEnter, namespace);
 
 
 }
