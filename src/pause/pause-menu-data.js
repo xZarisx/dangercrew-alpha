@@ -1,3 +1,5 @@
+import Attacks from '../battles/actions/attacks'
+
 export default {
     /* The structure of these objects will not be the same. Different functionalities */
     "pauseRoot": [
@@ -60,5 +62,29 @@ export default {
             infoBoxTitle: "Efficiency",
             infoBoxDescription: "--Some description for eff--"
         }
+    ],
+
+
+    "pauseAttacksMenu": [ /* Order these however you want them later */
+        {
+            ...mergeAttackData("action_attack_basic_001"),
+            levelRequirement: 1,
+        },
+        {
+            ...mergeAttackData("action_attack_basic_002"),
+            levelRequirement: 1,
+        },
+        {
+            ...mergeAttackData("action_attack_repetitions_001"),
+            levelRequirement: 1,
+        }
     ]
 }
+
+function mergeAttackData(id) {
+    return {
+        id: `pauseAttacks-${id}`,
+        name: Attacks[id].name,
+        description: Attacks[id].description
+    }
+};
