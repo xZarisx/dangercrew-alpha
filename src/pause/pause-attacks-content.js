@@ -10,7 +10,6 @@ import PauseMenuData from './pause-menu-data'
     }
 })
 
-    //<div>{attack.name}, {attack.levelRequirement}</div>
 class PauseAttacksContent extends React.Component {
 
     render() {
@@ -23,8 +22,9 @@ class PauseAttacksContent extends React.Component {
         });
 
         return (
-            <div>
-                {attackItems}
+            <div className="pause-attack-content-container">
+                <div>{attackItems}</div>
+                <div>Using 2 of 3 attack slots</div>
             </div>
         );
     }

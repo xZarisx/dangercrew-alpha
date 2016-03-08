@@ -115,3 +115,13 @@
         color:#2D2D2D;
     }
 }
+.pause-attack-content-container {
+    display:flex;
+    > div:first-of-type {
+        width:66%;
+    }
+    > div:last-of-type {
+        width:33%;
+        padding-left:1vw;
+    }
+}
