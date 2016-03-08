@@ -12,6 +12,7 @@ export function addKeyboardSinglePress(keyCode, handler, namespace ) {
                 e.preventDefault();
                 if (keySafe) {
                     keySafe = false;
+                    console.log('namespace', e.namespace);
                     handler();
                 }
                 break;
@@ -34,5 +35,5 @@ export function removeKeyboardSinglePress(namespace) {
         return false;
     }
 
-    $( document).off( '.'+namespace );
+    $(document).off( '.'+namespace );
 }

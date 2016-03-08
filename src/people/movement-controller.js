@@ -6,6 +6,8 @@ import Move from './move'
 import ActionButtonController from '../people/action-btn-controller'
 import store from '../init/store'
 
+import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../helpers/single-keypress-binding'
+
 //import DPad from './dpad'
 
 @connect((state, props) => {
@@ -21,8 +23,20 @@ class MovementController extends React.Component {
     //TODO: This module is tied to "player" being the mover_id. That could probably be variable so other things could use this guy.
 
     componentDidMount() {
-        console.log('Movement controller mounted');
         new ActionButtonController(); /* TODO: weird spot for this. Bind action button too */
+
+        /* -------- Pause -------- */
+        var handlePause = function() {
+            console.log('PAUSE BTN')
+            store.dispatch({
+                type: "SET_GAME_AREA",
+                payload: {
+                    gameArea: "pause"
+                }
+            })
+        };
+        addKeyboardSinglePress(27, handlePause, 'pause-btn');
+
 
         /* --------- KEY QUEUE ------------ */
         this.keyQueue = [];
@@ -70,6 +84,9 @@ class MovementController extends React.Component {
         this.keyQueue = [];
         $(document).off('.player-movement');
         $(document).off('.action-button-controller'); /* TODO: move this to a better spot */
+
+        /* Unpause */
+        removeKeyboardSinglePress('pause-btn')
     }
 
     addKey(key) {

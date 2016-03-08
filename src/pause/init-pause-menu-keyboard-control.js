@@ -53,6 +53,7 @@ function updatedMenuTab(currentCursoringList, currentShowMenuTab, newValue) {
 export default function(namespace="") {
 
     var handleUp = function() {
+        console.log('UP')
         const prev = getPreviousInList( store.getState().pauseMenu.selectedMenuItem, PauseMenuData[store.getState().pauseMenu.currentCursoringList]);
         setPauseMenuValue({
             selectedMenuItem: prev,
@@ -61,6 +62,7 @@ export default function(namespace="") {
 
     };
     var handleDown = function() {
+        console.log('DOWN')
         const next = getNextInList( store.getState().pauseMenu.selectedMenuItem, PauseMenuData[store.getState().pauseMenu.currentCursoringList]);
         setPauseMenuValue({
             selectedMenuItem: next,
@@ -128,5 +130,17 @@ export default function(namespace="") {
     };
     addKeyboardSinglePress(13, handleEnter, namespace);
 
+
+
+    /* ESC */
+    var handleEsc = function() {
+        store.dispatch({
+            type: "SET_GAME_AREA",
+            payload: {
+                gameArea: "map"
+            }
+        })
+    };
+    addKeyboardSinglePress(27, handleEsc, namespace);
 
 }

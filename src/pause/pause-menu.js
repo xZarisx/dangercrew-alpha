@@ -12,11 +12,13 @@ import initPauseMenuKeyboardControl from './init-pause-menu-keyboard-control'
 class PauseMenu extends React.Component {
 
     componentDidMount() {
-        initPauseMenuKeyboardControl('pause-menu-namespace');
+        console.log('mount pause')
+        initPauseMenuKeyboardControl('pauseMenuNamespace');
     }
 
     componentWillUnmount() {
-        $(document).off('pause-menu-namespace');
+        console.log('unmount pause');
+        $(document).off('.pauseMenuNamespace');
     }
 
     render() {
