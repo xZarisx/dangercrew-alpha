@@ -23,11 +23,12 @@ const store = createStore({
         xp: 20,//0,
         coins: 10,
 
-        healthStatPoints: 0,
-        attackStatPoints: 3,
-        defenseStatPoints: 2,
-        speedStatPoints: 2,
-        efficiencyStatPoints: 0,
+        /* Begin with 5 Stat Points */
+        healthStatPoints: 1,
+        attackStatPoints: 1,
+        defenseStatPoints: 1,
+        speedStatPoints: 1,
+        efficiencyStatPoints: 1,
 
         attacks: [
             "action_attack_basic_001",

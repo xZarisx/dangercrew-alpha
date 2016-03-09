@@ -125,3 +125,29 @@
         padding-left:1vw;
     }
 }
+
+/* Level Up arrow */
+.pause-levelup-arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    $tri-size: 0.6vw;
+    border-width: $tri-size 0 $tri-size $tri-size*1.7;
+    border-color: transparent transparent transparent #FFF;
+    animation: blink 1s steps(2, start) infinite;
+    &.arrow-left {
+        transform:rotate(180deg);
+    }
+}
+.is-active .pause-levelup-arrow {
+    border-color: transparent transparent transparent #2D2D2D;
+}
+.pause-levelup-value {
+    padding-left:1vw;
+    padding-right:1vw;
+}
+.pause-levelup-done {
+    width:6vw;
+    /* Hide blinking arrows on the Done row */
+    .pause-stat-value { display: none; }
+}

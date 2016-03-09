@@ -131,7 +131,10 @@ export default {
             id: "pauseLevelUp-done",
             label: "Done",
             infoBoxTitle: null,
-            infoBoxDescription: null
+            infoBoxDescription: null,
+            //A few extra properties for the done button */
+            bypassArrows: true,
+            rowClass: "pause-levelup-done"
         }
     ],
 
