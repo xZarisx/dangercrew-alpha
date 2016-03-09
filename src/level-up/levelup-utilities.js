@@ -46,3 +46,44 @@ export function isLevelupEligible() {
     const playerData = store.getState().playerData;
     return playerData.xp >= LevelMap[playerData.level+1]; /* Matches or passes next milestone */
 }
+
+/* Action Creator */
+function setPlayerDataValue(changes={}) {
+    store.dispatch({
+        type: "SET_PLAYERDATA_VALUE",
+        payload: {
+            changes: changes
+        }
+    })
+}
+
+export function incrementStatPoint(stat, oldValue, maximum) {
+    console.log('change', stat, 'to', oldValue+1);
+
+    /* Don't let number be higher than maximum */
+    if (oldValue + 1 > maximum) {
+        return false;
+    }
+
+    if ( skillPointsRemaining() > 0 ) {
+        var changes = {};
+        changes[stat] = oldValue + 1;
+        setPlayerDataValue(changes);
+    }
+}
+
+export function decrementStatPoint(stat, oldValue, minimum) {
+
+    /* Don't let number go below the minimum */
+    if (oldValue - 1 < minimum) {
+        return false;
+    }
+
+    var changes = {};
+    changes[stat] = oldValue-1;
+    setPlayerDataValue(changes);
+}
+
+export function resetStatPoints(statPoints) {
+
+}
