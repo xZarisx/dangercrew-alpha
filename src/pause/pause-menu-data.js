@@ -3,7 +3,18 @@ import Items from '../battles/actions/items'
 
 export default {
     /* The structure of these objects will not be the same. Different functionalities */
+
+    getCensoringList: function(key="") {
+        return [...this[key]];
+    },
+
     "pauseRoot": [
+        {
+            "id": "pauseRoot-levelup",
+            "label": "LEVEL UP!",
+            "pageTitle": "Level Up",
+            "rightKeyDest": ["pauseLevelUpMenu", "pauseLevelUp-health"]
+        },
         {
             "id": "pauseRoot-stats",
             "label": "STATS",
@@ -62,6 +73,45 @@ export default {
             label: "Efficiency",
             infoBoxTitle: "Efficiency",
             infoBoxDescription: "--Some description for eff--"
+        }
+    ],
+
+    "pauseLevelUpMenu": [
+        {
+            id: "pauseLevelUp-health",
+            label: "Health",
+            infoBoxTitle: "Health",
+            infoBoxDescription: "--Some same description for health--"
+        },
+        {
+            id: "pauseLevelUp-attack",
+            label: "Attack",
+            infoBoxTitle: "Attack",
+            infoBoxDescription: "--Some same description for attack--"
+        },
+        {
+            id: "pauseLevelUp-defense",
+            label: "Defense",
+            infoBoxTitle: "Defense",
+            infoBoxDescription: "--Some same description for defense--"
+        },
+        {
+            id: "pauseLevelUp-speed",
+            label: "Speed",
+            infoBoxTitle: "Speed",
+            infoBoxDescription: "--Some same description for speed--"
+        },
+        {
+            id: "pauseLevelUp-efficiency",
+            label: "Efficiency",
+            infoBoxTitle: "Efficiency",
+            infoBoxDescription: "--Some same description for eff--"
+        },
+        {
+            id: "pauseLevelUp-done",
+            label: "Done",
+            infoBoxTitle: null,
+            infoBoxDescription: null
         }
     ],
 

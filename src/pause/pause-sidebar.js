@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PauseMenuData from './pause-menu-data'
-import {isLevelupEligible, remainingXpUntilNextLevel} from '../level-up/levelup-utilities'
+import {remainingXpUntilNextLevel} from '../level-up/levelup-utilities'
 
 @connect((state, props) => {
     return {
@@ -19,14 +19,15 @@ import {isLevelupEligible, remainingXpUntilNextLevel} from '../level-up/levelup-
 class PauseSidebar extends React.Component {
 
     renderTabs() {
-        return PauseMenuData.pauseRoot.map((item, index) => {
+        const list = PauseMenuData.getCensoringList('pauseRoot');
+        return list.map((item, index) => {
             const activeClass = (item.id == this.props.selectedMenuItem) ? "is-active" : "";
 
 
-            const label = (index == 0 && isLevelupEligible()) ? "LEVEL UP!" : item.label;
+            //const label = (index == 0 && isLevelupEligible()) ? "LEVEL UP!" : item.label;
             return (
                 <div key={item.id} className={`${activeClass} tab-item`}>
-                    {label}
+                    {item.label}
                 </div>
             )
         });

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PauseMenuData from './pause-menu-data'
 
 import PauseStatsContent from './pause-stats-content'
+import PauseLevelUpContent from './pause-levelup-content'
 import PauseLaptopContent from './pause-laptop-content'
 import PauseAttacksContent from './pause-attacks-content'
 import PauseItemsContent from './pause-items-content'
@@ -32,6 +33,9 @@ class PauseContent extends React.Component {
     renderBody() {
         if (this.props.showMenuTab == "pauseRoot-stats") {
             return <PauseStatsContent />
+        }
+        if (this.props.showMenuTab == "pauseRoot-levelup") {
+            return <PauseLevelUpContent />
         }
         if (this.props.showMenuTab == "pauseRoot-laptop") {
             return <PauseLaptopContent />

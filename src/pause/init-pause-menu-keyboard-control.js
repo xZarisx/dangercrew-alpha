@@ -53,7 +53,8 @@ function updatedMenuTab(currentCursoringList, currentShowMenuTab, newValue) {
 export default function(namespace="") {
 
     var handleUp = function() {
-        const prev = getPreviousInList( store.getState().pauseMenu.selectedMenuItem, PauseMenuData[store.getState().pauseMenu.currentCursoringList]);
+        const list = PauseMenuData.getCensoringList(store.getState().pauseMenu.currentCursoringList);
+        const prev = getPreviousInList( store.getState().pauseMenu.selectedMenuItem, list);
         setPauseMenuValue({
             selectedMenuItem: prev,
             showMenuTab: updatedMenuTab(store.getState().pauseMenu.currentCursoringList, store.getState().pauseMenu.showMenuTab, prev)
@@ -61,7 +62,8 @@ export default function(namespace="") {
 
     };
     var handleDown = function() {
-        const next = getNextInList( store.getState().pauseMenu.selectedMenuItem, PauseMenuData[store.getState().pauseMenu.currentCursoringList]);
+        const list = PauseMenuData.getCensoringList(store.getState().pauseMenu.currentCursoringList);
+        const next = getNextInList( store.getState().pauseMenu.selectedMenuItem, list);
         setPauseMenuValue({
             selectedMenuItem: next,
             showMenuTab: updatedMenuTab(store.getState().pauseMenu.currentCursoringList, store.getState().pauseMenu.showMenuTab, next)
