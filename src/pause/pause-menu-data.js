@@ -1,3 +1,4 @@
+import {isLevelupEligible} from '../level-up/levelup-utilities'
 import Attacks from '../battles/actions/attacks'
 import Items from '../battles/actions/items'
 
@@ -5,7 +6,16 @@ export default {
     /* The structure of these objects will not be the same. Different functionalities */
 
     getCensoringList: function(key="") {
-        return [...this[key]];
+        if (key !="pauseRoot") {
+            return [...this[key]];
+        }
+
+        /* If able to level up, return a list without the Stats tab */
+        if (isLevelupEligible()) {
+            return this.pauseRoot.filter(tab => { return tab.id != "pauseRoot-stats" })
+        }
+        /* Otherwise, return a list without Level Up */
+        return this.pauseRoot.filter(tab => { return tab.id != "pauseRoot-levelup" })
     },
 
     "pauseRoot": [
@@ -13,7 +23,7 @@ export default {
             "id": "pauseRoot-levelup",
             "label": "LEVEL UP!",
             "pageTitle": "Level Up",
-            "rightKeyDest": ["pauseLevelUpMenu", "pauseLevelUp-health"]
+            //"rightKeyDest": ["pauseLevelUpMenu", "pauseLevelUp-health"] //Hit Enter instead
         },
         {
             "id": "pauseRoot-stats",

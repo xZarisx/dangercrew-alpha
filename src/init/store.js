@@ -20,7 +20,7 @@ const store = createStore({
         hp: 20,
         maxHp: 20,
 
-        xp: 234,
+        xp: 19,//0,
         coins: 10,
 
         attackStatPoints: 3,

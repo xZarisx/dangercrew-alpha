@@ -20,11 +20,10 @@ class PauseSidebar extends React.Component {
 
     renderTabs() {
         const list = PauseMenuData.getCensoringList('pauseRoot');
-        return list.map((item, index) => {
+        return list.map((item) => {
             const activeClass = (item.id == this.props.selectedMenuItem) ? "is-active" : "";
 
-
-            //const label = (index == 0 && isLevelupEligible()) ? "LEVEL UP!" : item.label;
+            //const style = (item.id == "pauseRoot-levelup") ? {color:"#F8E71C"} : {};
             return (
                 <div key={item.id} className={`${activeClass} tab-item`}>
                     {item.label}

@@ -104,7 +104,7 @@ export default function(namespace="") {
     };
     var handleLeft = function() {
         const currentCursoring = store.getState().pauseMenu.currentCursoringList;
-        if (currentCursoring != "pauseRoot") {
+        if (currentCursoring != "pauseRoot" && currentCursoring != "pauseLevelUpMenu") {
             setPauseMenuValue({
                 currentCursoringList: "pauseRoot",
                 selectedMenuItem: leftMap[currentCursoring]
@@ -127,6 +127,16 @@ export default function(namespace="") {
         if (store.getState().pauseMenu.currentCursoringList == "pauseItemsMenu") {
             togglePlayerItem( store.getState().pauseMenu.selectedMenuItem );
         }
+
+        /* Enter the Level Up tab list */
+        if (store.getState().pauseMenu.selectedMenuItem == "pauseRoot-levelup") {
+            setPauseMenuValue({
+                currentCursoringList: "pauseLevelUpMenu",
+                selectedMenuItem: "pauseLevelUp-health"
+            });
+        }
+
+
     };
     addKeyboardSinglePress(13, handleEnter, namespace);
 
