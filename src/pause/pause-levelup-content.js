@@ -26,8 +26,11 @@ class PauseLevelUpContent extends React.Component {
             )
         });
 
+        const pressEnterPrompt = (this.props.selectedMenuItem == "pauseRoot-levelup") ? <div>PRESS ENTER TO LEVEL UP</div> : null;
+
         return (
             <div>
+                {pressEnterPrompt}
                 {characterStats}
             </div>
         );
