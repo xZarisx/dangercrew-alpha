@@ -1,6 +1,14 @@
 import store from '../init/store'
 import LevelMap from './level-map' /* Array of milestones */
 
+export function totalSkillPoints() {
+    /* (5 * 1) + (5 * 2) */
+    return 15
+}
+
+/* If odd level, gain 2 points */
+/* If even level, gain 1 point */
+
 
 export function remainingXpUntilNextLevel() {
     const playerData = store.getState().playerData;

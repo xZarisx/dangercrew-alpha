@@ -77,7 +77,11 @@ export default function(namespace="") {
 
     /* Right */
     var handleRight = function() {
-        if (store.getState().pauseMenu.currentCursoringList == "pauseRoot") {
+
+        const currentCursoring = store.getState().pauseMenu.currentCursoringList;
+
+        /* Dive in to content area */
+        if (currentCursoring == "pauseRoot") {
 
             /* Find the selected node */
             const selectedNode = PauseMenuData.pauseRoot.filter(item => {
@@ -92,6 +96,13 @@ export default function(namespace="") {
                 });
             }
         }
+
+        /* Decrement stat point when leveling up */
+        if (currentCursoring == "pauseLevelUpMenu") {
+            console.log('stat incr')
+        }
+
+
     };
     addKeyboardSinglePress(39, handleRight, namespace);
 
@@ -110,6 +121,12 @@ export default function(namespace="") {
                 selectedMenuItem: leftMap[currentCursoring]
             });
         }
+
+        /* Decrement stat point when leveling up */
+        if (currentCursoring == "pauseLevelUpMenu") {
+            console.log('stat dec')
+        }
+
     };
     addKeyboardSinglePress(37, handleLeft, namespace);
 
@@ -135,8 +152,6 @@ export default function(namespace="") {
                 selectedMenuItem: "pauseLevelUp-health"
             });
         }
-
-
     };
     addKeyboardSinglePress(13, handleEnter, namespace);
 
