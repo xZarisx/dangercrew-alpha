@@ -12,7 +12,6 @@ export function addKeyboardSinglePress(keyCode, handler, namespace ) {
                 e.preventDefault();
                 if (keySafe) {
                     keySafe = false;
-                    console.log('namespace', e.namespace);
                     handler();
                 }
                 break;
