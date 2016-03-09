@@ -15,7 +15,8 @@ class PauseStatsContent extends React.Component {
 
         const characterStats = PauseMenuData["pauseStatsMenu"].map(stat => {
 
-            const value = 2; /* Look this up from state */
+            /* Value of Individual Stat */
+            const value = stat.statId ? store.getState().playerData[stat.statId] : null;
             const activeClass = (stat.id == this.props.selectedMenuItem) ? "is-active" : "";
 
             return (

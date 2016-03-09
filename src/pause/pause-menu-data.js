@@ -57,30 +57,35 @@ export default {
         {
             id: "pauseStats-health",
             label: "Health",
+            statId: "healthStatPoints",
             infoBoxTitle: "Health",
             infoBoxDescription: "--Some description for health--"
         },
         {
             id: "pauseStats-attack",
             label: "Attack",
+            statId: "attackStatPoints",
             infoBoxTitle: "Attack",
             infoBoxDescription: "--Some description for attack--"
         },
         {
             id: "pauseStats-defense",
             label: "Defense",
+            statId: "defenseStatPoints",
             infoBoxTitle: "Defense",
             infoBoxDescription: "--Some description for defense--"
         },
         {
             id: "pauseStats-speed",
             label: "Speed",
+            statId: "speedStatPoints",
             infoBoxTitle: "Speed",
             infoBoxDescription: "--Some description for speed--"
         },
         {
             id: "pauseStats-efficiency",
             label: "Efficiency",
+            statId: "efficiencyStatPoints",
             infoBoxTitle: "Efficiency",
             infoBoxDescription: "--Some description for eff--"
         }
@@ -90,30 +95,35 @@ export default {
         {
             id: "pauseLevelUp-health",
             label: "Health",
+            statId: "healthStatPoints",
             infoBoxTitle: "Health",
             infoBoxDescription: "--Some same description for health--"
         },
         {
             id: "pauseLevelUp-attack",
             label: "Attack",
+            statId: "attackStatPoints",
             infoBoxTitle: "Attack",
             infoBoxDescription: "--Some same description for attack--"
         },
         {
             id: "pauseLevelUp-defense",
             label: "Defense",
+            statId: "defenseStatPoints",
             infoBoxTitle: "Defense",
             infoBoxDescription: "--Some same description for defense--"
         },
         {
             id: "pauseLevelUp-speed",
             label: "Speed",
+            statId: "speedStatPoints",
             infoBoxTitle: "Speed",
             infoBoxDescription: "--Some same description for speed--"
         },
         {
             id: "pauseLevelUp-efficiency",
             label: "Efficiency",
+            statId: "efficiencyStatPoints",
             infoBoxTitle: "Efficiency",
             infoBoxDescription: "--Some same description for eff--"
         },

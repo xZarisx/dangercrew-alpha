@@ -20,12 +20,14 @@ const store = createStore({
         hp: 20,
         maxHp: 20,
 
-        xp: 19,//0,
+        xp: 20,//0,
         coins: 10,
 
+        healthStatPoints: 0,
         attackStatPoints: 3,
         defenseStatPoints: 2,
         speedStatPoints: 2,
+        efficiencyStatPoints: 0,
 
         attacks: [
             "action_attack_basic_001",
