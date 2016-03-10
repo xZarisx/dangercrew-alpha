@@ -136,6 +136,10 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
         )
     }
 
+    handleDevBtn() {
+        window.addXp(5);
+    }
+
     render() {
 
         const viewportStyle = {
@@ -152,6 +156,7 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
                 {screenState}
                 {textbox}
                 {battleRequestBox}
+                <button onClick={::this.handleDevBtn} style={{position:"absolute", bottom:0, right:0}}>Debug: Add XP</button>
             </div>
         )
     }

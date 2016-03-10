@@ -4,7 +4,13 @@ import PauseMenuData from './pause-menu-data'
 import togglePlayerAttack from './toggle-player-attack'
 import togglePlayerItem from './toggle-player-item'
 import {incrementStatPoint, decrementStatPoint, resetStatPoints, submitLevelUp} from '../level-up/levelup-utilities'
+import { Howl } from 'howler'
 /* 37 "left" | 39 "right" | 38 "up" | 40 "down" */
+var sound_menuMove = new Howl({ urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/menu-move.mp3']});
+var sound_submit = new Howl({ urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/submit.mp3']});
+var sound_crapout = new Howl({ urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/pause-back.mp3']});
+
+
 
 /* Pure functions */
 function getNextInList(currentId, list) {
@@ -68,6 +74,11 @@ export default function(namespace="") {
     var handleUp = function() {
         const list = PauseMenuData.getCensoringList(store.getState().pauseMenu.currentCursoringList);
         const prev = getPreviousInList( store.getState().pauseMenu.selectedMenuItem, list);
+
+        if (store.getState().pauseMenu.selectedMenuItem != prev) {
+            sound_menuMove.play();
+        }
+
         setPauseMenuValue({
             selectedMenuItem: prev,
             showMenuTab: updatedMenuTab(store.getState().pauseMenu.currentCursoringList, store.getState().pauseMenu.showMenuTab, prev)
@@ -75,8 +86,14 @@ export default function(namespace="") {
 
     };
     var handleDown = function() {
+
         const list = PauseMenuData.getCensoringList(store.getState().pauseMenu.currentCursoringList);
         const next = getNextInList( store.getState().pauseMenu.selectedMenuItem, list);
+
+        if (store.getState().pauseMenu.selectedMenuItem != next) {
+            sound_menuMove.play();
+        }
+
         setPauseMenuValue({
             selectedMenuItem: next,
             showMenuTab: updatedMenuTab(store.getState().pauseMenu.currentCursoringList, store.getState().pauseMenu.showMenuTab, next)
@@ -103,6 +120,7 @@ export default function(namespace="") {
 
             /* Use the selected node's destination info */
             if (selectedNode.rightKeyDest) {
+                sound_menuMove.play();
                 setPauseMenuValue({
                     currentCursoringList: selectedNode.rightKeyDest[0], //needs to change based on current tab
                     selectedMenuItem: selectedNode.rightKeyDest[1] //needs to change based on current tab
@@ -132,6 +150,7 @@ export default function(namespace="") {
     var handleLeft = function() {
         const currentCursoring = store.getState().pauseMenu.currentCursoringList;
         if (currentCursoring != "pauseRoot" && currentCursoring != "pauseLevelUpMenu") {
+            sound_menuMove.play();
             setPauseMenuValue({
                 currentCursoringList: "pauseRoot",
                 selectedMenuItem: leftMap[currentCursoring]
@@ -174,6 +193,8 @@ export default function(namespace="") {
 
         /* Submit your level up! */
         if (store.getState().pauseMenu.selectedMenuItem == "pauseLevelUp-done") {
+            sound_submit.play();
+
             submitLevelUp();
 
             setPauseMenuValue({
@@ -200,6 +221,7 @@ export default function(namespace="") {
 
         /* Cancel out of Level Up page */
         if (store.getState().pauseMenu.currentCursoringList == "pauseLevelUpMenu") {
+            sound_crapout.play();
             resetStatPoints(initialStatLevels);
             setPauseMenuValue({
                 currentCursoringList: "pauseRoot",

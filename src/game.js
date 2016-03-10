@@ -37,10 +37,10 @@ class GameIndex extends React.Component {
 
     render() {
         return (
-            <div className="ui-wrapper">
-                <Map />
-                <ReduxStateDisplayer />
-            </div>
+                <div className="ui-wrapper">
+                    <Map />
+                    <ReduxStateDisplayer />
+                </div>
         );
     }
 }
