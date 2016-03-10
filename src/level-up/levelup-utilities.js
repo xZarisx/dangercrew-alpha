@@ -84,6 +84,14 @@ export function decrementStatPoint(stat, oldValue, minimum) {
     setPlayerDataValue(changes);
 }
 
-export function resetStatPoints(statPoints) {
+export function resetStatPoints(statPoints={}) {
+    setPlayerDataValue({...statPoints});
+}
 
+
+export function submitLevelUp() { /* impure? */
+    const playerLevel = store.getState().playerData.level;
+    if (playerLevel < 10) { /* Limiting to Level 10 for Alpha */
+        setPlayerDataValue({level: playerLevel + 1});
+    }
 }

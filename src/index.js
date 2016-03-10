@@ -14,6 +14,19 @@ var RootComponent = React.createClass({
 
     componentWillMount() {
         initBrowser();
+
+        /* DEV TOOL: add XP TODO: TAKE THIS OUT */
+        window.addXp = function(xp=0) {
+            store.dispatch({
+                type: "SET_PLAYERDATA_VALUE",
+                payload: {
+                    changes: {
+                        xp: store.getState().playerData.xp + xp
+                    }
+                }
+            })
+        }
+
     },
     render() {
         return (

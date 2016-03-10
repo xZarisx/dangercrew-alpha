@@ -21,7 +21,7 @@ import pauseInfoDescriptionMiddleware from './pause-info-middleware'
     })[0];
 
     return {
-        title: pageNode.pageTitle || "unknown",
+        title: pageNode ? pageNode.pageTitle : null,
         showMenuTab: state.pauseMenu.showMenuTab,
         infoBoxTitle: pauseInfoDescriptionMiddleware(selectedNode)[0],
         infoBoxDescription: pauseInfoDescriptionMiddleware(selectedNode)[1]

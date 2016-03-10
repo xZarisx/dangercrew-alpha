@@ -17,6 +17,8 @@ class ReduxStateDisplayer extends React.Component {
             console.log(self.props.reduxState);
             return
         }
+
+
     }
 
     render() {

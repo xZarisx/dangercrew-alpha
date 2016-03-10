@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 /* Dev Tools */
 import ReduxStateDisplayer from './dev-tools/redux-state-displayer'
-import GameAreaSwitcher from './dev-tools/game-area-switcher'
 import seedBattle from './dev-tools/seed-battle'
 
 /* World, Player and NPCs */
@@ -32,13 +31,13 @@ class GameIndex extends React.Component {
 
         /* DEV TOOL - Launch in battle mode */
         //seedBattle(); //Toggle this line on/off. Should be off for production build
+
+
     }
 
     render() {
         return (
             <div className="ui-wrapper">
-                <GameAreaSwitcher />
-
                 <Map />
                 <ReduxStateDisplayer />
             </div>

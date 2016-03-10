@@ -3,7 +3,7 @@ import {addKeyboardSinglePress} from '../helpers/single-keypress-binding'
 import PauseMenuData from './pause-menu-data'
 import togglePlayerAttack from './toggle-player-attack'
 import togglePlayerItem from './toggle-player-item'
-import {incrementStatPoint, decrementStatPoint} from '../level-up/levelup-utilities'
+import {incrementStatPoint, decrementStatPoint, resetStatPoints, submitLevelUp} from '../level-up/levelup-utilities'
 /* 37 "left" | 39 "right" | 38 "up" | 40 "down" */
 
 /* Pure functions */
@@ -171,6 +171,25 @@ export default function(namespace="") {
                 selectedMenuItem: "pauseLevelUp-health"
             });
         }
+
+        /* Submit your level up! */
+        if (store.getState().pauseMenu.selectedMenuItem == "pauseLevelUp-done") {
+            submitLevelUp();
+
+            setPauseMenuValue({
+                showMenuTab: null // Sorta Hacky. Force an Unmount
+            });
+
+            /* Update the pause screen state. Get fresh copy of sidebar menu */
+            const list = PauseMenuData.getCensoringList("pauseRoot");
+            const postLevelUpSelectedId = list[0].id;
+            const postLevelUpContent = (postLevelUpSelectedId == "pauseRoot-stats") ? "pauseRoot-stats" : "pauseRoot-levelup" ;
+            setPauseMenuValue({
+                currentCursoringList: "pauseRoot",
+                selectedMenuItem: postLevelUpSelectedId,
+                showMenuTab: postLevelUpContent
+            });
+        }
     };
     addKeyboardSinglePress(13, handleEnter, namespace);
 
@@ -179,10 +198,15 @@ export default function(namespace="") {
     /* ESC */
     var handleEsc = function() {
 
-        /* TODO: Exit out of LevelUp menu */
-        //
-        // return;
-
+        /* Cancel out of Level Up page */
+        if (store.getState().pauseMenu.currentCursoringList == "pauseLevelUpMenu") {
+            resetStatPoints(initialStatLevels);
+            setPauseMenuValue({
+                currentCursoringList: "pauseRoot",
+                selectedMenuItem: "pauseRoot-levelup"
+            });
+            return;
+        }
 
         /* Exit back to game */
         store.dispatch({

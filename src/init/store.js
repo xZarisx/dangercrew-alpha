@@ -20,7 +20,7 @@ const store = createStore({
         hp: 20,
         maxHp: 20,
 
-        xp: 20,//0,
+        xp: 0,//0,
         coins: 10,
 
         /* Begin with 5 Stat Points */
@@ -50,8 +50,8 @@ const store = createStore({
     },
     pauseMenu: {
         currentCursoringList: "pauseRoot", //"pauseLevelUpMenu", //"pauseRoot",
-        selectedMenuItem: "pauseRoot-levelup", //"pauseLevelUp-health", //"pauseRoot-levelup",
-        showMenuTab: "pauseRoot-levelup"
+        selectedMenuItem: "pauseRoot-stats", //"pauseRoot-levelup", //"pauseLevelUp-health", //"pauseRoot-levelup",
+        showMenuTab: "pauseRoot-stats"
     },
 
     //b3

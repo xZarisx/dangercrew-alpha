@@ -80,12 +80,17 @@ class PauseLevelUpContent extends React.Component {
 
         const pressEnterPrompt = (this.props.selectedMenuItem == "pauseRoot-levelup") ? this.renderPrompt() : null;
 
+        /* Remaining Points indicator */
+        const pointsRemaining = skillPointsRemaining();
+        const remainingStyle = (pointsRemaining > 0) ? {opacity: 1} : {opacity:0.25};
+
+
         return (
             <div className="pause-levelup-content">
                 {pressEnterPrompt}
                 <div className="_spreading-list-item pause-stat-item">
                     <div>SKILL POINTS</div>
-                    <div className="pause-stat-value">Remaining: {skillPointsRemaining()}</div>
+                    <div className="pause-stat-value" style={remainingStyle}>Remaining: {pointsRemaining}</div>
                 </div>
                 {characterStats}
             </div>
