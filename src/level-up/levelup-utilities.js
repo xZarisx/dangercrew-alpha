@@ -58,7 +58,7 @@ function setPlayerDataValue(changes={}) {
 }
 
 export function incrementStatPoint(stat, oldValue, maximum) {
-    console.log('change', stat, 'to', oldValue+1);
+    //console.log('change', stat, 'to', oldValue+1);
 
     /* Don't let number be higher than maximum */
     if (oldValue + 1 > maximum) {

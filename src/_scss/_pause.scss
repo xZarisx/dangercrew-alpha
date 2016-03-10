@@ -138,6 +138,9 @@
     &.arrow-left {
         transform:rotate(180deg);
     }
+    &.hide-arrow {
+        visibility: hidden;
+    }
 }
 .is-active .pause-levelup-arrow {
     border-color: transparent transparent transparent #2D2D2D;

@@ -18,6 +18,18 @@ import {skillPointsRemaining} from '../level-up/levelup-utilities'
 
 class PauseLevelUpContent extends React.Component {
 
+    componentWillMount() {
+        /* Set up initial StatPoints for remembering the minimums */
+        this.initialStatPoints = {
+            healthStatPoints: this.props.healthStatPoints,
+            attackStatPoints: this.props.attackStatPoints,
+            defenseStatPoints: this.props.defenseStatPoints,
+            speedStatPoints: this.props.speedStatPoints,
+            efficiencyStatPoints: this.props.efficiencyStatPoints
+        }
+    }
+
+
     render() {
 
         const characterStats = PauseMenuData["pauseLevelUpMenu"].map(stat => {
@@ -29,13 +41,16 @@ class PauseLevelUpContent extends React.Component {
             const activeClass = (stat.id == this.props.selectedMenuItem) ? "is-active" : "";
             const rowClass = stat.rowClass || "";
 
+            const hideLeftArrowClass = (this.props[stat.statId] > this.initialStatPoints[stat.statId]) ? "" : "hide-arrow" ;
+            const hideRightArrowClass = (skillPointsRemaining() > 0) ? "" : "hide-arrow" ;
+
             return (
                 <div key={stat.id} className={`${activeClass} ${rowClass} _spreading-list-item pause-stat-item`}>
                     <div>{stat.label}</div>
                     <div className="pause-stat-value">
-                        <div className="_ibm pause-levelup-arrow arrow-left"></div>
+                        <div className={`_ibm pause-levelup-arrow arrow-left ${hideLeftArrowClass}`}></div>
                         <div className="_ibm pause-levelup-value">{value}</div>
-                        <div className="_ibm pause-levelup-arrow arrow-right"></div>
+                        <div className={`_ibm pause-levelup-arrow arrow-right ${hideRightArrowClass}`}></div>
                     </div>
                 </div>
             )
