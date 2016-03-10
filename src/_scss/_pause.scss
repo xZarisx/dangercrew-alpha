@@ -65,6 +65,7 @@
     text-transform: uppercase;
 }
 .pause-content-body {
+    position:relative; // for overlays
     background:#2D2D2D;
     font-size:2vw;
     line-height:2.7vw;

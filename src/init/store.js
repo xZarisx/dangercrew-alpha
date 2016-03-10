@@ -49,8 +49,8 @@ const store = createStore({
         gameArea: "pause" //I think only these are possible: [ map | battle | pause | title | credits? | levelup? ]
     },
     pauseMenu: {
-        currentCursoringList: "pauseLevelUpMenu", //"pauseRoot",
-        selectedMenuItem: "pauseLevelUp-health", //"pauseRoot-levelup",
+        currentCursoringList: "pauseRoot", //"pauseLevelUpMenu", //"pauseRoot",
+        selectedMenuItem: "pauseRoot-levelup", //"pauseLevelUp-health", //"pauseRoot-levelup",
         showMenuTab: "pauseRoot-levelup"
     },
 

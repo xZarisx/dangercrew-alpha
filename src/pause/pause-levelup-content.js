@@ -29,6 +29,28 @@ class PauseLevelUpContent extends React.Component {
         }
     }
 
+    renderPrompt() {
+        const overlayStyle = {
+            position:'absolute',
+            left:0, right:0,top:0, bottom:0,
+            background:'rgba(0,0,0,0.9)'
+        };
+        const overlayMessage = {
+            position:'absolute',
+            top: '50%', left: '50%',
+            transform: 'translate3d(-50%,-50%,0)',
+            background: '#444',
+            padding: '2vw',
+            width: '35vw',
+            textAlign: 'center',
+            borderBottom: '1vw solid #333'
+        };
+        return (
+            <div style={overlayStyle}>
+                <div style={overlayMessage}>Press ENTER to level up!</div>
+            </div>
+        )
+    }
 
     render() {
 
@@ -56,11 +78,11 @@ class PauseLevelUpContent extends React.Component {
             )
         });
 
-        const pressEnterPrompt = (this.props.selectedMenuItem == "pauseRoot-levelup") ? <div>PRESS ENTER TO LEVEL UP</div> : null;
+        const pressEnterPrompt = (this.props.selectedMenuItem == "pauseRoot-levelup") ? this.renderPrompt() : null;
 
         return (
-            <div>
-                {/*pressEnterPrompt*/}
+            <div className="pause-levelup-content">
+                {pressEnterPrompt}
                 <div className="_spreading-list-item pause-stat-item">
                     <div>SKILL POINTS</div>
                     <div className="pause-stat-value">Remaining: {skillPointsRemaining()}</div>
