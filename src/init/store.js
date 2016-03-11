@@ -44,6 +44,10 @@ const store = createStore({
         //requesterLevel: 21,
         //requesterSkin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew.svg"
     },
+    battleResultPrompt: {
+        showResult: true
+    },
+
     game: {
         isPaused: false,
         gameArea: "map" //"pause" for testing //I think only these are possible: [ map | battle | pause | title | credits? | levelup? ]

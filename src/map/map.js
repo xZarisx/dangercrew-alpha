@@ -5,6 +5,7 @@ import Textbox from '../messaging/textbox';
 
 import Person from '../people/person';
 import BattleRequestBox from '../battle-requests/battle-request-box'
+import BattleResultBox from '../battle-requests/battle-result-box'
 import MovementController from '../people/movement-controller'
 import BattleArena from '../battles/components/battle-arena'
 
@@ -26,6 +27,7 @@ import BattleArena from '../battles/components/battle-arena'
         isShowingTextbox: state.game.isShowingTextbox,
 
         showRequest: state.battleRequests.showRequest,
+        showResult: state.battleResultPrompt.showResult,
 
         gameArea: state.game.gameArea
 
@@ -150,12 +152,14 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
         const screenState = this.renderGameArea();
         const textbox = this.props.isShowingTextbox ? <Textbox /> : null;
         const battleRequestBox = this.props.showRequest ? <BattleRequestBox /> : null;
+        const battleResultBox = this.props.showResult ? <BattleResultBox /> : null;
 
         return (
             <div style={viewportStyle} className={`viewport viewport-${this.props.vpWidth}`}>
                 {screenState}
                 {textbox}
                 {battleRequestBox}
+                {battleResultBox}
                 <button onClick={::this.handleDevBtn} style={{position:"absolute", bottom:0, right:0}}>Debug: Add XP</button>
             </div>
         )
