@@ -62,9 +62,9 @@ class BattleResultBox extends React.Component {
         };
         const text = {
             color: '#fff',
-            fontSize: '1.9vw',
+            fontSize: '1.5vw',
             position:'absolute',
-            top: '-2.6vw'
+            top: '-2.1vw'
         };
         const oldLevel = {
             ...text,
@@ -74,11 +74,26 @@ class BattleResultBox extends React.Component {
             ...text,
             right:0
         };
+        const gainColor = {
+            color: '#50E3C2'
+        };
+        const gainText = {
+            fontSize: '3vw',
+            position:'absolute',
+            left: '46%',
+            top: '37%',
+            transform: "translate3d(-50%,0,0)"
+        };
         return (
-            <div style={xpBar}>
-                <div style={fillBar} />
-                <div style={oldLevel}>1</div>
-                <div style={newLevel}>2</div>
+            <div>
+                <div style={gainText}>
+                    <span style={gainColor}>+50</span> XP
+                </div>
+                <div style={xpBar}>
+                    <div style={fillBar} />
+                    <div style={oldLevel}>Level 1</div>
+                    <div style={newLevel}>Level 2</div>
+                </div>
             </div>
         )
     }
