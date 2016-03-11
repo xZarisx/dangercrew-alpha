@@ -35,6 +35,11 @@ export default function(action={}) {
         return false;
     }
 
+    /* Ignore handler if result window is open */
+    if (store.getState().battleResultPrompt.showResult) {
+        return false;
+    }
+
     /* Roll to see if request is triggered */
     if (percentChance(66)) { //66 percent chance nothing will happen
         return false;
