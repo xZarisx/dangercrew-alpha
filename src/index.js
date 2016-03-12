@@ -18,10 +18,11 @@ var RootComponent = React.createClass({
         /* DEV TOOL: add XP TODO: TAKE THIS OUT */
         window.addXp = function(xp=0) {
             store.dispatch({
-                type: "SET_PLAYERDATA_VALUE",
+                type: "SET_RESULT_PROMPT_VALUE",
                 payload: {
                     changes: {
-                        xp: store.getState().playerData.xp + xp
+                        showResult: true,
+                        safeToPause: false
                     }
                 }
             })

@@ -13,6 +13,9 @@ class PauseMenu extends React.Component {
 
     componentDidMount() {
         initPauseMenuKeyboardControl('pauseMenuNamespace');
+
+
+
     }
 
     componentWillUnmount() {

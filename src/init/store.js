@@ -45,7 +45,9 @@ const store = createStore({
         requesterSkin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew.svg"
     },
     battleResultPrompt: {
-        showResult: true
+        showResult: false,//false
+        xpGain: 9, //null?
+        safeToPause: true
     },
 
     game: {

@@ -1,10 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {Howl} from 'howler'
+import LevelMap from '../level-up/level-map'
 
 @connect((state, props) => {
     return {
-        battleRequests: state.battleRequests
+        battleRequests: state.battleRequests,
+        playerXp: state.playerData.xp,
+        playerLevel: state.playerData.level,
+        showLevelUp: false,
+        xpGain: state.battleResultPrompt.xpGain,
     }
 })
 
@@ -16,11 +21,16 @@ class BattleResultBox extends React.Component {
         this.state = {
             avatarToLeft: false,
             showResultText: false,
-            showXpBar: true,
+            showXpBar: false,
+            showXpGain: false,
+            showLevelUp: false
         }
     }
 
     componentDidMount() {
+
+        this.initialXp = this.props.playerXp;
+
         this.timeout = setTimeout(() => {
            this.setState({
                avatarToLeft: true
@@ -28,6 +38,9 @@ class BattleResultBox extends React.Component {
                this.showText();
            })
         }, 1000);
+
+
+        //this.showGain();
     }
 
     showText() {
@@ -35,14 +48,121 @@ class BattleResultBox extends React.Component {
             this.setState({
                 showResultText : true
             }, () => {
-                //this.showText();
+                this.showXpBar();
+            })
+        }, 1300);
+    }
+
+    showXpBar() {
+        this.timeout = setTimeout(() => {
+            this.setState({
+                showXpBar : true
+            }, () => {
+                this.showGain();
+            })
+        }, 1700);
+    }
+
+
+
+    showGain() {
+        this.timeout = setTimeout(() => {
+            this.setState({
+                showXpGain : true
+            }, () => {
+
+                /* Commit XP to playerData */
+
+                const updatedXp = this.props.playerXp + this.props.xpGain;
+                this.props.dispatch({
+                    type: "SET_PLAYERDATA_VALUE",
+                    payload: {
+                        changes: {
+                            xp: updatedXp
+                        }
+                    }
+                });
+
+                if (updatedXp >= LevelMap[this.props.playerLevel+1]) {
+                    this.showLevelUp();
+                } else {
+                    this.triggerUnmount(4000);
+                }
+
             })
         }, 1000);
+    }
+
+    showLevelUp() {
+
+        /* Prepare pause menu to be in the right spot */
+        this.props.dispatch({
+            type: "SET_PAUSEMENU_VALUE",
+            payload: {
+                changes: {
+                    currentCursoringList: "pauseRoot",
+                    selectedMenuItem: "pauseRoot-levelup",
+                    showMenuTab: "pauseRoot-levelup"
+                }
+            }
+        });
+        this.props.dispatch({
+            type: "SET_RESULT_PROMPT_VALUE",
+            payload: {
+                changes: {
+                    safeToPause: true
+                }
+            }
+        })
+
+        this.timeout = setTimeout(() => {
+            this.setState({
+                showLevelUp : true
+            }, () => {
+                this.triggerUnmount(5000)
+            })
+        }, 1500);
+    }
+
+    triggerUnmount(ms=1) {
+        setTimeout(() => {
+            this.props.dispatch({
+                type: "SET_RESULT_PROMPT_VALUE",
+                payload: {
+                    changes: {
+                        showResult: false,
+                        safeToPause: true
+                    }
+                }
+            });
+        }, ms);
+
     }
 
 
     componentWillUnmount() {
         clearTimeout(this.timeout)
+    }
+
+    renderLevelUp() {
+        const text = {
+            fontSize: '5.3vw',
+            marginTop:'0.7vw',
+            textAlign: 'center'
+        };
+
+        const supportingText = {
+            textAlign: 'center',
+            fontSize:'2vw',
+            marginTop:'0.6vw'
+        };
+
+        return (
+            <div style={text}>
+                LEVEL UP
+                <div style={supportingText}>Press ESC</div>
+            </div>
+        )
     }
 
     renderXpBar() {
@@ -52,19 +172,30 @@ class BattleResultBox extends React.Component {
             right:'1vw',
             bottom:'1vw',
             height: '2vw',
-            background: '#585757'
+            background: '#585757',
+            overflow: 'hidden'
         };
+
+        //Difference between next level and last level.
+        const total =  LevelMap[this.props.playerLevel+1] - LevelMap[this.props.playerLevel];
+        const part = (this.initialXp - LevelMap[this.props.playerLevel]) + (this.state.showXpGain ? this.props.xpGain : 0 );
+        var fillPercent = (part / total) * 100;
+        /* Letting it bust out a little. Don't let it go too bonkers over 100 */
+        fillPercent = (fillPercent < 150) ? fillPercent : 150;
+
+
         const fillBar = {
             position: 'absolute',
             left: 0, bottom: 0, top: 0,
-            width: '44%',
-            background: '#50E3C2'
+            width: `${fillPercent}%`,
+            transition: 'width 1s',
+            background: 'linear-gradient(-180deg, #50E3C2 0%, #77F0D5 38%, #49CFB1 100%)'
         };
         const text = {
             color: '#fff',
-            fontSize: '1.5vw',
+            fontSize: '1.7vw',
             position:'absolute',
-            top: '-2.1vw'
+            top: '-2.4vw'
         };
         const oldLevel = {
             ...text,
@@ -80,19 +211,19 @@ class BattleResultBox extends React.Component {
         const gainText = {
             fontSize: '3vw',
             position:'absolute',
-            left: '46%',
-            top: '37%',
+            left: '47%',
+            top: '33%',
             transform: "translate3d(-50%,0,0)"
         };
         return (
             <div>
                 <div style={gainText}>
-                    <span style={gainColor}>+50</span> XP
+                    <span style={gainColor}>+{this.props.xpGain}</span> XP
                 </div>
                 <div style={xpBar}>
                     <div style={fillBar} />
-                    <div style={oldLevel}>Level 1</div>
-                    <div style={newLevel}>Level 2</div>
+                    <div style={oldLevel}>Level {this.props.playerLevel}</div>
+                    <div style={newLevel}>Level {this.props.playerLevel+1}</div>
                 </div>
             </div>
         )
@@ -132,6 +263,13 @@ class BattleResultBox extends React.Component {
         )
     }
 
+    renderBody() {
+        if (this.state.showLevelUp) {
+            return this.renderLevelUp()
+        }
+        return (this.state.showXpBar) ? this.renderXpBar() : this.renderResult();
+    }
+
     render() {
         const style = {
             position:'absolute',
@@ -143,17 +281,16 @@ class BattleResultBox extends React.Component {
             width:'34vw', //temp
             height: '14vw',
             background: '#333',
-            color: '#fff'
+            color: '#fff',
+            borderBottom: '0.8vw solid #222'
         };
-
-        const body = (this.state.showXpBar) ? this.renderXpBar() : this.renderResult();
 
         return (
             <div style={style}>
                 <div style={{textAlign: "center"}}>
                     Battle Results
                 </div>
-                {body}
+                {this.renderBody()}
             </div>
         );
     }
