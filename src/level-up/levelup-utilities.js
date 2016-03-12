@@ -1,5 +1,6 @@
 import store from '../init/store'
 import LevelMap from './level-map' /* Array of milestones */
+import getMaxHp from './get-max-hp'
 
 function skillPointsAvailable(level=1) {
     /* Start with 5, then +1, +2, +1, +2, etc */
@@ -90,8 +91,16 @@ export function resetStatPoints(statPoints={}) {
 
 
 export function submitLevelUp() { /* impure? */
+
     const playerLevel = store.getState().playerData.level;
+    const newMaxHp = getMaxHp(playerLevel + 1);
+    console.log(newMaxHp)
+
     if (playerLevel < 10) { /* Limiting to Level 10 for Alpha */
-        setPlayerDataValue({level: playerLevel + 1});
+        setPlayerDataValue({
+            level: playerLevel + 1,
+            maxHp: newMaxHp,
+            hp: newMaxHp /* Level up - refill your HP bonus! */
+        });
     }
 }

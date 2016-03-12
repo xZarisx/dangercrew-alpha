@@ -172,16 +172,15 @@ class BattleResultBox extends React.Component {
             right:'1vw',
             bottom:'1vw',
             height: '2vw',
-            background: '#585757',
-            overflow: 'hidden'
+            background: '#585757'
+            //overflowX: 'hidden'
         };
 
         //Difference between next level and last level.
         const total =  LevelMap[this.props.playerLevel+1] - LevelMap[this.props.playerLevel];
         const part = (this.initialXp - LevelMap[this.props.playerLevel]) + (this.state.showXpGain ? this.props.xpGain : 0 );
         var fillPercent = (part / total) * 100;
-        /* Letting it bust out a little. Don't let it go too bonkers over 100 */
-        fillPercent = (fillPercent < 150) ? fillPercent : 150;
+        fillPercent = (fillPercent < 100) ? fillPercent : 100;
 
 
         const fillBar = {
@@ -215,6 +214,7 @@ class BattleResultBox extends React.Component {
             top: '33%',
             transform: "translate3d(-50%,0,0)"
         };
+
         return (
             <div>
                 <div style={gainText}>
