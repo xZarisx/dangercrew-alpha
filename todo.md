@@ -6,6 +6,13 @@ Alpha Release Todo:
 # Adjust battle CSS to scale with different screen sizes
     - People sizes, text sizes, etc
     
+# Adjust NPC difficulties to make sense for initial stats
+    - Adjust rate at which difficult battles appear per level
+    
+# Make ENTER key enhancements to level up menu
+    - Based on watching Lauren interact with the menu
+    
+    
 # Redesign battle scoreboards
 
 # Write descriptions for all pause menu infobox text blurbs

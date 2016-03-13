@@ -1,30 +1,36 @@
 import store from '../init/store'
 import {randomFromArray} from '../helpers/random-from-array'
 import {percentChance} from '../helpers/numbers-helper'
+import getXpGain from './get-xp-gain'
 
 /* people data */
 import People from '../_data/people/people'
 
+/* pure */
+function getProbability(level=1) {
 
-/* These are temporary for Alpha. */
-/* In real game, need to maybe match these to real personalities in a database */
-//const people = [
-//    {name: "Drew", skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew.svg"},
-//    {name: "Berg", skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-orange.svg"},
-//    {name: "Travis", skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-blonde.svg"},
-//    {name: "Punky", skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-blonde.svg"},
-//    {name: "Jessie", skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/jessie.svg"},
-//    {name: "Marie", skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/jessie-blue.svg"},
-//];
-//const levels = [2,2,3,3,4,4,5,6];
+    if (level == 1) {
+        return ["punky"] /* Ensure punky is first battle, because he is beatable */
+    }
 
-const probability = [
-    "berg",
-    "drew", "drew",
-    "punky", "punky", "punky", "punky",
-    "jessie", "jessie",
-    "marie", "marie"
-];
+    if (level < 3) {
+        return [
+            "berg",
+            "drew",
+            "punky", "punky", "punky", "punky",
+            "jessie", "jessie", "jessie",
+            "marie"
+        ];
+    }
+
+    return [
+        "berg",
+        "drew", "drew",
+        "punky", "punky", "punky",
+        "jessie", "jessie",
+        "marie", "marie"
+    ];
+}
 
 
 
@@ -45,11 +51,13 @@ export default function(action={}) {
         return false;
     }
 
+    const probability = getProbability(store.getState().playerData.level);
     const challenger_id = randomFromArray(probability);
     const challenger = {
         ...People[challenger_id]
     };
-    //console.log(challenger)
+
+    /* Set data for the request */
     store.dispatch({
         type: "SET_BATTLE_REQUEST",
         payload: {
@@ -58,7 +66,18 @@ export default function(action={}) {
             requesterSkin: challenger.skin,
             requesterLevel: challenger.level
         }
-    })
+    });
 
+    /* Set the XP that's on the table */
+    const xpGain = getXpGain(challenger);
+    store.dispatch({
+        type: "SET_RESULT_PROMPT_VALUE",
+        payload: {
+            changes: {
+                xpGain: xpGain
+            }
+        }
+    });
+    
 
 }

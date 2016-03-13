@@ -8,6 +8,7 @@ const people = {
         attackStatPoints: 2,
         defenseStatPoints: 1,
         speedStatPoints: 3,
+        efficiencyStatPoints: 1,
 
         attacks: [
             "action_attack_basic_001",
@@ -24,6 +25,7 @@ const people = {
         attackStatPoints: 6,
         defenseStatPoints: 4,
         speedStatPoints: 3,
+        efficiencyStatPoints: 2,
 
         attacks: [
             "action_attack_basic_002",
@@ -40,6 +42,7 @@ const people = {
         attackStatPoints: 1,
         defenseStatPoints: 1,
         speedStatPoints: 1,
+        efficiencyStatPoints: 1,
 
         attacks: [
             "action_attack_basic_001",
@@ -56,6 +59,7 @@ const people = {
         attackStatPoints: 1,
         defenseStatPoints: 3,
         speedStatPoints: 2,
+        efficiencyStatPoints: 1,
 
         attacks: [
             "action_attack_theft_001",
@@ -72,6 +76,7 @@ const people = {
         attackStatPoints: 3,
         defenseStatPoints: 5,
         speedStatPoints: 4,
+        efficiencyStatPoints: 1,
 
         attacks: [
             "action_attack_theft_002",

@@ -1,4 +1,5 @@
 import createStore from './create-store'
+import InitialPlayerData from './initial-player-data'
 
 const store = createStore({
     map: {
@@ -14,29 +15,7 @@ const store = createStore({
         /* Populated on mount */
     },
     playerData: {
-        name: "Jacob",
-        skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/svJacob-2.svg",
-        level: 1,//1,
-        hp: 20,
-        maxHp: 20,
-
-        xp: 0,//0,
-        coins: 10,
-
-        /* Begin with 5 Stat Points */
-        healthStatPoints: 1,
-        attackStatPoints: 1,
-        defenseStatPoints: 1,
-        speedStatPoints: 1,
-        efficiencyStatPoints: 1,
-
-        attacks: [
-            "action_attack_basic_001",
-            "action_attack_theft_001",
-            //"action_attack_status_002",
-            //"action_attack_repetitions_001"
-        ],
-        items: ["action_item_hp_001"]
+        ...InitialPlayerData
     },
     battleRequests: {
         showRequest: false,
