@@ -1,15 +1,25 @@
-TODO: Alpha QA
-=====
+Alpha Release Todo:
+----------------------
 
-- Bind walking keys when entering "map" game Area
-- Unbind walking keys when exiting "map" gameArea
+# Hook up Level up window to successfully winning a battle
 
-- style Battle characters to scale properly
+# Adjust battle CSS to scale with different screen sizes
+    - People sizes, text sizes, etc
+    
+# Redesign battle scoreboards
 
-- refactor overworld Messages to use SingleKeypress binding helper
+# Write descriptions for all pause menu infobox text blurbs
 
+# Transitions in and out of battles
 
-TODO: Future Thinking
-=====
+# Add SFX to pause experience
+    - Pausing / Unpausing
+    - Applying new Items & Attacks
+    - Applying a level up
+    
+# Add SFX to battle results popup window
+    - Victory!
+    - XP bar filling up
+    - Level up notification
 
-- research and implement HTML5 mobile joystick
+# Implement new street map & new coffee house map
