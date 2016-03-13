@@ -1,18 +1,11 @@
 Alpha Release Todo:
 ----------------------
 
-DONE # Hook up Level up window to successfully winning a battle
-
 # Adjust battle CSS to scale with different screen sizes
     - People sizes, text sizes, etc
-    
-DONE ? # Adjust NPC difficulties to make sense for initial stats
-    - Adjust rate at which difficult battles appear per level
-    
+        
 # Make ENTER key enhancements to level up menu
     - Based on watching Lauren interact with the menu
-
-# Hide PP indicators for now?
     
 # Redesign battle scoreboards
 
@@ -33,8 +26,16 @@ DONE ? # Adjust NPC difficulties to make sense for initial stats
 
 # Add "ESC to exit" to bottom of Pause menu
 
+# Add ESC key functionality in Battle Menu to go back to root from Attacks or Items (from watching Bobby play)
 
+DONE # Hook up Level up window to successfully winning a battle
 
+DONE # Hide PP indicators for now?
 
+DONE # Adjust NPC difficulties to make sense for initial stats
+    - Adjust rate at which difficult battles appear per level
+
+Don't Forget:
+=============
 
 # Implement new street map & new coffee house map

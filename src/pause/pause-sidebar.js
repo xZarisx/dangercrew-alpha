@@ -63,6 +63,9 @@ class PauseSidebar extends React.Component {
                <div className="pause-sidebar-tabs">
                    {this.renderTabs()}
                </div>
+               <div className="pause-sidebar-close-tip">
+                   ESC to exit
+               </div>
            </div>
         );
     }

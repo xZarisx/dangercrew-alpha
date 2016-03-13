@@ -1,4 +1,5 @@
 .pause-sidebar {
+    position: relative;
     width: 25%;
     height:100%;
     float:left;
@@ -6,6 +7,14 @@
     line-height:2.7vw;
     background:#111;
     color:#fff;
+}
+.pause-sidebar-close-tip {
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding-bottom:1vw;
+    text-align:center;
 }
 .pause-sidebar-profile {
     padding:1vw;

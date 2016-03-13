@@ -4,8 +4,8 @@ export default {
     hp: 50,
     maxHp: 50,
 
-    pp: 50,
-    maxPp: 50,
+    pp: 999, /* Not really using PP for Alpha. The mechanism does work though */
+    maxPp: 999,
 
     xp: 0,
     level: 1,
