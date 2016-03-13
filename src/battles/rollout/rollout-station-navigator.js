@@ -156,6 +156,27 @@ export function incrementRolloutStation2() {
             });
 
             removeKeyboardSinglePress('exitBattle');
+
+            /* Set up the Results window to fire */
+            const combatants = (store.getState().combatants); /* TODO. This is copied from above. Refactor as a reusable function */
+            const winner_id = Object.keys(combatants).filter(c => { //
+                return combatants[c].hp > 0 //
+            })[0]; //
+            if (winner_id == store.getState().battleUi.playerId) {
+                store.dispatch({
+                    type: "SET_RESULT_PROMPT_VALUE",
+                    payload: {
+                        changes: {
+                            showResult: true,
+                            safeToPause: false
+                        }
+                    }
+                });
+            }
+
+
+
+
         };
 
         //bind key to exit battle

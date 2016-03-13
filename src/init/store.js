@@ -15,7 +15,9 @@ const store = createStore({
         /* Populated on mount */
     },
     playerData: {
-        ...InitialPlayerData
+        ...InitialPlayerData,
+        speedStatPoints: 99,
+        attackStatPoints: 99
     },
     battleRequests: {
         showRequest: false,
