@@ -4,17 +4,31 @@ import getMaxHp from './get-max-hp'
 
 function skillPointsAvailable(level=1) {
     /* Start with 5, then +1, +2, +1, +2, etc */
+    // switch(level) {
+    //     case 1: return 5;
+    //     case 2: return 6;
+    //     case 3: return 8;
+    //     case 4: return 9;
+    //     case 5: return 11;
+    //     case 6: return 12;
+    //     case 7: return 14;
+    //     case 8: return 15;
+    //     case 9: return 17;
+    //     case 10: return 18;
+    //
+    //     default: return 0;
+    // }
     switch(level) {
-        case 1: return 5;
-        case 2: return 6;
-        case 3: return 8;
-        case 4: return 9;
-        case 5: return 11;
-        case 6: return 12;
-        case 7: return 14;
-        case 8: return 15;
-        case 9: return 17;
-        case 10: return 18;
+        case 1: return 15;
+        case 2: return 16;
+        case 3: return 18;
+        case 4: return 19;
+        case 5: return 21;
+        case 6: return 22;
+        case 7: return 24;
+        case 8: return 25;
+        case 9: return 27;
+        case 10: return 28;
 
         default: return 0;
     }

@@ -1,23 +1,25 @@
 Alpha Release Todo:
 ----------------------
 
-# Hook up Level up window to successfully winning a battle
+DONE # Hook up Level up window to successfully winning a battle
 
 # Adjust battle CSS to scale with different screen sizes
     - People sizes, text sizes, etc
     
-# Adjust NPC difficulties to make sense for initial stats
+DONE ? # Adjust NPC difficulties to make sense for initial stats
     - Adjust rate at which difficult battles appear per level
     
 # Make ENTER key enhancements to level up menu
     - Based on watching Lauren interact with the menu
-    
+
+# Hide PP indicators for now?
     
 # Redesign battle scoreboards
 
 # Write descriptions for all pause menu infobox text blurbs
 
 # Transitions in and out of battles
+    - Some sort of fade?
 
 # Add SFX to pause experience
     - Pausing / Unpausing

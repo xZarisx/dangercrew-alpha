@@ -16,8 +16,8 @@ const store = createStore({
     },
     playerData: {
         ...InitialPlayerData,
-        speedStatPoints: 99,
-        attackStatPoints: 99
+        // speedStatPoints: 99,
+        // attackStatPoints: 99
     },
     battleRequests: {
         showRequest: false,
