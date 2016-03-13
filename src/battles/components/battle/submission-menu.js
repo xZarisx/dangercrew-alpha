@@ -104,7 +104,7 @@ class SubmissionMenu extends React.Component {
                     <td className="command-title">{item.label}</td>
                     <td className="command-price-quantity">
                         {quantityIndicator}
-                        {ppCostIndicator}
+                        {/*ppCostIndicator*/}
                     </td>
                     <td className="command-description">{item.description}</td>
                 </tr>

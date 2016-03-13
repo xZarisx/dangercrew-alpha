@@ -31,4 +31,10 @@ DONE ? # Adjust NPC difficulties to make sense for initial stats
     - XP bar filling up
     - Level up notification
 
+# Add "ESC to exit" to bottom of Pause menu
+
+
+
+
+
 # Implement new street map & new coffee house map
