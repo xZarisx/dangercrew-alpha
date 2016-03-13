@@ -1,6 +1,7 @@
 import store from '../init/store'
 import LevelMap from './level-map' /* Array of milestones */
 import getMaxHp from './get-max-hp'
+import PauseMenuData from '../pause/pause-menu-data'
 
 function skillPointsAvailable(level=1) {
     /* Start with 5, then +1, +2, +1, +2, etc */
@@ -117,4 +118,21 @@ export function submitLevelUp() { /* impure? */
             hp: newMaxHp /* Level up - refill your HP bonus! */
         });
     }
+
+    /* Show New Attacks badge if we've unlocked any new attacks */
+    const newAttackLevelMap = PauseMenuData["pauseAttacksMenu"].map(attack => {
+        return attack.levelRequirement; /* Each level that unlocks something */
+    });
+    if (newAttackLevelMap.indexOf(playerLevel + 1) != -1) { /* Check the map for our new level */
+        store.dispatch({
+            type: "SET_PAUSEMENU_VALUE",
+            payload: {
+                changes: {
+                    newAttackBadge: true
+                }
+            }
+        })
+    }
+
+
 }

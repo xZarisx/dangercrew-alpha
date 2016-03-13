@@ -6,11 +6,27 @@ import PauseMenuData from './pause-menu-data'
     return {
         playerAttacks: state.playerData.attacks,
         playerLevel: state.playerData.level,
-        selectedMenuItem: state.pauseMenu.selectedMenuItem
+        selectedMenuItem: state.pauseMenu.selectedMenuItem,
+        currentCursoringList: state.pauseMenu.currentCursoringList
     }
 })
 
 class PauseAttacksContent extends React.Component {
+
+    componentWillUpdate(newProps) {
+        /* Reset the badge when newly cursoring into Attack menu */
+        if (newProps.currentCursoringList == "pauseAttacksMenu" && this.props.currentCursoringList != "pauseAttacksMenu") {
+            this.props.dispatch({
+                type: "SET_PAUSEMENU_VALUE",
+                payload: {
+                    changes: {
+                        newAttackBadge: false
+                    }
+                }
+            })
+        }
+    }
+
 
     render() {
         const attackItems = PauseMenuData["pauseAttacksMenu"].map(attack => {

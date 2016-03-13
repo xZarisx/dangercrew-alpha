@@ -1,48 +1,17 @@
+/* XP required to hit each level. */
+/* Index = the level number */
+/* So, Level 3: LevelMap[3] = 48 xp. */
+
 export default [
     -1, //eliminate level 0
-    0, 16, 48, 84, 130,
-    200, 290, 402, 538, 700
+    0, /* Level 1 */
+    16, /* Level 2 */
+    48, /* Level 3 */
+    84, /* Level 4 */
+    130, /* Level 5 */
+    200, /* Level 6 */
+    290, /* Level 7 */
+    402, /* Level 8 */
+    538, /* Level 9 */
+    700 /* Level 10 */
 ]
-
-//export default [
-//    {
-//        level: 1,
-//        xpRequired: 0
-//    },
-//    {
-//        level: 2,
-//        xpRequired: 16
-//    },
-//    {
-//        level: 3,
-//        xpRequired: 48
-//    },
-//    {
-//        level: 4,
-//        xpRequired: 84
-//    },
-//    {
-//        level: 5,
-//        xpRequired: 130
-//    },
-//    {
-//        level: 6,
-//        xpRequired: 200
-//    },
-//    {
-//        level: 7,
-//        xpRequired: 290
-//    },
-//    {
-//        level: 8,
-//        xpRequired: 402
-//    },
-//    {
-//        level: 9,
-//        xpRequired: 538
-//    },
-//    {
-//        level: 10,
-//        xpRequired: 700
-//    }
-//]

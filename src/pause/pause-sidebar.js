@@ -12,21 +12,32 @@ import {remainingXpUntilNextLevel} from '../level-up/levelup-utilities'
         xp: state.playerData.xp,
         coins: state.playerData.coins,
 
-        selectedMenuItem: state.pauseMenu.selectedMenuItem
+        selectedMenuItem: state.pauseMenu.selectedMenuItem,
+        newAttackBadge: state.pauseMenu.newAttackBadge
     }
 })
 
 class PauseSidebar extends React.Component {
 
+
+    renderNewAttackBadge(id) {
+        if (id == "pauseRoot-attacks" && this.props.newAttackBadge) {
+            return <div>NEW</div>
+        }
+        return null;
+    }
+
     renderTabs() {
         const list = PauseMenuData.getCensoringList('pauseRoot');
         return list.map((item) => {
             const activeClass = (item.id == this.props.selectedMenuItem) ? "is-active" : "";
+            const newBadge = this.renderNewAttackBadge(item.id);
 
             //const style = (item.id == "pauseRoot-levelup") ? {color:"#F8E71C"} : {};
             return (
                 <div key={item.id} className={`${activeClass} tab-item`}>
                     {item.label}
+                    {newBadge}
                 </div>
             )
         });

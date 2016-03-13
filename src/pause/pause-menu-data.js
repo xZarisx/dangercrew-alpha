@@ -36,7 +36,7 @@ export default {
             "label": "LAPTOP",
             "pageTitle": "Laptop",
             //"rightKeyDest": "pauseStats-whateverFirstOptionIdIs"
-            infoBoxDescription: "Your laptop can be configured with parts and components."
+            "infoBoxDescription": "Your laptop can be configured with parts and components."
         },
         {
             "id": "pauseRoot-attacks",

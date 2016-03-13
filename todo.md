@@ -1,5 +1,6 @@
 Alpha Release Todo:
 ----------------------
+# Redesign battle scoreboards
 
 # Adjust battle CSS to scale with different screen sizes
     - People sizes, text sizes, etc
@@ -7,7 +8,9 @@ Alpha Release Todo:
 # Make ENTER key enhancements to level up menu
     - Based on watching Lauren interact with the menu
     
-# Redesign battle scoreboards
+# "New" badge on Attacks menu
+    - Seen after leveling up. Appears until you enter the Attacks menu
+
 
 # Write descriptions for all pause menu infobox text blurbs
 
@@ -24,8 +27,6 @@ Alpha Release Todo:
     - XP bar filling up
     - Level up notification
 
-# Add "ESC to exit" to bottom of Pause menu
-
 # Add ESC key functionality in Battle Menu to go back to root from Attacks or Items (from watching Bobby play)
 
 DONE # Hook up Level up window to successfully winning a battle
@@ -34,6 +35,8 @@ DONE # Hide PP indicators for now?
 
 DONE # Adjust NPC difficulties to make sense for initial stats
     - Adjust rate at which difficult battles appear per level
+
+DONE # Add "ESC to exit" to bottom of Pause menu
 
 Don't Forget:
 =============

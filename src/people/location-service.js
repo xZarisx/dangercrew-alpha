@@ -41,7 +41,7 @@ var LocationService = function() {
         for (var person in people) {
             if (people[person].x == x && people[person].y == y) {
                 conflict = true;
-                console.log('TRUE')
+                //console.log('TRUE')
             }
         }
         if (conflict) {

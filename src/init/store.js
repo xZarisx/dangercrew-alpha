@@ -38,7 +38,8 @@ const store = createStore({
     pauseMenu: {
         currentCursoringList: "pauseRoot", //"pauseLevelUpMenu", //"pauseRoot",
         selectedMenuItem: "pauseRoot-stats", //"pauseRoot-levelup", //"pauseLevelUp-health", //"pauseRoot-levelup",
-        showMenuTab: "pauseRoot-stats"
+        showMenuTab: "pauseRoot-stats",
+        newAttackBadge: false
     },
 
     //b3

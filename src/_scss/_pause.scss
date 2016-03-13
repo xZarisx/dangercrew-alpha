@@ -39,7 +39,10 @@
 .pause-sidebar-tabs {
     padding:1vw;
     .tab-item {
+        display:flex;
+        justify-content: space-between;
         padding-left:0.5vw;
+        padding-right:0.5vw;
         &.is-active {
             background:#fff;
             color:#111;
