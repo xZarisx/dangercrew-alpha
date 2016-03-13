@@ -19,6 +19,7 @@ class BattleResultBox extends React.Component {
         super();
         this.timeout = null;
         this.state = {
+            showSelf: false,
             avatarToLeft: false,
             showResultText: false,
             showXpBar: false,
@@ -33,14 +34,22 @@ class BattleResultBox extends React.Component {
 
         this.timeout = setTimeout(() => {
            this.setState({
-               avatarToLeft: true
+               showSelf: true
            }, () => {
-               this.showText();
+               this.showAvatarToLeft();
            })
+        }, 1000); /* Wait a second to show the result window */
+    }
+
+
+    showAvatarToLeft() {
+        this.timeout = setTimeout(() => {
+            this.setState({
+                avatarToLeft: true
+            }, () => {
+                this.showText();
+            })
         }, 1000);
-
-
-        //this.showGain();
     }
 
     showText() {
@@ -284,6 +293,11 @@ class BattleResultBox extends React.Component {
             color: '#fff',
             borderBottom: '0.8vw solid #222'
         };
+
+
+        if (!this.state.showSelf) {
+            return null;
+        }
 
         return (
             <div style={style}>
