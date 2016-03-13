@@ -40,9 +40,9 @@ const people = {
         maxHp: 26,
 
         attackStatPoints: 1,
-        defenseStatPoints: 1,
-        speedStatPoints: 1,
-        efficiencyStatPoints: 1,
+        defenseStatPoints: 0,
+        speedStatPoints: 0,
+        efficiencyStatPoints: 3,
 
         attacks: [
             "action_attack_basic_001",
