@@ -5,13 +5,7 @@ Alpha Release Todo:
 # Adjust battle CSS to scale with different screen sizes
     - People sizes, text sizes, etc
         
-# Make ENTER key enhancements to level up menu
-    - Based on watching Lauren interact with the menu
     
-# "New" badge on Attacks menu
-    - Seen after leveling up. Appears until you enter the Attacks menu
-
-
 # Write descriptions for all pause menu infobox text blurbs
 
 # Transitions in and out of battles
@@ -37,6 +31,12 @@ DONE # Adjust NPC difficulties to make sense for initial stats
     - Adjust rate at which difficult battles appear per level
 
 DONE # Add "ESC to exit" to bottom of Pause menu
+
+DONE # Make ENTER key enhancements to level up menu
+    - Based on watching Lauren interact with the menu
+    
+DONE # "New" badge on Attacks menu
+    - Seen after leveling up. Appears until you enter the Attacks menu
 
 Don't Forget:
 =============

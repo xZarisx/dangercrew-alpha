@@ -79,12 +79,34 @@ class SubmissionMenu extends React.Component {
                 payload: {
                     terminalMenuSelectedIndex: 0
                 }
-            })
+            });
+        };
+
+        var handleEsc = function() {
+            /* Go back to root when hitting ESC */
+          if (self.props.terminalMenuKey != "menuRoot") {
+
+              const previousMenu = self.props.terminalMenuKey;
+
+              self.props.dispatch({
+                  type: "SET_TERMINAL_MENU_KEY",
+                  payload: {
+                      terminalMenuKey: "menuRoot"
+                  }
+              });
+              self.props.dispatch({
+                  type: "SET_TERMINAL_MENU_INDEX",
+                  payload: {
+                      terminalMenuSelectedIndex: (previousMenu == "menuItems") ? 1 : 0
+                  }
+              });
+          }
         };
 
         addKeyboardSinglePress(13, handleEnter, 'submission-menu');
         addKeyboardSinglePress(38, handleUp, 'submission-menu');
         addKeyboardSinglePress(40, handleDown, 'submission-menu');
+        addKeyboardSinglePress(27, handleEsc, 'submission-menu');
     }
 
     componentWillUnmount() {
