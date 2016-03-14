@@ -27,7 +27,7 @@ const store = createStore({
     },
     battleResultPrompt: {
         showResult: false,//false
-        xpGain: 9, //null?
+        xpGain: 29, //null?
         safeToPause: true
     },
 

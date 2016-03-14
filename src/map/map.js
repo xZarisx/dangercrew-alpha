@@ -160,7 +160,7 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
                 {textbox}
                 {battleRequestBox}
                 {battleResultBox}
-                {/*<button onClick={::this.handleDevBtn} style={{position:"absolute", bottom:0, right:0}}>Debug: win a battle</button>*/}
+                {<button onClick={::this.handleDevBtn} style={{position:"absolute", bottom:0, right:0}}>Debug: win a battle</button>}
             </div>
         )
     }

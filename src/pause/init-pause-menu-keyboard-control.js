@@ -3,7 +3,7 @@ import {addKeyboardSinglePress} from '../helpers/single-keypress-binding'
 import PauseMenuData from './pause-menu-data'
 import togglePlayerAttack from './toggle-player-attack'
 import togglePlayerItem from './toggle-player-item'
-import {incrementStatPoint, decrementStatPoint, resetStatPoints, submitLevelUp} from '../level-up/levelup-utilities'
+import {incrementStatPoint, decrementStatPoint, resetStatPoints, submitLevelUp, skillPointsRemaining} from '../level-up/levelup-utilities'
 import { Howl } from 'howler'
 /* 37 "left" | 39 "right" | 38 "up" | 40 "down" */
 var sound_menuMove = new Howl({ urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/menu-move.mp3']});
@@ -173,26 +173,45 @@ export default function(namespace="") {
     /* ENTER */
     var handleEnter = function() {
 
+        const selectedMenuItem = store.getState().pauseMenu.selectedMenuItem;
+        const currentCursoringList = store.getState().pauseMenu.currentCursoringList;
+
         /* Toggle an attack from the Attacks Menu */
-        if (store.getState().pauseMenu.currentCursoringList == "pauseAttacksMenu") {
-            togglePlayerAttack( store.getState().pauseMenu.selectedMenuItem );
+        if (currentCursoringList == "pauseAttacksMenu") {
+            togglePlayerAttack( selectedMenuItem );
         }
 
         /* Toggle an item from the Items Menu */
-        if (store.getState().pauseMenu.currentCursoringList == "pauseItemsMenu") {
-            togglePlayerItem( store.getState().pauseMenu.selectedMenuItem );
+        if (currentCursoringList == "pauseItemsMenu") {
+            togglePlayerItem( selectedMenuItem );
         }
 
         /* Enter the Level Up tab list */
-        if (store.getState().pauseMenu.selectedMenuItem == "pauseRoot-levelup") {
+        if (selectedMenuItem == "pauseRoot-levelup") {
             setPauseMenuValue({
                 currentCursoringList: "pauseLevelUpMenu",
                 selectedMenuItem: "pauseLevelUp-health"
             });
         }
 
+        /* Apply an increment to a stat when in the Level Up tab list */
+        if (currentCursoringList == "pauseLevelUpMenu" && selectedMenuItem != "pauseLevelUp-done") {
+            const currentStatId = getCurrentlySelectedNode().statId;
+            if (currentStatId) {
+                incrementStatPoint(currentStatId, store.getState().playerData[currentStatId], 999);
+            }
+
+            /* If no skill points remaining, jump to the DONE button */
+            if (skillPointsRemaining() == 0) {
+                setPauseMenuValue({
+                    selectedMenuItem: "pauseLevelUp-done"
+                });
+            }
+
+        }
+
         /* Submit your level up! */
-        if (store.getState().pauseMenu.selectedMenuItem == "pauseLevelUp-done") {
+        if (selectedMenuItem == "pauseLevelUp-done") {
             sound_submit.play();
 
             submitLevelUp();
