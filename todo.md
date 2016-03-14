@@ -21,7 +21,6 @@ Alpha Release Todo:
     - XP bar filling up
     - Level up notification
 
-# Add ESC key functionality in Battle Menu to go back to root from Attacks or Items (from watching Bobby play)
 
 DONE # Hook up Level up window to successfully winning a battle
 
@@ -38,7 +37,11 @@ DONE # Make ENTER key enhancements to level up menu
 DONE # "New" badge on Attacks menu
     - Seen after leveling up. Appears until you enter the Attacks menu
 
+DONE # Add ESC key functionality in Battle Menu to go back to root from Attacks or Items 
+    - (from watching Bobby play)
+
 Don't Forget:
 =============
 
 # Implement new street map & new coffee house map
+

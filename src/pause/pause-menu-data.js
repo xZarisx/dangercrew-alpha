@@ -59,35 +59,35 @@ export default {
             label: "Health",
             statId: "healthStatPoints",
             infoBoxTitle: "Health",
-            infoBoxDescription: "--Some description for health--"
+            infoBoxDescription: "Increases maximum battery health points (HP). Battles are lost when HP is depleted"
         },
         {
             id: "pauseStats-attack",
             label: "Attack",
             statId: "attackStatPoints",
             infoBoxTitle: "Attack",
-            infoBoxDescription: "--Some description for attack--"
+            infoBoxDescription: "Increases damage caused by outgoing commands"
         },
         {
             id: "pauseStats-defense",
             label: "Defense",
             statId: "defenseStatPoints",
             infoBoxTitle: "Defense",
-            infoBoxDescription: "--Some description for defense--"
+            infoBoxDescription: "Reduces incoming damage. Can potentially thwart enemy attacks"
         },
         {
             id: "pauseStats-speed",
             label: "Speed",
             statId: "speedStatPoints",
             infoBoxTitle: "Speed",
-            infoBoxDescription: "--Some description for speed--"
+            infoBoxDescription: "Determines which combatant will strike first"
         },
         {
             id: "pauseStats-efficiency",
             label: "Efficiency",
             statId: "efficiencyStatPoints",
             infoBoxTitle: "Efficiency",
-            infoBoxDescription: "--Some description for eff--"
+            infoBoxDescription: "Increases benefits of items and reduces cost of high value attacks"
         }
     ],
 
@@ -97,35 +97,35 @@ export default {
             label: "Health",
             statId: "healthStatPoints",
             infoBoxTitle: "Health",
-            infoBoxDescription: "--Some same description for health--"
+            infoBoxDescription: "Increases maximum battery health points (HP). Battles are lost when HP is depleted"
         },
         {
             id: "pauseLevelUp-attack",
             label: "Attack",
             statId: "attackStatPoints",
             infoBoxTitle: "Attack",
-            infoBoxDescription: "--Some same description for attack--"
+            infoBoxDescription: "Increases damage caused by outgoing commands"
         },
         {
             id: "pauseLevelUp-defense",
             label: "Defense",
             statId: "defenseStatPoints",
             infoBoxTitle: "Defense",
-            infoBoxDescription: "--Some same description for defense--"
+            infoBoxDescription: "Reduces incoming damage. Can potentially thwart enemy attacks"
         },
         {
             id: "pauseLevelUp-speed",
             label: "Speed",
             statId: "speedStatPoints",
             infoBoxTitle: "Speed",
-            infoBoxDescription: "--Some same description for speed--"
+            infoBoxDescription: "Determines which combatant will strike first"
         },
         {
             id: "pauseLevelUp-efficiency",
             label: "Efficiency",
             statId: "efficiencyStatPoints",
             infoBoxTitle: "Efficiency",
-            infoBoxDescription: "--Some same description for eff--"
+            infoBoxDescription: "Increases benefits of items and reduces cost of high value attacks"
         },
         {
             id: "pauseLevelUp-done",
