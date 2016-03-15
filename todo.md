@@ -20,6 +20,9 @@ Alpha Release Todo:
     - XP bar filling up
     - Level up notification
 
+# BUG: You can pause while talking. Squash this bug
+
+
 
 DONE # Hook up Level up window to successfully winning a battle
 
