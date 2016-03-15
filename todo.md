@@ -5,9 +5,8 @@ Alpha Release Todo:
 # Adjust battle CSS to scale with different screen sizes
     - People sizes, text sizes, etc
         
-    
-# Write descriptions for all pause menu infobox text blurbs
-
+# Adjust CSS for infobox in pause menu
+        
 # Transitions in and out of battles
     - Some sort of fade?
 
@@ -39,6 +38,8 @@ DONE # "New" badge on Attacks menu
 
 DONE # Add ESC key functionality in Battle Menu to go back to root from Attacks or Items 
     - (from watching Bobby play)
+
+DONE # Write descriptions for all pause menu infobox text blurbs
 
 Don't Forget:
 =============
