@@ -14,8 +14,8 @@ export default function(combatant={}) {
         attackRoll: (
             baseRoll() + combatant.attackStatPoints + combatant.attackModifier
         ),
-        defenseRoll: (
-            baseRoll() + combatant.defenseStatPoints + combatant.defenseModifier
+        defenseRoll: ( //Modification 3/14/2015. Losing baseRoll to make Defense less stacked
+            /*baseRoll() +*/ combatant.defenseStatPoints + combatant.defenseModifier
         ),
 
         efficiencyRating: (
