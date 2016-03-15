@@ -20,7 +20,8 @@ Alpha Release Todo:
     - XP bar filling up
     - Level up notification
 
-
+# Build WASD support for all menus too.
+    - Let the single keyboard press binder accept an array of keyCodes
 
 
 

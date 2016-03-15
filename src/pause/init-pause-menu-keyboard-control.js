@@ -102,7 +102,9 @@ export default function(namespace="") {
 
     /* Up/Down */
     addKeyboardSinglePress(38, handleUp, namespace);
+    addKeyboardSinglePress(87, handleUp, namespace); //W
     addKeyboardSinglePress(40, handleDown, namespace);
+    addKeyboardSinglePress(83, handleDown, namespace); //S
 
 
     /* Right */
@@ -139,6 +141,7 @@ export default function(namespace="") {
 
     };
     addKeyboardSinglePress(39, handleRight, namespace);
+    addKeyboardSinglePress(68, handleRight, namespace); //D
 
     /* Left */
     const leftMap = {
@@ -167,6 +170,7 @@ export default function(namespace="") {
 
     };
     addKeyboardSinglePress(37, handleLeft, namespace);
+    addKeyboardSinglePress(65, handleLeft, namespace); //A
 
 
 

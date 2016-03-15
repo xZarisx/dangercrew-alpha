@@ -105,7 +105,9 @@ class SubmissionMenu extends React.Component {
 
         addKeyboardSinglePress(13, handleEnter, 'submission-menu');
         addKeyboardSinglePress(38, handleUp, 'submission-menu');
+        addKeyboardSinglePress(87, handleUp, 'submission-menu'); //W
         addKeyboardSinglePress(40, handleDown, 'submission-menu');
+        addKeyboardSinglePress(83, handleDown, 'submission-menu'); //S
         addKeyboardSinglePress(27, handleEsc, 'submission-menu');
     }
 
