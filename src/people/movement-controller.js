@@ -32,6 +32,11 @@ class MovementController extends React.Component {
                 return false;
             }
 
+            /* Do not launch pause menu if dialog box is up */
+            if (store.getState().message.messaging) {
+                return false;
+            }
+
             /* Pausing during battle results window */
             if (store.getState().battleResultPrompt.showResult) {
 

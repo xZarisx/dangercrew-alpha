@@ -20,7 +20,7 @@ Alpha Release Todo:
     - XP bar filling up
     - Level up notification
 
-# BUG: You can pause while talking. Squash this bug
+
 
 
 
@@ -43,6 +43,9 @@ DONE # Add ESC key functionality in Battle Menu to go back to root from Attacks 
     - (from watching Bobby play)
 
 DONE # Write descriptions for all pause menu infobox text blurbs
+
+
+DONE # BUG: You can pause while talking. Squash this bug
 
 Don't Forget:
 =============
