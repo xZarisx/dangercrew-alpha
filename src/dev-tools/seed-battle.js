@@ -17,8 +17,8 @@ export default function() {
             changes: {
                 ...Combatant,
                 ...playerData,
-                hp: playerData.maxHp,
-                status: "memoryLeak"
+                hp: playerData.maxHp
+                //status: "memoryLeak"
             }
         }
     });

@@ -32,13 +32,13 @@ body {
 
 /* Combatants */
 .battle-player {
-    position:absolute;
-    left:8%;
-    bottom:-15%;
+    position: absolute;
+    left: 8%;
+    bottom: -3vw;
     transition: left 0.4s ease-out;
 
-    width : 220px; /* Might need to have these be adaptive pixel sizes */
-    height: 220px;
+    width : 20vw;
+    height: 20vw;
 
     //background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/svJacob-2.svg');
     background-repeat:no-repeat;
@@ -50,15 +50,14 @@ body {
     }
 }
 .battle-enemy {
-    position:absolute;
-    right:22%;
+    position: absolute;
+    right: 22%;
     transition: right 0.4s ease-out;
-    top:13%;
+    top: 13%;
 
-    height:150px; /* Might need to have these be adaptive pixel sizes */
-    width:150px;
+    width: 17vw;
+    height: 17vw;
 
-    //background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-orange.svg');
     background-repeat:no-repeat;
     background-size:400%;
     background-position: 33.3% 33.3%;
@@ -94,9 +93,15 @@ body {
         border-right: 1.2vw solid #323232;
     }
 }
+
+/* Hacky specific adjustment */
+.viewport-528 .battle-scoreboard-player {
+    left: 46vw;
+}
+
 .battle-scoreboard-enemy {
     left: 7%;
-    top: 13%;
+    top: 9%;
     width: 26vw;
 
     &:after {
