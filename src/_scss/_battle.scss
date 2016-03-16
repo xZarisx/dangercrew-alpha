@@ -70,17 +70,41 @@ body {
 }
 
 
-.battle-scoreboard-player {
-    font-family:"Source Code Pro", monospace;
+.battle-scoreboard-player,
+.battle-scoreboard-enemy {
+    font-family: "Source Code Pro", monospace;
+    background: #323232;
+    color: #fff;
     position: absolute;
-    left: 7%;
-    top:13%;
+    padding: 1vw;
+    left: 55vw;
+    top: 68%;
+    width: 29vw;
+    border-bottom: 0.5vw solid #111;
 }
 .battle-scoreboard-enemy {
-    font-family:"Source Code Pro", monospace;
-    position: absolute;
-    left: 67%;
-    top:62%;
+    left: 7%;
+    top: 13%;
+}
+.scoreboard-name {
+    font-size: 3vw;
+    margin-right: 1vw;
+    text-transform: uppercase;
+}
+.scoreboard-level {
+    font-size: 1.4vw;
+    color: #F8E71C;
+}
+.scoreboard-status {
+    font-size: 1.4vw;
+    //color?
+}
+
+.player-scoreboard-stat {
+    font-size: 1.3vw;
+    &:not(:last-of-type) {
+        margin-right: 2vw;
+    }
 }
 
 

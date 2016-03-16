@@ -34,7 +34,7 @@ export default function() {
         clearTimeout(resizeTimeout)
         resizeTimeout = setTimeout(function () {
             setViewport( window.outerWidth );
-        }, 100);
+        }, 50);
     };
     setViewport( window.outerWidth );
 

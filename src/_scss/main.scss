@@ -8,18 +8,22 @@ html, #app-root {
 body {
     height: 100%;
     background-image: linear-gradient(#E8E8E8, #8E9092);
-    overflow:hidden;
+    overflow: hidden;
 }
 
 
 ._ibm {
-    display:inline-block;
-    vertical-align:middle;
+    display: inline-block;
+    vertical-align: middle;
+}
+._ibb {
+    display: inline-block;
+    vertical-align: bottom;
 }
 
 ._spreading-list-item {
     /* Text on left and right of container */
-    display:flex;
+    display: flex;
     justify-content: space-between;
 }
 

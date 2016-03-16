@@ -93,26 +93,46 @@ class BattleCombatantScoreboard extends React.Component {
         incrementRolloutStation2();
     }
 
+    renderPlayerSpecificUi() {
+        return (
+            <div className="player-scoreboard-stats">
+                <div className="_ibm player-scoreboard-stat">HP {Math.round(this.state.displayHp)}/{this.props.combatant.maxHp}</div>
+                <div className="_ibm player-scoreboard-stat">PP {this.props.combatant.pp}/{this.props.combatant.maxPp}</div>
+                <div className="_ibm player-scoreboard-stat">Items: {this.props.combatant.items.length}</div>
+            </div>
+        )
+    }
+
+    renderStatusBadge() {
+        if (this.props.combatant.status == "normal") {
+            return null;
+        }
+        return (
+            <div className="_ibb scoreboard-status">{this.props.combatant.status}</div>
+        )
+    }
+
     render() {
 
         const positionClass = this.props.isPlayer ? "battle-scoreboard-player" : "battle-scoreboard-enemy"
-        const displayHp = Math.round(this.state.displayHp);
-        const hpPercent =  (displayHp / this.props.combatant.maxHp) * 100;
+        const hpPercent =  (Math.round(this.state.displayHp) / this.props.combatant.maxHp) * 100;
         const style = {
             transition: 'opacity 0.3s',
             opacity: this.state.isVisible ? 1 : 0
         };
+        const playerSpecificUi = this.props.isPlayer ? this.renderPlayerSpecificUi() : null;
 
         return (
            <div className={positionClass} style={style}>
-               <div>{this.props.combatant.name} (L{this.props.combatant.level})</div>
-               <div>HP: {displayHp} / {this.props.combatant.maxHp}</div>
+               <div className="_ibb scoreboard-name">{this.props.combatant.name}</div>
+               <div className="_ibb scoreboard-level">LVL {this.props.combatant.level}</div>
+               {this.renderStatusBadge()}
                <ScorboardHealthbar percent={hpPercent} />
-               <div>Status: {this.props.combatant.status}</div>
-               <div>Items: {this.props.combatant.items.length}</div>
+               {playerSpecificUi}
            </div>
         );
     }
+
 }
 
 export default BattleCombatantScoreboard;

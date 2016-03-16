@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 class ScoreboardHealthbar extends React.Component {
 
     getFillColor() {
-        const green = "linear-gradient(-180deg, #23E500 0%, #78EB69 38%, #0FC700 100%)";
+        const green = "linear-gradient(-180deg, #50E3C2 0%, #70F9DB 37%, #3ABD9F 100%)";
         const yellow = "linear-gradient(-180deg, #E5E200 0%, #EBE669 38%, #C7BC00 100%)";
         const red = "linear-gradient(-180deg, #E50000 0%, #EB6969 38%, #C70000 100%)";
 
@@ -20,20 +20,20 @@ class ScoreboardHealthbar extends React.Component {
 
 
     render() {
-        const borderHeight = 2;
-        const barHeight = 11;
+        //const borderHeight = 2;
+        const barHeight = '1.1vw';
         const healthBarStyle = {
-            width:110,
-            marginTop: 7,
-            marginBottom: 7,
+            width:'100%',
+            marginTop: '0.8vw',
+            marginBottom: '0.8vw',
             height:barHeight,
-            borderBottom: `${borderHeight}px solid #444`,
+            //borderBottom: `${borderHeight}px solid #444`,
             background: '#555',
             position:'relative'
         };
         const healthFillStyle = {
             width: `${this.props.percent}%`,
-            height:barHeight - borderHeight,
+            height:barHeight, //- borderHeight,
             position:'absolute',
             top: 0,
             bottom:0,
