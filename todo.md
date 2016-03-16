@@ -1,23 +1,23 @@
 Alpha Release Todo:
 ----------------------
         
-# Adjust CSS for infobox in pause menu
         
 # Transitions in and out of battles
     - Some sort of fade?
 
-# Add SFX to pause experience
-    - Pausing / Unpausing
-    - Applying new Items & Attacks
-    - Applying a level up
-    
-# Add SFX to battle results popup window
-    - Victory!
-    - XP bar filling up
-    - Level up notification
 
 
+DONE # # Adjust CSS for infobox in pause menu
 
+DONE # # Add SFX to pause experience
+           - Pausing / Unpausing
+           - Applying new Items & Attacks
+           - Applying a level up
+           
+       # Add SFX to battle results popup window
+           - Victory!
+           - XP bar filling up
+           - Level up notification
 
 DONE # Redesign battle scoreboards
 
