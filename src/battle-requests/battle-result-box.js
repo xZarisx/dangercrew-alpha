@@ -3,6 +3,26 @@ import { connect } from 'react-redux'
 import {Howl} from 'howler'
 import LevelMap from '../level-up/level-map'
 
+var reachLevelUp = new Howl({
+    urls: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/reach-levelup.mp3"]
+});
+var increaseXp = new Howl({
+    urls: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/increase-xp.mp3"]
+});
+var bellUp = new Howl({
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/bell-up.wav']
+});
+// var podClose = new Howl({
+//     urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/pod-close.wav'],
+//     volume: 0.1
+// });
+var podOpen = new Howl({
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/pod-open.wav'],
+    volume: 0.1
+});
+
+
+
 @connect((state, props) => {
     return {
         battleRequests: state.battleRequests,
@@ -33,6 +53,9 @@ class BattleResultBox extends React.Component {
         this.initialXp = this.props.playerXp;
 
         this.timeout = setTimeout(() => {
+
+            podOpen.play();
+
            this.setState({
                showSelf: true
            }, () => {
@@ -54,6 +77,9 @@ class BattleResultBox extends React.Component {
 
     showText() {
         this.timeout = setTimeout(() => {
+
+            bellUp.play();
+
             this.setState({
                 showResultText : true
             }, () => {
@@ -76,6 +102,10 @@ class BattleResultBox extends React.Component {
 
     showGain() {
         this.timeout = setTimeout(() => {
+
+            /* Play sound */
+            increaseXp.play();
+
             this.setState({
                 showXpGain : true
             }, () => {
@@ -125,6 +155,10 @@ class BattleResultBox extends React.Component {
         })
 
         this.timeout = setTimeout(() => {
+
+            /* play sound */
+            reachLevelUp.play();
+
             this.setState({
                 showLevelUp : true
             }, () => {
@@ -135,6 +169,8 @@ class BattleResultBox extends React.Component {
 
     triggerUnmount(ms=1) {
         setTimeout(() => {
+
+            /* Allow pause */
             this.props.dispatch({
                 type: "SET_RESULT_PROMPT_VALUE",
                 payload: {
