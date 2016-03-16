@@ -76,28 +76,58 @@ body {
     background: #323232;
     color: #fff;
     position: absolute;
-    padding: 1vw;
-    left: 55vw;
+    padding: 1.3vw;
     top: 68%;
-    width: 29vw;
     border-bottom: 0.5vw solid #111;
+}
+
+.battle-scoreboard-player {
+    width: 30vw;
+    left: 55vw;
+    &:after {
+        content: '';
+        position: absolute;
+        top: 48%;
+        left: -1vw;
+        border-top: 1.2vw solid transparent;
+        border-bottom: 1.2vw solid transparent;
+        border-right: 1.2vw solid #323232;
+    }
 }
 .battle-scoreboard-enemy {
     left: 7%;
     top: 13%;
+    width: 26vw;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 48%;
+        right: -1vw;
+        border-top: 1.2vw solid transparent;
+        border-bottom: 1.2vw solid transparent;
+        border-left: 1.2vw solid #323232;
+    }
 }
+
+
+
 .scoreboard-name {
     font-size: 3vw;
     margin-right: 1vw;
     text-transform: uppercase;
+    position: relative;
+    top: 0.3vw;
 }
 .scoreboard-level {
     font-size: 1.4vw;
-    color: #F8E71C;
+    margin-right: 2vw;
+    color: #DAD1DD;
 }
 .scoreboard-status {
     font-size: 1.4vw;
-    //color?
+    color: #EF5063;
+    text-transform:uppercase;
 }
 
 .player-scoreboard-stat {

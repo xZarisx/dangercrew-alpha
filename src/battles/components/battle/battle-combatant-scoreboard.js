@@ -107,8 +107,10 @@ class BattleCombatantScoreboard extends React.Component {
         if (this.props.combatant.status == "normal") {
             return null;
         }
+
+        const battleStatus = (this.props.combatant.status == "memoryLeak") ? "MEMORY LEAK" : "LAGGING";
         return (
-            <div className="_ibb scoreboard-status">{this.props.combatant.status}</div>
+            <div className="_ibb scoreboard-status">({battleStatus})</div>
         )
     }
 

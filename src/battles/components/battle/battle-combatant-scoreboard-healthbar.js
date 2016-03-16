@@ -21,7 +21,7 @@ class ScoreboardHealthbar extends React.Component {
 
     render() {
         //const borderHeight = 2;
-        const barHeight = '1.1vw';
+        const barHeight = '1.3vw';
         const healthBarStyle = {
             width:'100%',
             marginTop: '0.8vw',
