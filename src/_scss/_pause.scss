@@ -1,141 +1,152 @@
 .pause-sidebar {
     position: relative;
     width: 25%;
-    height:100%;
-    float:left;
-    font-size:1.8vw;
-    line-height:2.7vw;
-    background:#111;
-    color:#fff;
+    height: 100%;
+    float: left;
+    font-size: 1.8vw;
+    line-height: 2.7vw;
+    background: #111;
+    color: #fff;
 }
+
 .pause-sidebar-close-tip {
     position: absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    padding-bottom:1vw;
-    text-align:center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-bottom: 1vw;
+    text-align: center;
 }
+
 .pause-sidebar-profile {
-    padding:1vw;
-    line-height:2vw;
+    padding: 1vw;
+    line-height: 2vw;
 }
+
 .pause-sidebar-avatar {
-    display:block;
+    display: block;
     width: 5vw;
     height: 5vw;
-    margin-right:1vw;
+    margin-right: 1vw;
     background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/svJacob-2.svg), linear-gradient(-330deg, #58a, #ff0090);
-    background-size:400%;
+    background-size: 400%;
     background-position: 300% 100%;
 }
+
 .pause-sidebar-status {
-    padding-left:1vw;
-    padding-right:1vw;
-    padding-bottom:1vw;
-    border-bottom:1px solid #777;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 1vw;
+    border-bottom: 1px solid #777;
 }
 
 .pause-sidebar-tabs {
-    padding:1vw;
+    padding: 1vw;
     .tab-item {
-        display:flex;
+        display: flex;
         justify-content: space-between;
-        padding-left:0.5vw;
-        padding-right:0.5vw;
+        padding-left: 0.5vw;
+        padding-right: 0.5vw;
         &.is-active {
-            background:#fff;
-            color:#111;
+            background: #fff;
+            color: #111;
         }
     }
 }
 
 .pause-content {
-    padding-top:2vw;
-    padding-bottom:2vw;
-    float:left;
-    display:flex;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    float: left;
+    display: flex;
     flex-direction: column;
     width: 70%;
-    height:100%;
-    color:#fff;
+    height: 100%;
+    color: #fff;
 }
 
 /* Pause Content pages */
 .pause-content-title,
 .pause-content-body,
 .pause-content-textbox {
-    padding-left:4vw;
-    padding-right:4vw;
-    padding-top:1vw;
-    padding-bottom:1vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
 }
 
 .pause-content-title {
-    background:#111;
-    font-size:3.3vw;
+    background: #111;
+    font-size: 3.3vw;
     text-transform: uppercase;
 }
+
 .pause-content-body {
-    position:relative; // for overlays
-    background:#2D2D2D;
-    font-size:2vw;
-    line-height:2.7vw;
-    flex-grow:1;
+    position: relative; // for overlays
+    background: #2D2D2D;
+    font-size: 2vw;
+    line-height: 2.7vw;
+    flex-grow: 1;
 
     .pause-stat-item {
-        margin-bottom:1vw;
+        margin-bottom: 1vw;
         &.is-active {
-            background:#fff;
-            color:#2D2D2D;
+            background: #fff;
+            color: #2D2D2D;
         }
 
         .pause-stat-value {
-            padding-left:4vw;
-            padding-right:4vw;
+            padding-left: 4vw;
+            padding-right: 4vw;
         }
     }
 }
-.pause-content-textbox {
-    background:#393939;
-    padding-top:2vw;
-    height:24%; /* If this is problematic, just use a fixed value based on the viewport class */
-}
 
+.pause-content-textbox {
+    background: #393939;
+    padding-top: 2vw;
+    height: 24%;
+    font-size: 1.8vw;
+}
+.pause-content-textbox-title {
+    margin-bottom:0.7vw;
+}
 /* Laptop blocks */
 .pause-laptop-container {
-    display:flex;
-    padding-top:2vw;
-    padding-bottom:2vw;
+    display: flex;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
     justify-content: space-between;
     .pause-laptop-block {
-        width:11vw;
-        height:11vw;
-        background:#555;
+        width: 11vw;
+        height: 11vw;
+        background: #555;
     }
 }
+
 .pause-laptop-helper-text {
     color: rgba(white, 0.6);
-    text-align:center;
+    text-align: center;
 }
 
 /* Attacks */
 .pause-attack-item {
-    padding-left:0.5vw;
-    margin-bottom:0.5vw;
+    padding-left: 0.5vw;
+    margin-bottom: 0.5vw;
     &.is-active {
-        background:#fff;
-        color:#2D2D2D;
+        background: #fff;
+        color: #2D2D2D;
     }
 }
+
 .pause-attack-content-container {
-    display:flex;
+    display: flex;
     > div:first-of-type {
-        width:66%;
+        width: 66%;
     }
     > div:last-of-type {
-        width:33%;
-        padding-left:1vw;
+        width: 33%;
+        padding-left: 1vw;
     }
 }
 
@@ -149,21 +160,26 @@
     border-color: transparent transparent transparent #FFF;
     animation: blink 1s steps(2, start) infinite;
     &.arrow-left {
-        transform:rotate(180deg);
+        transform: rotate(180deg);
     }
     &.hide-arrow {
         visibility: hidden;
     }
 }
+
 .is-active .pause-levelup-arrow {
     border-color: transparent transparent transparent #2D2D2D;
 }
+
 .pause-levelup-value {
-    padding-left:1vw;
-    padding-right:1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
+
 .pause-levelup-done {
-    width:6vw;
+    width: 6vw;
     /* Hide blinking arrows on the Done row */
-    .pause-stat-value { display: none; }
+    .pause-stat-value {
+        display: none;
+    }
 }

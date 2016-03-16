@@ -1,9 +1,5 @@
 Alpha Release Todo:
 ----------------------
-# Redesign battle scoreboards
-
-# Adjust battle CSS to scale with different screen sizes
-    - People sizes, text sizes, etc
         
 # Adjust CSS for infobox in pause menu
         
@@ -20,10 +16,13 @@ Alpha Release Todo:
     - XP bar filling up
     - Level up notification
 
-# Build WASD support for all menus too.
-    - Let the single keyboard press binder accept an array of keyCodes
 
 
+
+DONE # Redesign battle scoreboards
+
+DONE # Adjust battle CSS to scale with different screen sizes
+    - People sizes, text sizes, etc
 
 DONE # Hook up Level up window to successfully winning a battle
 
@@ -47,6 +46,10 @@ DONE # Write descriptions for all pause menu infobox text blurbs
 
 
 DONE # BUG: You can pause while talking. Squash this bug
+
+
+DONE # Build WASD support for all menus too.
+      - Let the single keyboard press binder accept an array of keyCodes
 
 Don't Forget:
 =============

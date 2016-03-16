@@ -56,8 +56,8 @@ class PauseContent extends React.Component {
                    {this.renderBody()}
                </div>
                <div className="pause-content-textbox">
-                   <div>{this.props.infoBoxTitle}</div>
-                   <div>{this.props.infoBoxDescription}</div>
+                   <div className="pause-content-textbox-title">{this.props.infoBoxTitle}</div>
+                   <div className="pause-content-textbox-description">{this.props.infoBoxDescription}</div>
                </div>
            </div>
         );
