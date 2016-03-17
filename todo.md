@@ -18,7 +18,6 @@ Alpha Release Todo:
 
 # onboarding keyboard control instructions
 
-
 DONE # Title Screen
 
 DONE # Size title screen Jacob properly (nested style rules)

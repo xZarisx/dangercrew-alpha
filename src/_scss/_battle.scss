@@ -152,37 +152,45 @@ body {
     position:relative;
     z-index:10;
 }
-$window-header-height: 9%;
+$window-header-height: 9%; //9vw;
 .terminal-header {
     height:$window-header-height;
     border-top:1px solid #F6F6F6;
     border-bottom:1px solid #686868;
     background-image: linear-gradient(-180deg, #EBEBEB 7%, #D3D3D3 100%);
 
+    padding-left: 0.7vw;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 
-    line-height:9px;
-    padding-left:3px;
+    line-height:1vw;
 
     .terminal-header-color-circle {
-
-        width: 7px;
-        height: 7px;
-        border-radius:50%;
-        background:#333;
-        display:inline-block;
-        margin-right:5px;
-        &.red { background: #F56059; border: 1px solid darken(#F56059, 7%) }
-        &.green { background: #42CE42; border: 1px solid darken(#42CE42, 7%) }
+        width: 0.8vw;
+        height: 0.8vw;
+        border-radius: 50%;
+        background: #333;
+        display: inline-block;
+        margin-right: 5px;
+        &.red {
+            background: #F56059;
+            border: 1px solid darken(#F56059, 7%)
+        }
+        &.green {
+            background: #42CE42;
+            border: 1px solid darken(#42CE42, 7%)
+        }
     }
 }
+.viewport-352 .terminal-header-color-circle {display:none;}
+
 .terminal-body {
     font-family: "Source Code Pro", monospace;
     background:#333;
     color:#fff;
     padding:2%;
     height:100% - $window-header-height;
+    //height:30vw;
     font-size:2vw;
 }
 
