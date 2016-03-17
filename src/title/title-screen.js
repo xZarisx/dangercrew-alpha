@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../helpers/single-keypress-binding'
+import isTouchDevice from '../helpers/is-touch-device'
 
 @connect((state, props) => {
     return {
@@ -10,6 +11,14 @@ import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../helpers/sing
 class TitleScreen extends React.Component {
 
     componentDidMount() {
+
+
+
+        if (isTouchDevice()) {
+            console.warn('touch device. Show the warning')
+        };
+
+
         var self = this;
         var handleEnter = function() {
             /* Insert Sound Effect here */
