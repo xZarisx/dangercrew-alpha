@@ -59,10 +59,7 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
 
     renderGameArea() {
 
-        //if (this.props.isPaused) { /* TODO: CHANGE TO GAMEAREA */
-        //    return <PauseScreen />
-        //}
-
+        
         if (this.props.gameArea == "pause") {
             return this.renderPause();
         }
