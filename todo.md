@@ -8,7 +8,7 @@ Alpha Release Todo:
 # Transitions in and out of battles
     - Some sort of fade?
 
-# Debug iOS
+# Handle mobile "you need a real computer" messaging
 
 # Size title screen Jacob properly (nested style rules)
 

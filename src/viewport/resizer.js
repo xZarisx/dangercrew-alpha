@@ -25,7 +25,11 @@ export default function() {
 
         } else {
             //recursively try to find 11
-            setViewport(width - 1);
+            if (width > 11) {
+                setViewport(width - 1);
+            } else {
+                console.warn('couldnt set viewport width :(')
+            }
         }
     };
 
@@ -33,9 +37,9 @@ export default function() {
     window.onresize = function () {
         clearTimeout(resizeTimeout)
         resizeTimeout = setTimeout(function () {
-            setViewport( window.outerWidth );
+            setViewport( $(window).width() );
         }, 50);
     };
-    setViewport( window.outerWidth );
+    setViewport( $(window).width() );
 
 }
