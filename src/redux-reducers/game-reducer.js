@@ -31,6 +31,12 @@ export function game(state = {}, action) {
                 gameArea: action.payload.gameArea
             }
 
+        case 'SET_TRANSITION_OVERLAY_OPACITY':
+            return {
+                ...state,
+                transitionOverlayOpacity: action.payload.transitionOverlayOpacity
+            }
+
         default:
             return state;
     }

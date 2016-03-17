@@ -97,13 +97,22 @@ body {
 }
 
 /* TITLE SCREEN */
-@keyframes fwoosh-in {
-    from {opacity: scale3d(0,0,0)}
-    to {transform: scale3d(1,1,0)}
-}
 @keyframes fade-in {
     from {opacity: 0}
     to {opacity: 1}
+}
+
+
+.transition-overlay {
+    position: absolute;
+    transition: opacity 1.5s;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #111;
+    pointer-events: none;
+    z-index: 999;
 }
 
 

@@ -10,7 +10,7 @@ Alpha Release Todo:
 
 # Debug iOS
 
-
+# Size title screen Jacob properly (nested style rules)
 
 DONE # # Adjust CSS for infobox in pause menu
 

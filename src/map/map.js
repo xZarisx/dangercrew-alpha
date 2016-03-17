@@ -31,7 +31,8 @@ import TitleScreen from '../title/title-screen'
         showRequest: state.battleRequests.showRequest,
         showResult: state.battleResultPrompt.showResult,
 
-        gameArea: state.game.gameArea
+        gameArea: state.game.gameArea,
+        transitionOverlayOpacity: state.game.transitionOverlayOpacity
 
     }
 })
@@ -142,6 +143,21 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
         window.addXp(5);
     }
 
+    renderTransitionOverlay() {
+
+        if (this.props.gameArea != "map") {
+            return false
+        }
+
+        const overlayStyle = {
+            opacity: this.props.transitionOverlayOpacity
+        };
+
+        return (
+            <div className="transition-overlay" style={overlayStyle}></div>
+        )
+    }
+
     render() {
 
         const viewportStyle = {
@@ -154,8 +170,10 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
         const battleRequestBox = this.props.showRequest ? <BattleRequestBox /> : null;
         const battleResultBox = this.props.showResult ? <BattleResultBox /> : null;
 
+
         return (
             <div style={viewportStyle} className={`viewport viewport-${this.props.vpWidth}`}>
+                {this.renderTransitionOverlay()}
                 {screenState}
                 {textbox}
                 {battleRequestBox}
