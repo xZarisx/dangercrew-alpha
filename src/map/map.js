@@ -9,6 +9,8 @@ import BattleResultBox from '../battle-requests/battle-result-box'
 import MovementController from '../people/movement-controller'
 import BattleArena from '../battles/components/battle-arena'
 
+import TitleScreen from '../title/title-screen'
+
 @connect((state, props) => {
     return {
         x: state.people.player.x,
@@ -59,18 +61,19 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
 
     renderGameArea() {
 
-        
+
+        if (this.props.gameArea == "title") {
+            return <TitleScreen />;
+        }
         if (this.props.gameArea == "pause") {
             return this.renderPause();
         }
-
         if (this.props.gameArea == "battle") {
             return <BattleArena />
         }
         if (this.props.gameArea == "map") {
             return this.renderMap();
         }
-
 
         return null;
     }
@@ -157,7 +160,7 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
                 {textbox}
                 {battleRequestBox}
                 {battleResultBox}
-                {<button onClick={::this.handleDevBtn} style={{position:"absolute", bottom:0, right:0}}>Debug: win a battle</button>}
+                {/*<button onClick={::this.handleDevBtn} style={{position:"absolute", bottom:0, right:0}}>Debug: win a battle</button>*/}
             </div>
         )
     }

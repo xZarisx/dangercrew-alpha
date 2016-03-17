@@ -33,7 +33,7 @@ const store = createStore({
 
     game: {
         isPaused: false,
-        gameArea: "map" //"pause" for testing //I think only these are possible: [ map | battle | pause | title | credits? | levelup? ]
+        gameArea: "title"//"map" //"pause" for testing //I think only these are possible: [ map | battle | pause | title | credits? | levelup? ]
     },
     pauseMenu: {
         currentCursoringList: "pauseRoot", //"pauseLevelUpMenu", //"pauseRoot",

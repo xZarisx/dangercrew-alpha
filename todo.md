@@ -1,9 +1,14 @@
 Alpha Release Todo:
 ----------------------
         
+# Title Screen
         
+# Red & Green circles need to scale properly in Battle
+
 # Transitions in and out of battles
     - Some sort of fade?
+
+# Debug iOS
 
 
 
