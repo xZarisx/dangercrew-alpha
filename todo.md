@@ -12,6 +12,8 @@ Alpha Release Todo:
 
 # Size title screen Jacob properly (nested style rules)
 
+# onboarding keyboard control instructions
+
 DONE # # Adjust CSS for infobox in pause menu
 
 DONE # # Add SFX to pause experience
