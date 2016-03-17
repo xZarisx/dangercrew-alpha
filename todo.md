@@ -1,7 +1,13 @@
 Alpha Release Todo:
 ----------------------
         
-# Title Screen
+# ALL MUSIC
+    - Title
+    - Walking Around
+    - Coffee Shop
+    - Battle
+    - Battle Success
+    - Battle Failure
         
 # Red & Green circles need to scale properly in Battle
 
@@ -10,9 +16,12 @@ Alpha Release Todo:
 
 # Handle mobile "you need a real computer" messaging
 
-# Size title screen Jacob properly (nested style rules)
-
 # onboarding keyboard control instructions
+
+
+DONE # Title Screen
+
+DONE # Size title screen Jacob properly (nested style rules)
 
 DONE # # Adjust CSS for infobox in pause menu
 

@@ -65,25 +65,13 @@ class TitleScreen extends React.Component {
             animation: 'blink 1s steps(2, start) infinite'
         };
 
-        const jacobStyle = {
-            position:'absolute',
-            right: '2vw',
-            bottom: '-10px',
-            width: '180px',
-            height: '180px',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: '400%',
-            backgroundImage: 'url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/svJacob-2.svg)',
-            backgroundPosition: '33.3% 33.3%'
-        };
-
         return (
            <div style={containerStyle}>
                <div>
                     <img style={imageStyle} src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/logo.svg" />
                     <div style={enterText}>Press ENTER</div>
                </div>
-               <div style={jacobStyle}></div>
+               <div className="title-jacob"></div>
            </div>
         );
     }

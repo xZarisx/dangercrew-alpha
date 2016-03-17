@@ -102,6 +102,26 @@ body {
     to {opacity: 1}
 }
 
+.title-jacob {
+    position: absolute;
+    right: 2vw;
+    bottom: -10px;
+    width: 180px;
+    height: 180px;
+    background-repeat: no-repeat;
+    background-size: 400%;
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/svJacob-2.svg);
+    background-position: 33.3% 33.3%;
+}
+.viewport-352 .title-jacob {bottom: -10px; width: 80px; height: 80px;}
+.viewport-528 .title-jacob {bottom: -10px; width: 130px; height: 130px;}
+.viewport-704 .title-jacob {bottom: -10px; width: 180px; height: 180px;}
+.viewport-880 .title-jacob {bottom: -10px; width: 220px; height: 220px;}
+.viewport-1056 .title-jacob {bottom: -10px; width: 250px; height: 250px;}
+.viewport-1232 .title-jacob {bottom: -10px; width: 290px; height: 290px;} //TODO
+.viewport-1408 .title-jacob {bottom: -10px; width: 290px; height: 290px;} //TODO
+.viewport-1584 .title-jacob {bottom: -10px; width: 290px; height: 290px;} //TODO
+
 
 .transition-overlay {
     position: absolute;
