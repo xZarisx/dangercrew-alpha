@@ -102,8 +102,8 @@ export default {
         }
     },
     "footEvents": {
-        "5x8": {type: "map-transition", playerDirection: 'down', map: "someMapToLoad"},
-        "6x8": {type: "map-transition", playerDirection: 'down', map: "someMapToLoad"},
+        "5x8": {type: "map-transition", playerDirection: 'down', mapName: "devColorStreet"},
+        "6x8": {type: "map-transition", playerDirection: 'down', mapName: "devColorStreet"},
 
         //Battle Zones
         "5x5": {type: "battle-zone"},

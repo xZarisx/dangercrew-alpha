@@ -2,15 +2,10 @@ import store from '../init/store';
 import {loadMap} from '../map/load-map'
 import {getUpdatedX, getUpdatedY} from './location-helpers'
 import handleBattleZoneTrigger from '../battle-requests/battle-request-handler'
-
-/* HARDCODED FOR TESTING */
-import TestCoffeeMap from '../_data/maps/alpha-coffeeshop-map'
-
+import Maps from '../_data/maps/maps'
 
 var LocationService = function() {
     var self = this;
-
-
 
     self.reserved = {};
 
@@ -76,10 +71,15 @@ var LocationService = function() {
 
             const playerDirection = store.getState().people.player.dir;
             if (playerDirection == action.playerDirection) {
-                console.log('LOAD', TestCoffeeMap); /* HARDCODED FOR NOW */
-                setTimeout(() => {
-                    loadMap(TestCoffeeMap)
-                }, 300)
+
+                if (!Maps[action.mapName]) {
+                    console.warn('mapName known')
+                    return false;
+                }
+
+                //setTimeout(() => { /* setTimeout in case you want to transition a fade in/out? */
+                    loadMap(Maps[action.mapName])
+                //}, 300)
             }
         }
 
