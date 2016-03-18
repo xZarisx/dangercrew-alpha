@@ -10,12 +10,12 @@ import Person from './people/person';
 import Map from './map/map';
 import PauseController from './pause/pause-controller'
 
-
 /* Loading a map */
 import {loadMap, getJSON} from './map/load-map'
 import { getQueryVariable } from './helpers/get-url-parameter'
-import TestMap from './_data/maps/dev-colorstreet-map'
 
+import TestMap from './_data/maps/dev-colorstreet-map'
+import AlphaCoffeeMap from './_data/maps/alpha-coffeeshop-map'
 
 
 class GameIndex extends React.Component {
@@ -25,7 +25,7 @@ class GameIndex extends React.Component {
 
         //Load a map
         //Option to load from URL bar for testing. Probably take this out of the full game?
-        const mapToLoad = window.location.hash.match(/#useMap=/) ? getJSON(window.location.hash.split('#useMap=')[1]) : TestMap;
+        const mapToLoad = window.location.hash.match(/#useMap=/) ? getJSON(window.location.hash.split('#useMap=')[1]) : AlphaCoffeeMap;
         loadMap(mapToLoad);
 
         /* DEV TOOL - Launch in battle mode */

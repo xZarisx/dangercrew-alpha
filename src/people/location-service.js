@@ -73,8 +73,14 @@ var LocationService = function() {
 
         /* MAP TRANSITION */
         if (action && action.type == "map-transition") {
-            console.log('LOAD', TestCoffeeMap); /* HARDCODED FOR NOW */
-            loadMap(TestCoffeeMap)
+
+            const playerDirection = store.getState().people.player.dir;
+            if (playerDirection == action.playerDirection) {
+                console.log('LOAD', TestCoffeeMap); /* HARDCODED FOR NOW */
+                setTimeout(() => {
+                    loadMap(TestCoffeeMap)
+                }, 300)
+            }
         }
 
         /* STEP ON A BATTLE ZONE */
