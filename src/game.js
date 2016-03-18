@@ -11,7 +11,6 @@ import Map from './map/map';
 import PauseController from './pause/pause-controller'
 
 
-
 /* Loading a map */
 import {loadMap, getJSON} from './map/load-map'
 import { getQueryVariable } from './helpers/get-url-parameter'
@@ -30,7 +29,7 @@ class GameIndex extends React.Component {
         loadMap(mapToLoad);
 
         /* DEV TOOL - Launch in battle mode */
-        seedBattle(); //Toggle this line on/off. Should be off for production build
+        //seedBattle(); //Toggle this line on/off. Should be off for production build
 
 
     }

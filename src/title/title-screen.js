@@ -10,19 +10,31 @@ import isTouchDevice from '../helpers/is-touch-device'
 
 class TitleScreen extends React.Component {
 
+    constructor() {
+        super();
+        this.state = {
+            isPromptBlinking: true,
+            isMobileWarning: false,
+        }
+    }
+
     componentDidMount() {
-
-
+        var self = this;
 
         if (isTouchDevice()) {
-            console.warn('touch device. Show the warning')
-        };
+            //console.warn('touch device. Show the warning')
+            self.setState({
+                isMobileWarning: true
+            });
+        }
 
 
-        var self = this;
         var handleEnter = function() {
             /* Insert Sound Effect here */
 
+            self.setState({
+               isPromptBlinking: false
+            });
 
             setTimeout(function() {
                 /* TODO: refactor game reducer to use utilities. That will clean this up */
@@ -41,7 +53,7 @@ class TitleScreen extends React.Component {
                     });
                 }, 1000)
 
-            }, 600);
+            }, 800);
         };
         addKeyboardSinglePress(13, handleEnter, 'title-screen')
     }
@@ -50,6 +62,40 @@ class TitleScreen extends React.Component {
         removeKeyboardSinglePress('title-screen')
     }
 
+    renderText() {
+
+        if (this.state.isMobileWarning) {
+            const warningText = {
+                fontFamily: '"Source Code Pro", monospace',
+                textAlign: 'center',
+                fontSize: '2vw',
+                maxWidth: '40vw',
+                margin: '0 auto',
+                position: 'relative',
+                top: '-1vw',
+                lineHeight: '2.5vw',
+            };
+            return (
+                <div style={warningText}>
+                    <div>Oh no!</div>
+                    <div>Unforunately, this game is "desktop only" for the moment. Check back soon!</div>
+                </div>
+            )
+        }
+
+        const enterText = {
+            fontFamily: '"Source Code Pro", monospace',
+            textAlign: 'center',
+            fontSize: '3vw',
+            position: 'relative',
+            top: '-1vw',
+            animation: (this.state.isPromptBlinking) ? 'blink 1s steps(2, start) infinite' : 'none'
+        };
+
+        return (
+            <div style={enterText}>Press ENTER</div>
+        )
+    }
 
     render() {
         const containerStyle = {
@@ -65,20 +111,11 @@ class TitleScreen extends React.Component {
             margin: '7vw auto 0 auto'
         };
 
-        const enterText = {
-            fontFamily: '"Source Code Pro", monospace',
-            textAlign: 'center',
-            fontSize: '3vw',
-            position: 'relative',
-            top: '-1vw',
-            animation: 'blink 1s steps(2, start) infinite'
-        };
-
         return (
            <div style={containerStyle}>
                <div>
                     <img style={imageStyle} src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/logo.svg" />
-                    <div style={enterText}>Press ENTER</div>
+                    {this.renderText()}
                </div>
                <div className="title-jacob"></div>
            </div>
