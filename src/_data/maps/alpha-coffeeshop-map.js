@@ -38,7 +38,7 @@ export default {
         "8x0": {"id": "wall_c5e17c74"}
     },
     "people": {
-        "player": {"dir": "down", "x": 6, "y": 8},
+        "player": {"dir": "up", "x": 5, "y": 8},
         "npc_6c91g149": {
             "x": 1,
             "y": 6,
@@ -102,8 +102,8 @@ export default {
         }
     },
     "footEvents": {
-        "5x8": {type: "map-transition", playerDirection: 'down', mapName: "devColorStreet"},
-        "6x8": {type: "map-transition", playerDirection: 'down', mapName: "devColorStreet"},
+        "5x8": {type: "map-transition", playerDirection: 'down', useCoords:[6,0], mapName: "devColorStreet"},
+        "6x8": {type: "map-transition", playerDirection: 'down', useCoords:[7,0], mapName: "devColorStreet"},
 
         //Battle Zones
         "5x5": {type: "battle-zone"},

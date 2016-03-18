@@ -1,8 +1,9 @@
 Danger Studio
 --------------
 
-# EXPORT JSON button ?
-    - Might not need this. Just use firebase URL
+# EXPORT JSON button
+    - needs to do the formatting/contracting
+    - Firebase .json link is not enough
 
 # Battle Zones
 
@@ -18,6 +19,10 @@ Alpha Release Todo:
     - Battle Failure
         
 # Implement map-swapping from Coffee to Street and back
+    - It's there, but need to add "same space" detection. Switch when your character doesnt move, but you still
+    hit the right moving direction.
+
+
 
 DONE # onboarding keyboard control instructions
 

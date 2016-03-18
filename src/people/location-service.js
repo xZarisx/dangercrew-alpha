@@ -77,8 +77,9 @@ var LocationService = function() {
                     return false;
                 }
 
+                self.reserved = {};
                 //setTimeout(() => { /* setTimeout in case you want to transition a fade in/out? */
-                    loadMap(Maps[action.mapName])
+                    loadMap(Maps[action.mapName], action.useCoords)
                 //}, 300)
             }
         }

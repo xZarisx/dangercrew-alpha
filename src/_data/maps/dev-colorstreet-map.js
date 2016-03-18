@@ -27,7 +27,8 @@ export default {
         }
     },
     footEvents: {
-        "6x0": {type: "map-transition", map: "someMapToLoad"},
+        "6x0": {type: "map-transition", playerDirection: "up", useCoords:[5,8], mapName: "alphaCoffee"},
+        "7x0": {type: "map-transition", playerDirection: "up", useCoords:[6,8], mapName: "alphaCoffee"},
 
         //Battle Zones
         "8x6": {

@@ -15,7 +15,7 @@ export function getJSON(urlvar) {
 }
 
 
-export function loadMap(map = {}) {
+export function loadMap(map = {}, coords) {
 
     store.dispatch({
         type: "REMOVE_NPCS"
@@ -24,11 +24,19 @@ export function loadMap(map = {}) {
     for (var id in map.people) {
 
         const person_id = id;
-        const person = map.people[person_id];
+        var person = map.people[person_id];
 
         var npcBehaviorData = {...person.behaviorData}
         if (person.useBehavior == "roaming") {
             npcBehaviorData.pathIndex = 0;
+        }
+
+        /* Use "useCoords" X & Y for player */
+        if (person_id == "player") {
+            if (coords) {
+                person.x = coords[0];
+                person.y = coords[1];
+            }
         }
 
         store.dispatch({
