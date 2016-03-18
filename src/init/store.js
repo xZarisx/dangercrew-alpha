@@ -32,9 +32,10 @@ const store = createStore({
     },
 
     game: {
-        transitionOverlayOpacity: 1,
+        transitionOverlayOpacity: 0,  //should be 1
+        showOnboardingPopup: true,
         isPaused: false,
-        gameArea: "title"//"title" //"pause" for testing //I think only these are possible: [ map | battle | pause | title | credits? | levelup? ]
+        gameArea: "map"//"title" //I think only these are possible: [ map | battle | pause | title | credits? | levelup? ]
     },
     pauseMenu: {
         currentCursoringList: "pauseRoot", //"pauseLevelUpMenu", //"pauseRoot",

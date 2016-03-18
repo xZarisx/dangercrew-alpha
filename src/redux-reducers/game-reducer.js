@@ -37,6 +37,12 @@ export function game(state = {}, action) {
                 transitionOverlayOpacity: action.payload.transitionOverlayOpacity
             }
 
+        case 'SET_ONBOARDING_POPUP':
+            return {
+                ...state,
+                showOnboardingPopup: action.payload.showOnboardingPopup
+            }
+
         default:
             return state;
     }

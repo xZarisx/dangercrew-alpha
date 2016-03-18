@@ -85,7 +85,7 @@ class BattleRequestBox extends React.Component {
             fontSize: '3vw',
             fontFamily: 'monospace',
             width:'46vw', //temp
-            background: '#333',
+            background: '#111',
             color: '#fff'
         };
 

@@ -203,3 +203,25 @@ body {
         opacity: 1.0;
     }
 }
+
+
+/* onboarding */
+.onboarding-controls-box {
+    font-family: "Source Code Pro", monospace;
+    position: absolute;
+    left: 1vw;
+    top: 1vw;
+    font-size: 4vw;
+    color: #fff;
+    padding: 1vw;
+    background: #111;
+    text-align:center;
+
+    .box-title {
+        margin-bottom:1.6vw;
+    }
+    .control-group {
+        .control-title {font-size: 2.2vw;}
+        .control-key {font-size: 1.8vw; margin-bottom:2vw; color: #ddd;}
+    }
+}

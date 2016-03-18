@@ -77,8 +77,7 @@ class TitleScreen extends React.Component {
             };
             return (
                 <div style={warningText}>
-                    <div>Oh no!</div>
-                    <div>Unforunately, this game is "desktop only" for the moment. Check back soon!</div>
+                    <div>This game is "desktop only" for the moment. Check back soon!</div>
                 </div>
             )
         }

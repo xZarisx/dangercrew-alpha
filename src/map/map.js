@@ -8,6 +8,7 @@ import BattleRequestBox from '../battle-requests/battle-request-box'
 import BattleResultBox from '../battle-requests/battle-result-box'
 import MovementController from '../people/movement-controller'
 import BattleArena from '../battles/components/battle-arena'
+import OnboardingControls from './onboarding-controls'
 
 import TitleScreen from '../title/title-screen'
 
@@ -178,6 +179,7 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
                 {textbox}
                 {battleRequestBox}
                 {battleResultBox}
+                <OnboardingControls />
                 {/*<button onClick={::this.handleDevBtn} style={{position:"absolute", bottom:0, right:0}}>Debug: win a battle</button>*/}
             </div>
         )

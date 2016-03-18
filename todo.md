@@ -1,3 +1,12 @@
+Danger Studio
+--------------
+
+# EXPORT JSON button ?
+    - Might not need this. Just use firebase URL
+
+# Battle Zones
+
+
 Alpha Release Todo:
 ----------------------
         
@@ -11,10 +20,7 @@ Alpha Release Todo:
         
 # Red & Green circles need to scale properly in Battle
 
-# Transitions in and out of battles
-    - Some sort of fade?
-
-# Handle mobile "you need a real computer" messaging
+# Implement map-swapping from Coffee to Street and back
 
 # onboarding keyboard control instructions
 
@@ -65,6 +71,9 @@ DONE # BUG: You can pause while talking. Squash this bug
 
 DONE # Build WASD support for all menus too.
       - Let the single keyboard press binder accept an array of keyCodes
+
+DONE # Handle mobile "you need a real computer" messaging
+
 
 Don't Forget:
 =============
