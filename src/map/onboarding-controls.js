@@ -48,7 +48,16 @@ class OnboardingControls extends React.Component {
 
 
 
-        }, 1200)
+        }, 3000)
+    }
+
+    componentWillUnmount() {
+        this.props.dispatch({
+            type: "SET_ONBOARDING_POPUP",
+            payload: {
+                showOnboardingPopup: false
+            }
+        })
     }
 
     render() {

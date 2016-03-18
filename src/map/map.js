@@ -170,6 +170,7 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
         const textbox = this.props.isShowingTextbox ? <Textbox /> : null;
         const battleRequestBox = this.props.showRequest ? <BattleRequestBox /> : null;
         const battleResultBox = this.props.showResult ? <BattleResultBox /> : null;
+        const onboarding = (this.props.gameArea == "map") ? <OnboardingControls /> : null;
 
 
         return (
@@ -179,7 +180,7 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
                 {textbox}
                 {battleRequestBox}
                 {battleResultBox}
-                <OnboardingControls />
+                {onboarding}
                 {/*<button onClick={::this.handleDevBtn} style={{position:"absolute", bottom:0, right:0}}>Debug: win a battle</button>*/}
             </div>
         )
