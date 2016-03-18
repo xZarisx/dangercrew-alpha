@@ -11,18 +11,15 @@ Alpha Release Todo:
 ----------------------
         
 # ALL MUSIC
-    - Title
     - Walking Around
     - Coffee Shop
     - Battle
     - Battle Success
     - Battle Failure
         
-# Red & Green circles need to scale properly in Battle
-
 # Implement map-swapping from Coffee to Street and back
 
-# onboarding keyboard control instructions
+DONE # onboarding keyboard control instructions
 
 DONE # Title Screen
 
@@ -74,6 +71,7 @@ DONE # Build WASD support for all menus too.
 
 DONE # Handle mobile "you need a real computer" messaging
 
+DONE # # Red & Green circles need to scale properly in Battle
 
 Don't Forget:
 =============
