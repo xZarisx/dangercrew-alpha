@@ -72,11 +72,12 @@ class TitleScreen extends React.Component {
                 maxWidth: '40vw',
                 margin: '0 auto',
                 position: 'relative',
-                top: '-1vw',
+                top: '1vw',
                 lineHeight: '2.5vw',
             };
             return (
                 <div style={warningText}>
+                    <div>Uh oh!</div>
                     <div>This game is "desktop only" for the moment. Check back soon!</div>
                 </div>
             )
