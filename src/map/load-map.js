@@ -57,10 +57,11 @@ export function loadMap(map = {}, coords) {
     }
 
 
-
+    /* CONTRACT */
     store.dispatch({
         type: "LOAD_MAP",
         map: {
+            musicTrackId: map.musicTrackId,
             width:map.width,
             height:map.height,
             backgroundImage:map.backgroundImage,

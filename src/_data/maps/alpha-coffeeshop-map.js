@@ -1,4 +1,5 @@
 export default {
+    "musicTrackId" : "coffeeShop",
     "backgroundImage": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/263408/031516_southNorth.svg",
     "width": "9",
     "height": "9",
@@ -45,7 +46,7 @@ export default {
             "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew.svg",
             "dir": "down",
             "useBehavior": "stationary",
-            "behaviorData": {"rotationDirections": ["left", "right"], "doesRotate": true},
+            "behaviorData": {"rotationDirections": ["left", "right", "up", "down"], "doesRotate": true},
             "interaction": {
                 "type": "dialog",
                 "content": [["I hear there's a guy in a suit who's willing to pay for developers' good ideas."], ["Gee,", "@@pause_600@@", "you think it's true?"]]

@@ -18,7 +18,7 @@ Alpha Release Todo:
     - Battle Success
     - Battle Failure
 
-        
+# Optimize size of title svg        
         
         
         

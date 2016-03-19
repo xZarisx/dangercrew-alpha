@@ -12,6 +12,9 @@ import OnboardingControls from './onboarding-controls'
 
 import TitleScreen from '../title/title-screen'
 
+import MusicPlayer from '../music/music-player'
+
+
 @connect((state, props) => {
     return {
         x: state.people.player.x,
@@ -33,12 +36,42 @@ import TitleScreen from '../title/title-screen'
         showResult: state.battleResultPrompt.showResult,
 
         gameArea: state.game.gameArea,
-        transitionOverlayOpacity: state.game.transitionOverlayOpacity
+        transitionOverlayOpacity: state.game.transitionOverlayOpacity,
 
+        mapMusicTrackId: state.map.musicTrackId
     }
 })
 
 class Map extends React.Component { /* Considering this the "frame" rather than the "map" */
+
+    componentDidMount() {
+        /* Only for dev. Kick off music if starting the game in map mode */
+        if (this.props.gameArea == "map") {
+            console.log('DEV: kick off the music!', this.props.mapMusicTrackId);
+            MusicPlayer.playTrack(this.props.mapMusicTrackId)
+        }
+    }
+
+    componentWillUpdate(newProps) {
+        /* Kick off the map music when entering map mode */
+        if (newProps.gameArea == "map" && this.props.gameArea != "map") {
+            console.log('kick off the music!');
+            MusicPlayer.playTrack(this.props.mapMusicTrackId)
+            return;
+        }
+
+        /* Change music track when entering a map with a different mapMusicTrack defined */
+        if (newProps.mapMusicTrackId != this.props.mapMusicTrackId) {
+            if (!newProps.mapMusicTrackId) {
+                console.warn('music track not defined in new map')
+            }
+            console.log('change the music track!', newProps.mapMusicTrackId);
+            MusicPlayer.playTrack(newProps.mapMusicTrackId)
+            return;
+        }
+
+    }
+
 
     getTranslateValue() {
 

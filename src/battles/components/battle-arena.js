@@ -14,7 +14,7 @@ import Animations from '../components/battle/animations'
 import getIntroMessage from '../components/messaging/get-intro-message'
 
 /* DEV COMPONENTS */
-//import AudioPlayer from '../audio-player'
+import MusicPlayer from '../../music/music-player'
 
 
 @connect((state, props) => {
@@ -42,6 +42,9 @@ class Arena extends React.Component {
     }
 
     componentDidMount() {
+
+        /* Play battle music */
+        MusicPlayer.playTrack('battle');
 
         /* Set the intro message */
         this.props.dispatch({
