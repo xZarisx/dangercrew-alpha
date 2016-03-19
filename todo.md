@@ -11,19 +11,19 @@ Danger Studio
 Alpha Release Todo:
 ----------------------
         
-# ALL MUSIC
-    - Walking Around
-    - Coffee Shop
-    - Battle
-    - Battle Success
-    - Battle Failure
 
-# Optimize size of title svg
         
 # Add "mute background music" icon
         
         
         
+done # Optimize size of title svg
+done (good enough) # ALL MUSIC
+    - Walking Around
+    - Coffee Shop
+    - Battle
+    - Battle Success
+    - Battle Failure
         
 DONE # Implement map-swapping from Coffee to Street and back
 
