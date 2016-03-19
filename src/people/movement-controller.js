@@ -177,6 +177,7 @@ class MovementController extends React.Component {
             return false;
         }
 
+
         this.props.dispatch({
             type: 'UPDATE_DIRECTION',
             direction: direction,
@@ -187,6 +188,12 @@ class MovementController extends React.Component {
         if (!LocationService.isFree(this.getUpdatedX(direction), this.getUpdatedY(direction))) {
             //Stop if it aint free
             this.stopMoving();
+
+            /* Check actions to see if we are against a map transition cell */
+            /* This is really only used if you are against the end of a map, because you
+             * weren't facing the right direction when entering this cell */
+            LocationService.checkActions(this.props.playerX, this.props.playerY);
+
 
             return;
         }

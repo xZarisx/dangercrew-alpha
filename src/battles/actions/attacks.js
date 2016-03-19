@@ -32,8 +32,8 @@ export default {
         name: "forEach",
         animation: "forEach1",
         description: "Hits the opponent 2 to 5 times",
-        repetitions: [2, 5],
-        affectTargetHpPoints: 4,
+        repetitions: [2, 4],
+        affectTargetHpPoints: 3,
         ppCost: 4
     },
     action_attack_repetitions_002: {
@@ -42,7 +42,7 @@ export default {
         animation: "forEach1",
         description: "Hits the opponent a little harder, 3 to 7 times",
         repetitions: [3, 7],
-        affectTargetHpPoints: 5,
+        affectTargetHpPoints: 4,
         ppCost: 7
     },
 

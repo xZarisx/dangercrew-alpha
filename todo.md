@@ -22,6 +22,7 @@ Alpha Release Todo:
     - It's there, but need to add "same space" detection. Switch when your character doesnt move, but you still
     hit the right moving direction.
 
+# Put baseRoll back in Defense, but reduce it. Maybe a smaller base roll?
 
 
 DONE # onboarding keyboard control instructions
