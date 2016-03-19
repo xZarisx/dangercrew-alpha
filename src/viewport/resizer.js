@@ -12,14 +12,27 @@ export default function() {
         var limit = acceptedSizes[acceptedSizes.length-1];
         width = (width <= limit ) ? width : limit;
 
-        if (acceptedSizes.indexOf(width) != -1) {
+        const widthMatch = acceptedSizes.indexOf(width);
+        if (widthMatch != -1) {
+
             var height = (7/11) * width;
+
+            /* Quick fix 3/19: Check if height is acceptable. If not, use one setting down */
+            if ($(window).height() < height) {
+                //Use one setting down.
+                if (widthMatch > 0) {
+                    width = acceptedSizes[widthMatch-1];
+                    height = (7/11) * width;
+                }
+
+            }
+
 
             store.dispatch({
                 type: "SET_VIEWPORT_SIZE",
                 width: width,
                 height: height
-            })
+            });
 
             return;
 

@@ -93,7 +93,11 @@ body {
     }
 }
 
+
 /* Hacky specific adjustment */
+.viewport-704 .battle-scoreboard-player {
+    left: 49vw;
+}
 .viewport-528 .battle-scoreboard-player {
     left: 46vw;
 }

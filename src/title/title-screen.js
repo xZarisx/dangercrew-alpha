@@ -5,7 +5,8 @@ import isTouchDevice from '../helpers/is-touch-device'
 import {Howl} from 'howler'
 
 var enterSound = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/speedup.ogg']
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/speedup.ogg'],
+    volume: 0.7
 });
 
 @connect((state, props) => {
@@ -59,7 +60,7 @@ class TitleScreen extends React.Component {
                     });
                 }, 1000)
 
-            }, 800);
+            }, 4000);
         };
         addKeyboardSinglePress(13, handleEnter, 'title-screen')
     }
