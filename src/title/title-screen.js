@@ -2,6 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../helpers/single-keypress-binding'
 import isTouchDevice from '../helpers/is-touch-device'
+import {Howl} from 'howler'
+
+var enterSound = new Howl({
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/speedup.ogg']
+});
 
 @connect((state, props) => {
     return {
@@ -31,6 +36,7 @@ class TitleScreen extends React.Component {
 
         var handleEnter = function() {
             /* Insert Sound Effect here */
+            enterSound.play();
 
             self.setState({
                isPromptBlinking: false
