@@ -1,4 +1,4 @@
-import {baseRoll, coinToss} from '../../helpers/numbers-helper'
+import {baseRoll, coinToss, getRandomInRange} from '../../helpers/numbers-helper'
 
 export default function(combatant={}) {
     if (typeof combatant != "object") {
@@ -14,8 +14,9 @@ export default function(combatant={}) {
         attackRoll: (
             baseRoll() + combatant.attackStatPoints + combatant.attackModifier
         ),
-        defenseRoll: ( //Modification 3/14/2015. Losing baseRoll to make Defense less stacked
-            /*baseRoll() +*/ combatant.defenseStatPoints + combatant.defenseModifier
+        defenseRoll: ( //Modification 3/18/2015. Reducing baseRoll to make Defense less stacked
+            //baseRoll() + combatant.defenseStatPoints + combatant.defenseModifier
+            getRandomInRange(2,5) + combatant.defenseStatPoints + combatant.defenseModifier
         ),
 
         efficiencyRating: (

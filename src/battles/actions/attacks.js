@@ -15,7 +15,7 @@ export default {
         name: "Slice",
         animation: "shootingStar",
         description: "Quick zinger",
-        affectTargetHpPoints:6,
+        affectTargetHpPoints:5,
         ppCost: 3
     },
     action_attack_basic_002: {
@@ -31,7 +31,7 @@ export default {
         ...actionSchema,
         name: "forEach",
         animation: "forEach1",
-        description: "Hits the opponent 2 to 5 times",
+        description: "Hits the opponent 2 to 4 times",
         repetitions: [2, 4],
         affectTargetHpPoints: 3,
         ppCost: 4
@@ -42,7 +42,7 @@ export default {
         animation: "forEach1",
         description: "Hits the opponent a little harder, 3 to 7 times",
         repetitions: [3, 7],
-        affectTargetHpPoints: 4,
+        affectTargetHpPoints: 5,
         ppCost: 7
     },
 

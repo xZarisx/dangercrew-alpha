@@ -17,13 +17,15 @@ Alpha Release Todo:
     - Battle
     - Battle Success
     - Battle Failure
+
         
-# Implement map-swapping from Coffee to Street and back
-    - It's there, but need to add "same space" detection. Switch when your character doesnt move, but you still
-    hit the right moving direction.
+        
+        
+        
+        
+DONE # Implement map-swapping from Coffee to Street and back
 
-# Put baseRoll back in Defense, but reduce it. Maybe a smaller base roll?
-
+DONE # Put baseRoll back in Defense, but reduce it. Maybe a smaller base roll?
 
 DONE # onboarding keyboard control instructions
 
