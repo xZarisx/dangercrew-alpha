@@ -54,7 +54,7 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
 
     componentWillUpdate(newProps) {
         /* Kick off the map music when entering map mode */
-        if (newProps.gameArea == "map" && this.props.gameArea != "map") {
+        if (newProps.gameArea == "map" && this.props.gameArea != "map" && this.props.gameArea != "pause") {
             console.log('kick off the music!');
             MusicPlayer.playTrack(this.props.mapMusicTrackId)
             return;
