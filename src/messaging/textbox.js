@@ -6,34 +6,34 @@ import store from '../init/store'
 import { Howl } from 'howler'
 
 var typeBlip = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/Blip-0.0_bip_3.1.wav'],
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/Blip_0.ogg'],
     volume: 0.5
 });
 
 var bellDown = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/bell-down.wav']
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/bell_down.ogg']
 });
 var bellUp = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/bell-up.wav']
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/bell_up.ogg']
 });
 var blipHi = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/blip-hi.wav']
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/blip_hi.ogg']
 });
 var blipLo = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/blip-lo.wav']
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/blip_lo.ogg']
 });
 var exclaimDown = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/exclaim-down.wav']
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/exclaim_down.ogg']
 });
 var exclaimUp = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/exclaim-up.wav']
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/exclaim_up.ogg']
 });
 var podClose = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/pod-close.wav'],
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/pod_close.ogg'],
     volume: 0.1
 });
 var podOpen = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/pod-open.wav'],
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/pod_open.ogg'],
     volume: 0.1
 });
 

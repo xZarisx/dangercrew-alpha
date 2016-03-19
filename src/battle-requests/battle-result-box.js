@@ -10,15 +10,15 @@ var increaseXp = new Howl({
     urls: ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/increase-xp.mp3"]
 });
 var bellUp = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/bell-up.wav'],
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/bell_up.ogg'],
     volume: 0.4
 });
 // var podClose = new Howl({
-//     urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/pod-close.wav'],
+//     urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/pod_close.ogg'],
 //     volume: 0.1
 // });
 var podOpen = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/pod-open.wav'],
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/pod_open.ogg'],
     volume: 0.2
 });
 

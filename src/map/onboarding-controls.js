@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {Howl} from 'howler'
 
 var bellDown = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/bell-down.wav'],
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/bell_down.ogg'],
     volume: 0.4
 });
 

@@ -5,7 +5,7 @@ import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../../../helper
 import {incrementRolloutStation2} from '../../rollout/rollout-station-navigator'
 
 var typeBlip = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/Blip-0.0_bip_3.1.wav'],
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/Blip_0.ogg'],
     volume: 0.5
 });
 
