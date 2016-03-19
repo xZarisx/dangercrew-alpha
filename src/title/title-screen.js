@@ -121,7 +121,7 @@ class TitleScreen extends React.Component {
         return (
            <div style={containerStyle}>
                <div>
-                    <img style={imageStyle} src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/logo.svg" />
+                    <img style={imageStyle} src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/logo.min.svg" />
                     {this.renderText()}
                </div>
                <div className="title-jacob"></div>
@@ -129,14 +129,5 @@ class TitleScreen extends React.Component {
         );
     }
 }
-
-TitleScreen.propTypes = {
-    /*someRequiredProp: React.PropTypes.string.isRequired*/
-}
-
-TitleScreen.defaultProps = {
-}
-
-
 
 export default TitleScreen;
