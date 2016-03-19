@@ -19,7 +19,7 @@ var MusicPlayer = {
             }
         },
         "coffeeShop": {
-            url: "http://googledrive.com/host/0B-r3CbUUdt0nZHR1SWtrMEI1NHM/fibonacci5.ogg",
+            url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/fibonacci5.ogg",
             volume: 0.3
         },
         "walkingOutside": {

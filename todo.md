@@ -18,7 +18,9 @@ Alpha Release Todo:
     - Battle Success
     - Battle Failure
 
-# Optimize size of title svg        
+# Optimize size of title svg
+        
+# Add "mute background music" icon
         
         
         
