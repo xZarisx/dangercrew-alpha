@@ -2,6 +2,16 @@ html {
     overflow:hidden;
 }
 
+/* Preload the maps */
+body:after{
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+    /* PRELOAD THESE IMAGES */
+    content:
+            url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/263408/031516_southNorth.svg)
+            url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/dangerMap.svg);
+            //url(img03.png);
+}
+
 .cell {
     position: absolute;
     width:16px;

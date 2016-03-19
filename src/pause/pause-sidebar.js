@@ -65,7 +65,8 @@ class PauseSidebar extends React.Component {
                        <div>XP</div><div>{this.props.xp}</div>
                    </div>
                    <div className="_spreading-list-item">
-                       <div>NEXT LVL</div><div>{nextLevel}</div>
+                       <div>NEXT LVL IN
+                       </div><div>{nextLevel}</div>
                    </div>
                    <div className="_spreading-list-item">
                        <div>COINS</div><div>{this.props.coins}</div>
