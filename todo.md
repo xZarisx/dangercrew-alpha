@@ -13,10 +13,10 @@ Alpha Release Todo:
         
 
         
-# Add "mute background music" icon
         
 # Remove console logs        
         
+done # Add "mute background music" icon
 done # Optimize size of title svg
 
 done (good enough) # ALL MUSIC
