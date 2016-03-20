@@ -19,7 +19,9 @@ import AlphaCoffeeMap from './_data/maps/alpha-coffeeshop-map'
 
 
 /* Playing music */
-import MusicPlayer from './music/music-player'
+import AudioOption from './music/audio-option'
+
+
 
 class GameIndex extends React.Component {
 
@@ -43,6 +45,7 @@ class GameIndex extends React.Component {
     render() {
         return (
                 <div className="ui-wrapper">
+                    <AudioOption />
                     <Map />
                     <ReduxStateDisplayer />
                 </div>

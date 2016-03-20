@@ -1,3 +1,5 @@
+import { setValue } from '../helpers/reducer-utilities'
+
 export function game(state = {}, action) {
 
     switch(action.type) {
@@ -42,6 +44,9 @@ export function game(state = {}, action) {
                 ...state,
                 showOnboardingPopup: action.payload.showOnboardingPopup
             }
+
+        case "SET_GAME_VALUE":
+            return setValue(state, action.payload.changes);
 
         default:
             return state;

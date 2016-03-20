@@ -108,7 +108,6 @@ class MovementController extends React.Component {
     }
 
     componentWillUnmount() {
-        console.log('UNMOUNT')
         this.keyQueue = [];
         $(document).off('.player-movement');
         $(document).off('.action-button-controller'); /* TODO: move this to a better spot */
@@ -251,7 +250,7 @@ class MovementController extends React.Component {
                 });
                 self.addKey(direction);
             } else {
-                console.log('setTimeout')
+                //console.log('setTimeout')
                 setTimeout(function() {
                     //FUTURE SELF: this might cause weird problems in DPad movement.
                     //re-try the move action if Player is moving.

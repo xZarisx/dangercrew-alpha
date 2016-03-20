@@ -15,9 +15,10 @@ Alpha Release Todo:
         
 # Add "mute background music" icon
         
-        
+# Remove console logs        
         
 done # Optimize size of title svg
+
 done (good enough) # ALL MUSIC
     - Walking Around
     - Coffee Shop
