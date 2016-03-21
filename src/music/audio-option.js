@@ -25,9 +25,14 @@ class AudioOption extends React.Component {
         /* Interact with music player. This is the only interaction with Howler for this feature */
         if (newValue == true) {
             window.Howler.unmute();
+
+            this.refs.link.blur();
             return;
         }
+
+
         window.Howler.mute();
+        this.refs.link.blur();
     }
 
     render() {
@@ -48,7 +53,7 @@ class AudioOption extends React.Component {
 
         return (
            <div style={style}>
-               <a href="#" onClick={::this.handleSwitch} style={soundIconStyle}>
+               <a ref="link" href="#" onClick={::this.handleSwitch} style={soundIconStyle}>
                    {soundIcon}
                </a>
            </div>
