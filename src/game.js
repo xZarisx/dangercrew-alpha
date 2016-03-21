@@ -14,7 +14,8 @@ import PauseController from './pause/pause-controller'
 import {loadMap, getJSON} from './map/load-map'
 import { getQueryVariable } from './helpers/get-url-parameter'
 
-import TestMap from './_data/maps/dev-colorstreet-map'
+//import TestMap from './_data/maps/dev-colorstreet-map'
+import AlphaStreetMap from './_data/maps/alpha-street-map'
 import AlphaCoffeeMap from './_data/maps/alpha-coffeeshop-map'
 
 
@@ -33,7 +34,7 @@ class GameIndex extends React.Component {
 
         //Load a map
         //Option to load from URL bar for testing. Probably take this out of the full game?
-        const mapToLoad = window.location.hash.match(/#useMap=/) ? getJSON(window.location.hash.split('#useMap=')[1]) : TestMap; //AlphaCoffeeMap to load coffee shop on start
+        const mapToLoad = window.location.hash.match(/#useMap=/) ? getJSON(window.location.hash.split('#useMap=')[1]) : AlphaStreetMap; //AlphaCoffeeMap to load coffee shop on start
         loadMap(mapToLoad);
 
         /* DEV TOOL - Launch in battle mode */

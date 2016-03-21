@@ -103,8 +103,8 @@ export default {
         }
     },
     "footEvents": {
-        "5x8": {type: "map-transition", playerDirection: 'down', useCoords:[6,0], mapName: "devColorStreet"},
-        "6x8": {type: "map-transition", playerDirection: 'down', useCoords:[7,0], mapName: "devColorStreet"},
+        "5x8": {type: "map-transition", playerDirection: 'down', useCoords:[10,8], mapName: "alphaStreet"},
+        "6x8": {type: "map-transition", playerDirection: 'down', useCoords:[10,8], mapName: "alphaStreet"},
 
         //Battle Zones
         "5x5": {type: "battle-zone"},
