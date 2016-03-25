@@ -7,12 +7,14 @@ import Person from '../people/person';
 import BattleRequestBox from '../battle-requests/battle-request-box'
 import BattleResultBox from '../battle-requests/battle-result-box'
 import MovementController from '../people/movement-controller'
+import MobileDirectionPad from '../people/mobile-direction-pad'
 import BattleArena from '../battles/components/battle-arena'
 import OnboardingControls from './onboarding-controls'
 
 import TitleScreen from '../title/title-screen'
 
 import MusicPlayer from '../music/music-player'
+
 
 
 @connect((state, props) => {
@@ -38,7 +40,8 @@ import MusicPlayer from '../music/music-player'
         gameArea: state.game.gameArea,
         transitionOverlayOpacity: state.game.transitionOverlayOpacity,
 
-        mapMusicTrackId: state.map.musicTrackId
+        mapMusicTrackId: state.map.musicTrackId,
+        isAllowingMusic: state.game.isAllowingMusic
     }
 })
 
@@ -48,7 +51,9 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
         /* Only for dev. Kick off music if starting the game in map mode */
         if (this.props.gameArea == "map") {
             //console.log('DEV: kick off the music!', this.props.mapMusicTrackId);
-            MusicPlayer.playTrack(this.props.mapMusicTrackId)
+            if (this.props.isAllowingMusic) {
+                MusicPlayer.playTrack(this.props.mapMusicTrackId)
+            }
         }
     }
 
@@ -56,7 +61,10 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
         /* Kick off the map music when entering map mode */
         if (newProps.gameArea == "map" && this.props.gameArea != "map" && this.props.gameArea != "pause") {
             //console.log('kick off the music!');
-            MusicPlayer.playTrack(this.props.mapMusicTrackId)
+
+            if (this.props.isAllowingMusic) {
+                MusicPlayer.playTrack(this.props.mapMusicTrackId)
+            }
             return;
         }
 
@@ -66,7 +74,9 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
                 console.warn('music track not defined in new map')
             }
             console.log('change the music track!', newProps.mapMusicTrackId);
-            MusicPlayer.playTrack(newProps.mapMusicTrackId)
+            if (this.props.isAllowingMusic) {
+                MusicPlayer.playTrack(newProps.mapMusicTrackId)
+            }
             return;
         }
 
@@ -214,6 +224,7 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
                 {battleRequestBox}
                 {battleResultBox}
                 {onboarding}
+                <MobileDirectionPad />
                 {/*<button onClick={::this.handleDevBtn} style={{position:"absolute", bottom:0, right:0}}>Debug: win a battle</button>*/}
             </div>
         )

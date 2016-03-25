@@ -1,0 +1,46 @@
+* {
+    -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+    /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+}
+
+
+.mobile-dpad {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 32vw;
+    height: 32vw;
+    background: wheat;
+
+    &.dpad-active {
+        background: lighten(wheat,7%);
+    }
+
+
+    .circle {
+        $hitbox-size: 10vw;
+
+    }
+    .hitbox {
+        position: absolute;
+        z-index: 11;
+        $hitbox-size: 10vw;
+        width: $hitbox-size;
+        height: $hitbox-size;
+        background: darken(wheat, 12%);
+
+        &.hb-active {
+            background:blue;
+        }
+
+        &.hb-up { top:0; left: 50%; margin-left:-$hitbox-size/2; }
+        &.hb-down { bottom:0; left: 50%; margin-left:-$hitbox-size/2; }
+        &.hb-left { top:50%; left: 0; margin-top:-$hitbox-size/2; }
+        &.hb-right { top:50%; right: 0; margin-top:-$hitbox-size/2; }
+    }
+}

@@ -18,6 +18,14 @@ gulp.task('s', function() {
         ghostMode: false
     });
 });
+gulp.task('sync-assets', function() {
+    browserSync({
+        proxy: "localhost:8080",
+        port:3003,
+        files: ['**/*.js', '**/*.css'],
+        ghostMode: false
+    });
+});
 
 
 gulp.task('sass:watch', function () {
