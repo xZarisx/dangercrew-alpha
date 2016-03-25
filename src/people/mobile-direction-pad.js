@@ -1,8 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Move from './move'
+import store from '../init/store'
+import LocationService from './location-service'
 
 @connect((state, props) => {
     return {
+        playerX: state.people.player.x, /* For updating */
+        playerY: state.people.player.y,
+        playerDirection: state.people.player.dir,
+        moving: state.people.player.moving
     }
 })
 
@@ -13,6 +20,16 @@ class MobileDirectionPad extends React.Component {
         this.state = {
             isTouching: false,
             lastDirectionTouched: null
+        }
+    }
+
+    componentWillUpdate(newProps, newState) {
+        if (this.state.lastDirectionTouched != newState.lastDirectionTouched) {
+            //this.props.onDirectionChange();
+
+            if (newState.lastDirectionTouched && !newProps.moving) {
+                this.startMoving(newState.lastDirectionTouched);
+            }
         }
     }
 
@@ -73,6 +90,93 @@ class MobileDirectionPad extends React.Component {
             }
         });
 
+    }
+
+    startMoving(direction) {
+        /* cancel if paused or dialoguing */
+        if (store.getState().game.isPaused) {
+            return false;
+        }
+        if (store.getState().message.messaging) {
+            return false;
+        }
+
+        this.props.dispatch({
+            type: 'UPDATE_DIRECTION',
+            direction: direction,
+            mover_id: "player"
+        });
+
+        if (!LocationService.isFree(this.getUpdatedX(direction), this.getUpdatedY(direction))) {
+            //Stop if it aint free
+            this.stopMoving();
+
+            /* Check actions to see if we are against a map transition cell */
+            /* This is really only used if you are against the end of a map, because you
+             * weren't facing the right direction when entering this cell */
+            LocationService.checkActions(this.props.playerX, this.props.playerY);
+
+
+            return;
+        }
+
+        LocationService.reserveCell(this.getUpdatedX(direction), this.getUpdatedY(direction), "player")
+
+        this.props.dispatch({
+            type: 'START_MOVING',
+            mover_id: "player"
+        })
+
+        Move("player", () => {
+
+            //Done
+            LocationService.removeReservedCell(this.props.playerX, this.props.playerY);
+
+            this.props.dispatch({
+                type: 'UPDATE_PLAYER_POSITION',
+                x: this.getUpdatedX(direction),
+                y: this.getUpdatedY(direction),
+                mover_id: "player"
+            });
+
+            //Check this position for any actions!
+            LocationService.checkActions(this.props.playerX, this.props.playerY);
+
+
+            if (this.state.lastDirectionTouched) {
+                this.startMoving(this.state.lastDirectionTouched)
+            } else {
+                this.stopMoving();
+            }
+
+        });
+    }
+
+    stopMoving() {
+        this.props.dispatch({
+            type: 'STOP_MOVING',
+            mover_id: "player"
+        })
+    }
+
+    getUpdatedX(direction) {
+        if (direction == "left") {
+            return this.props.playerX - 1;
+        }
+        if (direction == "right") {
+            return this.props.playerX + 1;
+        }
+        return this.props.playerX;
+    }
+
+    getUpdatedY(direction) {
+        if (direction == "up") {
+            return this.props.playerY - 1;
+        }
+        if (direction == "down") {
+            return this.props.playerY + 1;
+        }
+        return this.props.playerY;
     }
 
 

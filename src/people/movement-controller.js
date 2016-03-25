@@ -237,41 +237,38 @@ class MovementController extends React.Component {
     }
 
 
-    handleDPadPress(direction) {
-
-        //check again to see
-        var self = this;
-        var move = function() {
-            if (!self.props.moving) {
-                self.props.dispatch({
-                    type: 'UPDATE_DIRECTION',
-                    direction: direction,
-                    mover_id: "player"
-                });
-                self.addKey(direction);
-            } else {
-                //console.log('setTimeout')
-                setTimeout(function() {
-                    //FUTURE SELF: this might cause weird problems in DPad movement.
-                    //re-try the move action if Player is moving.
-                    move();
-                }, 10);
-            }
-        }
-        move();
-
-    }
-    handleDPadRelease(direction) {
-        //console.log('DPadRelease direction', direction);
-        this.releaseKey(direction);
-    }
+    // handleDPadPress(direction) {
+    //
+    //     //check again to see
+    //     var self = this;
+    //     var move = function() {
+    //         if (!self.props.moving) {
+    //             self.props.dispatch({
+    //                 type: 'UPDATE_DIRECTION',
+    //                 direction: direction,
+    //                 mover_id: "player"
+    //             });
+    //             self.addKey(direction);
+    //         } else {
+    //             //console.log('setTimeout')
+    //             setTimeout(function() {
+    //                 //FUTURE SELF: this might cause weird problems in DPad movement.
+    //                 //re-try the move action if Player is moving.
+    //                 move();
+    //             }, 10);
+    //         }
+    //     }
+    //     move();
+    // }
+    // handleDPadRelease(direction) {
+    //     //console.log('DPadRelease direction', direction);
+    //     this.releaseKey(direction);
+    // }
 
     render() {
-        return null; //FOR NOW
 
-        //return (
-        //    <DPad handlePress={::this.handleDPadPress} handleRelease={::this.handleDPadRelease}/>
-        //)
+
+        return null;
     }
 }
 
