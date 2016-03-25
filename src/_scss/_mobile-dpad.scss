@@ -15,18 +15,33 @@
     bottom: 0;
     width: 32vw;
     height: 32vw;
-    background: wheat;
+    //background: wheat;
 
     &.dpad-active {
-        background: lighten(wheat,7%);
+        //background: lighten(wheat,7%);
+
+        .dot {
+            opacity:1;
+            transform:translate3d(0,0,0) !important;
+        }
     }
 
 
     .circle {
-        $hitbox-size: 10vw;
-
+        $circle-size: 15vw;
+        border-radius: 50%;
+        position: absolute;
+        width: $circle-size;
+        height: $circle-size;
+        border: 1vw solid rgba(white, 0.6);
+        left:50%;
+        top:50%;
+        margin-left: -$circle-size/2;
+        margin-top: -$circle-size/2;
+        z-index: 12;
     }
     .hitbox {
+        visibility: hidden;
         position: absolute;
         z-index: 11;
         $hitbox-size: 10vw;
@@ -35,12 +50,54 @@
         background: darken(wheat, 12%);
 
         &.hb-active {
-            background:blue;
+            visibility: visible;
+            background: rgba(white, 0.5);
         }
 
         &.hb-up { top:0; left: 50%; margin-left:-$hitbox-size/2; }
         &.hb-down { bottom:0; left: 50%; margin-left:-$hitbox-size/2; }
         &.hb-left { top:50%; left: 0; margin-top:-$hitbox-size/2; }
         &.hb-right { top:50%; right: 0; margin-top:-$hitbox-size/2; }
+    }
+
+    .dot {
+        z-index:13;
+        pointer-events: none;
+        width: 3vw;
+        height: 3vw;
+        position: absolute;
+        background: rgba(white, 0.7);
+        opacity: 0;
+        transition: opacity 0.3s, transform 0.3s;
+
+        $dot-distance: 10vw;
+        &.dot-left {
+            top:50%;
+            margin-top:-1.5vw;
+            left:0;
+            margin-left: 3vw;
+            transform:translate3d($dot-distance,0,0);
+        }
+        &.dot-right {
+            top:50%;
+            margin-top:-1.5vw;
+            right:0;
+            margin-right: 3vw;
+            transform:translate3d(-$dot-distance,0,0);
+        }
+        &.dot-up {
+            top:0;
+            margin-left:-1.5vw;
+            left: 50%;
+            margin-top: 3vw;
+            transform:translate3d(0,$dot-distance,0);
+        }
+        &.dot-down {
+            bottom:0;
+            margin-left:-1.5vw;
+            left: 50%;
+            margin-bottom: 3vw;
+            transform:translate3d(0,-$dot-distance,0);
+        }
     }
 }

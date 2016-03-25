@@ -21,26 +21,10 @@ class MobileDirectionPad extends React.Component {
         var $body = $('body');
         var $dpad = $('.mobile-dpad');
 
-        const leftBorder = $dpad.offset().left;  //may get messed up on resize
-        const dpadWidth = $dpad.width();
-        const dpadHeight = $dpad.height();
-        const halfHorizontalPoint = leftBorder + (dpadWidth / 2);
-
-        console.log('leftBorder', leftBorder)
-        console.log('dpadWidth', dpadWidth, dpadWidth/2)
-
-
-        // const topRightCorner = topLeftCorner+$dpad.width();  //may get messed up on resize
-        // const bottomLeftCorner = topLeftCorner + $dpad.height();
-
-
         const upCoords = $('.hb-up')[0].getBoundingClientRect();
         const downCoords = $('.hb-down')[0].getBoundingClientRect();
         const leftCoords = $('.hb-left')[0].getBoundingClientRect();
         const rightCoords =$('.hb-right')[0].getBoundingClientRect();
-
-        console.log(upCoords)
-
 
         function isInBox(topEdge, bottomEdge, leftEdge, rightEdge, userX, userY) {
             const isValidHorizontal = (userX >= leftEdge && userX <= rightEdge);
@@ -48,13 +32,11 @@ class MobileDirectionPad extends React.Component {
             return isValidHorizontal && isValidVertical;
         }
 
-
-
         $body.on('mousemove touchmove', function(e) {
             e.preventDefault();
         });
 
-        $body.on('mousedown touchstart', function() {
+        $('.js-dpad-circle').on('mousedown touchstart', function() {
             self.setState({ isTouching: true });
         });
 
@@ -90,22 +72,6 @@ class MobileDirectionPad extends React.Component {
 
             }
         });
-        // $('.hb-down').on('mousemove touchmove', function(e) {
-        //     if (self.state.isTouching) {
-        //         self.setState({lastDirectionTouched: "down"});
-        //     }
-        // });
-        // $('.hb-left').on('mousemove touchmove', function(e) {
-        //     if (self.state.isTouching) {
-        //         self.setState({lastDirectionTouched: "left"});
-        //     }
-        // });
-        // $('.hb-right').on('mousemove touchmove', function(e) {
-        //     if (self.state.isTouching) {
-        //         self.setState({lastDirectionTouched: "right"});
-        //     }
-        // });
-
 
     }
 
@@ -120,6 +86,13 @@ class MobileDirectionPad extends React.Component {
 
         return (
            <div className={`mobile-dpad ${activeClass}`}>
+               <div className="circle js-dpad-circle"></div>
+
+               <div className='dot dot-up'></div>
+               <div className='dot dot-down'></div>
+               <div className='dot dot-left'></div>
+               <div className='dot dot-right'></div>
+
                <div className={`hitbox hb-up ${activeUpClass}`}></div>
                <div className={`hitbox hb-down ${activeDownClass}`}></div>
                <div className={`hitbox hb-left ${activeLeftClass}`}></div>
