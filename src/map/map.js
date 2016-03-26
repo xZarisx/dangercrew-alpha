@@ -10,6 +10,7 @@ import MovementController from '../people/movement-controller'
 import MobileDirectionPad from '../people/mobile-direction-pad'
 import BattleArena from '../battles/components/battle-arena'
 import OnboardingControls from './onboarding-controls'
+import MobilePauseButton from '../pause/mobile-pause-btn'
 
 import TitleScreen from '../title/title-screen'
 
@@ -214,8 +215,9 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
         const battleRequestBox = this.props.showRequest ? <BattleRequestBox /> : null;
         const battleResultBox = this.props.showResult ? <BattleResultBox /> : null;
         const onboarding = (this.props.gameArea == "map") ? <OnboardingControls /> : null;
+        const mobilePauseButton = (this.props.gameArea == "map") ? <MobilePauseButton /> : null;
 
-
+        /* Most of these things are "fixed position" inside the game's viewport */
         return (
             <div style={viewportStyle} className={`viewport viewport-${this.props.vpWidth}`}>
                 {this.renderTransitionOverlay()}
@@ -224,6 +226,7 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
                 {battleRequestBox}
                 {battleResultBox}
                 {onboarding}
+                {mobilePauseButton}
                 <MobileDirectionPad />
                 {/*<button onClick={::this.handleDevBtn} style={{position:"absolute", bottom:0, right:0}}>Debug: win a battle</button>*/}
             </div>

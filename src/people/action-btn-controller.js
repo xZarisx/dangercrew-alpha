@@ -14,14 +14,10 @@ export default function ActionButtonController() {
 
     /* Mobile bindings */
     /* Keeping this here as a jQuery binding because the functionality for talking is right here */
-    console.log('bind')
     $('.viewport').on('click', '.player', function() {
         console.log('yep');
         ctrl.handleActionButton();
     });
-
-
-
 
     $(document).on('keydown.action-button-controller', (e) => {
         if (e.which == actionKey && ctrl.btnSafe) {
@@ -51,7 +47,7 @@ export default function ActionButtonController() {
         }
 
 
-        console.log('action button');
+        //console.log('action button');
         const interaction = LocationService.getInteraction();
 
 
