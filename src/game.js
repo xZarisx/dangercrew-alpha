@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import FastClick from 'fastclick'
 
 /* Dev Tools */
 import ReduxStateDisplayer from './dev-tools/redux-state-displayer'
@@ -29,6 +30,11 @@ class GameIndex extends React.Component {
     constructor(props) {
         super(props);
 
+        /* Apply FastClick for mobile play */
+        $(function() {
+            FastClick.attach(document.body);
+        });
+
         /* Init game music */
         //MusicPlayer.playTrack("coffeeShop")
 
@@ -39,6 +45,8 @@ class GameIndex extends React.Component {
 
         /* DEV TOOL - Launch in battle mode */
         seedBattle(); //Toggle this line on/off. Should be off for production build
+
+
 
 
     }
