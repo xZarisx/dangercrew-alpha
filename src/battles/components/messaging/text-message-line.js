@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import {Howl} from 'howler'
-import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../../../helpers/single-keypress-binding';
 import {incrementRolloutStation2} from '../../rollout/rollout-station-navigator'
 
 var typeBlip = new Howl({

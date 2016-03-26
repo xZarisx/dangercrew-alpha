@@ -63,7 +63,7 @@ class IntroText extends React.Component {
             handleEnter();
         });
     }
-
+    
     render() {
 
         if (!this.state.show || !this.props.introMessage) {

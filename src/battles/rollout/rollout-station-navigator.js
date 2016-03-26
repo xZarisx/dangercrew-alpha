@@ -182,6 +182,12 @@ export function incrementRolloutStation2() {
         //bind key to exit battle
         addKeyboardSinglePress(13, handleExitBattleEnter, 'exitBattle');
 
+
+        /* Mobile Tap */
+        $('.message-board').on('click.exitBattle', function() {
+            handleExitBattleEnter();
+        });
+
         return;
     }
 
@@ -224,7 +230,13 @@ export function incrementRolloutStation2() {
                 removeKeyboardSinglePress('beforeConfirmation');
                 incrementRolloutStation2();
             };
+
             addKeyboardSinglePress(13, handleEnter, 'beforeConfirmation');
+
+            /* Mobile Tap */
+            $('.message-board').on('click.beforeConfirmation', function() {
+                handleEnter();
+            });
             return;
         }
     }
@@ -295,7 +307,12 @@ export function incrementRolloutStation2() {
                 removeKeyboardSinglePress('afterConfirmation');
                 incrementRolloutStation2();
             };
+
             addKeyboardSinglePress(13, handleEnter, 'afterConfirmation');
+            /* Mobile Tap */
+            $('.message-board').on('click.afterConfirmation', function() {
+                handleEnter();
+            });
             return;
         }
     }

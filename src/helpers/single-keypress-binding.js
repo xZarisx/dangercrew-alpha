@@ -35,4 +35,10 @@ export function removeKeyboardSinglePress(namespace) {
     }
 
     $(document).off( '.'+namespace );
+
+    /* HACK: This is danger crew specific. Mobile battle events are mounted to $('.message-board') */
+    if ($('.message-board').length) {
+        $('.message-board').off('.' + namespace);
+    }
+
 }
