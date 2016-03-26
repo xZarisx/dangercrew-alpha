@@ -23,7 +23,7 @@ var MusicPlayer = {
             volume: 0.3
         },
         "walkingOutside": {
-            url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/walking-outside2.ogg",
+            url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/walking_outside2.mp3",
             volume: 0.2
         },
         "dangerWaltz" : {
