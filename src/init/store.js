@@ -35,7 +35,7 @@ const store = createStore({
     },
 
     game: {
-        isAllowingMusic: false, //true
+        isAllowingMusic: true, //true
         transitionOverlayOpacity: 0,  //should be 1
         showOnboardingPopup: false, //true
         isPaused: false,
