@@ -27,6 +27,10 @@ class BattleRequestBox extends React.Component {
         }
     }
 
+    handleMobileTab() {
+        initBattleFromRequest();
+    }
+
     componentDidMount() {
 
         exclaimUp.play();
@@ -102,7 +106,7 @@ class BattleRequestBox extends React.Component {
 
 
         return (
-           <div style={style}>
+           <div style={style} onClick={::this.handleMobileTab}>
                <div>
                    Battle Request
                    <div style={{float:'right'}}>

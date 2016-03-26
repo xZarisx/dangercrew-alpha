@@ -9,7 +9,8 @@ import LocationService from './location-service'
         playerX: state.people.player.x, /* For updating */
         playerY: state.people.player.y,
         playerDirection: state.people.player.dir,
-        moving: state.people.player.moving
+        moving: state.people.player.moving,
+        gameArea: state.game.gameArea
     }
 })
 
@@ -61,6 +62,10 @@ class MobileDirectionPad extends React.Component {
 
         $('.viewport').on('mousedown touchstart', function(e) {
             //console.log( e.originalEvent.pageX, e.originalEvent.pageY )
+
+            if (self.props.gameArea != "map") {
+                return;
+            }
 
 
             const gameViewportLeft = $(this)[0].getBoundingClientRect().left;
@@ -227,6 +232,7 @@ class MobileDirectionPad extends React.Component {
 
         const indicatorStyle = {
             position: 'absolute',
+            visibility: this.state.isTouching ? "visible" : "hidden",
             width: 10,
             height: 10,
             marginLeft: -5,

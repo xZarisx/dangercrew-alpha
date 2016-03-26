@@ -23,7 +23,8 @@ import MusicPlayer from '../../music/music-player'
         rollout: state.rollout,
         combatants: state.combatants,
         rolloutIndex: state.battleUi.rolloutIndex,
-        rolloutEventStation: state.battleUi.rolloutEventStation
+        rolloutEventStation: state.battleUi.rolloutEventStation,
+        isAllowingMusic: state.game.isAllowingMusic
     }
 })
 
@@ -44,7 +45,9 @@ class Arena extends React.Component {
     componentDidMount() {
 
         /* Play battle music */
-        MusicPlayer.playTrack('battle');
+        if (this.props.isAllowingMusic) {
+            MusicPlayer.playTrack('battle');
+        }
 
         /* Set the intro message */
         this.props.dispatch({

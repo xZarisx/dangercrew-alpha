@@ -30,7 +30,9 @@ class SubmissionMenu extends React.Component {
         var self = this;
         var handleUp = function() {
             if (self.props.terminalMenuSelectedIndex > 0) {
+
                 sound_menuMove.play();
+
                 self.props.dispatch({
                     type: "SET_TERMINAL_MENU_INDEX",
                     payload: {
@@ -42,7 +44,9 @@ class SubmissionMenu extends React.Component {
         var handleDown = function() {
             const itemIndexMax = self.terminalViewData[self.props.terminalMenuKey].items.length-1;
             if (self.props.terminalMenuSelectedIndex < itemIndexMax) {
+
                 sound_menuMove.play();
+
                 self.props.dispatch({
                     type: "SET_TERMINAL_MENU_INDEX",
                     payload: {
@@ -53,33 +57,8 @@ class SubmissionMenu extends React.Component {
         };
 
         var handleEnter = function() {
-            const nextView = self.terminalViewData[self.props.terminalMenuKey].items[self.props.terminalMenuSelectedIndex].nextView || null;
-
-            if (!nextView) {
-                /* It probably/must have an action! */
-                /* Submit the action! */
-                const actionId = self.terminalViewData[self.props.terminalMenuKey].items[self.props.terminalMenuSelectedIndex].actionId;
-                if (actionId) {
-                    sound_submit.play();
-                    makeSubmission(actionId, self.props.playerId, self.props.playerTargeting);
-                } else {
-                    console.warn('no actionId for enter key')
-                }
-                return;
-            }
-
-            self.props.dispatch({
-                type: "SET_TERMINAL_MENU_KEY",
-                payload: {
-                    terminalMenuKey: nextView
-                }
-            });
-            self.props.dispatch({
-                type: "SET_TERMINAL_MENU_INDEX",
-                payload: {
-                    terminalMenuSelectedIndex: 0
-                }
-            });
+            console.log('ENTER!');
+            self.handleMenuSubmit();
         };
 
         var handleEsc = function() {
@@ -115,20 +94,71 @@ class SubmissionMenu extends React.Component {
         removeKeyboardSinglePress('submission-menu')
     }
 
+    handleMenuSubmit() {
+        var self = this;
+        /* What happens when you press Enter or tab an option */
+        const nextView = self.terminalViewData[self.props.terminalMenuKey].items[self.props.terminalMenuSelectedIndex].nextView || null;
+
+        if (!nextView) {
+            /* It probably/must have an action! */
+            /* Submit the action! */
+            const actionId = self.terminalViewData[self.props.terminalMenuKey].items[self.props.terminalMenuSelectedIndex].actionId;
+            if (actionId) {
+                sound_submit.play();
+                makeSubmission(actionId, self.props.playerId, self.props.playerTargeting);
+            } else {
+                console.warn('no actionId for enter key')
+            }
+            return;
+        }
+
+        self.props.dispatch({
+            type: "SET_TERMINAL_MENU_KEY",
+            payload: {
+                terminalMenuKey: nextView
+            }
+        });
+        self.props.dispatch({
+            type: "SET_TERMINAL_MENU_INDEX",
+            payload: {
+                terminalMenuSelectedIndex: 0
+            }
+        });
+    }
+
+
+    handleMobileTap(arrayIndex) {
+
+        console.log('MOBILE TAP!', arrayIndex);
+
+        this.props.dispatch({
+            type: "SET_TERMINAL_MENU_INDEX",
+            payload: {
+                terminalMenuSelectedIndex: arrayIndex
+            }
+        });
+
+        setTimeout(()=> {
+            this.handleMenuSubmit();
+        }, 60)
+    }
+
     render() {
         const menuData = this.terminalViewData;
 
         const view = menuData[this.props.terminalMenuKey];
+
         const items = view.items.map((item, i) => {
+
             const activeClass = (i == this.props.terminalMenuSelectedIndex) ? "terminal-item-active" : null;
             const quantityIndicator = (item.quantity > 1) ? `(x${item.quantity})` : null;
             const ppCostIndicator = (typeof item.ppCost == "number") ? `${item.ppCost}` : null;
             return (
-                <tr className={`terminal-item ${activeClass}`} key={i}>
+                <tr className={`terminal-item ${activeClass}`} key={i} onClick={this.handleMobileTap.bind(this,i)}>
                     <td className="command-title">{item.label}</td>
                     <td className="command-price-quantity">
                         {quantityIndicator}
-                        {/*ppCostIndicator*/}
+                        {ppCostIndicator}
                     </td>
                     <td className="command-description">{item.description}</td>
                 </tr>

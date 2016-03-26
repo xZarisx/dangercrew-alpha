@@ -38,7 +38,7 @@ class GameIndex extends React.Component {
         loadMap(mapToLoad);
 
         /* DEV TOOL - Launch in battle mode */
-        //seedBattle(); //Toggle this line on/off. Should be off for production build
+        seedBattle(); //Toggle this line on/off. Should be off for production build
 
 
     }
