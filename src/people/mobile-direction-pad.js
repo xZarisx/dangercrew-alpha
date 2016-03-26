@@ -40,6 +40,7 @@ class MobileDirectionPad extends React.Component {
         var $body = $('body');
         var $dpad = $('.mobile-dpad');
 
+
         var upCoords, downCoords, leftCoords, rightCoords;
         function updateCoords() {
             upCoords = $('.hb-up')[0].getBoundingClientRect();
@@ -59,12 +60,21 @@ class MobileDirectionPad extends React.Component {
         });
 
         $('.viewport').on('mousedown touchstart', function(e) {
-            console.log( e.originalEvent.pageX, e.originalEvent.pageY )
+            //console.log( e.originalEvent.pageX, e.originalEvent.pageY )
+
+
+            const gameViewportLeft = $(this)[0].getBoundingClientRect().left;
+            const gameViewportTop = $(this)[0].getBoundingClientRect().top;
+
+
             self.setState({
                 isTouching: true,
-                initialTouchX: e.originalEvent.pageX,
-                initialTouchY: e.originalEvent.pageY
+                initialTouchX: e.originalEvent.pageX - gameViewportLeft,
+                initialTouchY: e.originalEvent.pageY - gameViewportTop
             });
+
+            updateCoords();
+
 
         });
 
@@ -75,12 +85,21 @@ class MobileDirectionPad extends React.Component {
             });
         });
 
-        $dpad.on('mousemove touchmove', function(e) {
+        $('.viewport').on('mousemove touchmove', function(e) {
+
+            const gameViewportLeft = $(this)[0].getBoundingClientRect().left;
+            const gameViewportTop = $(this)[0].getBoundingClientRect().top;
+            self.setState({
+                indicatorX: e.originalEvent.pageX - gameViewportLeft,
+                indicatorY: e.originalEvent.pageY - gameViewportTop
+            });
 
             if (self.state.isTouching) {
-                //console.log(e);
-                const x =  e.originalEvent.pageX;
-                const y =  e.originalEvent.pageY;
+
+                const x =  e.originalEvent.pageX; //e.originalEvent.pageX;
+                const y =  e.originalEvent.pageY; //e.originalEvent.pageY;
+
+                
 
                 if (isInBox(upCoords.top, upCoords.bottom, upCoords.left, upCoords.right, x, y)) {
                     self.setState({ lastDirectionTouched: "up" });
@@ -200,24 +219,43 @@ class MobileDirectionPad extends React.Component {
         const activeRightClass = this.state.lastDirectionTouched == "right" ? "hb-active" : "";
 
         const dpadStyle = {
-            left: this.state.initialTouchX - 120, /* half of 40 */
-            top: this.state.initialTouchY - 60
+            visibility: this.state.isTouching ? "visible" : "hidden",
+            left: this.state.initialTouchX - 90, /* half of 120 */
+            top: this.state.initialTouchY - 90
+        };
+
+        const indicatorStyle = {
+            position: 'absolute',
+            width: 10,
+            height: 10,
+            marginLeft: -5,
+            marginTop: -5,
+            zIndex: 20,
+            background: "blue",
+            left: this.state.indicatorX,
+            top: this.state.indicatorY
         };
         
         return (
-           <div style={dpadStyle} className={`mobile-dpad ${activeClass}`}>
-               <div className="circle js-dpad-circle"></div>
+            <div>
+                <div style={indicatorStyle}></div>
 
-               {/*<div className='dot dot-up'></div>*/}
-                {/*<div className='dot dot-down'></div>*/}
-                {/*<div className='dot dot-left'></div>*/}
-                {/*<div className='dot dot-right'></div>*/}
+                <div style={dpadStyle} className={`mobile-dpad ${activeClass}`}>
 
-               <div className={`hitbox hb-up ${activeUpClass}`}></div>
-               <div className={`hitbox hb-down ${activeDownClass}`}></div>
-               <div className={`hitbox hb-left ${activeLeftClass}`}></div>
-               <div className={`hitbox hb-right ${activeRightClass}`}></div>
-           </div>
+
+                    <div className="circle js-dpad-circle"></div>
+
+                    {/*<div className='dot dot-up'></div>*/}
+                    {/*<div className='dot dot-down'></div>*/}
+                    {/*<div className='dot dot-left'></div>*/}
+                    {/*<div className='dot dot-right'></div>*/}
+
+                    <div className={`hitbox hb-up ${activeUpClass}`}></div>
+                    <div className={`hitbox hb-down ${activeDownClass}`}></div>
+                    <div className={`hitbox hb-left ${activeLeftClass}`}></div>
+                    <div className={`hitbox hb-right ${activeRightClass}`}></div>
+                </div>
+            </div>
         );
     }
 }

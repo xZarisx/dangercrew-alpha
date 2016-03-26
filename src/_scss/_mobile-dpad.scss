@@ -11,9 +11,9 @@
 
 .mobile-dpad {
     position: absolute;
-    width: 120px;
-    height: 120px;
-    background: wheat;
+    width: 180px;
+    height: 180px;
+    //background: red;
 
     &.dpad-active {
         //background: lighten(wheat,7%);
@@ -26,7 +26,7 @@
 
 
     .circle {
-        $circle-size: 40px;
+        $circle-size: 60px;
         border-radius: 50%;
         position: absolute;
         width: $circle-size;
@@ -39,10 +39,10 @@
         z-index: 12;
     }
     .hitbox {
-        visibility: visible;
+        visibility: hidden;
         position: absolute;
         z-index: 11;
-        $hitbox-size: 40px;
+        $hitbox-size: 60px;
         width: $hitbox-size;
         height: $hitbox-size;
         background: darken(wheat, 12%);
