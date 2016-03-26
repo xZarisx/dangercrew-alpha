@@ -13,7 +13,12 @@ export default function ActionButtonController() {
     const actionKey = 32; //THIS SHOULD BE LOADED IN FROM A SETTING?
 
     /* Mobile bindings */
-    
+    /* Keeping this here as a jQuery binding because the functionality for talking is right here */
+    console.log('bind')
+    $('.viewport').on('click', '.player', function() {
+        console.log('yep');
+        ctrl.handleActionButton();
+    });
 
 
 

@@ -14,6 +14,7 @@
     width: 180px;
     height: 180px;
     //background: red;
+    pointer-events: none;
 
     &.dpad-active {
         //background: lighten(wheat,7%);
@@ -37,6 +38,7 @@
         margin-left: -$circle-size/2;
         margin-top: -$circle-size/2;
         z-index: 12;
+        pointer-events:none;
     }
     .hitbox {
         visibility: hidden;
