@@ -87,19 +87,20 @@ class MobileDirectionPad extends React.Component {
 
         $('.viewport').on('mousemove touchmove', function(e) {
 
-            const gameViewportLeft = $(this)[0].getBoundingClientRect().left;
-            const gameViewportTop = $(this)[0].getBoundingClientRect().top;
-            self.setState({
-                indicatorX: e.originalEvent.pageX - gameViewportLeft,
-                indicatorY: e.originalEvent.pageY - gameViewportTop
-            });
-
             if (self.state.isTouching) {
+
+                const gameViewportLeft = $(this)[0].getBoundingClientRect().left;
+                const gameViewportTop = $(this)[0].getBoundingClientRect().top;
+                self.setState({
+                    indicatorX: e.originalEvent.pageX - gameViewportLeft,
+                    indicatorY: e.originalEvent.pageY - gameViewportTop
+                });
+
 
                 const x =  e.originalEvent.pageX; //e.originalEvent.pageX;
                 const y =  e.originalEvent.pageY; //e.originalEvent.pageY;
 
-                
+
 
                 if (isInBox(upCoords.top, upCoords.bottom, upCoords.left, upCoords.right, x, y)) {
                     self.setState({ lastDirectionTouched: "up" });

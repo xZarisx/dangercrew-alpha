@@ -12,6 +12,12 @@ export default function ActionButtonController() {
 
     const actionKey = 32; //THIS SHOULD BE LOADED IN FROM A SETTING?
 
+    /* Mobile bindings */
+    
+
+
+
+
     $(document).on('keydown.action-button-controller', (e) => {
         if (e.which == actionKey && ctrl.btnSafe) {
             ctrl.btnSafe = false;
