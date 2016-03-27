@@ -45,7 +45,7 @@ class MobilePauseBtn extends React.Component {
         const text = this.props.gameArea == "pause" ? "CLOSE" : "MENU";
 
         return (
-           <div style={style} onClick={::this.handleClick}>
+           <div style={style} className="js-no-dpad-on-touch" onClick={::this.handleClick}>
                {text}
            </div>
         );

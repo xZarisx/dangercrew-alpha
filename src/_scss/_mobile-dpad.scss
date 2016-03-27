@@ -11,8 +11,8 @@
 
 .mobile-dpad {
     position: absolute;
-    width: 180px;
-    height: 180px;
+    width: 140px;
+    height: 140px;
     //background: red;
     pointer-events: none;
 
@@ -32,7 +32,7 @@
         position: absolute;
         width: $circle-size;
         height: $circle-size;
-        border: 1vw solid rgba(white, 0.6);
+        border: 1px solid rgba(white, 0.6);
         left:50%;
         top:50%;
         margin-left: -$circle-size/2;
@@ -44,7 +44,7 @@
         //visibility: hidden;
         position: absolute;
         z-index: 11;
-        $hitbox-size: 60px;
+        $hitbox-size: 40px;
         width: $hitbox-size;
         height: $hitbox-size;
         //background: darken(wheat, 12%);

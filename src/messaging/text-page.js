@@ -28,7 +28,7 @@ class TextPage extends React.Component {
         const doneClass = (this.props.activePage > this.props.page) ? "done" : "";
 
         return (
-            <div className={`textbox-page ${doneClass}`}>
+            <div className={`textbox-page js-no-dpad-on-touch ${doneClass}`}>
                 <div className="textpage-content">
                     {spans}
                 </div>

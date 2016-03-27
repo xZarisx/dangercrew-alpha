@@ -68,6 +68,9 @@ class MobileDirectionPad extends React.Component {
             if (self.props.gameArea != "map") {
                 return;
             }
+            if (e.target.classList.contains('js-no-dpad-on-touch')) {
+                return;
+            }
 
 
             const gameViewportLeft = $(this)[0].getBoundingClientRect().left;
@@ -77,7 +80,9 @@ class MobileDirectionPad extends React.Component {
             self.setState({
                 isTouching: true,
                 initialTouchX: e.originalEvent.pageX - gameViewportLeft,
-                initialTouchY: e.originalEvent.pageY - gameViewportTop
+                initialTouchY: e.originalEvent.pageY - gameViewportTop,
+                indicatorX: e.originalEvent.pageX - gameViewportLeft,
+                indicatorY: e.originalEvent.pageY - gameViewportTop
             });
 
             updateCoords();
@@ -227,14 +232,14 @@ class MobileDirectionPad extends React.Component {
         const activeRightClass = this.state.lastDirectionTouched == "right" ? "hb-active" : "";
 
         const dpadStyle = {
-            visibility: this.state.isTouching ? "visible" : "visible",
-            left: this.state.initialTouchX - 90, /* half of 120 */
-            top: this.state.initialTouchY - 90
+            visibility: this.state.isTouching ? "visible" : "hidden",
+            left: this.state.initialTouchX - 70,
+            top: this.state.initialTouchY - 70
         };
 
         const indicatorStyle = {
             position: 'absolute',
-            visibility: this.state.isTouching ? "visible" : "hidden",
+            visibility: this.state.isTouching ? "hidden" : "hidden",
             width: 10,
             height: 10,
             marginLeft: -5,

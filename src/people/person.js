@@ -113,9 +113,11 @@ class Person extends React.Component {
     render() {
 
         var directionClass = this.getDirectionSpriteClass();
+        const touchClass = (this.props.id == "player") ? "" : "js-no-dpad-on-touch";
+
 
         return (
-           <div className={`cell player ${directionClass}`} style={this.getStyles()}>
+           <div className={`cell player ${touchClass} ${directionClass}`} style={this.getStyles()}>
 
            </div>
         );
