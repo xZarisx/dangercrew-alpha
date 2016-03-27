@@ -12,7 +12,17 @@ import pauseTheGame from './pause-the-game'
 class MobilePauseBtn extends React.Component {
 
     handleClick() {
-        console.log('MOBILE PAUSE MENU BUTTON');
+
+        if (this.props.gameArea == "pause") {
+            this.props.dispatch({
+                type: "SET_GAME_AREA",
+                payload: {
+                    gameArea: "map"
+                }
+            });
+            return;
+        }
+
         pauseTheGame();
     }
 
@@ -24,15 +34,19 @@ class MobilePauseBtn extends React.Component {
             color: '#fff',
             border: '2px solid #fff',
             borderRadius: 6,
-            padding: '8px 20px',
+            padding: '8px 0',
+            width: 84,
+            textAlign: 'center',
             position: 'absolute',
             right: '5px',
             top: '5px'
         };
 
+        const text = this.props.gameArea == "pause" ? "CLOSE" : "MENU";
+
         return (
            <div style={style} onClick={::this.handleClick}>
-               MENU
+               {text}
            </div>
         );
     }

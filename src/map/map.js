@@ -215,7 +215,7 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
         const battleRequestBox = this.props.showRequest ? <BattleRequestBox /> : null;
         const battleResultBox = this.props.showResult ? <BattleResultBox /> : null;
         const onboarding = (this.props.gameArea == "map") ? <OnboardingControls /> : null;
-        const mobilePauseButton = (this.props.gameArea == "map") ? <MobilePauseButton /> : null;
+        const mobilePauseButton = (this.props.gameArea == "map" || this.props.gameArea == "pause") ? <MobilePauseButton /> : null;
 
         /* Most of these things are "fixed position" inside the game's viewport */
         return (
