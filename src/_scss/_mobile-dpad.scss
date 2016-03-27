@@ -41,63 +41,62 @@
         pointer-events:none;
     }
     .hitbox {
-        visibility: hidden;
+        //visibility: hidden;
         position: absolute;
         z-index: 11;
         $hitbox-size: 60px;
         width: $hitbox-size;
         height: $hitbox-size;
-        background: darken(wheat, 12%);
+        //background: darken(wheat, 12%);
+        //background:
 
         &.hb-active {
             visibility: visible;
-            background: rgba(white, 0.5);
+            svg {
+                path {
+                    fill: rgba(255,255,255,0.6);
+                }
+            }
+            //background: rgba(white, 0.5);
         }
 
-        &.hb-up { top:0; left: 50%; margin-left:-$hitbox-size/2; }
-        &.hb-down { bottom:0; left: 50%; margin-left:-$hitbox-size/2; }
-        &.hb-left { top:50%; left: 0; margin-top:-$hitbox-size/2; }
-        &.hb-right { top:50%; right: 0; margin-top:-$hitbox-size/2; }
+        &.hb-up {
+            top:0; left: 50%; margin-left:-$hitbox-size/2;
+            svg {
+                left: 50%;
+                transform: rotate(180deg) translateX(50%);
+            }
+        }
+        &.hb-down {
+            bottom:0; left: 50%; margin-left:-$hitbox-size/2;
+            svg {
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        &.hb-left {
+            top:50%; left: 0; margin-top:-$hitbox-size/2;
+            svg {
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        &.hb-right {
+            top:50%; right: 0; margin-top:-$hitbox-size/2;
+            svg {
+                right: 0;
+                top: 50%;
+                transform: rotate(180deg) translateY(50%);
+            }
+        }
+
+        svg {
+            position:absolute;
+        }
+
     }
 
-    .dot {
-        z-index:13;
-        pointer-events: none;
-        width: 3vw;
-        height: 3vw;
-        position: absolute;
-        background: rgba(white, 0.7);
-        opacity: 0;
-        transition: opacity 0.3s, transform 0.3s;
 
-        $dot-distance: 10vw;
-        &.dot-left {
-            top:50%;
-            margin-top:-1.5vw;
-            left:0;
-            margin-left: 3vw;
-            transform:translate3d($dot-distance,0,0);
-        }
-        &.dot-right {
-            top:50%;
-            margin-top:-1.5vw;
-            right:0;
-            margin-right: 3vw;
-            transform:translate3d(-$dot-distance,0,0);
-        }
-        &.dot-up {
-            top:0;
-            margin-left:-1.5vw;
-            left: 50%;
-            margin-top: 3vw;
-            transform:translate3d(0,$dot-distance,0);
-        }
-        &.dot-down {
-            bottom:0;
-            margin-left:-1.5vw;
-            left: 50%;
-            margin-bottom: 3vw;
-            transform:translate3d(0,-$dot-distance,0);
-        }
-    }
 }

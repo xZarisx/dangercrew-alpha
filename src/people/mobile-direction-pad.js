@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import Move from './move'
 import store from '../init/store'
 import LocationService from './location-service'
+import {verticalDpadArrow, horizontalDpadArrow} from '../_icons/dpad-icons'
+
 
 @connect((state, props) => {
     return {
@@ -225,7 +227,7 @@ class MobileDirectionPad extends React.Component {
         const activeRightClass = this.state.lastDirectionTouched == "right" ? "hb-active" : "";
 
         const dpadStyle = {
-            visibility: this.state.isTouching ? "visible" : "hidden",
+            visibility: this.state.isTouching ? "visible" : "visible",
             left: this.state.initialTouchX - 90, /* half of 120 */
             top: this.state.initialTouchY - 90
         };
@@ -252,15 +254,19 @@ class MobileDirectionPad extends React.Component {
 
                     <div className="circle js-dpad-circle"></div>
 
-                    {/*<div className='dot dot-up'></div>*/}
-                    {/*<div className='dot dot-down'></div>*/}
-                    {/*<div className='dot dot-left'></div>*/}
-                    {/*<div className='dot dot-right'></div>*/}
+                    <div className={`hitbox hb-up ${activeUpClass}`}>
+                        {verticalDpadArrow(44, "")}
+                    </div>
+                    <div className={`hitbox hb-down ${activeDownClass}`}>
+                        {verticalDpadArrow(44, "")}
+                    </div>
+                    <div className={`hitbox hb-left ${activeLeftClass}`}>
+                        {horizontalDpadArrow(66, "")}
+                    </div>
+                    <div className={`hitbox hb-right ${activeRightClass}`}>
+                        {horizontalDpadArrow(66, "")}
+                    </div>
 
-                    <div className={`hitbox hb-up ${activeUpClass}`}></div>
-                    <div className={`hitbox hb-down ${activeDownClass}`}></div>
-                    <div className={`hitbox hb-left ${activeLeftClass}`}></div>
-                    <div className={`hitbox hb-right ${activeRightClass}`}></div>
                 </div>
             </div>
         );
