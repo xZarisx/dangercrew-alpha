@@ -13,9 +13,6 @@ const store = createStore({
     },
     people: {
         /* Populated on mount */
-        "player" : {
-            
-        }
     },
     playerData: {
         ...InitialPlayerData,
@@ -38,8 +35,8 @@ const store = createStore({
         isAllowingMusic: false, //true
         transitionOverlayOpacity: 0,  //should be 1
         showOnboardingPopup: false, //true
-        isPaused: false,
-        gameArea: "map"//"title" //I think only these are possible: [ map | battle | pause | title | credits? | levelup? ]
+        isPaused: false, /* TODO: Not sure this is used anymore */
+        gameArea: "pause"//"title" //I think only these are possible: [ map | battle | pause | title | credits? | levelup? ]
     },
     pauseMenu: {
         currentCursoringList: "pauseRoot", //"pauseLevelUpMenu", //"pauseRoot",
