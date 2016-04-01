@@ -49,12 +49,16 @@ export function skillPointsRemaining() {
     return skillPointsAvailable(playerData.level+1) - totalSkillPoints;
 }
 
-
+export function nextLevelXpGoal() {
+    const playerData = store.getState().playerData;
+    const level = (playerData.level <= 9) ? playerData.level+1 : 10;
+    return LevelMap[level];
+}
 
 export function remainingXpUntilNextLevel() {
     const playerData = store.getState().playerData;
     const difference = LevelMap[playerData.level+1] - playerData.xp;
-    return difference > 0 ? String(difference) : "--";
+    return difference > 0 ? difference : 0;
 }
 
 /* isLevelupEligible */

@@ -11,43 +11,34 @@ export default {
         }
 
         /* If able to level up, return a list without the Stats tab */
-        if (isLevelupEligible()) {
-            return this.pauseRoot.filter(tab => { return tab.id != "pauseRoot-stats" })
-        }
-        /* Otherwise, return a list without Level Up */
-        return this.pauseRoot.filter(tab => { return tab.id != "pauseRoot-levelup" })
+        // if (isLevelupEligible()) {
+        //     return this.pauseRoot.filter(tab => { return tab.id != "pauseRoot-stats" })
+        // }
+        // /* Otherwise, return a list without Level Up */
+        // return this.pauseRoot.filter(tab => { return tab.id != "pauseRoot-levelup" })
+        return this.pauseRoot;
     },
 
     "pauseRoot": [
         {
-            "id": "pauseRoot-levelup",
-            "label": "LEVEL UP!",
-            "pageTitle": "Level Up",
-            //"rightKeyDest": ["pauseLevelUpMenu", "pauseLevelUp-health"] //Hit Enter instead
-        },
-        {
             "id": "pauseRoot-stats",
             "label": "STATS",
-            "pageTitle": "Stats & Skills",
             "rightKeyDest": ["pauseStatsMenu", "pauseStats-health"]
         },
         {
             "id": "pauseRoot-laptop",
             "label": "LAPTOP",
-            "pageTitle": "Laptop",
             //"rightKeyDest": "pauseStats-whateverFirstOptionIdIs"
             "infoBoxDescription": "Your laptop can be configured with parts and components."
         },
         {
             "id": "pauseRoot-attacks",
             "label": "ATTACKS",
-            "pageTitle": "Attacks",
             "rightKeyDest": ["pauseAttacksMenu", "pauseAttacks-action_attack_basic_001"]
         },
         {
             "id": "pauseRoot-items",
             "label": "ITEMS",
-            "pageTitle": "Items",
             "rightKeyDest": ["pauseItemsMenu", "pauseItems-action_item_hp_001"]
         }
         /* Some day: MAP?, SAVE GAME? */

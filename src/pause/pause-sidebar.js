@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PauseMenuData from './pause-menu-data'
-import {remainingXpUntilNextLevel} from '../level-up/levelup-utilities'
+import {remainingXpUntilNextLevel, nextLevelXpGoal, isLevelupEligible} from '../level-up/levelup-utilities'
 
 @connect((state, props) => {
     return {
@@ -9,6 +9,8 @@ import {remainingXpUntilNextLevel} from '../level-up/levelup-utilities'
         level: state.playerData.level,
         hp: state.playerData.hp,
         maxHp: state.playerData.maxHp,
+        pp: state.playerData.pp,
+        maxPp: state.playerData.maxPp,
         xp: state.playerData.xp,
         coins: state.playerData.coins,
 
@@ -27,25 +29,27 @@ class PauseSidebar extends React.Component {
         return null;
     }
 
-    renderTabs() {
-        const list = PauseMenuData.getCensoringList('pauseRoot');
-        return list.map((item) => {
-            const activeClass = (item.id == this.props.selectedMenuItem) ? "is-active" : "";
-            const newBadge = this.renderNewAttackBadge(item.id);
 
-            //const style = (item.id == "pauseRoot-levelup") ? {color:"#F8E71C"} : {};
+    renderLevelUpButton() {
+        const xpProgress = (remainingXpUntilNextLevel() > 0)
+            ? `${this.props.xp}/${nextLevelXpGoal()}` : "--" ;
+
+        if (isLevelupEligible()) {
             return (
-                <div key={item.id} className={`${activeClass} tab-item`}>
-                    {item.label}
-                    {newBadge}
-                </div>
-            )
-        });
+                <div className="pause-menu-button level-up-button">LEVEL UP!</div>
+            );
+        }
+        return (
+            <div className="_spreading-list-item">
+                <div>XP</div>
+                <div>{xpProgress}</div>
+            </div>
+        );
     }
 
     render() {
 
-        const nextLevel = remainingXpUntilNextLevel();
+
         return (
            <div className="pause-sidebar">
                <div className="pause-sidebar-profile media-object">
@@ -62,21 +66,16 @@ class PauseSidebar extends React.Component {
                        <div>HP</div><div>{this.props.hp}/{this.props.maxHp}</div>
                    </div>
                    <div className="_spreading-list-item">
-                       <div>XP</div><div>{this.props.xp}</div>
+                       <div>PP</div><div>{this.props.pp}/{this.props.maxPp}</div>
                    </div>
-                   <div className="_spreading-list-item">
-                       <div>NEXT LVL IN
-                       </div><div>{nextLevel}</div>
-                   </div>
+                   {this.renderLevelUpButton()}
                    <div className="_spreading-list-item">
                        <div>COINS</div><div>{this.props.coins}</div>
                    </div>
                </div>
-               <div className="pause-sidebar-tabs">
-                   {this.renderTabs()}
-               </div>
-               <div className="pause-sidebar-close-tip">
-                   ESC to exit
+               <div className="pause-save-load-container pause-menu-button-group">
+                   <div className="pause-menu-button">SAVE</div>
+                   <div className="pause-menu-button">LOAD</div>
                </div>
            </div>
         );

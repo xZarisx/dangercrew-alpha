@@ -38,8 +38,8 @@ class MobilePauseBtn extends React.Component {
             width: 84,
             textAlign: 'center',
             position: 'absolute',
-            right: '5px',
-            top: '5px'
+            left: '5px',
+            bottom: '5px'
         };
 
         const text = this.props.gameArea == "pause" ? "CLOSE" : "MENU";

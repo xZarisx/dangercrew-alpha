@@ -6,6 +6,9 @@ export default {
     hp: 25,
     maxHp: 25,
 
+    pp: 50,
+    maxPp: 50,
+
     xp: 0,
     coins: 10,
 

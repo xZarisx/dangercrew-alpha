@@ -37,7 +37,6 @@
     padding-left: 1vw;
     padding-right: 1vw;
     padding-bottom: 1vw;
-    border-bottom: 1px solid #777;
 }
 
 .pause-sidebar-tabs {
@@ -69,16 +68,26 @@
 .pause-content-title,
 .pause-content-body,
 .pause-content-textbox {
-    padding-left: 4vw;
-    padding-right: 4vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
     padding-top: 1vw;
     padding-bottom: 1vw;
 }
 
-.pause-content-title {
+.pause-top-menu {
+    display:flex;
     background: #111;
-    font-size: 3.3vw;
+    font-size: 2.5vw;
     text-transform: uppercase;
+    justify-content: space-around;
+    .top-level-item {
+        padding: 1.6vw 0 1vw;
+        color: rgba(white, 0.3);
+        &.is-active {
+            color: white;
+            border-bottom: 0.4vw solid #fff;
+        }
+    }
 }
 
 .pause-content-body {
@@ -181,5 +190,41 @@
     /* Hide blinking arrows on the Done row */
     .pause-stat-value {
         display: none;
+    }
+}
+
+.pause-save-load-container {
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+$pause-button-border-radius: 0.2vw;
+.pause-menu-button {
+    padding: 1vw 0;
+    margin: 1vw 1vw;
+    text-align:center;
+    border: 0.2vw solid #fff;
+    border-radius: $pause-button-border-radius;
+
+    &.level-up-button {
+        border-color: #46D985;
+        color: #46D985;
+    }
+}
+
+.pause-menu-button-group {
+    .pause-menu-button {
+        border-radius:0;
+        &:first-of-type {
+            border-top-left-radius: $pause-button-border-radius;
+            border-top-right-radius: $pause-button-border-radius;
+            border-bottom:0;
+            margin-bottom: 0;
+        }
+        &:last-of-type {
+            margin-top: 0;
+            border-bottom-left-radius: $pause-button-border-radius;
+            border-bottom-right-radius: $pause-button-border-radius;
+        }
     }
 }

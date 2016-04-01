@@ -21,7 +21,7 @@ import pauseInfoDescriptionMiddleware from './pause-info-middleware'
     })[0];
 
     return {
-        title: pageNode ? pageNode.pageTitle : null,
+        selectedMenuItem: state.pauseMenu.selectedMenuItem,
         showMenuTab: state.pauseMenu.showMenuTab,
         infoBoxTitle: pauseInfoDescriptionMiddleware(selectedNode)[0],
         infoBoxDescription: pauseInfoDescriptionMiddleware(selectedNode)[1]
@@ -48,10 +48,28 @@ class PauseContent extends React.Component {
         }
     }
 
+    renderTopLevelOptions() {
+        const list = PauseMenuData.getCensoringList('pauseRoot');
+        return list.map((item) => {
+            const activeClass = (item.id == this.props.selectedMenuItem) ? "is-active" : "";
+            //const newBadge = this.renderNewAttackBadge(item.id);
+
+            return (
+                <div key={item.id} className={`top-level-item ${activeClass}`}>
+                    {item.label}
+                    {/*newBadge*/}
+                </div>
+            )
+        });
+    }
+
+
     render() {
         return (
            <div className="pause-content">
-               <div className="pause-content-title">{this.props.title}</div> {/* Load these text blibs from a data object? */}
+               <div className="pause-top-menu">
+                   {this.renderTopLevelOptions()}
+               </div>
                <div className="pause-content-body">
                    {this.renderBody()}
                </div>

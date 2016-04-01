@@ -14,7 +14,7 @@ gulp.task('s', function() {
             baseDir: "dist"
         },
         port:3002,
-        files: [],
+        files: ["*/**.css"],
         ghostMode: false
     });
 });
