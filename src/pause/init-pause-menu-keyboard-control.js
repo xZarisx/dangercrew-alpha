@@ -72,50 +72,59 @@ export default function(namespace="") {
     };
 
 
-    var handleLeft = function() {
-        const currentCursoringList = store.getState().pauseMenu.currentCursoringList;
-        const list = getCensoringList(currentCursoringList, PauseMenuData)
-        const prev = getPreviousInList( store.getState().pauseMenu.selectedMenuItem, list);
+    var moveMenuCursor = function(callerOptions={}) {
+        const options = {
+            usePrev: false,
+            destKeyName: "",
+            ...callerOptions
+        };
 
-        if (store.getState().pauseMenu.selectedMenuItem != prev) {
-            sound_menuMove.play();
+        if (options.destKeyName.length == 0) {
+            console.warn('WARNING: destKeyName not specified in moveMenuCursor callerOptions')
         }
 
-        /* Handle leftmost corner of the menu */
-        if (store.getState().pauseMenu.selectedMenuItem == prev && currentCursoringList == "pauseRoot") {
+        const currentCursoringList = store.getState().pauseMenu.currentCursoringList;
+        const list = getCensoringList(currentCursoringList, PauseMenuData);
+        const selectedMenuItem = store.getState().pauseMenu.selectedMenuItem;
+        const selectedNode = getMenuNode(currentCursoringList, selectedMenuItem, PauseMenuData);
 
-            /* If I have a leftKeyDest, transition to new menu */
-            const selectedNode = getMenuNode(currentCursoringList, prev, PauseMenuData);
-            if (selectedNode.leftKeyDest) {
-                console.log(selectedNode.leftKeyDest)
-                setPauseMenuValue({
-                    currentCursoringList: selectedNode.leftKeyDest[0],
-                    selectedMenuItem: selectedNode.leftKeyDest[1]
-                });
-            }
-
+        if (selectedNode[options.destKeyName]) {
+            setPauseMenuValue({
+                currentCursoringList: selectedNode[options.destKeyName][0],
+                selectedMenuItem: selectedNode[options.destKeyName][1]
+            });
             return;
         }
 
+        if (selectedNode.isHorizontalMovement) {
+            const nextItem = options.usePrev
+                ? getPreviousInList( selectedMenuItem, list)
+                : getNextInList(selectedMenuItem, list);
 
-        setPauseMenuValue({
-            selectedMenuItem: prev,
-            showMenuTab: updatedMenuTab(store.getState().pauseMenu.currentCursoringList, store.getState().pauseMenu.showMenuTab, prev)
-        });
+            /* Play sound */
+            if (store.getState().pauseMenu.selectedMenuItem != nextItem) {
+                sound_menuMove.play();
+            }
 
-    };
-    var handleRight = function() {
-        const list = getCensoringList(store.getState().pauseMenu.currentCursoringList, PauseMenuData);
-        const next = getNextInList( store.getState().pauseMenu.selectedMenuItem, list);
-
-        if (store.getState().pauseMenu.selectedMenuItem != next) {
-            sound_menuMove.play();
+            setPauseMenuValue({
+                selectedMenuItem: nextItem,
+                showMenuTab: updatedMenuTab(store.getState().pauseMenu.currentCursoringList, store.getState().pauseMenu.showMenuTab, nextItem)
+            });
         }
+    };
 
-        setPauseMenuValue({
-            selectedMenuItem: next,
-            showMenuTab: updatedMenuTab(store.getState().pauseMenu.currentCursoringList, store.getState().pauseMenu.showMenuTab, next)
-        });
+    var handleLeft = function() {
+        moveMenuCursor({
+            usePrev: true,
+            destKeyName: "leftKeyDest"
+        })
+    };
+
+    var handleRight = function() {
+        moveMenuCursor({
+            usePrev: false,
+            destKeyName: "rightKeyDest"
+        })
     };
 
 
