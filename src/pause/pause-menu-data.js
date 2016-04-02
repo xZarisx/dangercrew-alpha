@@ -11,7 +11,7 @@ var PauseMenuData = {
             isVerticalMovement: false,
             isHorizontalMovement: true,
             downKeyDest: ["pauseStatsMenu", "pauseStats-health"],
-            leftKeyDest: ["pauseSidebarMenu", "idk"/*getCensoringList("pauseSidebarMenu")[0].id*/]
+            leftKeyDest: ["pauseSidebarMenu", "pauseSidebarMenu-save"/* */]
             //"rightKeyDest": ["pauseStatsMenu", "pauseStats-health"]
         },
         {
@@ -214,6 +214,13 @@ function mergeItemData(id) {
     }
 }
 
+export function getMenuNode(menuKey="", id="", dataset) {
+    const match = dataset[menuKey].filter(item => {
+        return item.id == id;
+    });
+    return (match.length) ? match[0] : null;
+};
+
 export function getCensoringList(key="", dataset) {
     if (key !="pauseSidebarMenu") {
         return [...dataset[key]];
@@ -224,7 +231,7 @@ export function getCensoringList(key="", dataset) {
         return [...dataset.pauseSidebarMenu]
     }
     /* Otherwise, return the list without Level Up */
-    console.log(dataset)
+    //console.log(dataset)
     return dataset.pauseSidebarMenu.filter(tab => { return tab.id != "pauseSidebarMenu-levelup" })
 };
 

@@ -1,91 +1,11 @@
-Danger Studio
---------------
+Alpha Demo 1.1 (Mobile support) Release Todo:
+----------------------------------
 
-# EXPORT JSON button
-    - needs to do the formatting/contracting
-    - Firebase .json link is not enough
-
-# Battle Zones
-
-
-Alpha Release Todo:
-----------------------
+PAUSE MENU
+    - hook up Pause Sidebar components (SAVE / LOAD / LEVELUP) to be keyboard accessible
+        - Navigate with arrows
+        - Execute with ENTER
+        - (SAVE/LOAD may be hidden for next demo. Oh well)
         
-
-        
-        
-# Remove console logs        
-        
-done # Add "mute background music" icon
-done # Optimize size of title svg
-
-done (good enough) # ALL MUSIC
-    - Walking Around
-    - Coffee Shop
-    - Battle
-    - Battle Success
-    - Battle Failure
-        
-DONE # Implement map-swapping from Coffee to Street and back
-
-DONE # Put baseRoll back in Defense, but reduce it. Maybe a smaller base roll?
-
-DONE # onboarding keyboard control instructions
-
-DONE # Title Screen
-
-DONE # Size title screen Jacob properly (nested style rules)
-
-DONE # # Adjust CSS for infobox in pause menu
-
-DONE # # Add SFX to pause experience
-           - Pausing / Unpausing
-           - Applying new Items & Attacks
-           - Applying a level up
-           
-       # Add SFX to battle results popup window
-           - Victory!
-           - XP bar filling up
-           - Level up notification
-
-DONE # Redesign battle scoreboards
-
-DONE # Adjust battle CSS to scale with different screen sizes
-    - People sizes, text sizes, etc
-
-DONE # Hook up Level up window to successfully winning a battle
-
-DONE # Hide PP indicators for now?
-
-DONE # Adjust NPC difficulties to make sense for initial stats
-    - Adjust rate at which difficult battles appear per level
-
-DONE # Add "ESC to exit" to bottom of Pause menu
-
-DONE # Make ENTER key enhancements to level up menu
-    - Based on watching Lauren interact with the menu
-    
-DONE # "New" badge on Attacks menu
-    - Seen after leveling up. Appears until you enter the Attacks menu
-
-DONE # Add ESC key functionality in Battle Menu to go back to root from Attacks or Items 
-    - (from watching Bobby play)
-
-DONE # Write descriptions for all pause menu infobox text blurbs
-
-
-DONE # BUG: You can pause while talking. Squash this bug
-
-
-DONE # Build WASD support for all menus too.
-      - Let the single keyboard press binder accept an array of keyCodes
-
-DONE # Handle mobile "you need a real computer" messaging
-
-DONE # # Red & Green circles need to scale properly in Battle
-
-Don't Forget:
-=============
-
-# Implement new street map & new coffee house map
-
+ATTACK MENU
+    - dev new mobile-friendly designs

@@ -1,7 +1,7 @@
 import store from '../init/store'
 import {addKeyboardSinglePress} from '../helpers/single-keypress-binding'
 import PauseMenuData from './pause-menu-data'
-import {getCensoringList} from './pause-menu-data'
+import {getCensoringList, getMenuNode} from './pause-menu-data'
 import togglePlayerAttack from './toggle-player-attack'
 import togglePlayerItem from './toggle-player-item'
 import {incrementStatPoint, decrementStatPoint, resetStatPoints, submitLevelUp, skillPointsRemaining} from '../level-up/levelup-utilities'
@@ -81,8 +81,20 @@ export default function(namespace="") {
             sound_menuMove.play();
         }
 
+        /* Handle leftmost corner of the menu */
         if (store.getState().pauseMenu.selectedMenuItem == prev && currentCursoringList == "pauseRoot") {
-            console.log('End of top level menu')
+
+            /* If I have a leftKeyDest, transition to new menu */
+            const selectedNode = getMenuNode(currentCursoringList, prev, PauseMenuData);
+            if (selectedNode.leftKeyDest) {
+                console.log(selectedNode.leftKeyDest)
+                setPauseMenuValue({
+                    currentCursoringList: selectedNode.leftKeyDest[0],
+                    selectedMenuItem: selectedNode.leftKeyDest[1]
+                });
+            }
+
+            return;
         }
 
 
