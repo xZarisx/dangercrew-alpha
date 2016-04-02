@@ -71,7 +71,8 @@ export default function(namespace="") {
     };
 
 
-    var handleUp = function() {
+    var handleLeft = function() {
+        console.log('left')
         const list = PauseMenuData.getCensoringList(store.getState().pauseMenu.currentCursoringList);
         const prev = getPreviousInList( store.getState().pauseMenu.selectedMenuItem, list);
 
@@ -85,8 +86,8 @@ export default function(namespace="") {
         });
 
     };
-    var handleDown = function() {
-
+    var handleRight = function() {
+        console.log('right')
         const list = PauseMenuData.getCensoringList(store.getState().pauseMenu.currentCursoringList);
         const next = getNextInList( store.getState().pauseMenu.selectedMenuItem, list);
 
@@ -100,77 +101,82 @@ export default function(namespace="") {
         });
     };
 
-    /* Up/Down */
-    addKeyboardSinglePress(38, handleUp, namespace);
-    addKeyboardSinglePress(87, handleUp, namespace); //W
-    addKeyboardSinglePress(40, handleDown, namespace);
-    addKeyboardSinglePress(83, handleDown, namespace); //S
 
-
-    /* Right */
-    var handleRight = function() {
-
-        const currentCursoring = store.getState().pauseMenu.currentCursoringList;
-
-        /* Dive in to content area */
-        if (currentCursoring == "pauseRoot") {
-
-            /* Find the selected node */
-            const selectedNode = PauseMenuData.pauseRoot.filter(item => {
-                return item.id == store.getState().pauseMenu.selectedMenuItem
-            })[0];
-
-            /* Use the selected node's destination info */
-            if (selectedNode.rightKeyDest) {
-                sound_menuMove.play();
-                setPauseMenuValue({
-                    currentCursoringList: selectedNode.rightKeyDest[0], //needs to change based on current tab
-                    selectedMenuItem: selectedNode.rightKeyDest[1] //needs to change based on current tab
-                });
-            }
-        }
-
-        /* Increment stat point when leveling up */
-        if (currentCursoring == "pauseLevelUpMenu") {
-            const currentStatId = getCurrentlySelectedNode().statId;
-            if (currentStatId) {
-                incrementStatPoint(currentStatId, store.getState().playerData[currentStatId], 999);
-                //999 is a sort-of placeholder for stat thresholding. (Not letting somebody get too high in one stat at level x)
-            }
-        }
-
-    };
-    addKeyboardSinglePress(39, handleRight, namespace);
-    addKeyboardSinglePress(68, handleRight, namespace); //D
-
-    /* Left */
-    const leftMap = {
-        pauseStatsMenu:"pauseRoot-stats",
-        //pauseLaptopMenu:"pauseRoot-laptop",
-        pauseAttacksMenu:"pauseRoot-attacks",
-        pauseItemsMenu:"pauseRoot-items"
-    };
-    var handleLeft = function() {
-        const currentCursoring = store.getState().pauseMenu.currentCursoringList;
-        if (currentCursoring != "pauseRoot" && currentCursoring != "pauseLevelUpMenu") {
-            sound_menuMove.play();
-            setPauseMenuValue({
-                currentCursoringList: "pauseRoot",
-                selectedMenuItem: leftMap[currentCursoring]
-            });
-        }
-
-        /* Decrement stat point when leveling up */
-        if (currentCursoring == "pauseLevelUpMenu") {
-            const currentStatId = getCurrentlySelectedNode().statId;
-            if (currentStatId) {
-                decrementStatPoint(currentStatId, store.getState().playerData[currentStatId], initialStatLevels[currentStatId]);
-            }
-        }
-
-    };
     addKeyboardSinglePress(37, handleLeft, namespace);
-    addKeyboardSinglePress(65, handleLeft, namespace); //A
+    addKeyboardSinglePress(39, handleRight, namespace);
+
+    // /* Up/Down */
+    // addKeyboardSinglePress(38, handleUp, namespace);
+    // addKeyboardSinglePress(87, handleUp, namespace); //W
+    // addKeyboardSinglePress(40, handleDown, namespace);
+    // addKeyboardSinglePress(83, handleDown, namespace); //S
+
+
+    /* OLD LEFT * RIGHT */
+    // /* Right */
+    // var handleRight = function() {
+    //
+    //     const currentCursoring = store.getState().pauseMenu.currentCursoringList;
+    //
+    //     /* Dive in to content area */
+    //     if (currentCursoring == "pauseRoot") {
+    //
+    //         /* Find the selected node */
+    //         const selectedNode = PauseMenuData.pauseRoot.filter(item => {
+    //             return item.id == store.getState().pauseMenu.selectedMenuItem
+    //         })[0];
+    //
+    //         /* Use the selected node's destination info */
+    //         if (selectedNode.rightKeyDest) {
+    //             sound_menuMove.play();
+    //             setPauseMenuValue({
+    //                 currentCursoringList: selectedNode.rightKeyDest[0], //needs to change based on current tab
+    //                 selectedMenuItem: selectedNode.rightKeyDest[1] //needs to change based on current tab
+    //             });
+    //         }
+    //     }
+    //
+    //     /* Increment stat point when leveling up */
+    //     if (currentCursoring == "pauseLevelUpMenu") {
+    //         const currentStatId = getCurrentlySelectedNode().statId;
+    //         if (currentStatId) {
+    //             incrementStatPoint(currentStatId, store.getState().playerData[currentStatId], 999);
+    //             //999 is a sort-of placeholder for stat thresholding. (Not letting somebody get too high in one stat at level x)
+    //         }
+    //     }
+    //
+    // };
+    // addKeyboardSinglePress(39, handleRight, namespace);
+    // addKeyboardSinglePress(68, handleRight, namespace); //D
+    //
+    // /* Left */
+    // const leftMap = {
+    //     pauseStatsMenu:"pauseRoot-stats",
+    //     //pauseLaptopMenu:"pauseRoot-laptop",
+    //     pauseAttacksMenu:"pauseRoot-attacks",
+    //     pauseItemsMenu:"pauseRoot-items"
+    // };
+    // var handleLeft = function() {
+    //     const currentCursoring = store.getState().pauseMenu.currentCursoringList;
+    //     if (currentCursoring != "pauseRoot" && currentCursoring != "pauseLevelUpMenu") {
+    //         sound_menuMove.play();
+    //         setPauseMenuValue({
+    //             currentCursoringList: "pauseRoot",
+    //             selectedMenuItem: leftMap[currentCursoring]
+    //         });
+    //     }
+    //
+    //     /* Decrement stat point when leveling up */
+    //     if (currentCursoring == "pauseLevelUpMenu") {
+    //         const currentStatId = getCurrentlySelectedNode().statId;
+    //         if (currentStatId) {
+    //             decrementStatPoint(currentStatId, store.getState().playerData[currentStatId], initialStatLevels[currentStatId]);
+    //         }
+    //     }
+    //
+    // };
+    // addKeyboardSinglePress(37, handleLeft, namespace);
+    // addKeyboardSinglePress(65, handleLeft, namespace); //A
 
 
 

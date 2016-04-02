@@ -25,7 +25,7 @@ class MobilePauseBtn extends React.Component {
 
         pauseTheGame();
     }
-
+ 
     render() {
 
         const style = {
