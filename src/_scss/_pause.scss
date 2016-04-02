@@ -83,9 +83,10 @@
     .top-level-item {
         padding: 1.6vw 0 1vw;
         color: rgba(white, 0.3);
+        border-bottom: 0.4vw solid #111;
         &.is-active {
             color: white;
-            border-bottom: 0.4vw solid #fff;
+            border-color:white;
         }
     }
 }
@@ -209,6 +210,10 @@ $pause-button-border-radius: 0.2vw;
     &.level-up-button {
         border-color: #46D985;
         color: #46D985;
+    }
+    &.active-pause-menu-button {
+        background: white;
+        color: #111;
     }
 }
 

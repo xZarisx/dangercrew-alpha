@@ -40,7 +40,7 @@ var PauseMenuData = {
 
     "pauseSidebarMenu": [
         {
-            id: "pauseSidebarMenu-stats",
+            id: "pauseSidebarMenu-levelup",
             isVerticalMovement: true,
             isHorizontalMovement: false,
             rightKeyDest: ["pauseRoot", "pauseRoot-stats"]

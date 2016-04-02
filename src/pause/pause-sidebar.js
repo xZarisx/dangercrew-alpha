@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {remainingXpUntilNextLevel, nextLevelXpGoal, isLevelupEligible} from '../level-up/levelup-utilities'
+import SaveBtn from './pause-save-game-btn'
+import LoadBtn from './pause-load-game-btn'
+import LevelUpBtn from './pause-levelup-btn'
 
 @connect((state, props) => {
     return {
@@ -35,7 +38,7 @@ class PauseSidebar extends React.Component {
 
         if (isLevelupEligible()) {
             return (
-                <div className="pause-menu-button level-up-button">LEVEL UP!</div>
+                <LevelUpBtn />
             );
         }
         return (
@@ -73,8 +76,8 @@ class PauseSidebar extends React.Component {
                    </div>
                </div>
                <div className="pause-save-load-container pause-menu-button-group">
-                   <div className="pause-menu-button">SAVE</div>
-                   <div className="pause-menu-button">LOAD</div>
+                   <SaveBtn />
+                   <LoadBtn />
                </div>
            </div>
         );
