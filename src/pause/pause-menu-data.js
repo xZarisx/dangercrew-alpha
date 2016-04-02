@@ -67,7 +67,8 @@ var PauseMenuData = {
             label: "Health",
             statId: "healthStatPoints",
             infoBoxTitle: "Health",
-            infoBoxDescription: "Increases maximum battery health points (HP). Battles are lost when HP is depleted"
+            infoBoxDescription: "Increases maximum battery health points (HP). Battles are lost when HP is depleted",
+            upKeyDest: ["pauseRoot", "pauseRoot-stats"]
         },
         {
             id: "pauseStats-attack",
@@ -105,7 +106,8 @@ var PauseMenuData = {
             label: "Health",
             statId: "healthStatPoints",
             infoBoxTitle: "Health",
-            infoBoxDescription: "Increases maximum battery health points (HP). Battles are lost when HP is depleted"
+            infoBoxDescription: "Increases maximum battery health points (HP). Battles are lost when HP is depleted",
+            //No destination here yet for now. Not sure what we'll do here when on Level Up menu
         },
         {
             id: "pauseLevelUp-attack",
@@ -151,6 +153,7 @@ var PauseMenuData = {
         {
             ...mergeAttackData("action_attack_basic_001"),
             levelRequirement: 1,
+            upKeyDest: ["pauseRoot", "pauseRoot-attacks"]
         },
         {
             ...mergeAttackData("action_attack_theft_001"),
@@ -183,7 +186,10 @@ var PauseMenuData = {
     ],
 
     "pauseItemsMenu": [
-        {...mergeItemData("action_item_hp_001")},
+        {
+            ...mergeItemData("action_item_hp_001"),
+            upKeyDest: ["pauseRoot", "pauseRoot-items"]
+        },
         {...mergeItemData("action_item_accuracy_001")},
         {...mergeItemData("action_item_clearStatus_lag_001")},
         {...mergeItemData("action_item_clearStatus_memoryLeak_001")},

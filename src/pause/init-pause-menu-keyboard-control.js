@@ -76,6 +76,7 @@ export default function(namespace="") {
         const options = {
             usePrev: false,
             destKeyName: "",
+            restrictToDirectionKeyName: null,
             ...callerOptions
         };
 
@@ -88,48 +89,79 @@ export default function(namespace="") {
         const selectedMenuItem = store.getState().pauseMenu.selectedMenuItem;
         const selectedNode = getMenuNode(currentCursoringList, selectedMenuItem, PauseMenuData);
 
+
+        /* If the node has a destination defined, go there */
         if (selectedNode[options.destKeyName]) {
             setPauseMenuValue({
                 currentCursoringList: selectedNode[options.destKeyName][0],
                 selectedMenuItem: selectedNode[options.destKeyName][1]
             });
+
+            sound_menuMove.play();
             return;
         }
 
-        if (selectedNode.isHorizontalMovement) {
-            const nextItem = options.usePrev
-                ? getPreviousInList( selectedMenuItem, list)
-                : getNextInList(selectedMenuItem, list);
-
-            /* Play sound */
-            if (store.getState().pauseMenu.selectedMenuItem != nextItem) {
-                sound_menuMove.play();
-            }
-
-            setPauseMenuValue({
-                selectedMenuItem: nextItem,
-                showMenuTab: updatedMenuTab(store.getState().pauseMenu.currentCursoringList, store.getState().pauseMenu.showMenuTab, nextItem)
-            });
+        /* If we're restricting which direction can be used, cancel out here */
+        if (options.restrictToDirectionKeyName && !selectedNode[options.restrictToDirectionKeyName]) {
+            return false;
         }
+        
+        const nextItem = options.usePrev
+            ? getPreviousInList( selectedMenuItem, list)
+            : getNextInList(selectedMenuItem, list);
+
+        /* Play sound */
+        if (store.getState().pauseMenu.selectedMenuItem != nextItem) {
+            sound_menuMove.play();
+        }
+
+        setPauseMenuValue({
+            selectedMenuItem: nextItem,
+            showMenuTab: updatedMenuTab(store.getState().pauseMenu.currentCursoringList, store.getState().pauseMenu.showMenuTab, nextItem)
+        });
+
     };
 
     var handleLeft = function() {
         moveMenuCursor({
             usePrev: true,
-            destKeyName: "leftKeyDest"
+            destKeyName: "leftKeyDest",
+            restrictToDirectionKeyName: "isHorizontalMovement"
         })
     };
 
     var handleRight = function() {
         moveMenuCursor({
             usePrev: false,
-            destKeyName: "rightKeyDest"
+            destKeyName: "rightKeyDest",
+            restrictToDirectionKeyName: "isHorizontalMovement"
+        })
+    };
+
+    var handleUp = function() {
+        moveMenuCursor({
+            usePrev: true,
+            destKeyName: "upKeyDest"
+        })
+    };
+
+    var handleDown = function() {
+        moveMenuCursor({
+            usePrev: false,
+            destKeyName: "downKeyDest"
         })
     };
 
 
+
+
     addKeyboardSinglePress(37, handleLeft, namespace);
     addKeyboardSinglePress(39, handleRight, namespace);
+    addKeyboardSinglePress(65, handleLeft, namespace); //A
+    addKeyboardSinglePress(68, handleRight, namespace); //D
+
+    addKeyboardSinglePress(38, handleUp, namespace);
+    addKeyboardSinglePress(40, handleDown, namespace);
 
     // /* Up/Down */
     // addKeyboardSinglePress(38, handleUp, namespace);
