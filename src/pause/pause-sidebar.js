@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import PauseMenuData from './pause-menu-data'
 import {remainingXpUntilNextLevel, nextLevelXpGoal, isLevelupEligible} from '../level-up/levelup-utilities'
 
 @connect((state, props) => {

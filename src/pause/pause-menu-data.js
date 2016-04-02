@@ -2,47 +2,64 @@ import {isLevelupEligible} from '../level-up/levelup-utilities'
 import Attacks from '../battles/actions/attacks'
 import Items from '../battles/actions/items'
 
-export default {
+var PauseMenuData = {
     /* The structure of these objects will not be the same. Different functionalities */
-
-    getCensoringList: function(key="") {
-        if (key !="pauseRoot") {
-            return [...this[key]];
-        }
-
-        /* If able to level up, return a list without the Stats tab */
-        // if (isLevelupEligible()) {
-        //     return this.pauseRoot.filter(tab => { return tab.id != "pauseRoot-stats" })
-        // }
-        // /* Otherwise, return a list without Level Up */
-        // return this.pauseRoot.filter(tab => { return tab.id != "pauseRoot-levelup" })
-        return this.pauseRoot;
-    },
-
     "pauseRoot": [
         {
-            "id": "pauseRoot-stats",
-            "label": "STATS",
-            "rightKeyDest": ["pauseStatsMenu", "pauseStats-health"]
+            id: "pauseRoot-stats",
+            label: "STATS",
+            isVerticalMovement: false,
+            isHorizontalMovement: true,
+            downKeyDest: ["pauseStatsMenu", "pauseStats-health"],
+            leftKeyDest: ["pauseSidebarMenu", "idk"/*getCensoringList("pauseSidebarMenu")[0].id*/]
+            //"rightKeyDest": ["pauseStatsMenu", "pauseStats-health"]
         },
         {
-            "id": "pauseRoot-laptop",
-            "label": "LAPTOP",
-            //"rightKeyDest": "pauseStats-whateverFirstOptionIdIs"
-            "infoBoxDescription": "Your laptop can be configured with parts and components."
+            id: "pauseRoot-laptop",
+            label: "LAPTOP",
+            isVerticalMovement: false,
+            isHorizontalMovement: true,
+            infoBoxDescription: "Your laptop can be configured with parts and components.",
+            //downKeyDest: ["TODO:whateverLaptopMenu", "TODO:whateverLaptopMenuItem"]
         },
         {
-            "id": "pauseRoot-attacks",
-            "label": "ATTACKS",
-            "rightKeyDest": ["pauseAttacksMenu", "pauseAttacks-action_attack_basic_001"]
+            id: "pauseRoot-attacks",
+            label: "ATTACKS",
+            isVerticalMovement: false,
+            isHorizontalMovement: true,
+            downKeyDest: ["pauseAttacksMenu", "pauseAttacks-action_attack_basic_001"]
         },
         {
-            "id": "pauseRoot-items",
-            "label": "ITEMS",
-            "rightKeyDest": ["pauseItemsMenu", "pauseItems-action_item_hp_001"]
+            id: "pauseRoot-items",
+            label: "ITEMS",
+            isVerticalMovement: false,
+            isHorizontalMovement: true,
+            downKeyDest: ["pauseItemsMenu", "pauseItems-action_item_hp_001"]
         }
-        /* Some day: MAP?, SAVE GAME? */
     ],
+
+    "pauseSidebarMenu": [
+        {
+            id: "pauseSidebarMenu-stats",
+            isVerticalMovement: true,
+            isHorizontalMovement: false,
+            rightKeyDest: ["pauseRoot", "pauseRoot-stats"]
+        },
+        {
+            id: "pauseSidebarMenu-save",
+            isVerticalMovement: true,
+            isHorizontalMovement: false,
+            rightKeyDest: ["pauseRoot", "pauseRoot-stats"]
+        },
+        {
+            id: "pauseSidebarMenu-load",
+            isVerticalMovement: true,
+            isHorizontalMovement: false,
+            rightKeyDest: ["pauseRoot", "pauseRoot-stats"]
+        }
+    ],
+
+
 
     "pauseStatsMenu": [
         {
@@ -175,8 +192,7 @@ export default {
         {...mergeItemData("action_item_sticker_speed_001")},
     ]
 
-
-}
+};
 
 function mergeAttackData(id) {
     return {
@@ -197,3 +213,21 @@ function mergeItemData(id) {
         infoBoxDescription: Items[id].description
     }
 }
+
+export function getCensoringList(key="", dataset) {
+    if (key !="pauseSidebarMenu") {
+        return [...dataset[key]];
+    }
+
+    /* If able to level up, return the full list including the Level Up button on top*/
+    if (isLevelupEligible()) {
+        return [...dataset.pauseSidebarMenu]
+    }
+    /* Otherwise, return the list without Level Up */
+    console.log(dataset)
+    return dataset.pauseSidebarMenu.filter(tab => { return tab.id != "pauseSidebarMenu-levelup" })
+};
+
+
+
+export default PauseMenuData;

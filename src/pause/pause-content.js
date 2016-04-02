@@ -49,7 +49,7 @@ class PauseContent extends React.Component {
     }
 
     renderTopLevelOptions() {
-        const list = PauseMenuData.getCensoringList('pauseRoot');
+        const list = PauseMenuData['pauseRoot'];
         return list.map((item) => {
             const activeClass = (item.id == this.props.selectedMenuItem) ? "is-active" : "";
             //const newBadge = this.renderNewAttackBadge(item.id);

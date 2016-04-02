@@ -1,6 +1,7 @@
 import store from '../init/store'
 import {addKeyboardSinglePress} from '../helpers/single-keypress-binding'
 import PauseMenuData from './pause-menu-data'
+import {getCensoringList} from './pause-menu-data'
 import togglePlayerAttack from './toggle-player-attack'
 import togglePlayerItem from './toggle-player-item'
 import {incrementStatPoint, decrementStatPoint, resetStatPoints, submitLevelUp, skillPointsRemaining} from '../level-up/levelup-utilities'
@@ -72,13 +73,18 @@ export default function(namespace="") {
 
 
     var handleLeft = function() {
-        console.log('left')
-        const list = PauseMenuData.getCensoringList(store.getState().pauseMenu.currentCursoringList);
+        const currentCursoringList = store.getState().pauseMenu.currentCursoringList;
+        const list = getCensoringList(currentCursoringList, PauseMenuData)
         const prev = getPreviousInList( store.getState().pauseMenu.selectedMenuItem, list);
 
         if (store.getState().pauseMenu.selectedMenuItem != prev) {
             sound_menuMove.play();
         }
+
+        if (store.getState().pauseMenu.selectedMenuItem == prev && currentCursoringList == "pauseRoot") {
+            console.log('End of top level menu')
+        }
+
 
         setPauseMenuValue({
             selectedMenuItem: prev,
@@ -87,8 +93,7 @@ export default function(namespace="") {
 
     };
     var handleRight = function() {
-        console.log('right')
-        const list = PauseMenuData.getCensoringList(store.getState().pauseMenu.currentCursoringList);
+        const list = getCensoringList(store.getState().pauseMenu.currentCursoringList, PauseMenuData);
         const next = getNextInList( store.getState().pauseMenu.selectedMenuItem, list);
 
         if (store.getState().pauseMenu.selectedMenuItem != next) {
