@@ -8,6 +8,8 @@ import PauseLaptopContent from './pause-laptop-content'
 import PauseAttacksContent from './pause-attacks-content'
 import PauseItemsContent from './pause-items-content'
 import pauseInfoDescriptionMiddleware from './pause-info-middleware'
+import TopLevelOption from './pause-toplevel-option'
+
 
 @connect((state, props) => {
 
@@ -51,14 +53,9 @@ class PauseContent extends React.Component {
     renderTopLevelOptions() {
         const list = PauseMenuData['pauseRoot'];
         return list.map((item) => {
-            const activeClass = (item.id == this.props.selectedMenuItem) ? "is-active" : "";
-            //const newBadge = this.renderNewAttackBadge(item.id);
-
+            const isActive = (item.id == this.props.selectedMenuItem);
             return (
-                <div key={item.id} className={`top-level-item ${activeClass}`}>
-                    {item.label}
-                    {/*newBadge*/}
-                </div>
+                <TopLevelOption key={item.id} id={item.id} label={item.label} isActive={isActive} />
             )
         });
     }
