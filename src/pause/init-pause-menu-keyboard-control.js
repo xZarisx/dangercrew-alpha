@@ -80,14 +80,15 @@ export default function(namespace="") {
             ...callerOptions
         };
 
-        if (options.destKeyName.length == 0) {
-            console.warn('WARNING: destKeyName not specified in moveMenuCursor callerOptions')
-        }
-
         const currentCursoringList = store.getState().pauseMenu.currentCursoringList;
         const list = getCensoringList(currentCursoringList, PauseMenuData);
         const selectedMenuItem = store.getState().pauseMenu.selectedMenuItem;
-        const selectedNode = getMenuNode(currentCursoringList, selectedMenuItem, PauseMenuData);
+        const selectedNode = getMenuNode(list, selectedMenuItem);
+
+
+        if (options.destKeyName.length == 0) {
+            console.warn('WARNING: destKeyName not specified in moveMenuCursor callerOptions')
+        }
 
 
         /* If the node has a destination defined, go there */
