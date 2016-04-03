@@ -13,12 +13,14 @@ gulp.task('s', function() {
         server: {
             baseDir: "dist"
         },
-        port:3002,
+        open: false,
+        port:3000,
         files: ["*/**.css"],
         ghostMode: false
     });
 });
 gulp.task('sync-assets', function() {
+    /* WEBPACK ASSETS TO MOBILE DEVICES */
     browserSync({
         proxy: "localhost:8080",
         port:3003,
@@ -32,3 +34,4 @@ gulp.task('sass:watch', function () {
     gulp.watch('./src/_scss/**/*.scss', ['sass']);
 });
 gulp.task('default', ['sass','sass:watch']);
+
