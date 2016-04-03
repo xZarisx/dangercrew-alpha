@@ -33,11 +33,16 @@ import TopLevelOption from './pause-toplevel-option'
 class PauseContent extends React.Component {
 
     renderBody() {
+        /* This one is a little different */
+        /* Check if on button, or if you've entered into the level up menu */
+        if (this.props.selectedMenuItem == "pauseSidebarMenu-levelup" ||
+            this.props.showMenuTab == "pauseSidebarMenu-levelup") {
+            return <PauseLevelUpContent />
+        }
+
+        /* These are standard */
         if (this.props.showMenuTab == "pauseRoot-stats") {
             return <PauseStatsContent />
-        }
-        if (this.props.showMenuTab == "pauseRoot-levelup") {
-            return <PauseLevelUpContent />
         }
         if (this.props.showMenuTab == "pauseRoot-laptop") {
             return <PauseLaptopContent />

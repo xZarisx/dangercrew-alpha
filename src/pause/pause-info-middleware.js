@@ -8,6 +8,7 @@ export default function(selectedNode={}) {
     if (!selectedNode.id) {
         console.warn("selectedNode not found in pause-info-middleware")
     }
+    
 
     /* Use Case: Hide attack titles and descriptions if not leveled up enough */
     if (selectedNode.id.match(/pauseAttacks/)) {

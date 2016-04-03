@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PauseMenuData from './pause-menu-data'
-//import store from '../init/store'
-import {skillPointsRemaining} from '../level-up/levelup-utilities'
+import store from '../init/store'
+import {incrementStatPoint, decrementStatPoint, skillPointsRemaining} from '../level-up/levelup-utilities'
 
 @connect((state, props) => {
     return {
+        level: state.playerData.level,
         selectedMenuItem: state.pauseMenu.selectedMenuItem,
-
         healthStatPoints: state.playerData.healthStatPoints,
         attackStatPoints: state.playerData.attackStatPoints,
         defenseStatPoints: state.playerData.defenseStatPoints,
@@ -15,7 +15,6 @@ import {skillPointsRemaining} from '../level-up/levelup-utilities'
         efficiencyStatPoints: state.playerData.efficiencyStatPoints
     }
 })
-
 class PauseLevelUpContent extends React.Component {
 
     componentWillMount() {
@@ -28,6 +27,20 @@ class PauseLevelUpContent extends React.Component {
             efficiencyStatPoints: this.props.efficiencyStatPoints
         }
     }
+
+    // componentWillUpdate(newProps) {
+    //     if (newProps.level > this.props.level) {
+    //
+    //         this.initialStatPoints = {
+    //             healthStatPoints: newProps.healthStatPoints,
+    //             attackStatPoints: newProps.attackStatPoints,
+    //             defenseStatPoints: newProps.defenseStatPoints,
+    //             speedStatPoints: newProps.speedStatPoints,
+    //             efficiencyStatPoints: newProps.efficiencyStatPoints
+    //         }
+    //     }
+    // }
+
 
     renderPrompt() {
         const overlayStyle = {
@@ -60,25 +73,28 @@ class PauseLevelUpContent extends React.Component {
             const value = stat.statId ? this.props[stat.statId] : null;
 
             /* Styles per row */
-            const activeClass = (stat.id == this.props.selectedMenuItem) ? "is-active" : "";
+            const isActive = stat.id == this.props.selectedMenuItem;
             const rowClass = stat.rowClass || "";
 
-            const hideLeftArrowClass = (this.props[stat.statId] > this.initialStatPoints[stat.statId]) ? "" : "hide-arrow" ;
-            const hideRightArrowClass = (skillPointsRemaining() > 0) ? "" : "hide-arrow" ;
+            const hideLeftArrow = this.props[stat.statId] <= this.initialStatPoints[stat.statId];
+            const hideRightArrow = skillPointsRemaining() <= 0;
 
             return (
-                <div key={stat.id} className={`${activeClass} ${rowClass} _spreading-list-item pause-stat-item`}>
-                    <div>{stat.label}</div>
-                    <div className="pause-stat-value">
-                        <div className={`_ibm pause-levelup-arrow arrow-left ${hideLeftArrowClass}`}></div>
-                        <div className="_ibm pause-levelup-value">{value}</div>
-                        <div className={`_ibm pause-levelup-arrow arrow-right ${hideRightArrowClass}`}></div>
-                    </div>
-                </div>
+                <PauseLevelUpStatRow
+                    key={stat.id}
+                    id={stat.statId}
+                    label={stat.label}
+                    hideLeftArrow={hideLeftArrow}
+                    hideRightArrow={hideRightArrow}
+                    minimum={this.initialStatPoints[stat.statId]}
+                    rowClass={rowClass}
+                    isActive={isActive}
+                    value={value}
+                />
             )
         });
 
-        const pressEnterPrompt = (this.props.selectedMenuItem == "pauseRoot-levelup") ? this.renderPrompt() : null;
+        const pressEnterPrompt = (this.props.selectedMenuItem == "pauseSidebarMenu-levelup") ? this.renderPrompt() : null;
 
         /* Remaining Points indicator */
         const pointsRemaining = skillPointsRemaining();
@@ -97,5 +113,38 @@ class PauseLevelUpContent extends React.Component {
         );
     }
 }
+
+
+
+class PauseLevelUpStatRow extends React.Component {
+
+    handleDecrementClick () {
+        decrementStatPoint(this.props.id, store.getState().playerData[this.props.id], this.props.minimum);
+    }
+
+    handleIncrementClick () {
+        console.log('yep', this.props.id)
+        incrementStatPoint(this.props.id, store.getState().playerData[this.props.id], 999);
+    }
+
+    render() {
+
+        const activeClass = (this.props.isActive) ? "is-active" : "";
+        const hideLeftArrowClass = (this.props.hideLeftArrow) ? "hide-arrow" : "";
+        const hideRightArrowClass = (this.props.hideRightArrow) ? "hide-arrow" : "";
+
+        return (
+            <div className={`${activeClass} ${this.props.rowClass} _spreading-list-item pause-stat-item`}>
+                <div>{this.props.label}</div>
+                <div className="pause-stat-value">
+                    <div onClick={::this.handleDecrementClick} className={`_ibm pause-levelup-arrow arrow-left ${hideLeftArrowClass}`}></div>
+                    <div className="_ibm pause-levelup-value">{this.props.value}</div>
+                    <div onClick={::this.handleIncrementClick} className={`_ibm pause-levelup-arrow arrow-right ${hideRightArrowClass}`}></div>
+                </div>
+            </div>
+        )
+    }
+}
+
 
 export default PauseLevelUpContent;

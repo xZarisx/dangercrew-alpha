@@ -124,6 +124,16 @@ export default function(namespace="") {
     };
 
     var handleLeft = function() {
+
+        /* decrement stat during level up */
+        if (store.getState().pauseMenu.currentCursoringList == "pauseLevelUpMenu") {
+            const currentStatId = getCurrentlySelectedNode().statId;
+            if (currentStatId) {
+                decrementStatPoint(currentStatId, store.getState().playerData[currentStatId], initialStatLevels[currentStatId]);
+            }
+            return;
+        }
+
         moveMenuCursor({
             usePrev: true,
             destKeyName: "leftKeyDest",
@@ -132,6 +142,17 @@ export default function(namespace="") {
     };
 
     var handleRight = function() {
+
+        /* Increment stat point when leveling up */
+        if (store.getState().pauseMenu.currentCursoringList == "pauseLevelUpMenu") {
+            const currentStatId = getCurrentlySelectedNode().statId;
+            if (currentStatId) {
+                incrementStatPoint(currentStatId, store.getState().playerData[currentStatId], 999);
+                //999 is a sort-of placeholder for stat thresholding. (Not letting somebody get too high in one stat at level x)
+            }
+            return;
+        }
+
         moveMenuCursor({
             usePrev: false,
             destKeyName: "rightKeyDest",
@@ -256,10 +277,11 @@ export default function(namespace="") {
         }
 
         /* Enter the Level Up tab list */
-        if (selectedMenuItem == "pauseRoot-levelup") {
+        if (selectedMenuItem == "pauseSidebarMenu-levelup") {
             setPauseMenuValue({
                 currentCursoringList: "pauseLevelUpMenu",
-                selectedMenuItem: "pauseLevelUp-health"
+                selectedMenuItem: "pauseLevelUp-health",
+                showMenuTab: "pauseSidebarMenu-levelup"
             });
         }
 
@@ -290,7 +312,7 @@ export default function(namespace="") {
             });
 
             /* Update the pause screen state. Get fresh copy of sidebar menu */
-            const list = PauseMenuData.getCensoringList("pauseRoot");
+            const list = getCensoringList("pauseRoot", PauseMenuData);
             const postLevelUpSelectedId = list[0].id;
             const postLevelUpContent = (postLevelUpSelectedId == "pauseRoot-stats") ? "pauseRoot-stats" : "pauseRoot-levelup" ;
             setPauseMenuValue({
@@ -312,8 +334,8 @@ export default function(namespace="") {
             sound_crapout.play();
             resetStatPoints(initialStatLevels);
             setPauseMenuValue({
-                currentCursoringList: "pauseRoot",
-                selectedMenuItem: "pauseRoot-levelup"
+                currentCursoringList: "pauseSidebarMenu",
+                selectedMenuItem: "pauseSidebarMenu-levelup"
             });
             return;
         }

@@ -113,7 +113,6 @@ export function submitLevelUp() { /* impure? */
 
     const playerLevel = store.getState().playerData.level;
     const newMaxHp = getMaxHp(playerLevel + 1);
-    console.log(newMaxHp)
 
     if (playerLevel < 10) { /* Limiting to Level 10 for Alpha */
         setPlayerDataValue({
