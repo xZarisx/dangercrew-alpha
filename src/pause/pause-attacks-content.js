@@ -18,15 +18,19 @@ class PauseAttacksContent extends React.Component {
     componentWillUpdate(newProps) {
         /* Reset the badge when newly cursoring into Attack menu */
         if (newProps.currentCursoringList == "pauseAttacksMenu" && this.props.currentCursoringList != "pauseAttacksMenu") {
-            this.props.dispatch({
-                type: "SET_PAUSEMENU_VALUE",
-                payload: {
-                    changes: {
-                        newAttackBadge: false
-                    }
-                }
-            })
+            this.turnOffBadge();
         }
+    }
+
+    turnOffBadge() {
+        this.props.dispatch({
+            type: "SET_PAUSEMENU_VALUE",
+            payload: {
+                changes: {
+                    newAttackBadge: false
+                }
+            }
+        })
     }
 
 
@@ -36,7 +40,7 @@ class PauseAttacksContent extends React.Component {
             const checked = (this.props.playerAttacks.indexOf(attack.attackId) != -1);
             const isMystery = (attack.levelRequirement > this.props.playerLevel);
             const isCursored = (attack.id == this.props.selectedMenuItem);
-            return <AttackListing id={attack.id} isCursored={isCursored} checked={checked} isMystery={isMystery} label={attack.name} />
+            return <AttackListing id={attack.id} onToggleChange={::this.turnOffBadge} isCursored={isCursored} checked={checked} isMystery={isMystery} label={attack.name} />
         });
 
         return (
@@ -52,7 +56,8 @@ class AttackListing extends React.Component {
 
     handleClick() {
         /* Mobile tap */
-        togglePlayerAttack(this.props.id)
+        togglePlayerAttack(this.props.id);
+        this.props.onToggleChange(); /* propagate change up to parent */
     }
 
     render() {

@@ -7,11 +7,10 @@ PAUSE MENU
         - Have a lot of XP, then level up twice. On the second level up, you will be able to go down too far
         
     [Mobile Interactions]
-    - Tap the prompt to enter levelup 
-    - Tap DONE to submit level up
+    - NEW badge on Attack label
         
         
-ATTACK MENU
+BATTLE MENU
     - dev new mobile-friendly designs
 
 WALKING

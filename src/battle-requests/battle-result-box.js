@@ -140,9 +140,9 @@ class BattleResultBox extends React.Component {
             type: "SET_PAUSEMENU_VALUE",
             payload: {
                 changes: {
-                    currentCursoringList: "pauseRoot",
-                    selectedMenuItem: "pauseRoot-levelup",
-                    showMenuTab: "pauseRoot-levelup"
+                    currentCursoringList: "pauseSidebarMenu",
+                    selectedMenuItem: "pauseSidebarMenu-levelup",
+                    showMenuTab: "pauseSidebarMenu-levelup"
                 }
             }
         });

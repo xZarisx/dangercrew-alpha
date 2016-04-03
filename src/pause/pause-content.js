@@ -13,11 +13,6 @@ import TopLevelOption from './pause-toplevel-option'
 
 @connect((state, props) => {
 
-    /* This text node might end up getting stored in a different place. Not sure */
-    const pageNode = PauseMenuData.pauseRoot.filter(page => {
-        return page.id == state.pauseMenu.showMenuTab
-    })[0];
-
     const selectedNode = PauseMenuData[state.pauseMenu.currentCursoringList].filter(page => {
         return page.id == state.pauseMenu.selectedMenuItem
     })[0];
@@ -25,8 +20,9 @@ import TopLevelOption from './pause-toplevel-option'
     return {
         selectedMenuItem: state.pauseMenu.selectedMenuItem,
         showMenuTab: state.pauseMenu.showMenuTab,
+        newAttackBadge : state.pauseMenu.newAttackBadge,
         infoBoxTitle: pauseInfoDescriptionMiddleware(selectedNode)[0],
-        infoBoxDescription: pauseInfoDescriptionMiddleware(selectedNode)[1]
+        infoBoxDescription: pauseInfoDescriptionMiddleware(selectedNode)[1],
     }
 })
 
@@ -60,7 +56,13 @@ class PauseContent extends React.Component {
         return list.map((item) => {
             const isActive = (item.id == this.props.selectedMenuItem);
             return (
-                <TopLevelOption key={item.id} id={item.id} label={item.label} isActive={isActive} />
+                <TopLevelOption
+                    key={item.id}
+                    id={item.id}
+                    label={item.label}
+                    isActive={isActive}
+                    newAttackBadge={this.props.newAttackBadge}
+                />
             )
         });
     }

@@ -23,15 +23,7 @@ import LevelUpBtn from './pause-levelup-btn'
 
 class PauseSidebar extends React.Component {
 
-
-    renderNewAttackBadge(id) {
-        if (id == "pauseRoot-attacks" && this.props.newAttackBadge) {
-            return <div>NEW</div>
-        }
-        return null;
-    }
-
-
+    
     renderLevelUpButton() {
         const xpProgress = (remainingXpUntilNextLevel() > 0)
             ? `${this.props.xp}/${nextLevelXpGoal()}` : "--" ;

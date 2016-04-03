@@ -21,13 +21,20 @@ class TopLevelOption extends React.Component {
         });
     }
 
+    renderNewAttackBadge(id) {
+        if (this.props.id == "pauseRoot-attacks" && this.props.newAttackBadge) {
+            return <div className="pause-new-attacks-badge">NEW!</div>
+        }
+        return null;
+    }
+
     render() {
         const activeClass = (this.props.isActive) ? "is-active" : "";
 
         return (
             <div onClick={::this.handleClick} className={`top-level-item ${activeClass}`}>
                 {this.props.label}
-                {/*newBadge*/}
+                {this.renderNewAttackBadge()}
             </div>
         );
     }

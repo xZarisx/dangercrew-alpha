@@ -15,7 +15,6 @@ export default function ActionButtonController() {
     /* Mobile bindings */
     /* Keeping this here as a jQuery binding because the functionality for talking is right here */
     $('.viewport').on('click', '.player', function() {
-        console.log('yep');
         ctrl.handleActionButton();
     });
 

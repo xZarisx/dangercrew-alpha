@@ -9,7 +9,7 @@ export default {
     pp: 50,
     maxPp: 50,
 
-    xp: 800,
+    xp: 0,
     coins: 10,
 
     /* Begin with 5 Stat Points */

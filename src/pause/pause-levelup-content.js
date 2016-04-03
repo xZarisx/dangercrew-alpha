@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PauseMenuData from './pause-menu-data'
 import store from '../init/store'
-import {incrementStatPoint, decrementStatPoint, skillPointsRemaining} from '../level-up/levelup-utilities'
+import {incrementStatPoint, decrementStatPoint, skillPointsRemaining, submitLevelUp} from '../level-up/levelup-utilities'
 
 @connect((state, props) => {
     return {
@@ -28,18 +28,18 @@ class PauseLevelUpContent extends React.Component {
         }
     }
 
-    // componentWillUpdate(newProps) {
-    //     if (newProps.level > this.props.level) {
-    //
-    //         this.initialStatPoints = {
-    //             healthStatPoints: newProps.healthStatPoints,
-    //             attackStatPoints: newProps.attackStatPoints,
-    //             defenseStatPoints: newProps.defenseStatPoints,
-    //             speedStatPoints: newProps.speedStatPoints,
-    //             efficiencyStatPoints: newProps.efficiencyStatPoints
-    //         }
-    //     }
-    // }
+    handlePromptClick() {
+        this.props.dispatch({
+            type: "SET_PAUSEMENU_VALUE",
+            payload: {
+                changes: {
+                    currentCursoringList: "pauseLevelUpMenu",
+                    selectedMenuItem: "pauseLevelUp-health",
+                    showMenuTab: "pauseSidebarMenu-levelup"
+                }
+            }
+        })
+    }
 
 
     renderPrompt() {
@@ -59,7 +59,7 @@ class PauseLevelUpContent extends React.Component {
             borderBottom: '1vw solid #333'
         };
         return (
-            <div style={overlayStyle}>
+            <div style={overlayStyle} onClick={::this.handlePromptClick}>
                 <div style={overlayMessage}>Press ENTER to level up!</div>
             </div>
         )
@@ -128,6 +128,26 @@ class PauseLevelUpStatRow extends React.Component {
     }
 
     handleSelectionClick() {
+
+        /* Apply level up if DONE is already selected and you tap it again */
+        if (this.props.menuItemId == "pauseLevelUp-done" && this.props.isActive) {
+            submitLevelUp();
+            /* Update the pause menu to not be in Level Up world */
+            store.dispatch({
+                type: "SET_PAUSEMENU_VALUE",
+                payload: {
+                    changes: {
+                        currentCursoringList: "pauseRoot",
+                        selectedMenuItem: "pauseRoot-stats",
+                        showMenuTab: "pauseRoot-stats"
+                    }
+                }
+            });
+            return;
+        }
+
+
+        /* Otherwise, select the one you tapped */
         store.dispatch({
             type: "SET_PAUSEMENU_VALUE",
             payload: {
