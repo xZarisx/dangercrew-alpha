@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "analyze": "webpack --config webpack.production.config.js --json > analysis/webpack.json",
-    "start": "gulp & webpack-dev-server & gulp s",
+    "start": "node server.js",
     "test": "mocha",
     "local": "python -m SimpleHTTPServer 3000",
     "build": "webpack --config webpack.production.config.js",
@@ -39,7 +39,6 @@
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.1",
-    "webpack-dev-server": "^1.10.1",
     "yeticss": "^7.0.5"
   },
   "devDependencies": {
@@ -50,6 +49,7 @@
     "howler": "^1.1.29",
     "mocha": "^2.4.5",
     "mockery": "^1.4.0",
-    "sinon": "^1.17.2"
+    "sinon": "^1.17.2",
+    "webpack-dev-server": "^1.14.1"
   }
 }
