@@ -83,6 +83,7 @@ class PauseLevelUpContent extends React.Component {
                 <PauseLevelUpStatRow
                     key={stat.id}
                     id={stat.statId}
+                    menuItemId={stat.id}
                     label={stat.label}
                     hideLeftArrow={hideLeftArrow}
                     hideRightArrow={hideRightArrow}
@@ -123,8 +124,18 @@ class PauseLevelUpStatRow extends React.Component {
     }
 
     handleIncrementClick () {
-        console.log('yep', this.props.id)
         incrementStatPoint(this.props.id, store.getState().playerData[this.props.id], 999);
+    }
+
+    handleSelectionClick() {
+        store.dispatch({
+            type: "SET_PAUSEMENU_VALUE",
+            payload: {
+                changes: {
+                    selectedMenuItem: this.props.menuItemId
+                }
+            }
+        });
     }
 
     render() {
@@ -135,7 +146,7 @@ class PauseLevelUpStatRow extends React.Component {
 
         return (
             <div className={`${activeClass} ${this.props.rowClass} _spreading-list-item pause-stat-item`}>
-                <div>{this.props.label}</div>
+                <div onClick={::this.handleSelectionClick}>{this.props.label}</div>
                 <div className="pause-stat-value">
                     <div onClick={::this.handleDecrementClick} className={`_ibm pause-levelup-arrow arrow-left ${hideLeftArrowClass}`}></div>
                     <div className="_ibm pause-levelup-value">{this.props.value}</div>

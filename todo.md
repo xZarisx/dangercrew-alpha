@@ -6,6 +6,11 @@ PAUSE MENU
         - BUG: you can decrement past the minimum if you don't exit the Nav between levelups
         - Have a lot of XP, then level up twice. On the second level up, you will be able to go down too far
         
+    [Mobile Interactions]
+    - Tap the prompt to enter levelup 
+    - Tap DONE to submit level up
+        
+        
 ATTACK MENU
     - dev new mobile-friendly designs
 

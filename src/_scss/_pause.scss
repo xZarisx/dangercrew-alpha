@@ -168,7 +168,7 @@
     $tri-size: 0.6vw;
     border-width: $tri-size 0 $tri-size $tri-size*1.7;
     border-color: transparent transparent transparent #FFF;
-    //animation: blink 1s steps(2, start) infinite;
+    //animation: blink 1s steps(2, start) infinite; /* This shouldnt blink on mobile, because its hard to tap */
     &.arrow-left {
         transform: rotate(180deg);
     }
