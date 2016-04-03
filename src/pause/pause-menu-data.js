@@ -244,6 +244,16 @@ export function getCensoringList(key="", dataset) {
             return option;
         });
     }
+
+    /* Only return levelup if levelup eligible */
+    if (key == "pauseSidebarMenu") {
+        if (!isLevelupEligible()) {
+            return dataset[key].filter(option => {
+                return option.id != "pauseSidebarMenu-levelup"
+            })
+        }
+    }
+
     return [...dataset[key]];
 }
 

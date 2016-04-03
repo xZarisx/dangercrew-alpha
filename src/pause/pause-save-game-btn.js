@@ -9,12 +9,24 @@ import { connect } from 'react-redux'
 
 class SaveGameBtn extends React.Component {
 
+    handleClick() {
+        this.props.dispatch({
+            type: "SET_PAUSEMENU_VALUE",
+            payload: {
+                changes: {
+                    currentCursoringList: "pauseSidebarMenu",
+                    selectedMenuItem: "pauseSidebarMenu-save",
+                }
+            }
+        });
+        /* probably the actual action here */
+    }
+
+
     render() {
-
         const activeClass = this.props.isActive ? "active-pause-menu-button" : "";
-
         return (
-            <div className={`pause-menu-button ${activeClass}`}>
+            <div onClick={::this.handleClick} className={`pause-menu-button ${activeClass}`}>
                 SAVE
             </div>
         );

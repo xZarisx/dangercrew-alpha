@@ -9,12 +9,25 @@ import { connect } from 'react-redux'
 
 class LevelUpBtn extends React.Component {
 
+    handleClick() {
+        this.props.dispatch({
+            type: "SET_PAUSEMENU_VALUE",
+            payload: {
+                changes: {
+                    currentCursoringList: "pauseSidebarMenu",
+                    selectedMenuItem: "pauseSidebarMenu-levelup",
+                }
+            }
+        });
+        /* probably the actual action here */
+    }
+
     render() {
 
         const activeClass = this.props.isActive ? "active-pause-menu-button" : "";
 
         return (
-            <div className={`pause-menu-button level-up-button ${activeClass}`}>
+            <div onClick={::this.handleClick} className={`pause-menu-button level-up-button ${activeClass}`}>
                 LEVEL UP!
             </div>
         );
