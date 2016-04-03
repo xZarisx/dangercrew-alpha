@@ -22,12 +22,12 @@ class ReduxStateDisplayer extends React.Component {
     }
 
     render() {
-        //return null;
-        return (
-           <pre style={style}>
-               { JSON.stringify(this.props.reduxState.pauseMenu, null, 2) }
-           </pre>
-        );
+        return null;
+        // return (
+        //    <pre style={style}>
+        //        { JSON.stringify(this.props.reduxState.pauseMenu, null, 2) }
+        //    </pre>
+        // );
     }
 }
 
