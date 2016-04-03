@@ -10,29 +10,27 @@ gulp.task('sass', function () {
 
 gulp.task('s', function() {
     browserSync({
-        server: {
-            baseDir: "dist"
-        },
+        port:4000,
+        proxy: "localhost:3000",
         open: false,
-        port:3000,
         files: ["*/**.css"],
         ghostMode: false
     });
 });
-gulp.task('assets', function() {
-    /* WEBPACK ASSETS TO MOBILE DEVICES */
-    browserSync({
-        proxy: "localhost:8080",
-        port:3003,
-        open: false,
-        files: ['**/*.js', '**/*.css'],
-        ghostMode: false
-    });
-});
+// gulp.task('assets', function() {
+//     /* WEBPACK ASSETS TO MOBILE DEVICES */
+//     browserSync({
+//         proxy: "localhost:8080",
+//         port:3003,
+//         open: false,
+//         files: ['**/*.js', '**/*.css'],
+//         ghostMode: false
+//     });
+// });
 
 
 gulp.task('sass:watch', function () {
     gulp.watch('./src/_scss/**/*.scss', ['sass']);
 });
-gulp.task('default', ['sass','sass:watch']);
+gulp.task('default', ['sass','sass:watch', 's']);
 
