@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PauseMenuData from './pause-menu-data'
+import togglePlayerAttack from './toggle-player-attack'
+
 
 @connect((state, props) => {
     return {
@@ -47,6 +49,12 @@ class PauseAttacksContent extends React.Component {
 }
 
 class AttackListing extends React.Component {
+
+    handleClick() {
+        /* Mobile tap */
+        togglePlayerAttack(this.props.id)
+    }
+
     render() {
         const bulletStyle = {
             width:'2vw',
@@ -57,7 +65,7 @@ class AttackListing extends React.Component {
         const label = (this.props.isMystery) ? '??????' : this.props.label;
         const activeClass = (this.props.isCursored) ? "is-active" : "";
         return (
-            <div className={`pause-attack-item ${activeClass}`}>
+            <div onClick={::this.handleClick} className={`pause-attack-item ${activeClass}`}>
                 <div className="_ibm" style={bulletStyle}></div>
                 <div className="_ibm">{label}</div>
             </div>

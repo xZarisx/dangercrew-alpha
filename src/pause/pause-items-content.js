@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PauseMenuData from './pause-menu-data'
+import togglePlayerItem from './toggle-player-item'
 
 @connect((state, props) => {
     return {
@@ -29,6 +30,12 @@ class PauseItemsContent extends React.Component {
 }
 
 class ItemListing extends React.Component {
+
+    handleClick() {
+        /* Mobile tap */
+        togglePlayerItem(this.props.id)
+    }
+
     render() {
         const bulletStyle = {
             width:'2vw',
@@ -39,7 +46,7 @@ class ItemListing extends React.Component {
 
         const activeClass = (this.props.isCursored) ? "is-active" : "";
         return (
-            <div className={`pause-attack-item ${activeClass}`}>
+            <div onClick={::this.handleClick} className={`pause-attack-item ${activeClass}`}>
                 <div className="_ibm" style={bulletStyle}></div>
                 <div className="_ibm">{this.props.label}</div>
             </div>
