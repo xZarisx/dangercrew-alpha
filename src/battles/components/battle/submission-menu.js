@@ -128,9 +128,6 @@ class SubmissionMenu extends React.Component {
 
 
     handleMobileTap(arrayIndex) {
-
-        console.log('MOBILE TAP!', arrayIndex);
-
         this.props.dispatch({
             type: "SET_TERMINAL_MENU_INDEX",
             payload: {
@@ -143,7 +140,40 @@ class SubmissionMenu extends React.Component {
         }, 60)
     }
 
+    renderAttackMenu() {
+        return (
+            <div className="battle-menu-list-window medium-window">
+                <header className="terminal-window-header">
+                    <div className="header-bubble header-bubble-blue"></div>
+                    <div>Attacks</div>
+                </header>
+                <div className="battle-menu-list-options">
+                    <div className="battle-menu-option">Slice</div>
+                    <div className="battle-menu-option">Hack</div>
+                    <div className="battle-menu-option">Throttle</div>
+                    <div className="battle-menu-option">DDoS</div>
+                    <div className="battle-menu-option">Meh</div>
+                    <div className="battle-menu-option no-outline">Cancel</div>
+                </div>
+            </div>
+        )
+    }
+
     render() {
+        const attackList = this.renderAttackMenu();
+        return (
+            <div className="battle-menu-container">
+                <div>Commands</div>
+                <div>
+                    <div>Attack</div>
+                    <div>Item</div>
+                </div>
+
+                {attackList}
+            </div>
+        )
+
+
         const menuData = this.terminalViewData;
 
         const view = menuData[this.props.terminalMenuKey];
@@ -164,6 +194,7 @@ class SubmissionMenu extends React.Component {
                 </tr>
             )
         });
+
         return (
             <div>
                 <div>{view.title}</div>
