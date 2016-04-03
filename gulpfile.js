@@ -19,11 +19,12 @@ gulp.task('s', function() {
         ghostMode: false
     });
 });
-gulp.task('sync-assets', function() {
+gulp.task('assets', function() {
     /* WEBPACK ASSETS TO MOBILE DEVICES */
     browserSync({
         proxy: "localhost:8080",
         port:3003,
+        open: false,
         files: ['**/*.js', '**/*.css'],
         ghostMode: false
     });
