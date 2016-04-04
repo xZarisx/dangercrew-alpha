@@ -219,13 +219,13 @@ $window-header-height: 9%; //9vw;
 
 .battle-menu-list-window {
     position: absolute;
-    font-size: 3vw;
+    font-size: 2.5vw;
     bottom: 2vw;
     left: 2vw;
     background: #333;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
     &.medium-window {
-        width: 34vw;
+        width: 39vw;
     }
 }
 
@@ -259,6 +259,10 @@ $window-header-height: 9%; //9vw;
         &.header-bubble-blue {
             background:#4A90E2;
             border: 1px solid darken(#4A90E2, 8%);
+        }
+        &.header-bubble-green {
+            background:#50E3C2;
+            border: 1px solid darken(#50E3C2, 8%);
         }
     }
 }

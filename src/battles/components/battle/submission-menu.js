@@ -158,9 +158,25 @@ class SubmissionMenu extends React.Component {
             </div>
         )
     }
+    renderItemMenu() {
+        return (
+            <div className="battle-menu-list-window medium-window">
+                <header className="terminal-window-header">
+                    <div className="header-bubble header-bubble-green"></div>
+                    <div>Items</div>
+                </header>
+                <div className="battle-menu-list-options">
+                    <div className="battle-menu-option">First Item</div>
+                    <div className="battle-menu-option">Health Mini Battery Pack</div>
+                    <div className="battle-menu-option">Breakpoint</div>
+                </div>
+            </div>
+        )
+    }
 
     render() {
         const attackList = this.renderAttackMenu();
+        const itemList = this.renderItemMenu();
         return (
             <div className="battle-menu-container">
                 <div>Commands</div>
@@ -170,6 +186,7 @@ class SubmissionMenu extends React.Component {
                 </div>
 
                 {attackList}
+                {itemList}
             </div>
         )
 
