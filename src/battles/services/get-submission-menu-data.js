@@ -3,12 +3,12 @@ import Actions from '../../battles/actions/battle-actions'
 
 const baseMenuItems = [
     {
-        label: "Attack...",
+        label: "Attack",
         description: null,
         nextView: "menuAttacks"
     },
     {
-        label: "Items...",
+        label: "Items",
         description: null,
         nextView: "menuItems"
     }
@@ -51,8 +51,7 @@ export default function(playerId="") {
         console.warn('player combatant not found in `getSubmissionMenuData`')
     }
 
-    //const attacks = combatant.attacks.map(attack => { /* OLD WAY */
-    const attacks = store.getState().playerData.attacks.map(attack => { /* New way: Hooks into playerData */
+    const attacks = store.getState().playerData.attacks.map(attack => {
         const action = Actions[attack];
         return {
             label: action.name,

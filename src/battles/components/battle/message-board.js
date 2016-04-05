@@ -33,8 +33,7 @@ class MessageBoard extends React.Component {
         return (
            <div className="message-board">
                <div className="terminal-header">
-                   <div className="terminal-header-color-circle red"></div>
-                   <div className="terminal-header-color-circle green"></div>
+
                </div>
                <div className="terminal-body">
                    {terminalContent}
@@ -44,12 +43,6 @@ class MessageBoard extends React.Component {
     }
 }
 
-MessageBoard.propTypes = {
-    /*someRequiredProp: React.PropTypes.string.isRequired*/
-}
-
-MessageBoard.defaultProps = {
-}
 
 
 

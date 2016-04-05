@@ -57,7 +57,6 @@ class SubmissionMenu extends React.Component {
         };
 
         var handleEnter = function() {
-            console.log('ENTER!');
             self.handleMenuSubmit();
         };
 
@@ -87,6 +86,13 @@ class SubmissionMenu extends React.Component {
         addKeyboardSinglePress(87, handleUp, 'submission-menu'); //W
         addKeyboardSinglePress(40, handleDown, 'submission-menu');
         addKeyboardSinglePress(83, handleDown, 'submission-menu'); //S
+
+        /* Left * Right work too, because why not? */
+        addKeyboardSinglePress(37, handleUp, 'submission-menu'); //Left
+        addKeyboardSinglePress(65, handleUp, 'submission-menu'); //A
+        addKeyboardSinglePress(39, handleDown, 'submission-menu'); //Right
+        addKeyboardSinglePress(68, handleDown, 'submission-menu'); //D
+
         addKeyboardSinglePress(27, handleEsc, 'submission-menu');
     }
 
@@ -128,6 +134,9 @@ class SubmissionMenu extends React.Component {
 
 
     handleMobileTap(arrayIndex) {
+
+        console.log('MOBILE TAB')
+
         this.props.dispatch({
             type: "SET_TERMINAL_MENU_INDEX",
             payload: {
@@ -141,6 +150,16 @@ class SubmissionMenu extends React.Component {
     }
 
     renderAttackMenu() {
+
+        const attacks = this.terminalViewData.menuAttacks.items.map((item, i) => {
+            const activeClass = (i == this.props.terminalMenuSelectedIndex) ? "terminal-item-active" : null;
+            return (
+               <div key={i} className={`battle-menu-option ${activeClass}`} onClick={this.handleMobileTap.bind(this,i)}>
+                   {item.label}
+               </div>
+            )
+        });
+
         return (
             <div className="battle-menu-list-window medium-window">
                 <header className="terminal-window-header">
@@ -148,17 +167,22 @@ class SubmissionMenu extends React.Component {
                     <div>Attacks</div>
                 </header>
                 <div className="battle-menu-list-options">
-                    <div className="battle-menu-option">Slice</div>
-                    <div className="battle-menu-option">Hack</div>
-                    <div className="battle-menu-option">Throttle</div>
-                    <div className="battle-menu-option">DDoS</div>
-                    <div className="battle-menu-option">Meh</div>
-                    <div className="battle-menu-option no-outline">Cancel</div>
+                    {attacks}
                 </div>
             </div>
         )
     }
-    renderItemMenu() {
+    renderItemsMenu() {
+
+        const items = this.terminalViewData.menuItems.items.map((item, i) => {
+            const activeClass = (i == this.props.terminalMenuSelectedIndex) ? "terminal-item-active" : null;
+            return (
+                <div key={i} className={`battle-menu-option ${activeClass}`} onClick={this.handleMobileTap.bind(this,i)}>
+                    {item.label}
+                </div>
+            )
+        });
+
         return (
             <div className="battle-menu-list-window medium-window">
                 <header className="terminal-window-header">
@@ -166,31 +190,47 @@ class SubmissionMenu extends React.Component {
                     <div>Items</div>
                 </header>
                 <div className="battle-menu-list-options">
-                    <div className="battle-menu-option">First Item</div>
-                    <div className="battle-menu-option">Health Mini Battery Pack</div>
-                    <div className="battle-menu-option">Breakpoint</div>
+                    {items}
                 </div>
             </div>
         )
     }
 
+    renderPopupMenu() {
+        if (this.props.terminalMenuKey == "menuAttacks") {
+            return this.renderAttackMenu();
+        }
+        if (this.props.terminalMenuKey == "menuItems") {
+            return this.renderItemsMenu();
+        }
+        return null;
+    }
+
     render() {
-        const attackList = this.renderAttackMenu();
-        const itemList = this.renderItemMenu();
-        return (
-            <div className="battle-menu-container">
-                <div>Commands</div>
-                <div>
-                    <div>Attack</div>
-                    <div>Item</div>
-                </div>
+        // const content = this.renderPopupMenu();
+        // const rootItems = this.terminalViewData.menuRoot.items.map((item, i) => {
+        //     const activeClass = (i == this.props.terminalMenuSelectedIndex) ? "terminal-item-active" : null;
+        //     return (
+        //         <div key={i} className={`battle-menu-root-option ${activeClass}`} onClick={this.handleMobileTap.bind(this,i)}>
+        //             {item.label}
+        //         </div>
+        //     )
+        // });
+        //
+        // return (
+        //     <div className="battle-menu-container">
+        //         <div>Commands</div>
+        //         <div className="battle-menu-root-items">
+        //             {rootItems}
+        //         </div>
+        //         {content}
+        //     </div>
+        // );
+        // //
+        // //
 
-                {attackList}
-                {itemList}
-            </div>
-        )
-
-
+        // //END NEW
+        //
         const menuData = this.terminalViewData;
 
         const view = menuData[this.props.terminalMenuKey];
@@ -223,15 +263,6 @@ class SubmissionMenu extends React.Component {
             </div>
         );
     }
-}
-
-
-
-SubmissionMenu.propTypes = {
-    /*someRequiredProp: React.PropTypes.string.isRequired*/
-}
-
-SubmissionMenu.defaultProps = {
 }
 
 

@@ -38,7 +38,7 @@ export function removeKeyboardSinglePress(namespace) {
 
     /* HACK: This is danger crew specific. Mobile battle events are mounted to $('.message-board') */
     if ($('.message-board').length) {
-        $('.message-board').off('.' + namespace);
+        $('.message-board').off('click.messageBoardTap');
     }
 
 }
