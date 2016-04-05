@@ -1,5 +1,3 @@
-import $ from 'jquery'
-
 export function addKeyboardSinglePress(keyCode, handler, namespace ) {
 
     var namespacedKeydownEvent = "keydown." + (namespace || "");
@@ -38,7 +36,7 @@ export function removeKeyboardSinglePress(namespace) {
 
     /* HACK: This is danger crew specific. Mobile battle events are mounted to $('.message-board') */
     if ($('.message-board').length) {
-        $('.message-board').off('click.messageBoardTap');
+        $('.message-board').off('.' + namespace);
     }
 
 }

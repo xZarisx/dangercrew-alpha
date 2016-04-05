@@ -135,7 +135,7 @@ class SubmissionMenu extends React.Component {
 
     handleMobileTap(arrayIndex) {
 
-        console.log('MOBILE TAB')
+        console.log('MOBILE TAB');
 
         this.props.dispatch({
             type: "SET_TERMINAL_MENU_INDEX",
@@ -207,62 +207,64 @@ class SubmissionMenu extends React.Component {
     }
 
     render() {
-        // const content = this.renderPopupMenu();
-        // const rootItems = this.terminalViewData.menuRoot.items.map((item, i) => {
-        //     const activeClass = (i == this.props.terminalMenuSelectedIndex) ? "terminal-item-active" : null;
-        //     return (
-        //         <div key={i} className={`battle-menu-root-option ${activeClass}`} onClick={this.handleMobileTap.bind(this,i)}>
-        //             {item.label}
-        //         </div>
-        //     )
-        // });
-        //
-        // return (
-        //     <div className="battle-menu-container">
-        //         <div>Commands</div>
-        //         <div className="battle-menu-root-items">
-        //             {rootItems}
-        //         </div>
-        //         {content}
-        //     </div>
-        // );
-        // //
-        // //
-
-        // //END NEW
-        //
-        const menuData = this.terminalViewData;
-
-        const view = menuData[this.props.terminalMenuKey];
-
-        const items = view.items.map((item, i) => {
-
+        const content = this.renderPopupMenu();
+        const rootItems = this.terminalViewData.menuRoot.items.map((item, i) => {
             const activeClass = (i == this.props.terminalMenuSelectedIndex) ? "terminal-item-active" : null;
-            const quantityIndicator = (item.quantity > 1) ? `(x${item.quantity})` : null;
-            const ppCostIndicator = (typeof item.ppCost == "number") ? `${item.ppCost}` : null;
             return (
-                <tr className={`terminal-item ${activeClass}`} key={i} onClick={this.handleMobileTap.bind(this,i)}>
-                    <td className="command-title">{item.label}</td>
-                    <td className="command-price-quantity">
-                        {quantityIndicator}
-                        {ppCostIndicator}
-                    </td>
-                    <td className="command-description">{item.description}</td>
-                </tr>
+                <div key={i} className={`battle-menu-root-option ${activeClass}`}
+                     onClick={this.handleMobileTap.bind(this,i)}>
+                    {item.label}
+                </div>
             )
         });
 
         return (
-            <div>
-                <div>{view.title}</div>
-                <table className="terminal-items-list">
-                    <tbody>
-                    {items}
-                    </tbody>
-                </table>
+            <div className="battle-menu-container">
+                <div>Commands</div>
+                <div className="battle-menu-root-items">
+                    {rootItems}
+                </div>
+                {content}
             </div>
         );
+        //
+        //
+
+        // //END NEW
+        //
     }
+    //     const menuData = this.terminalViewData;
+    //
+    //     const view = menuData[this.props.terminalMenuKey];
+    //
+    //     const items = view.items.map((item, i) => {
+    //
+    //         const activeClass = (i == this.props.terminalMenuSelectedIndex) ? "terminal-item-active" : null;
+    //         const quantityIndicator = (item.quantity > 1) ? `(x${item.quantity})` : null;
+    //         const ppCostIndicator = (typeof item.ppCost == "number") ? `${item.ppCost}` : null;
+    //         return (
+    //             <tr className={`terminal-item ${activeClass}`} key={i} onClick={this.handleMobileTap.bind(this,i)}>
+    //                 <td className="command-title">{item.label}</td>
+    //                 <td className="command-price-quantity">
+    //                     {quantityIndicator}
+    //                     {ppCostIndicator}
+    //                 </td>
+    //                 <td className="command-description">{item.description}</td>
+    //             </tr>
+    //         )
+    //     });
+    //
+    //     return (
+    //         <div>
+    //             <div>{view.title}</div>
+    //             <table className="terminal-items-list">
+    //                 <tbody>
+    //                 {items}
+    //                 </tbody>
+    //             </table>
+    //         </div>
+    //     );
+    // }
 }
 
 

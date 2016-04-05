@@ -58,8 +58,8 @@ class IntroText extends React.Component {
         addKeyboardSinglePress(13, handleEnter, 'introMessage');
 
         /* Mobile tap */
-        $('.message-board').on('click.messageBoardTap', function(e) {
-            console.log('click', e.target);
+        $('.message-board').on('click.introMessage', function(e) {
+            console.log('intro click');
             handleEnter();
         });
     }
