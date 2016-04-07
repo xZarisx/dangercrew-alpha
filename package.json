@@ -9,7 +9,8 @@
     "local": "python -m SimpleHTTPServer 3000",
     "build": "webpack --config webpack.production.config.js",
     "browser": "browser-sync start --proxy 'localhost:3000' --files 'dist/*.js' --no-ghost-mode",
-    "unit_tests": "mocha test/* -w"
+    "unit_tests": "mocha test/* -w",
+    "check": "node build-check"
   },
   "author": "",
   "license": "ISC",
