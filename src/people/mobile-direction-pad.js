@@ -76,13 +76,16 @@ class MobileDirectionPad extends React.Component {
             const gameViewportLeft = $(this)[0].getBoundingClientRect().left;
             const gameViewportTop = $(this)[0].getBoundingClientRect().top;
 
+            const touchPageX = (e.originalEvent.touches) ? e.originalEvent.touches[0].pageX : e.originalEvent.pageX;
+            const touchPageY = (e.originalEvent.touches) ? e.originalEvent.touches[0].pageY : e.originalEvent.pageY;
+
 
             self.setState({
                 isTouching: true,
-                initialTouchX: e.originalEvent.pageX - gameViewportLeft,
-                initialTouchY: e.originalEvent.pageY - gameViewportTop,
-                indicatorX: e.originalEvent.pageX - gameViewportLeft,
-                indicatorY: e.originalEvent.pageY - gameViewportTop
+                initialTouchX: touchPageX - gameViewportLeft,
+                initialTouchY: touchPageY - gameViewportTop,
+                indicatorX: touchPageX - gameViewportLeft,
+                indicatorY: touchPageY - gameViewportTop
             });
 
             updateCoords();
@@ -103,14 +106,18 @@ class MobileDirectionPad extends React.Component {
 
                 const gameViewportLeft = $(this)[0].getBoundingClientRect().left;
                 const gameViewportTop = $(this)[0].getBoundingClientRect().top;
+
+                const touchPageX = (e.originalEvent.touches) ? e.originalEvent.touches[0].pageX : e.originalEvent.pageX;
+                const touchPageY = (e.originalEvent.touches) ? e.originalEvent.touches[0].pageY : e.originalEvent.pageY;
+
                 self.setState({
-                    indicatorX: e.originalEvent.pageX - gameViewportLeft,
-                    indicatorY: e.originalEvent.pageY - gameViewportTop
+                    indicatorX: touchPageX - gameViewportLeft,
+                    indicatorY: touchPageY - gameViewportTop
                 });
 
 
-                const x =  e.originalEvent.pageX; //e.originalEvent.pageX;
-                const y =  e.originalEvent.pageY; //e.originalEvent.pageY;
+                const x =  (e.originalEvent.touches) ? e.originalEvent.touches[0].pageX : e.originalEvent.pageX;
+                const y =  (e.originalEvent.touches) ? e.originalEvent.touches[0].pageY : e.originalEvent.pageY;
 
 
 
