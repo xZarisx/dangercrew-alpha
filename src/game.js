@@ -1,21 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import FastClick from 'fastclick'
+import store from './init/store'
 
 /* Dev Tools */
 import ReduxStateDisplayer from './dev-tools/redux-state-displayer'
 import seedBattle from './dev-tools/seed-battle'
 
 /* World, Player and NPCs */
-import Person from './people/person';
 import Map from './map/map';
-import PauseController from './pause/pause-controller'
 
 /* Loading a map */
 import {loadMap, getJSON} from './map/load-map'
-import { getQueryVariable } from './helpers/get-url-parameter'
 
-//import TestMap from './_data/maps/dev-colorstreet-map'
 import AlphaStreetMap from './_data/maps/alpha-street-map'
 import AlphaCoffeeMap from './_data/maps/alpha-coffeeshop-map'
 
@@ -23,6 +20,8 @@ import AlphaCoffeeMap from './_data/maps/alpha-coffeeshop-map'
 /* Playing music */
 import AudioOption from './music/audio-option'
 
+/* Mobile detection */
+import isTouchDevice from './helpers/is-touch-device'
 
 
 class GameIndex extends React.Component {
@@ -46,9 +45,19 @@ class GameIndex extends React.Component {
         /* DEV TOOL - Launch in battle mode */
         //seedBattle(); //Toggle this line on/off. Should be off for production build
 
+    }
 
-
-
+    componentWillMount() {
+        if (isTouchDevice()) {
+            store.dispatch({
+                type: "SET_GAME_VALUE",
+                payload: {
+                    changes: {
+                        isTouchMode: true
+                    }
+                }
+            });
+        }
     }
 
     render() {

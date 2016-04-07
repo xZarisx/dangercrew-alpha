@@ -17,7 +17,9 @@ import LevelUpBtn from './pause-levelup-btn'
         coins: state.playerData.coins,
 
         selectedMenuItem: state.pauseMenu.selectedMenuItem,
-        newAttackBadge: state.pauseMenu.newAttackBadge
+        newAttackBadge: state.pauseMenu.newAttackBadge,
+
+        isTouchMode: state.game.isTouchMode
     }
 })
 
@@ -41,8 +43,20 @@ class PauseSidebar extends React.Component {
         );
     }
 
-    render() {
+    renderEscTip() {
 
+        if (this.props.isTouchMode) {
+            return null;
+        }
+
+        return (
+            <div className="pause-sidebar-close-tip">
+                ESC to exit
+            </div>
+        )
+    }
+
+    render() {
 
         return (
            <div className="pause-sidebar">
@@ -71,6 +85,7 @@ class PauseSidebar extends React.Component {
                    <SaveBtn />
                    <LoadBtn />
                </div>
+               {this.renderEscTip()}
            </div>
         );
     }

@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../helpers/single-keypress-binding'
-import isTouchDevice from '../helpers/is-touch-device'
 import {Howl} from 'howler'
 
 var enterSound = new Howl({
@@ -11,6 +10,7 @@ var enterSound = new Howl({
 
 @connect((state, props) => {
     return {
+        isTouchMode: state.game.isTouchMode
     }
 })
 
@@ -19,48 +19,43 @@ class TitleScreen extends React.Component {
     constructor() {
         super();
         this.state = {
-            isPromptBlinking: true,
-            isMobileWarning: false,
+            isPromptBlinking: true
         }
+    }
+
+    startGame() {
+        var self = this;
+        /* Insert Sound Effect here */
+        enterSound.play();
+
+        self.setState({
+            isPromptBlinking: false
+        });
+
+        setTimeout(function() {
+            /* TODO: refactor game reducer to use utilities. That will clean this up */
+            self.props.dispatch({
+                type: 'SET_GAME_AREA',
+                payload: {
+                    gameArea: 'map'
+                }
+            });
+            setTimeout(function() {
+                self.props.dispatch({
+                    type: 'SET_TRANSITION_OVERLAY_OPACITY',
+                    payload: {
+                        transitionOverlayOpacity: 0
+                    }
+                });
+            }, 1000)
+
+        }, 2000);
     }
 
     componentDidMount() {
         var self = this;
-
-        if (isTouchDevice()) {
-            //console.warn('touch device. Show the warning')
-            self.setState({
-                isMobileWarning: true
-            });
-        }
-
-
         var handleEnter = function() {
-            /* Insert Sound Effect here */
-            enterSound.play();
-
-            self.setState({
-               isPromptBlinking: false
-            });
-
-            setTimeout(function() {
-                /* TODO: refactor game reducer to use utilities. That will clean this up */
-                self.props.dispatch({
-                    type: 'SET_GAME_AREA',
-                    payload: {
-                        gameArea: 'map'
-                    }
-                });
-                setTimeout(function() {
-                    self.props.dispatch({
-                        type: 'SET_TRANSITION_OVERLAY_OPACITY',
-                        payload: {
-                            transitionOverlayOpacity: 0
-                        }
-                    });
-                }, 1000)
-
-            }, 2000);
+            self.startGame();
         };
         addKeyboardSinglePress(13, handleEnter, 'title-screen')
     }
@@ -69,27 +64,12 @@ class TitleScreen extends React.Component {
         removeKeyboardSinglePress('title-screen')
     }
 
+    handleClick() {
+        this.startGame();
+    }
+
     renderText() {
-
-        if (this.state.isMobileWarning) {
-            const warningText = {
-                fontFamily: '"Source Code Pro", monospace',
-                textAlign: 'center',
-                fontSize: '2vw',
-                maxWidth: '40vw',
-                margin: '0 auto',
-                position: 'relative',
-                top: '1vw',
-                lineHeight: '2.5vw',
-            };
-            return (
-                <div style={warningText}>
-                    <div>Uh oh!</div>
-                    <div>This game is "desktop only" for the moment. Check back soon!</div>
-                </div>
-            )
-        }
-
+        
         const enterText = {
             fontFamily: '"Source Code Pro", monospace',
             textAlign: 'center',
@@ -99,8 +79,12 @@ class TitleScreen extends React.Component {
             animation: (this.state.isPromptBlinking) ? 'blink 1s steps(2, start) infinite' : 'none'
         };
 
+        const text = this.props.isTouchMode ? "TAP to Play" : "Press Enter"
+
         return (
-            <div style={enterText}>Press ENTER</div>
+            <div style={enterText}>
+                {text}
+            </div>
         )
     }
 
@@ -120,7 +104,7 @@ class TitleScreen extends React.Component {
 
         return (
            <div style={containerStyle}>
-               <div>
+               <div onClick={::this.handleClick}>
                     <img style={imageStyle} src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/logo.min.svg" />
                     {this.renderText()}
                </div>

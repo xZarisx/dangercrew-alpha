@@ -5,7 +5,8 @@ import pauseTheGame from './pause-the-game'
 
 @connect((state, props) => {
     return {
-        gameArea: state.game.gameArea
+        gameArea: state.game.gameArea,
+        isTouchMode: state.game.isTouchMode
     }
 })
 
@@ -27,6 +28,10 @@ class MobilePauseBtn extends React.Component {
     }
  
     render() {
+
+        if (!this.props.isTouchMode) {
+            return null;
+        }
 
         const style = {
             fontFamily: "'Source Code Pro', monospace",

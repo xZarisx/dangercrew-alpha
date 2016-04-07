@@ -6,9 +6,7 @@ import initBrowser from './init/init-browser'
 import store from './init/store';
 import Game from './game'
 
-//import './dpad-demo.css';
-//import './game.css';
-//import './person.css';
+
 
 var RootComponent = React.createClass({
 
@@ -38,5 +36,15 @@ var RootComponent = React.createClass({
     }
 });
 
+var rootInstance = null;
 
-render(<RootComponent store={store} />, document.getElementById('app-root'));
+rootInstance = render(<RootComponent store={store} />, document.getElementById('app-root'));
+
+if (module.hot) {
+    require('react-hot-loader/Injection').RootInstanceProvider.injectProvider({
+        getRootInstances: function () {
+            // Help React Hot Loader figure out the root component instances on the page:
+            return [rootInstance];
+        }
+    });
+}
