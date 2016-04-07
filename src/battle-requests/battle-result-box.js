@@ -31,6 +31,8 @@ var podOpen = new Howl({
         playerLevel: state.playerData.level,
         showLevelUp: false,
         xpGain: state.battleResultPrompt.xpGain,
+
+        isTouchMode: state.game.isTouchMode
     }
 })
 
@@ -52,6 +54,16 @@ class BattleResultBox extends React.Component {
     componentDidMount() {
 
         this.initialXp = this.props.playerXp;
+
+
+        this.props.dispatch({
+            type: "SET_RESULT_PROMPT_VALUE",
+            payload: {
+                changes: {
+                    safeToPause: false
+                }
+            }
+        })
 
         this.timeout = setTimeout(() => {
 
@@ -190,6 +202,30 @@ class BattleResultBox extends React.Component {
         clearTimeout(this.timeout)
     }
 
+    handleClick() {
+        if (this.state.showLevelUp) {
+
+            this.props.dispatch({
+                type: "SET_RESULT_PROMPT_VALUE",
+                payload: {
+                    changes: {
+                        showResult: false
+                    }
+                }
+            })
+
+            this.props.dispatch({
+                type: "SET_GAME_VALUE",
+                payload: {
+                    changes: {
+                        gameArea: "pause"
+                    }
+                }
+            })
+        }
+    }
+
+
     renderLevelUp() {
         const text = {
             fontSize: '5.3vw',
@@ -197,16 +233,20 @@ class BattleResultBox extends React.Component {
             textAlign: 'center'
         };
 
-        const supportingText = {
+        const supportingTextStyle = {
             textAlign: 'center',
             fontSize:'2vw',
             marginTop:'0.6vw'
         };
 
+        const supportingTextContent = this.props.isTouchMode ? "TAP for menu" : "Press ESC"
+
         return (
             <div style={text}>
                 LEVEL UP
-                <div style={supportingText}>Press ESC</div>
+                <div style={supportingTextStyle}>
+                    {supportingTextContent}
+                </div>
             </div>
         )
     }
@@ -337,7 +377,7 @@ class BattleResultBox extends React.Component {
         }
 
         return (
-            <div style={style}>
+            <div style={style} onClick={::this.handleClick}>
                 <div style={{textAlign: "center"}}>
                     Battle Results
                 </div>

@@ -37,7 +37,7 @@ const people = {
         name: "Punky",
         skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-blonde.svg",
         level: 2,
-        maxHp: 26,
+        maxHp: 20,
 
         attackStatPoints: 1,
         defenseStatPoints: 0,
