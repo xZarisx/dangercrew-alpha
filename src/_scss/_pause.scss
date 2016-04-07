@@ -185,6 +185,7 @@
     }
     &.hide-arrow {
         visibility: hidden;
+        animation: none;
     }
 }
 .pause-levelup-arrow-container {
