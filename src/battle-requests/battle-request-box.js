@@ -13,7 +13,8 @@ var exclaimDown = new Howl({
 
 @connect((state, props) => {
     return {
-        battleRequests: state.battleRequests
+        battleRequests: state.battleRequests,
+        isTouchMode: state.game.isTouchMode
     }
 })
 
@@ -75,6 +76,24 @@ class BattleRequestBox extends React.Component {
         });
     }
 
+    renderPrompt() {
+
+        if (this.props.isTouchMode) {
+            return (
+                <div className="js-no-dpad-on-touch">
+                    TAP to accept
+                </div>
+            )
+        }
+
+        return (
+            <div className="js-no-dpad-on-touch">
+                <div>ENTER to accept</div>
+                <div>ESC to decline</div>
+            </div>
+        )
+    }
+
     render() {
 
         if (this.state.time <= 0) {
@@ -85,10 +104,10 @@ class BattleRequestBox extends React.Component {
             position:'absolute',
             right: '1vw',
             top: '1vw',
-            padding: '1vw',
+            padding: '2vw',
             fontSize: '3vw',
             fontFamily: 'monospace',
-            width:'46vw', //temp
+            width:'43vw', //temp
             background: '#111',
             color: '#fff'
         };
@@ -101,28 +120,37 @@ class BattleRequestBox extends React.Component {
             marginRight: '1vw',
             backgroundPosition: `300% 100%`,
             backgroundSize:'400%',
-            borderRadius: '50%'
+            borderRadius: '50%',
+            marginBottom: '2vw'
         };
 
+        const titleStyle = {
+            marginBottom: "1vw"
+        };
+        const levelStyle = {
+            fontSize: "2vw",
+            paddingLeft: "1vw",
+            color: "rgba(255,255,255,0.6)",
+        };
+        const nameLineStyle = {
+            marginBottom: "0.5vw"
+        }
 
         return (
-           <div style={style} onClick={::this.handleMobileTab}>
-               <div>
+           <div style={style} className="js-no-dpad-on-touch" onClick={::this.handleMobileTab}>
+               <div style={titleStyle}>
                    Battle Request
                    <div style={{float:'right'}}>
                        {this.state.time}
                    </div>
                </div>
 
-               <div> {/* MEDIA OBJECT */}
+               <div className="js-no-dpad-on-touch" style={nameLineStyle}> {/* MEDIA OBJECT */}
                    <div style={avatar} />
                    {this.props.battleRequests.requesterName}
-                   <span>(Level {this.props.battleRequests.requesterLevel})</span>
+                   <span style={levelStyle}>LVL {this.props.battleRequests.requesterLevel}</span>
                </div>
-               <div>
-                   <div>ENTER to accept</div>
-                   <div>ESC to decline</div>
-               </div>
+               {this.renderPrompt()}
            </div>
         );
     }

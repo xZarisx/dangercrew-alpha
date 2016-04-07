@@ -196,21 +196,21 @@ $window-header-height: 9%; //9vw;
     margin:0;
 }
 
-.terminal-item {
-    &.terminal-item-active {
-        background: rgba(#fff, 0.95);
-        color: #333;
-    }
-    td {
-        padding-top:2px;
-        padding-bottom:2px;
-    }
-    td.command-title {width:26%;}
-    td.command-price-quantity {
-        width:8%;
-    }
-    td.command-description {width:66%;}
-}
+//.terminal-item {
+//    &.terminal-item-active {
+//        background: rgba(#fff, 0.95);
+//        color: #333;
+//    }
+//    td {
+//        padding-top:2px;
+//        padding-bottom:2px;
+//    }
+//    td.command-title {width:26%;}
+//    td.command-price-quantity {
+//        width:8%;
+//    }
+//    td.command-description {width:66%;}
+//}
 
 /* New mobile-friendly menu. Consider deleting all the old stuff, then removing this line */
 .battle-menu-container {
