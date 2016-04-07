@@ -179,13 +179,16 @@
     $tri-size: 0.6vw;
     border-width: $tri-size 0 $tri-size $tri-size*1.7;
     border-color: transparent transparent transparent #FFF;
-    //animation: blink 1s steps(2, start) infinite; /* This shouldnt blink on mobile, because its hard to tap */
+    animation: blink 1s steps(2, start) infinite; /* This shouldnt blink on mobile, because its hard to tap */
     &.arrow-left {
         transform: rotate(180deg);
     }
     &.hide-arrow {
         visibility: hidden;
     }
+}
+.pause-levelup-arrow-container {
+    padding: 1vw;
 }
 
 .is-active .pause-levelup-arrow {
@@ -197,12 +200,24 @@
     padding-right: 1vw;
 }
 
+@keyframes done-color-glow {
+    from { color: #fff }
+    to { color: #46D985 }
+}
+
 .pause-levelup-done {
     width: 6vw;
+    color: #fff;
+
+    &.is-glowing {
+        animation: done-color-glow 0.6s infinite alternate-reverse;
+    }
+
     /* Hide blinking arrows on the Done row */
     .pause-stat-value {
         display: none;
     }
+
 }
 
 .pause-save-load-container {
@@ -225,6 +240,9 @@ $pause-button-border-radius: 0.2vw;
     &.active-pause-menu-button {
         background: white;
         color: #111;
+    }
+    &.dim-pause-menu-button {
+        opacity: 0.1;
     }
 }
 

@@ -12,7 +12,9 @@ import {incrementStatPoint, decrementStatPoint, skillPointsRemaining, submitLeve
         attackStatPoints: state.playerData.attackStatPoints,
         defenseStatPoints: state.playerData.defenseStatPoints,
         speedStatPoints: state.playerData.speedStatPoints,
-        efficiencyStatPoints: state.playerData.efficiencyStatPoints
+        efficiencyStatPoints: state.playerData.efficiencyStatPoints,
+
+        isTouchMode: state.game.isTouchMode
     }
 })
 class PauseLevelUpContent extends React.Component {
@@ -51,16 +53,20 @@ class PauseLevelUpContent extends React.Component {
         const overlayMessage = {
             position:'absolute',
             top: '50%', left: '50%',
-            transform: 'translate3d(-50%,-50%,0)',
+            marginTop: '-3vw',
+            marginLeft: '-22vw',
             background: '#444',
             padding: '2vw',
-            width: '35vw',
+            width: '36vw',
             textAlign: 'center',
             borderBottom: '1vw solid #333'
         };
+
+        const text = this.props.isTouchMode ? "TAP HERE to level up!" : "Press ENTER to level up!";
+
         return (
             <div style={overlayStyle} onClick={::this.handlePromptClick}>
-                <div style={overlayMessage}>Press ENTER to level up!</div>
+                <div style={overlayMessage}>{text}</div>
             </div>
         )
     }
@@ -75,6 +81,11 @@ class PauseLevelUpContent extends React.Component {
             /* Styles per row */
             const isActive = stat.id == this.props.selectedMenuItem;
             const rowClass = stat.rowClass || "";
+            const glowingClass = (!isActive && skillPointsRemaining() <= 0 && stat.glowingClass)
+                ? stat.glowingClass
+                : "";
+
+
 
             const hideLeftArrow = this.props[stat.statId] <= this.initialStatPoints[stat.statId];
             const hideRightArrow = skillPointsRemaining() <= 0;
@@ -89,6 +100,7 @@ class PauseLevelUpContent extends React.Component {
                     hideRightArrow={hideRightArrow}
                     minimum={this.initialStatPoints[stat.statId]}
                     rowClass={rowClass}
+                    glowingClass={glowingClass}
                     isActive={isActive}
                     value={value}
                 />
@@ -165,12 +177,16 @@ class PauseLevelUpStatRow extends React.Component {
         const hideRightArrowClass = (this.props.hideRightArrow) ? "hide-arrow" : "";
 
         return (
-            <div className={`${activeClass} ${this.props.rowClass} _spreading-list-item pause-stat-item`}>
+            <div className={`${activeClass} ${this.props.rowClass} ${this.props.glowingClass} _spreading-list-item pause-stat-item`}>
                 <div onClick={::this.handleSelectionClick}>{this.props.label}</div>
                 <div className="pause-stat-value">
-                    <div onClick={::this.handleDecrementClick} className={`_ibm pause-levelup-arrow arrow-left ${hideLeftArrowClass}`}></div>
+                    <div onClick={::this.handleDecrementClick} className="_ibm pause-levelup-arrow-container">
+                        <div className={`pause-levelup-arrow arrow-left ${hideLeftArrowClass}`}></div>
+                    </div>
                     <div className="_ibm pause-levelup-value">{this.props.value}</div>
-                    <div onClick={::this.handleIncrementClick} className={`_ibm pause-levelup-arrow arrow-right ${hideRightArrowClass}`}></div>
+                    <div onClick={::this.handleIncrementClick} className="_ibm pause-levelup-arrow-container" >
+                        <div className={`pause-levelup-arrow arrow-right ${hideRightArrowClass}`}></div>
+                    </div>
                 </div>
             </div>
         )

@@ -143,7 +143,8 @@ var PauseMenuData = {
             infoBoxDescription: null,
             //A few extra properties for the done button */
             bypassArrows: true,
-            rowClass: "pause-levelup-done"
+            rowClass: "pause-levelup-done",
+            glowingClass: "is-glowing"
         }
     ],
 

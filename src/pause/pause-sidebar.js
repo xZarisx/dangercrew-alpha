@@ -15,7 +15,7 @@ import LevelUpBtn from './pause-levelup-btn'
         maxPp: state.playerData.maxPp,
         xp: state.playerData.xp,
         coins: state.playerData.coins,
-
+        
         selectedMenuItem: state.pauseMenu.selectedMenuItem,
         newAttackBadge: state.pauseMenu.newAttackBadge,
 

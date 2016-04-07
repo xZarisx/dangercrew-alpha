@@ -3,13 +3,20 @@ import { connect } from 'react-redux'
 
 @connect((state, props) => {
     return {
-        isActive: state.pauseMenu.selectedMenuItem == "pauseSidebarMenu-levelup"
+        isActive: state.pauseMenu.selectedMenuItem == "pauseSidebarMenu-levelup",
+        isAlreadyOnLevelUpScreen: state.pauseMenu.currentCursoringList == "pauseLevelUpMenu"
+
     }
 })
 
 class LevelUpBtn extends React.Component {
 
     handleClick() {
+
+        if (this.props.isAlreadyOnLevelUpScreen) {
+            return false;
+        }
+
         this.props.dispatch({
             type: "SET_PAUSEMENU_VALUE",
             payload: {
