@@ -4,7 +4,7 @@ import {Howl} from 'howler'
 import {incrementRolloutStation2} from '../../rollout/rollout-station-navigator'
 
 var typeBlip = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/Blip_0.ogg'],
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/Blip_0.mp3'],
     volume: 0.5
 });
 

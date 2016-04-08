@@ -5,10 +5,10 @@ import initBattleFromRequest from './init-battle-from-request'
 import {Howl} from 'howler'
 
 var exclaimUp = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/exclaim_up.ogg']
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/exclaim_up.mp3']
 });
 var exclaimDown = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/exclaim_down.ogg']
+    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/exclaim_down.mp3']
 });
 
 @connect((state, props) => {
