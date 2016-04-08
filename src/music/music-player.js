@@ -19,7 +19,7 @@ var MusicPlayer = {
             }
         },
         "coffeeShop": {
-            url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/fibonacci5.ogg",
+            url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/fibonacci5.mp3",
             volume: 0.3
         },
         "walkingOutside": {
@@ -27,7 +27,7 @@ var MusicPlayer = {
             volume: 0.2
         },
         "dangerWaltz" : {
-            url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/DangerWaltz8.ogg",
+            url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/DangerWaltz8.mp3",
             volume: 0.3
         }
     },
