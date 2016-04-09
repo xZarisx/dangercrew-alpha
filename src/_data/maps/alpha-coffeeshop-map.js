@@ -1,4 +1,5 @@
 export default {
+    "mapId": "alphaCoffee",
     "musicTrackId" : "coffeeShop",
     "backgroundImage": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/263408/031516_southNorth.svg",
     "width": "9",

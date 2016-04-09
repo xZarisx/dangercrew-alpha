@@ -5,7 +5,6 @@ export function addVisitedMap(id="") {
 
     if (hasVisitedMap(store.getState().storyPoints, id)) {
         /* Don't add this map, we've already added it */
-        //console.warn("Already been here!")
         return;
     }
 

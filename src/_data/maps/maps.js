@@ -5,5 +5,5 @@ import DevColorStreet from './dev-colorstreet-map'
 export default {
     "alphaCoffee": AlphaCoffeeMap,
     "alphaStreet": AlphaStreetMap,
-    "devColorStreet": DevColorStreet,
+    "devColorStreet": DevColorStreet
 };

@@ -1,4 +1,5 @@
 export default {
+    mapId: "devColorStreet",
     musicTrackId : "walkingOutside",
     backgroundImage: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/dangerMap.svg",
     width: 16, //this is a real value. the map will appear incorrectly if this number does not match the backgroundImage

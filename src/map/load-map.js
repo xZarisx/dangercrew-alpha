@@ -1,4 +1,5 @@
 import store from '../init/store';
+import {addVisitedMap} from '../redux-action-creators/story-points-actions'
 
 export function getJSON(urlvar) {
     var data = JSON.parse(decodeURIComponent(urlvar));
@@ -69,5 +70,12 @@ export function loadMap(map = {}, coords) {
             footEvents: map.footEvents,
             interactiveEvents: map.interactiveEvents
         }
-    })
+    });
+
+    /* Add this map to Story Points! */
+    if (!map.mapId) {
+        console.warn('WARNING! No mapId set for map:', map)
+    } else {
+        addVisitedMap(map.mapId)
+    }
 }

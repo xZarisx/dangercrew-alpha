@@ -1,4 +1,5 @@
 export default {
+    "mapId": "alphaStreet",
     "musicTrackId" : "walkingOutside",
     "backgroundImage": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/263408/theRedButton.svg",
     "width": "28",
