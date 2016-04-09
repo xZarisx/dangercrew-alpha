@@ -28,3 +28,14 @@ export function hasAcquiredItem(storyPoints, id="") {
 export function hasVisitedMap(storyPoints, id="") {
     return nodeExists(storyPoints, "visitedMaps", id);
 }
+
+/* QUERY LANGUAGE */
+import store from '../init/store'
+export function doesHaveStoryPoint(queryStr="") {
+    //EX: "hasVisitedMap::alphaStreet"
+    if (/hasVisitedMap::/.test(queryStr)) {
+        const mapId = queryStr.split("hasVisitedMap::")[1];
+        return hasVisitedMap(store.getState().storyPoints, mapId);
+    }
+    return false;
+}

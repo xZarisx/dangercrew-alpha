@@ -72,6 +72,7 @@ export default {
         "npc_c5fa960d": {
             "x": 8,
             "y": 10,
+            "omitOnStoryPoint": "hasVisitedMap::alphaStreet",
             "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-blonde.svg",
             "dir": "down",
             "useBehavior": "stationary",
@@ -82,6 +83,22 @@ export default {
             "interaction": {
                 "type": "dialog",
                 "content": [["Have you been to SouthNorth before?"], ["That's the coffee shop straight ahead. ", "@@pause_500", "Developers are always hanging out there."]]
+            }
+        },
+        "npc_c5fa960d_variation1": {
+            "x": 8,
+            "y": 10,
+            "dependentOnStoryPoint": "hasVisitedMap::alphaStreet",
+            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-blonde.svg",
+            "dir": "down",
+            "useBehavior": "stationary",
+            "behaviorData": {
+                "rotationDirections": ["left", "right"],
+                "doesRotate": true
+            },
+            "interaction": {
+                "type": "dialog",
+                "content": [["Saw you at the coffee shop."]]
             }
         },
         "npc_e524266a": {

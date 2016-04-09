@@ -1,5 +1,6 @@
 import store from '../init/store';
 import {addVisitedMap} from '../redux-action-creators/story-points-actions'
+import {doesHaveStoryPoint} from '../story-points/story-points'
 
 export function getJSON(urlvar) {
     var data = JSON.parse(decodeURIComponent(urlvar));
@@ -37,6 +38,20 @@ export function loadMap(map = {}, coords) {
             if (coords) {
                 person.x = coords[0];
                 person.y = coords[1];
+            }
+        }
+
+        /* Different NPC appearing because of a Story Point */
+        if (person.dependentOnStoryPoint) {
+            const shouldAppear = doesHaveStoryPoint(person.dependentOnStoryPoint);
+            if (!shouldAppear) {
+                continue; /* skip this cycle of forLoop */
+            }
+        }
+        if (person.omitOnStoryPoint) {
+            const shouldBeOmitted = doesHaveStoryPoint(person.omitOnStoryPoint);
+            if (shouldBeOmitted) {
+                continue; /* skip this cycle of forLoop */
             }
         }
 
