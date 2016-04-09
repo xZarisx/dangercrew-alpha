@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
+//DEV TESTING ONLY
+import {addVisitedMap} from '../redux-action-creators/story-points-actions'
+
 @connect((state, props) => {
     return {
         reduxState: {...state}
@@ -9,29 +12,38 @@ import { connect } from 'react-redux'
 
 class ReduxStateDisplayer extends React.Component {
 
-    constructor() {
-        super();
-
+    componentWillMount() {
         var self = this;
         window.showState = function() {
             console.log(self.props.reduxState);
-            return
-        }
+            return;
+        };
 
-
+        addVisitedMap("someGreatMap");
     }
 
     render() {
-        return null;
-        // return (
-        //    <pre style={style}>
-        //        { JSON.stringify(this.props.reduxState.battleUi, null, 2) }
-        //    </pre>
-        // );
+        //return null;
+         return (
+            <pre style={style}>
+                STATE<br />
+                { JSON.stringify(this.props.reduxState.storyPoints, null, 2) }
+            </pre>
+         );
     }
 }
 
-const style = {}
+const style = {
+    position: "absolute",
+    left: 0,
+    maxWidth: 300,
+    maxHeight: 300,
+    overflow: "scroll",
+    bottom: 0,
+    background: "#111",
+    padding: 5,
+    color: "lime"
+};
 
 
 

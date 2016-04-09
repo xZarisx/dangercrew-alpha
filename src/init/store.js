@@ -78,7 +78,14 @@ const store = createStore({
     },
     rollout: [],
     combatants: {},
-    combatProcessor: {}
+    combatProcessor: {},
+    //end b3
+
+    storyPoints: {
+        battles: {},
+        acquiredItems: {},
+        visitedMaps: {}
+    }
 });
 
 export default store;

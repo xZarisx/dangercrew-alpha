@@ -11,7 +11,8 @@ import * as battleReducer from '../redux-reducers/battle-reducer'
 import * as battleUiReducer from '../redux-reducers/battle-ui-reducer'
 import * as playerDataReducer from '../redux-reducers/player-data-reducer'
 import * as pauseMenuReducer from '../redux-reducers/pause-menu-reducer'
-import * as battleResultPrompt from '../redux-reducers/battle-result-prompt-reducer'
+import * as battleResultPromptReducer from '../redux-reducers/battle-result-prompt-reducer'
+import * as storyPointsReducer from '../redux-reducers/story-points-reducer'
 
 
 export default function(data) {
@@ -28,7 +29,8 @@ export default function(data) {
         ...combatantsReducer,
         ...playerDataReducer,
         ...pauseMenuReducer,
-        ...battleResultPrompt
+        ...battleResultPromptReducer,
+        ...storyPointsReducer
     });
 
     var store = createStore(reducer, data);
