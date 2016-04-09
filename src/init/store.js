@@ -34,10 +34,10 @@ const store = createStore({
     game: {
         isTouchMode: false, //false
         isAllowingMusic: false, //true
-        transitionOverlayOpacity: 1,  //should be 1
+        transitionOverlayOpacity: 0,  //should be 1
         showOnboardingPopup: false, //true
         isPaused: false, /* TODO: Not sure this is used anymore */
-        gameArea: "title"//"title" //I think only these are possible: [ map | battle | pause | title | credits? | levelup? ]
+        gameArea: "map"//"title" //I think only these are possible: [ map | battle | pause | title | credits? | levelup? ]
     },
     pauseMenu: {
         currentCursoringList: "pauseRoot", //"pauseLevelUpMenu", //"pauseRoot",
@@ -82,7 +82,12 @@ const store = createStore({
     //end b3
 
     storyPoints: {
-        battles: {},
+        battles: {
+            //"drewber": {
+            //    wins: 22,
+            //    losses: 9
+            //}
+        },
         acquiredItems: {},
         visitedMaps: {}
     }

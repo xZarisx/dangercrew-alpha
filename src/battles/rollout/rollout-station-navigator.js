@@ -1,5 +1,6 @@
 import store from '../../init/store';
 import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../../helpers/single-keypress-binding';
+import {addBattleResult} from '../../redux-action-creators/story-points-actions'
 
 /* ACTION CREATORS */
 function setStation(station) {
@@ -123,11 +124,14 @@ function handleBattleOver() {
         }
     });
 
+    const opponentPersonId = store.getState().battleRequests.requesterId;
 
     if (winner_id == store.getState().battleUi.playerId) {
         console.log('PLAYER WON! HAPPY MUSIC')
+        addBattleResult(opponentPersonId, "win"); /* Record win as a story point */
     } else {
         console.log('PLAYER LOST! SAD MUSIC')
+        addBattleResult(opponentPersonId, "loss"); /* Record loss as a story point */
     }
 
     setStation("battleOver");

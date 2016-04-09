@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 //DEV TESTING ONLY
-//import {addVisitedMap} from '../redux-action-creators/story-points-actions'
+import {addBattleResult} from '../redux-action-creators/story-points-actions'
 
 @connect((state, props) => {
     return {
@@ -19,7 +19,7 @@ class ReduxStateDisplayer extends React.Component {
             return;
         };
 
-        //addVisitedMap("someGreatMap");
+        //addBattleResult("drewber", "win");
     }
 
     render() {

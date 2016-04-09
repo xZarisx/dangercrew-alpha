@@ -4,11 +4,10 @@ import { removeNode } from '../helpers/reducer-utilities'
 export function storyPoints(state = {}, action) {
     switch (action.type) {
 
-        case "MERGE_VISITED_MAP_STORYPOINT":
+        case "MERGE_STORYPOINT":
             return editNode(state, action.payload.key, {
                 ...action.payload.changes
             });
-
 
 
         default:
