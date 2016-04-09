@@ -15,3 +15,16 @@ export function hasAcquiredBattleWinCount(storyPoints, expectedCount=0) {
     });
     return winsCount >= expectedCount;
 }
+
+function nodeExists(structure={}, categoryKey="", requestedKey="") {
+    const category = structure[categoryKey];
+    return (typeof category[requestedKey] != "undefined");
+}
+
+
+export function hasAcquiredItem(storyPoints, id="") {
+    return nodeExists(storyPoints, "acquiredItems", id);
+}
+export function hasVisitedMap(storyPoints, id="") {
+    return nodeExists(storyPoints, "visitedMaps", id);
+}
