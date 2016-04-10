@@ -24,12 +24,19 @@ class ReduxStateDisplayer extends React.Component {
 
     render() {
         return null;
-         //return (
-         //   <pre style={style}>
-         //       STATE<br />
-         //       { JSON.stringify(this.props.reduxState.storyPoints, null, 2) }
-         //   </pre>
-         //);
+        
+        const node = this.props.reduxState.people.player ? this.props.reduxState.people.player : null;
+
+        if (!node) {
+            return null;
+        }
+
+         return (
+            <pre style={style}>
+                STATE<br />
+                { JSON.stringify(node, null, 2) }
+            </pre>
+         );
     }
 }
 

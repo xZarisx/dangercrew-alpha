@@ -4,6 +4,8 @@ import PauseMenu from '../pause/pause-menu'
 import Textbox from '../messaging/textbox';
 
 import Person from '../people/person';
+import InteractiveEventMarker from '../people/interactive-event-marker'
+
 import BattleRequestBox from '../battle-requests/battle-request-box'
 import BattleResultBox from '../battle-requests/battle-result-box'
 import MovementController from '../people/movement-controller'
@@ -31,6 +33,8 @@ import MusicPlayer from '../music/music-player'
         backgroundImage: state.map.backgroundImage,
 
         people: state.people,
+        interactiveEvents: state.map.interactiveEvents,
+
 
         isPaused: state.game.isPaused,
         isShowingTextbox: state.game.isShowingTextbox,
@@ -56,6 +60,8 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
                 MusicPlayer.playTrack(this.props.mapMusicTrackId)
             }
         }
+
+        console.log(this.props.interactiveEvents)
     }
 
     componentWillUpdate(newProps) {
@@ -135,17 +141,28 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
             WebkitTransform: `translate3d( ${translate} )`,
         };
 
-        //console.log(this.props.mapWidth)
         const mapImageStyle = {
             width: CELL * this.props.mapWidth //THIS IS THE WIDTH OF THE MAP IN CELLS
         };
 
+        /* Render people */
         var persons = [];
         for (var id in this.props.people) {
             persons.push(
                 <Person id={id} key={id} />
             )
         }
+
+        /* Render Interactives */
+        const interactives = Object.keys(this.props.interactiveEvents).map(coords => {
+            const model = this.props.interactiveEvents[coords];
+            const x = coords.split("x")[0];
+            const y = coords.split("x")[1];
+            return (
+                <InteractiveEventMarker x={x} y={y} skin={model.skin || null} />
+            )
+        });
+
 
 
         return (
@@ -155,6 +172,7 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
                     <MovementController /> {/* Also does the overworld Action Button controller */}
                     <img className="mapImage" style={mapImageStyle} src={this.props.backgroundImage} />
                     {persons}
+                    {interactives}
                 </div>
             </div>
         )

@@ -17,6 +17,9 @@ export default function ActionButtonController() {
     $('.viewport').on('click', '.player', function() {
         ctrl.handleActionButton();
     });
+    $('.viewport').on('click', '.interactive', function() {
+        ctrl.handleActionButton();
+    });
 
     $(document).on('keydown.action-button-controller', (e) => {
         if (e.which == actionKey && ctrl.btnSafe) {
@@ -51,7 +54,10 @@ export default function ActionButtonController() {
 
 
         //Case: handle dialogue
-        if (interaction && (interaction.type == "dialog" || interaction.type == "readable")) {
+        if (interaction && (
+            interaction.type == "dialog" ||
+            interaction.type == "readable" ||
+            interaction.type == "item" )) {
 
             if (interaction.type == "dialog") {
                 console.warn('interaction type is `dialog`. change to `readable`')
