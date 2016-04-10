@@ -29,7 +29,7 @@ var LocationService = function() {
         if (typeof locations[location] != "undefined" || typeof self.reserved[location] != "undefined") {
 
             /* Ignore this wall on certain storyPoint situtations */
-            if (locations[location].omitOnStoryPoint) {
+            if (locations[location] && locations[location].omitOnStoryPoint) {
                 /* There is a wall here and you don't have the storyPoint to omit it */
                 if (doesNotHaveStoryPoint(locations[location].omitOnStoryPoint)) {
                     return false

@@ -53,7 +53,7 @@ export default {
         "9x7": {"id": "wall_fromInteractive_9x7"},
         "15x10": {
             "id": "wall_manual_fromInteractive_15x10",
-            "omitOnStoryPoint":"hasVisitedMap::alphaCoffee"
+            "omitOnStoryPoint":"hasFoundPackage::package_001"
         },
     },
     "people": {
@@ -145,12 +145,13 @@ export default {
             "type": "readable"
         },
         "15x10": {
-            "omitOnStoryPoint": "hasVisitedMap::alphaCoffee",
+            "omitOnStoryPoint": "hasFoundPackage::package_001",
             "dialog": [["You found an item!"]],
             "isSolid": true,
             "restrictedDirections": ["up", "down", "left", "right"],
             "restrictionErrorDialog": [["Hey punk, you can't read the sign from here."]],
-            "type": "item",
+            "type": "package",
+            "packageId": "package_001",
             "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/box-blue.svg" /* It will use a skin if it has one */
         }
     },

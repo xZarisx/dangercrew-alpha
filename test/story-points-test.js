@@ -4,7 +4,8 @@ import {
     hasAcquiredBattleWinCount,
     hasAcquiredItem,
     hasVisitedMap,
-    doesHaveStoryPoint
+    doesHaveStoryPoint,
+    hasFoundPackage
 } from '../src/story-points/story-points';
 
 describe('hasWonBattle', () => {
@@ -79,6 +80,21 @@ describe('hasAcquiredItem', () => {
         assert.isFalse(hasAcquiredItem(state, "someNonExistantItem"));
     });
 });
+
+describe('hasFoundPackage', () => {
+    it('knows if you have picked up a certain package', () => {
+        const state = {
+            foundPackages: {
+                package_001: {
+                    firstAcquiredAt: 245897400
+                }
+            }
+        };
+        assert.isTrue(hasFoundPackage(state, "package_001"));
+        assert.isFalse(hasFoundPackage(state, "someNonExistantPackage"));
+    });
+});
+
 
 describe('hasVisitedMap', () => {
     it('knows if you have been to a certain map', () => {

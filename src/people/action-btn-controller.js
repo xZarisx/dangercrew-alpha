@@ -3,6 +3,8 @@ import store from '../init/store'
 import {convertText} from '../messaging/text-converter'
 import LocationService from './location-service'
 import { getOppositeDirection } from './location-helpers'
+import { addFoundPackage } from '../redux-action-creators/story-points-actions'
+import { doesHaveStoryPoint } from '../story-points/story-points'
 
 
 export default function ActionButtonController() {
@@ -53,18 +55,30 @@ export default function ActionButtonController() {
         const interaction = LocationService.getInteraction();
 
 
-        //Case: handle dialogue
+        //Case: handle something interactive
         if (interaction && (
             interaction.type == "dialog" ||
             interaction.type == "readable" ||
-            interaction.type == "item" )) {
+            interaction.type == "package" )) {
+
+            if (interaction.omitOnStoryPoint) {
+                if (doesHaveStoryPoint(interaction.omitOnStoryPoint)) {
+                    return false;
+                }
+            }
+
 
             if (interaction.type == "dialog") {
                 console.warn('interaction type is `dialog`. change to `readable`')
             }
 
+            /* Pick up a package, add Story Point! */
+            if (interaction.type == "package" && interaction.packageId) {
+                addFoundPackage(interaction.packageId)
+            }
 
-            //Puppet the NPC, if interaction is with an NPC
+
+            /* Puppet the NPC, if interaction is with an NPC */
             if (interaction.npc_id) {
                 if (store.getState().people[interaction.npc_id].useBehavior == "stationary") {
                     store.dispatch({
@@ -89,7 +103,7 @@ export default function ActionButtonController() {
                 }
             }
 
-            /* conver pages to useable thing */
+            /* convert pages to useable thing */
             var pages = content.map(page => {
                 return convertText(page)
             });

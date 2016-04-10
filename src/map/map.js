@@ -159,7 +159,10 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
             const x = coords.split("x")[0];
             const y = coords.split("x")[1];
             return (
-                <InteractiveEventMarker x={x} y={y} skin={model.skin || null} />
+                <InteractiveEventMarker
+                    x={x} y={y} skin={model.skin || null}
+                    omitOnStoryPoint={model.omitOnStoryPoint}
+                />
             )
         });
 

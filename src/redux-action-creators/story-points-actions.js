@@ -1,5 +1,5 @@
 import store from '../init/store'
-import {hasVisitedMap} from '../story-points/story-points'
+import {hasVisitedMap, hasFoundPackage} from '../story-points/story-points'
 
 export function addVisitedMap(id="") {
 
@@ -17,6 +17,27 @@ export function addVisitedMap(id="") {
         type: "MERGE_STORYPOINT",
         payload: {
             key: "visitedMaps",
+            changes: {...changes}
+        }
+    });
+}
+
+export function addFoundPackage(id="") {
+
+    if (hasFoundPackage(store.getState().storyPoints, id)) {
+        /* Don't add this map, we've already added it */
+        return;
+    }
+
+    var changes = {};
+    changes[id] = {
+        firstAcquiredAt: Date.now()
+    };
+
+    store.dispatch({
+        type: "MERGE_STORYPOINT",
+        payload: {
+            key: "foundPackages",
             changes: {...changes}
         }
     });

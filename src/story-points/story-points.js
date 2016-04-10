@@ -25,6 +25,9 @@ function nodeExists(structure={}, categoryKey="", requestedKey="") {
 export function hasAcquiredItem(storyPoints, id="") {
     return nodeExists(storyPoints, "acquiredItems", id);
 }
+export function hasFoundPackage(storyPoints, id="") {
+    return nodeExists(storyPoints, "foundPackages", id);
+}
 export function hasVisitedMap(storyPoints, id="") {
     return nodeExists(storyPoints, "visitedMaps", id);
 }
@@ -38,8 +41,13 @@ export function doesHaveStoryPoint(queryStr="") {
         const mapId = queryStr.split("hasVisitedMap::")[1];
         return hasVisitedMap(store.getState().storyPoints, mapId);
     }
-    return false;
 
+    /* EX: "hasFoundPackage::package_00whatever" */
+    if (/hasFoundPackage::/.test(queryStr)) {
+        const packageId = queryStr.split("hasFoundPackage::")[1];
+        return hasFoundPackage(store.getState().storyPoints, packageId);
+    }
+    return false;
 }
 
 export function doesNotHaveStoryPoint(queryStr="") {

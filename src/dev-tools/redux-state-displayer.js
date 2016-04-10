@@ -24,8 +24,8 @@ class ReduxStateDisplayer extends React.Component {
 
     render() {
         return null;
-        
-        const node = this.props.reduxState.people.player ? this.props.reduxState.people.player : null;
+
+        const node = this.props.reduxState.storyPoints ? this.props.reduxState.storyPoints : null;
 
         if (!node) {
             return null;

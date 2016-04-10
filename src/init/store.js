@@ -89,6 +89,7 @@ const store = createStore({
             //}
         },
         acquiredItems: {},
+        foundPackages: {},
         visitedMaps: {}
     }
 });

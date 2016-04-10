@@ -1,21 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import {doesHaveStoryPoint} from '../story-points/story-points'
 
 @connect((state, props) => {
-    //const node = state.people[props.id];
-    //
-    //if (!node) {
-    //    return {}
-    //}
 
     return {
-        //x: node.x,
-        //y: node.y,
-        //dir: node.dir,
-        //transitionProgress: node.transitionProgress,
-        //moving: node.moving,
-        //skin: node.skin,
-        //useBehavior: node.useBehavior || null, /* null = player node */
+        storyPoints: state.storyPoints, /* Will receive storyPoint updates */
         vpWidth: state.map.viewportWidth
     }
 })
@@ -42,10 +32,20 @@ class InteractiveEventMarker extends React.Component {
         }
     }
 
+    pickedUpClass() {
+        /* Example: You find a package, it should unrender */
+        if (this.props.omitOnStoryPoint) {
+            if (doesHaveStoryPoint(this.props.omitOnStoryPoint)) {
+                return "picked-up";
+            }
+        }
+        return "";
+    }
+
     render() {
 
         return (
-            <div className={`cell interactive js-no-dpad-on-touch`} style={this.getStyles()}>
+            <div className={`cell interactive js-no-dpad-on-touch ${this.pickedUpClass()}`} style={this.getStyles()}>
 
             </div>
         );
