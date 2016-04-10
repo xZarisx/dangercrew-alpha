@@ -147,7 +147,7 @@ export default {
             "restrictedDirections": ["up", "down", "left", "right"],
             "restrictionErrorDialog": [["Hey punk, you can't read the sign from here."]],
             "type": "item",
-            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/box.svg" /* It will use a skin if it has one */
+            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/box-blue.svg" /* It will use a skin if it has one */
         }
     },
 
