@@ -3,7 +3,8 @@ import {
     hasWonBattle,
     hasAcquiredBattleWinCount,
     hasAcquiredItem,
-    hasVisitedMap
+    hasVisitedMap,
+    doesHaveStoryPoint
 } from '../src/story-points/story-points';
 
 describe('hasWonBattle', () => {
@@ -89,6 +90,20 @@ describe('hasVisitedMap', () => {
             }
         };
         assert.isTrue(hasVisitedMap(state, "alphaCoffee"));
+        assert.isFalse(hasVisitedMap(state, "someNonExistantMap"));
+    });
+});
+
+describe('doesHaveStoryPoint', () => {
+    xit('uses hasVisitedMap to know if you have been to a certain map', () => {
+        const state = {
+            visitedMaps: {
+                alphaCoffee: {
+                    firstAcquiredAt: 245897359
+                }
+            }
+        };
+        assert.isTrue(doesHaveStoryPoint(state, "alphaCoffee"));
         assert.isFalse(hasVisitedMap(state, "someNonExistantMap"));
     });
 });

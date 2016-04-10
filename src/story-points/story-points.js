@@ -32,10 +32,16 @@ export function hasVisitedMap(storyPoints, id="") {
 /* QUERY LANGUAGE */
 import store from '../init/store'
 export function doesHaveStoryPoint(queryStr="") {
-    //EX: "hasVisitedMap::alphaStreet"
+
+    /* EX: "hasVisitedMap::alphaStreet" */
     if (/hasVisitedMap::/.test(queryStr)) {
         const mapId = queryStr.split("hasVisitedMap::")[1];
         return hasVisitedMap(store.getState().storyPoints, mapId);
     }
     return false;
+
+}
+
+export function doesNotHaveStoryPoint(queryStr="") {
+    return !doesHaveStoryPoint(queryStr); /* return the opposite of having the query */
 }
