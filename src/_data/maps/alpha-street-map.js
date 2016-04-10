@@ -53,7 +53,7 @@ export default {
         "9x7": {"id": "wall_fromInteractive_9x7"},
         "15x10": {
             "id": "wall_manual_fromInteractive_15x10",
-            "omitOnStoryPoint":"hasVisitedMap::alphaStreet"
+            "omitOnStoryPoint":"hasVisitedMap::alphaCoffee"
         },
     },
     "people": {
@@ -76,7 +76,7 @@ export default {
         "npc_c5fa960d": {
             "x": 8,
             "y": 10,
-            "omitOnStoryPoint": "hasVisitedMap::alphaStreet",
+            "omitOnStoryPoint": "hasVisitedMap::alphaCoffee",
             "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-blonde.svg",
             "dir": "down",
             "useBehavior": "stationary",
@@ -92,7 +92,7 @@ export default {
         "npc_c5fa960d_variation1": {
             "x": 8,
             "y": 10,
-            "dependentOnStoryPoint": "hasVisitedMap::alphaStreet",
+            "includeOnStoryPoint": "hasVisitedMap::alphaCoffee",
             "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-blonde.svg",
             "dir": "down",
             "useBehavior": "stationary",
@@ -145,7 +145,7 @@ export default {
             "type": "readable"
         },
         "15x10": {
-            "omitOnStoryPoint": "hasVisitedMap::alphaStreet",
+            "omitOnStoryPoint": "hasVisitedMap::alphaCoffee",
             "dialog": [["You found an item!"]],
             "isSolid": true,
             "restrictedDirections": ["up", "down", "left", "right"],

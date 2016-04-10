@@ -3,6 +3,7 @@ import {loadMap} from '../map/load-map'
 import {getUpdatedX, getUpdatedY} from './location-helpers'
 import handleBattleZoneTrigger from '../battle-requests/battle-request-handler'
 import Maps from '../_data/maps/maps'
+import {doesNotHaveStoryPoint} from '../story-points/story-points'
 
 var LocationService = function() {
     var self = this;
@@ -24,10 +25,19 @@ var LocationService = function() {
 
 
 
-        //First check Statics & Reserved
+        //First check Statics (+storyPoints) & Reserved
         if (typeof locations[location] != "undefined" || typeof self.reserved[location] != "undefined") {
-            //console.log('there is a thing here')
-            return false
+
+            /* Ignore this wall on certain storyPoint situtations */
+            if (locations[location].omitOnStoryPoint) {
+                /* There is a wall here and you don't have the storyPoint to omit it */
+                if (doesNotHaveStoryPoint(locations[location].omitOnStoryPoint)) {
+                    return false
+                }
+            } else {
+                /* There is a wall here. Return false. */
+                return false
+            }
         }
 
         //Then check People

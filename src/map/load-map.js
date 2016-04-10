@@ -42,8 +42,8 @@ export function loadMap(map = {}, coords) {
         }
 
         /* Different NPC appearing because of a Story Point */
-        if (person.dependentOnStoryPoint) {
-            const shouldAppear = doesHaveStoryPoint(person.dependentOnStoryPoint);
+        if (person.includeOnStoryPoint) {
+            const shouldAppear = doesHaveStoryPoint(person.includeOnStoryPoint);
             if (!shouldAppear) {
                 continue; /* skip this cycle of forLoop */
             }
