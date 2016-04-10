@@ -51,7 +51,10 @@ export default {
         "8x7": {"id": "wall_bg3724a0"},
         "9x12": {"id": "wall_49800a99"},
         "9x7": {"id": "wall_fromInteractive_9x7"},
-        "15x10": {"id": "wall_manual_fromInteractive_15x10"},
+        "15x10": {
+            "id": "wall_manual_fromInteractive_15x10",
+            "omitOnStoryPoint":"hasVisitedMap::alphaStreet"
+        },
     },
     "people": {
         "player": {"dir": "down", "x": 12, "y": 10},
@@ -142,6 +145,7 @@ export default {
             "type": "readable"
         },
         "15x10": {
+            "omitOnStoryPoint": "hasVisitedMap::alphaStreet",
             "dialog": [["You found an item!"]],
             "isSolid": true,
             "restrictedDirections": ["up", "down", "left", "right"],

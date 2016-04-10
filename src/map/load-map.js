@@ -1,6 +1,6 @@
 import store from '../init/store';
 import {addVisitedMap} from '../redux-action-creators/story-points-actions'
-import {doesHaveStoryPoint} from '../story-points/story-points'
+import {doesHaveStoryPoint, doesNotHaveStoryPoint} from '../story-points/story-points'
 
 export function getJSON(urlvar) {
     var data = JSON.parse(decodeURIComponent(urlvar));
@@ -72,6 +72,20 @@ export function loadMap(map = {}, coords) {
         });
     }
 
+    /* Interactive Events */
+    var interactiveEvents = {};
+    Object.keys(map.interactiveEvents).forEach(iE => {
+        const model = map.interactiveEvents[iE];
+        if (model.omitOnStoryPoint) {
+            if (doesNotHaveStoryPoint(model.omitOnStoryPoint)) {
+                interactiveEvents[iE] = {...model}
+            } else {
+                //I have the story point, so don't include me
+            }
+        } else {
+           interactiveEvents[iE] = {...model}
+        }
+    });
 
     /* CONTRACT */
     store.dispatch({
@@ -83,7 +97,7 @@ export function loadMap(map = {}, coords) {
             backgroundImage:map.backgroundImage,
             walls: map.walls,
             footEvents: map.footEvents,
-            interactiveEvents: map.interactiveEvents
+            interactiveEvents: interactiveEvents
         }
     });
 
