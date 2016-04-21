@@ -51,10 +51,10 @@ export default {
         "8x7": {"id": "wall_bg3724a0"},
         "9x12": {"id": "wall_49800a99"},
         "9x7": {"id": "wall_fromInteractive_9x7"},
-        "15x10": {
-            "id": "wall_manual_fromInteractive_15x10",
-            "omitOnStoryPoint":"hasFoundPackage::package_001"
-        },
+        //"15x10": {
+        //    "id": "wall_manual_fromInteractive_15x10",
+        //    "omitOnStoryPoint":"hasFoundPackage::package_001"
+        //},
     },
     "people": {
         "player": {"dir": "down", "x": 12, "y": 10},
@@ -144,16 +144,16 @@ export default {
             "restrictionErrorDialog": [["Hey punk, you can't read the sign from here."]],
             "type": "readable"
         },
-        "15x10": {
-            "omitOnStoryPoint": "hasFoundPackage::package_001",
-            "dialog": [["You found an item!"]],
-            "isSolid": true,
-            "restrictedDirections": ["up", "down", "left", "right"],
-            "restrictionErrorDialog": [["Hey punk, you can't read the sign from here."]],
-            "type": "package",
-            "packageId": "package_001",
-            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/box-blue.svg" /* It will use a skin if it has one */
-        }
+        //"15x10": {
+        //    "omitOnStoryPoint": "hasFoundPackage::package_001",
+        //    "dialog": [["You found an item!"]],
+        //    "isSolid": true,
+        //    "restrictedDirections": ["up", "down", "left", "right"],
+        //    "restrictionErrorDialog": [["Hey punk, you can't read the sign from here."]],
+        //    "type": "package",
+        //    "packageId": "package_001",
+        //    "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/box-blue.svg" /* It will use a skin if it has one */
+        //}
     },
 
     "footEvents": {
