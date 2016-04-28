@@ -88,7 +88,8 @@ export default {
             "behaviorData": {
                 "path": ["down", "right", "right", "right"],
                 "isCircular": false,
-                "walkingSpeed": 24
+                "walkingSpeed": 30,
+                "hesitantAfterSteps": 4
             },
             "interaction": {
                 "type": "dialog",
@@ -111,21 +112,21 @@ export default {
                 "content": [["Saw you at the coffee shop."]]
             }
         },
-        "npc_e524266a": {
-            "x": 19,
-            "y": 8,
-            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-orange.svg",
-            "dir": "down",
-            "useBehavior": "roaming",
-            "behaviorData": {
-                "path": ["down", "down", "down", "right", "up", "up", "up"],
-                "isCircular": false
-            },
-            "interaction": {
-                "type": "dialog",
-                "content": [["I'm Berg. ", "@@pause_400", "I don't know what you want, but I'm way too busy for this conversation."], ["Why don't you take that beard for a walk and ", "[FAST]get outta my face!"]]
-            }
-        },
+        //"npc_e524266a": {
+        //    "x": 19,
+        //    "y": 8,
+        //    "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-orange.svg",
+        //    "dir": "down",
+        //    "useBehavior": "roaming",
+        //    "behaviorData": {
+        //        "path": ["down", "down", "down", "right", "up", "up", "up"],
+        //        "isCircular": false
+        //    },
+        //    "interaction": {
+        //        "type": "dialog",
+        //        "content": [["I'm Berg. ", "@@pause_400", "I don't know what you want, but I'm way too busy for this conversation."], ["Why don't you take that beard for a walk and ", "[FAST]get outta my face!"]]
+        //    }
+        //},
         "npc_444de679": {
             "x": 15,
             "y": 6,

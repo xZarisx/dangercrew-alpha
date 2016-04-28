@@ -3,7 +3,7 @@ import { addReversePath } from '../people/add-reverse-path'
 import LocationService from './location-service'
 import {getUpdatedX, getUpdatedY, getOppositeDirection} from './location-helpers'
 import Move from './move'
-
+import {percentChance, getRandomInRange} from '../helpers/numbers-helper'
 
 export function npcRoamingBehavior(npc) {
     var self = this;
@@ -12,8 +12,14 @@ export function npcRoamingBehavior(npc) {
     const node = store.getState().people[npc];
     var path = (node.behaviorData.isCircular) ? [...node.behaviorData.path] : addReversePath([...node.behaviorData.path]);
 
+
+    //var isAbleToHesitate = true;
+    //var hesitateTimeout = null;
+    var continuousStepCounter = 0;
+
+
     self.clearNpcTimeout = function() {
-        clearTimeout(self.timeout)
+        clearTimeout(self.timeout);
     };
 
     self.startMoving = function() {
@@ -23,8 +29,29 @@ export function npcRoamingBehavior(npc) {
             return;
         }
 
+        continuousStepCounter += 1;
+
         var pathIndex = node.behaviorData.pathIndex || 0;
+        const hesitantAfterSteps = node.behaviorData.hesitantAfterSteps || 9999; /* Default to something really high */
+
         const direction = path[pathIndex];
+        const prevDirection = path[pathIndex - 1] || null;
+
+        /* Hesitate: If stepped so many spaces, there is a chance to stop for a break */
+        if (continuousStepCounter > hesitantAfterSteps && direction == prevDirection && percentChance(30)) {
+
+            continuousStepCounter = 0;
+            store.dispatch({ type: 'STOP_MOVING', mover_id: npc });
+
+            self.timeout = setTimeout(() => {
+                self.startMoving()
+            }, getRandomInRange(1000, 3400));
+
+            return
+        }
+
+
+
         var currentNodeState = {
             x: store.getState().people[npc].x, /* get fresh x & y of node */
             y: store.getState().people[npc].y
