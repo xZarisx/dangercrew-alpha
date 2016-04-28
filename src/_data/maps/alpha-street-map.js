@@ -79,10 +79,16 @@ export default {
             "omitOnStoryPoint": "hasVisitedMap::alphaCoffee",
             "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-blonde.svg",
             "dir": "down",
-            "useBehavior": "stationary",
+            //"useBehavior": "stationary",
+            //"behaviorData": {
+            //    "rotationDirections": ["left", "right"],
+            //    "doesRotate": true
+            //},
+            "useBehavior": "roaming",
             "behaviorData": {
-                "rotationDirections": ["left", "right"],
-                "doesRotate": true
+                "path": ["down", "right", "right", "right"],
+                "isCircular": false,
+                "walkingSpeed": 24
             },
             "interaction": {
                 "type": "dialog",

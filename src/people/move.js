@@ -1,15 +1,24 @@
 import store from '../init/store';
 
-var Move = (mover_id, callback) => {
+
+var Move = (mover_id, callback, speed=16) => {
     var i = 0;
 
     var cellSize = (store.getState().map.viewportWidth / 11);
 
     var steps = [];
-    var stepCount = 16;
+
+    /* Default speed is 16 */
+    /* Speed is the amount of frames it takes to get to the next cell */
+    /* Faster walking speed = lower number */
+
+    var stepCount = speed; //16;
+    var stepInterval = 1; //1;
     for (var s=0; s<= stepCount-1; s++) {
         steps.push( (cellSize / stepCount) * s)
     }
+    //console.log(steps)
+
     var step = function() {
         if (i < steps.length) {
 
@@ -19,7 +28,7 @@ var Move = (mover_id, callback) => {
                 mover_id: mover_id
             });
 
-            i += 1;
+            i += stepInterval;
 
             requestAnimationFrame(step);
 

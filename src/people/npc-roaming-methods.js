@@ -102,7 +102,7 @@ export function npcRoamingBehavior(npc) {
                 attemptMoveIfClose();
             }
 
-        });
+        }, node.behaviorData.walkingSpeed || 16 );
     };
 
     self.startMoving();
