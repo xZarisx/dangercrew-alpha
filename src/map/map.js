@@ -60,8 +60,6 @@ class Map extends React.Component { /* Considering this the "frame" rather than 
                 MusicPlayer.playTrack(this.props.mapMusicTrackId)
             }
         }
-
-        console.log(this.props.interactiveEvents)
     }
 
     componentWillUpdate(newProps) {

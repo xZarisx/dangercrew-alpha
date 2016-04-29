@@ -20,7 +20,6 @@ export default function() {
                 ...Combatant,
                 ...playerData,
                 hp: playerData.maxHp,
-                pp: 4
                 //status: "memoryLeak"
             }
         }

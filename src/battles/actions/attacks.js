@@ -6,7 +6,7 @@ export default {
         ...actionSchema,
         name: "Insult",
         description: "When you've got nothing else to show for yourself",
-        affectTargetHpPoints:2,
+        affectTargetHpPoints:1,
         ppCost: 0
     },
 

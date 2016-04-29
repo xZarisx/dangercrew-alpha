@@ -15,11 +15,6 @@ export default function() {
 
     /* Set up the player */
 
-    console.log({
-        ...Combatant,
-        ...playerData,
-    })
-
     store.dispatch({
         type: "MERGE_COMBATANT",
         payload: {
