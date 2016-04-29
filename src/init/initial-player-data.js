@@ -6,15 +6,14 @@ export default {
     hp: 25,
     maxHp: 25,
 
-    pp: 50,
-    maxPp: 50,
+    pp: 20,
+    maxPp: 20,
 
-    xp: 0,
+    xp: 0, //0,
     coins: 10,
 
-    /* Begin with 5 Stat Points */
     healthStatPoints: 3,
-    attackStatPoints: 3,
+    attackStatPoints: 3,  //3,
     defenseStatPoints: 3,
     speedStatPoints: 3,
     efficiencyStatPoints: 3,

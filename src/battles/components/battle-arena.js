@@ -13,7 +13,6 @@ import MessageBoard from '../components/battle/message-board'
 import Animations from '../components/battle/animations'
 import getIntroMessage from '../components/messaging/get-intro-message'
 
-/* DEV COMPONENTS */
 import MusicPlayer from '../../music/music-player'
 
 

@@ -6,9 +6,10 @@ import Combatant from '../battles/combatants/combatant-schema'
 
 export default function() {
 
+    console.warn('SEEDING BATTLE', 'seed-battle.js');
+
     const opponent = {...People["drew"]}
     const playerData = {...store.getState().playerData}
-
     /* Set up the player */
     store.dispatch({
         type: "MERGE_COMBATANT",
