@@ -129,17 +129,28 @@ function handleBattleOver() {
 
     if (winner_id == store.getState().battleUi.playerId) {
         console.log('PLAYER WON! HAPPY MUSIC');
-        addBattleResult(opponentPersonId, "win"); /* Record win as a story point */
 
-        /* Update playerData so HP, PP, (and items?) will be persisted */
+        /* Record win as a story point */
+        addBattleResult(opponentPersonId, "win");
+
+        /*
+            TODO:
+            Think carefully about how to persist items.
+            Are your battle items just your top 3? next battle would use your next 3?
+        */
+
+        /* Update playerData so HP, PP will be persisted */
         setPlayerDataValue({
             hp: combatants[winner_id].hp,
-            pp: combatants[winner_id].pp
+            pp: combatants[winner_id].pp,
+            //ITEMS?
         });
 
     } else {
         console.log('PLAYER LOST! SAD MUSIC')
-        addBattleResult(opponentPersonId, "loss"); /* Record loss as a story point */
+
+        /* Record loss as a story point */
+        addBattleResult(opponentPersonId, "loss");
     }
 
     setStation("battleOver");
