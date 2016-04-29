@@ -101,14 +101,24 @@ class SubmissionMenu extends React.Component {
     }
 
     handleMenuSubmit() {
+        /* What happens when you press Enter or tap an option */
+
         var self = this;
-        /* What happens when you press Enter or tab an option */
         const nextView = self.terminalViewData[self.props.terminalMenuKey].items[self.props.terminalMenuSelectedIndex].nextView || null;
 
         if (!nextView) {
             /* It probably/must have an action! */
             /* Submit the action! */
-            const actionId = self.terminalViewData[self.props.terminalMenuKey].items[self.props.terminalMenuSelectedIndex].actionId;
+            const action = self.terminalViewData[self.props.terminalMenuKey].items[self.props.terminalMenuSelectedIndex];
+
+            if (action.ppCost > self.props.combatant.pp) {
+                console.log('NOPE - NOT ENOUGH PP');
+                /* play sound? */
+                return;
+            }
+
+
+            const actionId = action.actionId;
             if (actionId) {
                 sound_submit.play();
                 makeSubmission(actionId, self.props.playerId, self.props.playerTargeting);
@@ -152,10 +162,11 @@ class SubmissionMenu extends React.Component {
     renderAttackMenu() {
 
         const attacks = this.terminalViewData.menuAttacks.items.map((item, i) => {
-            const activeClass = (i == this.props.terminalMenuSelectedIndex) ? "terminal-item-active" : null;
+            const activeClass = (i == this.props.terminalMenuSelectedIndex) ? "terminal-item-active" : "";
+            const deficientClass = (item.hasEnoughPp) ? "" : "terminal-item-deficient";
             return (
-               <div key={i} className={`battle-menu-option ${activeClass}`} onClick={this.handleMobileTap.bind(this,i)}>
-                   {item.label}
+               <div key={i} className={`battle-menu-option ${activeClass} ${deficientClass}`} onClick={this.handleMobileTap.bind(this,i)}>
+                   {item.label}  - {item.ppCost}
                </div>
             )
         });
@@ -227,44 +238,8 @@ class SubmissionMenu extends React.Component {
                 {content}
             </div>
         );
-        //
-        //
-
-        // //END NEW
-        //
     }
-    //     const menuData = this.terminalViewData;
-    //
-    //     const view = menuData[this.props.terminalMenuKey];
-    //
-    //     const items = view.items.map((item, i) => {
-    //
-    //         const activeClass = (i == this.props.terminalMenuSelectedIndex) ? "terminal-item-active" : null;
-    //         const quantityIndicator = (item.quantity > 1) ? `(x${item.quantity})` : null;
-    //         const ppCostIndicator = (typeof item.ppCost == "number") ? `${item.ppCost}` : null;
-    //         return (
-    //             <tr className={`terminal-item ${activeClass}`} key={i} onClick={this.handleMobileTap.bind(this,i)}>
-    //                 <td className="command-title">{item.label}</td>
-    //                 <td className="command-price-quantity">
-    //                     {quantityIndicator}
-    //                     {ppCostIndicator}
-    //                 </td>
-    //                 <td className="command-description">{item.description}</td>
-    //             </tr>
-    //         )
-    //     });
-    //
-    //     return (
-    //         <div>
-    //             <div>{view.title}</div>
-    //             <table className="terminal-items-list">
-    //                 <tbody>
-    //                 {items}
-    //                 </tbody>
-    //             </table>
-    //         </div>
-    //     );
-    // }
+
 }
 
 

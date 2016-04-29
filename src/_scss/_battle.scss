@@ -248,9 +248,17 @@ $window-header-height: 9%; //9vw;
         &:not(:last-of-type) {
             border-bottom: 0.2vw solid rgba(#fff,0.7);
         }
+
+        &.terminal-item-deficient {
+            color: rgba(white, 0.3);
+        }
+
         &.terminal-item-active {
             background:#fff;
             color:#111;
+            &.terminal-item-deficient {
+                background: rgba(white, 0.4)
+            }
         }
     }
 }

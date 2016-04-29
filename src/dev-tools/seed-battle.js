@@ -1,4 +1,5 @@
 /* Launch the game in battle mode for development shortcut */
+/* This file is only used when launching in battle mode from game.js */
 
 import store from '../init/store'
 import People from '../_data/people/people'
@@ -18,7 +19,8 @@ export default function() {
             changes: {
                 ...Combatant,
                 ...playerData,
-                hp: playerData.maxHp
+                hp: playerData.maxHp,
+                pp: 4
                 //status: "memoryLeak"
             }
         }

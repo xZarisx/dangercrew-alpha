@@ -17,7 +17,8 @@ const baseMenuItems = [
 const backItem = {
     label: "(back)",
     isBackControl: true,
-    nextView: "menuRoot"
+    nextView: "menuRoot",
+    hasEnoughPp: true
 };
 
 
@@ -56,12 +57,26 @@ export default function(playerId="") {
         return {
             label: action.name,
             ppCost: action.ppCost,
+            hasEnoughPp: combatant.pp >= action.ppCost,
             description: action.description,
             actionId: attack
         }
     });
 
     const items = formatItemsWithQuantity(combatant.items);
+
+    const canSubmitRealAttack = attacks.find(attack => {return attack.hasEnoughPp});
+
+    const insultAction = Actions["action_attack_basic_000"];
+    const attackList = canSubmitRealAttack ? attacks : [
+        {
+            label: insultAction.name,
+            ppCost: insultAction.ppCost,
+            hasEnoughPp: true,
+            description: insultAction.description,
+            actionId: "action_attack_basic_000"
+        }
+    ];
 
     return {
         menuRoot: {
@@ -71,7 +86,7 @@ export default function(playerId="") {
         menuAttacks: {
             title: "Commands > Attacks",
             items: [
-                ...attacks,
+                ...attackList,
                 {...backItem}
             ]
         },
