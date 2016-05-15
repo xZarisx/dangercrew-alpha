@@ -58,44 +58,58 @@ export default {
     },
     "people": {
         "player": {"dir": "down", "x": 12, "y": 10},
+        //"npc_0ab65234": {
+        //    "x": 12,
+        //    "y": 8,
+        //    "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/jessie.svg",
+        //    "dir": "down",
+        //    "useBehavior": "stationary",
+        //    "behaviorData": {
+        //        "rotationDirections": ["left", "right"],
+        //        "doesRotate": true
+        //    },
+        //    "interaction": {
+        //        "type": "dialog",
+        //        "content": [["Hey, Jacob!"], ["Learned any new terminal commands lately?", "@@pause_700", " You can choose your attacks from the Pause Menu."], ["If you train hard enough, I'm sure you'll become even stronger than Berg!"]]
+        //    }
+        //},
         "npc_0ab65234": {
             "x": 12,
             "y": 8,
             "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/jessie.svg",
             "dir": "down",
-            "useBehavior": "stationary",
+            "useBehavior": "following",
             "behaviorData": {
-                "rotationDirections": ["left", "right"],
-                "doesRotate": true
+                "walkingSpeed": 20,
             },
             "interaction": {
                 "type": "dialog",
                 "content": [["Hey, Jacob!"], ["Learned any new terminal commands lately?", "@@pause_700", " You can choose your attacks from the Pause Menu."], ["If you train hard enough, I'm sure you'll become even stronger than Berg!"]]
             }
         },
-        "npc_c5fa960d": {
-            "x": 8,
-            "y": 10,
-            "omitOnStoryPoint": "hasVisitedMap::alphaCoffee",
-            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-blonde.svg",
-            "dir": "down",
-            //"useBehavior": "stationary",
-            //"behaviorData": {
-            //    "rotationDirections": ["left", "right"],
-            //    "doesRotate": true
-            //},
-            "useBehavior": "roaming",
-            "behaviorData": {
-                "path": ["down", "right", "right", "right"],
-                "isCircular": false,
-                "walkingSpeed": 30,
-                "hesitantAfterSteps": 4
-            },
-            "interaction": {
-                "type": "dialog",
-                "content": [["Have you been to SouthNorth before?"], ["That's the coffee shop straight ahead. ", "@@pause_500", "Developers are always hanging out there."]]
-            }
-        },
+        //"npc_c5fa960d": {
+        //    "x": 8,
+        //    "y": 10,
+        //    "omitOnStoryPoint": "hasVisitedMap::alphaCoffee",
+        //    "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-blonde.svg",
+        //    "dir": "down",
+        //    //"useBehavior": "stationary",
+        //    //"behaviorData": {
+        //    //    "rotationDirections": ["left", "right"],
+        //    //    "doesRotate": true
+        //    //},
+        //    "useBehavior": "roaming",
+        //    "behaviorData": {
+        //        "path": ["down", "right", "right", "right"],
+        //        "isCircular": false,
+        //        "walkingSpeed": 30,
+        //        "hesitantAfterSteps": 4
+        //    },
+        //    "interaction": {
+        //        "type": "dialog",
+        //        "content": [["Have you been to SouthNorth before?"], ["That's the coffee shop straight ahead. ", "@@pause_500", "Developers are always hanging out there."]]
+        //    }
+        //},
         "npc_c5fa960d_variation1": {
             "x": 8,
             "y": 10,

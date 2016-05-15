@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 /* NOTE: Gives special methods to NPCs */
 import { npcStationaryBehavior } from './npc-stationary-methods'
 import { npcRoamingBehavior } from './npc-roaming-methods'
+import { goToPosition, followPerson } from './npc-following-behavior'
 
 @connect((state, props) => {
     const node = state.people[props.id];
@@ -33,6 +34,12 @@ class Person extends React.Component {
         if (this.props.useBehavior == "roaming") {
             npcRoamingBehavior.call(this, this.props.id);
         }
+
+        if (this.props.useBehavior == "following") {
+            //goToPosition(this.props.id, "14x9") //Example: go straight to a place
+            followPerson(this.props.id, "player")
+        }
+
     }
 
     componentWillUnmount() {
