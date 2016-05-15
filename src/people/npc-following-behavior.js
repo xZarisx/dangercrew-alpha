@@ -119,6 +119,11 @@ export function followPerson(myId, followId) {
         const followingNode = store.getState().people[followId];
         const node = store.getState().people[myId];
 
+        if (!node) {
+            unsubscribe();
+            return;
+        }
+
         currentPlayerLocation = `${followingNode.x}x${followingNode.y}`;
 
         if (currentPlayerLocation != previousPlayerLocation) {
