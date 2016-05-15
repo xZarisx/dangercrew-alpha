@@ -79,6 +79,13 @@ var sequence = function(currentPos, destinationPosition, previousDir=null, block
 
 export function getPath(startingPosition="", destinationPosition="", blockers={}) {
 
+    /* Bail out if destination is a blocker */
+    if (Boolean(blockers[destinationPosition])) {
+        console.warn('destination is a blocker');
+        return null;
+    }
+
+    /* Get array */
     var getSteps = function() {
 
         var progress = [
@@ -92,6 +99,7 @@ export function getPath(startingPosition="", destinationPosition="", blockers={}
                 const nextStep = sequence(model.newPos, destinationPosition, model.dir, blockers);
                 progress.push(nextStep);
                 if (nextStep && nextStep.newPos != destinationPosition) {
+                    //console.log('do it again')
                     step();
                 }
             }

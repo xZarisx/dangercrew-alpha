@@ -122,9 +122,12 @@ export function followPerson(myId, followId) {
         currentPlayerLocation = `${followingNode.x}x${followingNode.y}`;
 
         if (currentPlayerLocation != previousPlayerLocation) {
-            //console.log('do it!')
+
             const blockers = {
                 ...store.getState().map.walls
+                /* NOTE TO SELF: this will also include solid walls from interactive events, whether they are being
+                ignored by walking characters or not. Right now, the Following behavior will still walk around "picked up" items
+                 */
             };
             var path = getPath(`${node.x}x${node.y}`, `${followingNode.x}x${followingNode.y}`, blockers);
 
