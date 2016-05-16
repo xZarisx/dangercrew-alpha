@@ -113,13 +113,26 @@ export function goToPosition(npc, destinationPosition="", path=[]) {
 export function followPerson(myId, followId) {
 
     var currentPlayerLocation;
+    var currentGameArea;
     var unsubscribe = store.subscribe(function() {
         var previousPlayerLocation = currentPlayerLocation;
+        var previousGameArea = currentGameArea;
 
         const followingNode = store.getState().people[followId];
         const node = store.getState().people[myId];
 
+        /* Bail out if map has changed */
         if (!node) {
+            unsubscribe();
+            return;
+        }
+        /* Bail out if changing out of map */
+        currentGameArea = store.getState().game.gameArea;
+        if (previousGameArea != currentGameArea && currentGameArea != "map") {
+            //console.log('game is no longer map')
+            store.dispatch({
+                type: 'STOP_MOVING', mover_id: myId
+            });
             unsubscribe();
             return;
         }
