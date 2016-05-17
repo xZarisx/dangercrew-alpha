@@ -65,13 +65,6 @@ export function goToPosition(npc, destinationPosition="", path=[]) {
             //Stop if it aint free or textbox is showing
             store.dispatch({ type: 'STOP_MOVING', mover_id: npc });
 
-            //store.dispatch({
-            //    type: "UPDATE_DIRECTION",
-            //    mover_id: npc,
-            //    direction: direction
-            //});
-
-            console.log('couldnt complete path')
             return;
         }
 
@@ -101,7 +94,6 @@ export function goToPosition(npc, destinationPosition="", path=[]) {
             /* Move again if Game is still in map mode */
             if (store.getState().game.gameArea == "map") {
                 clearNpcTimeout(); //Clear in case something is waiting to fire
-                console.log('sM 2')
                 startMoving();
             }
         }, node.behaviorData.walkingSpeed || 16 );
@@ -151,8 +143,6 @@ export function followPerson(myId, followId) {
 
 
             if (path && !node.moving) {
-                console.log('go to path', `${followingNode.x - 1}x${followingNode.y}`);
-                console.log(path)
                 goToPosition(myId, `${followingNode.x + 2}x${followingNode.y}`, path)
             }
         }
