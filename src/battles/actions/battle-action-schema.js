@@ -24,6 +24,10 @@ export default {
     affectCasterEfficiencyPoints: 0,
     affectCasterAccuracyPoints: 0,
 
+    //Neglect
+    neglectAttackStat: false,
+
+
     //Item stats
     itemValue: 0,
     itemMalfunctionChance: 0,
@@ -51,5 +55,7 @@ export default {
     //Natural
     isNaturalStatusEvent: false,
     submittedByStatus: null
+
+
 
 }

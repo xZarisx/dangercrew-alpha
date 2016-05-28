@@ -138,13 +138,15 @@ export default function(submission, mock={}) {
     trivia.repetitions = repetitions;
 
 
+
     for (var i=1; i<=repetitions; i++) {
-        const strike = action.affectTargetHpPoints + attackRoll - defenseRoll;
+        /* Optionally neglect stat points and only use the action's number (Insult). Otherwise, do the calculation */
+        const strike = action.neglectAttackStat ? action.affectTargetHpPoints : (action.affectTargetHpPoints + attackRoll - defenseRoll);
         damage = (strike > 0) ? damage + strike : damage;
     }
 
     if (action.affectTargetHpPoints > 0 && damage <= 0) {
-        console.log('The Turn is -> target blocked the attack');
+        //console.log('The Turn is -> target blocked the attack');
         return {
             processorActions: [],
             trivia: {
