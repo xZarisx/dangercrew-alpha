@@ -9,7 +9,8 @@ export function battleRequests(state = {}, action) {
                 requesterId: action.payload.requesterId,
                 requesterName: action.payload.requesterName,
                 requesterLevel: action.payload.requesterLevel,
-                requesterSkin: action.payload.requesterSkin
+                requesterSkin: action.payload.requesterSkin,
+                datetimeRequested: action.payload.datetimeRequested
             };
 
         case 'HIDE_BATTLE_REQUEST':

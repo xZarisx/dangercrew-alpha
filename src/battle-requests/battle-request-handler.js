@@ -41,6 +41,7 @@ export default function(action={}) {
         return false;
     }
 
+
     /* Ignore handler if result window is open */
     if (store.getState().battleResultPrompt.showResult) {
         return false;
@@ -53,6 +54,11 @@ export default function(action={}) {
 
     /* Roll to see if request is triggered */
     if (percentChance(66)) { //66 percent chance nothing will happen
+        return false;
+    }
+
+    /* Cancel if a request was already issued less than 6 seconds ago */
+    if (Date.now() - store.getState().battleRequests.datetimeRequested < 6000) {
         return false;
     }
 
@@ -69,7 +75,8 @@ export default function(action={}) {
             requesterId: challenger_id,
             requesterName: challenger.name,
             requesterSkin: challenger.skin,
-            requesterLevel: challenger.level
+            requesterLevel: challenger.level,
+            datetimeRequested: Date.now()
         }
     });
 
