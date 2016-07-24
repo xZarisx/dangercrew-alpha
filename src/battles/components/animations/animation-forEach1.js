@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {incrementRolloutStation2} from '../../rollout/rollout-station-navigator'
 
 import { Howl } from 'howler'
-var sound_iterator = new Howl({ urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/iterator.mp3']});
+var sound_iterator = new Howl({ urls: ['/dist/assets/sfx/iterator.mp3']});
 
 @connect((state, props) => {
     return {

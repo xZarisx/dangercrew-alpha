@@ -6,7 +6,7 @@ export default {
     hp: 25,
     maxHp: 25,
 
-    pp: 1, //20,
+    pp: 20, //20,
     maxPp: 20,
 
     xp: 0, //0,

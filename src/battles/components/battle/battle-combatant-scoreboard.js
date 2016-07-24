@@ -6,7 +6,7 @@ import ScorboardHealthbar from './battle-combatant-scoreboard-healthbar'
 
 /* I don't love that this is right here, but this is the general "I've lost HP" sound */
 import { Howl } from 'howler'
-var sound_baBuhm = new Howl({ urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/baBuhm.mp3']});
+var sound_baBuhm = new Howl({ urls: ['/dist/assets/sfx/baBuhm.mp3']});
 
 @connect((state, props) => {
     return {

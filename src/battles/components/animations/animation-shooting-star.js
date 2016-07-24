@@ -65,7 +65,7 @@ class AnimationShootingStar extends React.Component {
 
         return (
             <div style={style}>
-                <img style={imgStyle} src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/star.png" />
+                <img style={imgStyle} src="/dist/assets/images/star.png" />
             </div>
         );
     }

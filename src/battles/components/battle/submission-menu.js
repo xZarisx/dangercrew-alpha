@@ -6,8 +6,8 @@ import getSubmissionMenuData from '../../services/get-submission-menu-data'
 import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../../../helpers/single-keypress-binding';
 
 
-var sound_menuMove = new Howl({ urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/menu-move.mp3']});
-var sound_submit = new Howl({ urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/submit.mp3']});
+var sound_menuMove = new Howl({ urls: ['/dist/assets/sfx/menu-move.mp3']});
+var sound_submit = new Howl({ urls: ['/dist/assets/sfx/submit.mp3']});
 
 @connect((state, props) => {
     return {
