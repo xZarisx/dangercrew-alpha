@@ -105,7 +105,7 @@ class TitleScreen extends React.Component {
         return (
            <div style={containerStyle}>
                <div onClick={::this.handleClick}>
-                    <img style={imageStyle} src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/logo.min.svg" />
+                    <img style={imageStyle} src="/dist/assets/images/logo.min.svg" />
                     {this.renderText()}
                </div>
                <div className="title-jacob"></div>
