@@ -8,22 +8,22 @@ var MusicPlayer = {
 
     tracks: {
         "battle": {
-            url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/player-vs-computer.mp3",
+            url: "/dist/assets/music/player-vs-computer.mp3",
             volume: 0.25
         },
         "battle-intro": {
-            url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/player-vs-computer-intro.mp3",
+            url: "/dist/assets/music/player-vs-computer-intro.mp3",
             volume: 0.25,
             callback: function() {
                 MusicPlayer.playTrack("battle");
             }
         },
         "coffeeShop": {
-            url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/fibonacci5.mp3",
+            url: "/dist/assets/music/fibonacci5.mp3",
             volume: 0.3
         },
         "walkingOutside": {
-            url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/walking_outside2.mp3",
+            url: "/dist/assets/music/walking_outside2.mp3",
             volume: 0.2
         },
         "dangerWaltz" : {

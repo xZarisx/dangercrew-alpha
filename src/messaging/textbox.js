@@ -6,34 +6,34 @@ import store from '../init/store'
 import { Howl } from 'howler'
 
 var typeBlip = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/Blip_0.mp3'],
+    urls: ['/dist/assets/sfx/Blip_0.mp3'],
     volume: 0.5
 });
 
 var bellDown = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/bell_down.mp3']
+    urls: ['/dist/assets/sfx/bell_down.mp3']
 });
 var bellUp = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/bell_up.mp3']
+    urls: ['/dist/assets/sfx/bell_up.mp3']
 });
 var blipHi = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/blip_hi.mp3']
+    urls: ['/dist/assets/sfx/blip_hi.mp3']
 });
 var blipLo = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/blip_lo.mp3']
+    urls: ['/dist/assets/sfx/blip_lo.mp3']
 });
 var exclaimDown = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/exclaim_down.mp3']
+    urls: ['/dist/assets/sfx/exclaim_down.mp3']
 });
 var exclaimUp = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/exclaim_up.mp3']
+    urls: ['/dist/assets/sfx/exclaim_up.mp3']
 });
 var podClose = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/pod_close.mp3'],
+    urls: ['/dist/assets/sfx/pod_close.mp3'],
     volume: 0.1
 });
 var podOpen = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/pod_open.mp3'],
+    urls: ['/dist/assets/sfx/pod_open.mp3'],
     volume: 0.1
 });
 
@@ -53,7 +53,7 @@ class Textbox extends React.Component {
     constructor(props) {
         super(props);
 
-        console.log('-----------CONSTRUCTOR')
+        //console.log('-----------CONSTRUCTOR')
 
         this.characterBank = 0; //keeps track of previous pages' characters
         this.totalCharacters = this.props.currentMessage.reduce((a, b) => a.length + b.length);

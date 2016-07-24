@@ -4,7 +4,7 @@ import {addKeyboardSinglePress, removeKeyboardSinglePress} from '../helpers/sing
 import {Howl} from 'howler'
 
 var enterSound = new Howl({
-    urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/163669/speedup6.mp3'],
+    urls: ['/dist/assets/sfx/speedup6.mp3'],
     volume: 0.7
 });
 
