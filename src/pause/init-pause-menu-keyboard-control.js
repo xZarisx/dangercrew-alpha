@@ -7,9 +7,9 @@ import togglePlayerItem from './toggle-player-item'
 import {incrementStatPoint, decrementStatPoint, resetStatPoints, submitLevelUp, skillPointsRemaining} from '../level-up/levelup-utilities'
 import { Howl } from 'howler'
 /* 37 "left" | 39 "right" | 38 "up" | 40 "down" */
-var sound_menuMove = new Howl({ urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/menu-move.mp3']});
-var sound_submit = new Howl({ urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/submit.mp3']});
-var sound_crapout = new Howl({ urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/pause-back.mp3']});
+var sound_menuMove = new Howl({ urls: ['/dist/assets/sfx/menu-move.mp3']});
+var sound_submit = new Howl({ urls: ['/dist/assets/sfx/submit.mp3']});
+var sound_crapout = new Howl({ urls: ['/dist/assets/sfx/pause-back.mp3']});
 
 
 

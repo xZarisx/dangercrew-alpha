@@ -1,7 +1,7 @@
 /* Player starts the game with these values: */
 export default {
     name: "Jacob",
-    skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/svJacob-2.svg",
+    skin: "/dist/assets/people/svJacob-2.svg",
     level: 1,
     hp: 25,
     maxHp: 25,
@@ -17,6 +17,9 @@ export default {
     defenseStatPoints: 3,
     speedStatPoints: 3,
     efficiencyStatPoints: 3,
+
+    //For React Rally:
+    accuracyModifier: 1000, //be super accurate
 
     attacks: [
         "action_attack_basic_001",
