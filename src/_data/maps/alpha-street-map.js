@@ -1,7 +1,7 @@
 export default {
     "mapId": "alphaStreet",
     "musicTrackId" : "walkingOutside",
-    "backgroundImage": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/263408/theRedButton.svg",
+    "backgroundImage": "/dist/assets/maps/alpha-street-map.svg",
     "width": "28",
     "height": "20",
     "walls": {
@@ -51,70 +51,70 @@ export default {
         "8x7": {"id": "wall_bg3724a0"},
         "9x12": {"id": "wall_49800a99"},
         "9x7": {"id": "wall_fromInteractive_9x7"},
-        "15x10": { /* This has an interactive event tied to it! */
-            "id": "wall_manual_fromInteractive_15x10",
-            "omitOnStoryPoint":"hasFoundPackage::package_001"
-        },
+        //"15x10": { /* This has an interactive event tied to it! */
+        //    "id": "wall_manual_fromInteractive_15x10",
+        //    "omitOnStoryPoint":"hasFoundPackage::package_001"
+        //},
     },
     "people": {
         "player": {"dir": "down", "x": 12, "y": 10},
-        //"npc_0ab65234": {
-        //    "x": 12,
-        //    "y": 8,
-        //    "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/jessie.svg",
-        //    "dir": "down",
-        //    "useBehavior": "stationary",
-        //    "behaviorData": {
-        //        "rotationDirections": ["left", "right"],
-        //        "doesRotate": true
-        //    },
-        //    "interaction": {
-        //        "type": "dialog",
-        //        "content": [["Hey, Jacob!"], ["Learned any new terminal commands lately?", "@@pause_700", " You can choose your attacks from the Pause Menu."], ["If you train hard enough, I'm sure you'll become even stronger than Berg!"]]
-        //    }
-        //},
         "npc_0ab65234": {
             "x": 12,
             "y": 8,
-            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/jessie.svg",
+            "skin": "/dist/assets/people/jessie.svg",
             "dir": "down",
-            "useBehavior": "following",
+            "useBehavior": "stationary",
             "behaviorData": {
-                "walkingSpeed": 20,
+                "rotationDirections": ["left", "right"],
+                "doesRotate": true
             },
             "interaction": {
                 "type": "dialog",
                 "content": [["Hey, Jacob!"], ["Learned any new terminal commands lately?", "@@pause_700", " You can choose your attacks from the Pause Menu."], ["If you train hard enough, I'm sure you'll become even stronger than Berg!"]]
             }
         },
-        //"npc_c5fa960d": {
-        //    "x": 8,
-        //    "y": 10,
-        //    "omitOnStoryPoint": "hasVisitedMap::alphaCoffee",
-        //    "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-blonde.svg",
+        //"npc_0ab65234": {
+        //    "x": 12,
+        //    "y": 8,
+        //    "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/jessie.svg",
         //    "dir": "down",
-        //    //"useBehavior": "stationary",
-        //    //"behaviorData": {
-        //    //    "rotationDirections": ["left", "right"],
-        //    //    "doesRotate": true
-        //    //},
-        //    "useBehavior": "roaming",
+        //    "useBehavior": "following",
         //    "behaviorData": {
-        //        "path": ["down", "right", "right", "right"],
-        //        "isCircular": false,
-        //        "walkingSpeed": 30,
-        //        "hesitantAfterSteps": 4
+        //        "walkingSpeed": 20,
         //    },
         //    "interaction": {
         //        "type": "dialog",
-        //        "content": [["Have you been to SouthNorth before?"], ["That's the coffee shop straight ahead. ", "@@pause_500", "Developers are always hanging out there."]]
+        //        "content": [["Hey, Jacob!"], ["I'm going to follow you..."]]
         //    }
         //},
+        "npc_c5fa960d": {
+            "x": 8,
+            "y": 10,
+            "omitOnStoryPoint": "hasVisitedMap::alphaCoffee",
+            "skin": "/dist/assets/people/drew-blonde.svg",
+            "dir": "down",
+            "useBehavior": "stationary",
+            "behaviorData": {
+                "rotationDirections": ["left", "right"],
+                "doesRotate": true
+            },
+            //"useBehavior": "roaming",
+            //"behaviorData": {
+            //    "path": ["down", "right", "right", "right"],
+            //    "isCircular": false,
+            //    "walkingSpeed": 30,
+            //    "hesitantAfterSteps": 4
+            //},
+            "interaction": {
+                "type": "dialog",
+                "content": [["Have you been to SouthNorth before?"], ["That's the coffee shop straight ahead. ", "@@pause_500", "Developers are always hanging out there."]]
+            }
+        },
         "npc_c5fa960d_variation1": {
             "x": 8,
             "y": 10,
             "includeOnStoryPoint": "hasVisitedMap::alphaCoffee",
-            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-blonde.svg",
+            "skin": "/dist/assets/people/drew-blonde.svg",
             "dir": "down",
             "useBehavior": "stationary",
             "behaviorData": {
@@ -129,7 +129,7 @@ export default {
         "npc_e524266a": {
             "x": 19,
             "y": 8,
-            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-orange.svg",
+            "skin": "/dist/assets/people/drew-orange.svg",
             "dir": "down",
             "useBehavior": "roaming",
             "behaviorData": {
@@ -144,7 +144,7 @@ export default {
         "npc_444de679": {
             "x": 15,
             "y": 6,
-            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-pink.svg",
+            "skin": "/dist/assets/people/drew-pink.svg",
             "dir": "down",
             "useBehavior": "stationary",
             "behaviorData": {
@@ -165,16 +165,16 @@ export default {
             "restrictionErrorDialog": [["Hey punk, you can't read the sign from here."]],
             "type": "readable"
         },
-        "15x10": { /* This has a wall tied to it! */
-            "omitOnStoryPoint": "hasFoundPackage::package_001",
-            "dialog": [["You found an item!"]],
-            "isSolid": true,
-            "restrictedDirections": ["up", "down", "left", "right"],
-            "restrictionErrorDialog": [["Hey punk, you can't read the sign from here."]],
-            "type": "package",
-            "packageId": "package_001",
-            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/box-blue.svg" /* It will use a skin if it has one */
-        }
+        //"15x10": { /* This has a wall tied to it! */
+        //    "omitOnStoryPoint": "hasFoundPackage::package_001",
+        //    "dialog": [["You found an item!"]],
+        //    "isSolid": true,
+        //    "restrictedDirections": ["up", "down", "left", "right"],
+        //    "restrictionErrorDialog": [["Hey punk, you can't read the sign from here."]],
+        //    "type": "package",
+        //    "packageId": "package_001",
+        //    "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/box-blue.svg" /* It will use a skin if it has one */
+        //}
     },
 
     "footEvents": {

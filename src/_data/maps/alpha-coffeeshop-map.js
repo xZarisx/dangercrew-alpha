@@ -1,7 +1,7 @@
 export default {
     "mapId": "alphaCoffee",
     "musicTrackId" : "coffeeShop",
-    "backgroundImage": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/263408/031516_southNorth.svg",
+    "backgroundImage": "/dist/assets/maps/031516_southNorth.svg",
     "width": "9",
     "height": "9",
     "walls": {
@@ -44,7 +44,7 @@ export default {
         "npc_6c91g149": {
             "x": 1,
             "y": 6,
-            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew.svg",
+            "skin": "/dist/assets/people/drew.svg",
             "dir": "down",
             "useBehavior": "stationary",
             "behaviorData": {"rotationDirections": ["left", "right", "up", "down"], "doesRotate": true},
@@ -56,7 +56,7 @@ export default {
         "npc_9950fe06": {
             "x": 6,
             "y": 2,
-            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/jessie.svg",
+            "skin": "/dist/assets/people/jessie.svg",
             "dir": "down",
             "useBehavior": "stationary",
             "behaviorData": {"rotationDirections": ["right"], "doesRotate": true},
@@ -65,7 +65,7 @@ export default {
         "npc_fdf0a8a3": {
             "x": 0,
             "y": 1,
-            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-pink.svg",
+            "skin": "/dist/assets/people/drew-pink.svg",
             "dir": "down",
             "useBehavior": "stationary",
             "behaviorData": {"rotationDirections": ["left", "right"], "doesRotate": true},
@@ -77,7 +77,7 @@ export default {
         "npc_fefa9770": {
             "x": 8,
             "y": 8,
-            "skin": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/jessie-blue.svg",
+            "skin": "/dist/assets/people/jessie-blue.svg",
             "dir": "down",
             "useBehavior": "stationary",
             "behaviorData": {"rotationDirections": ["left", "right"], "doesRotate": true},

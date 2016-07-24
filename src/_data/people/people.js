@@ -1,7 +1,7 @@
 const people = {
     drew: {
         name: "Drew",
-        skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew.svg",
+        skin: "/dist/assets/people/drew.svg",
         level: 5,
         maxHp: 30,
 
@@ -18,7 +18,7 @@ const people = {
     },
     berg: {
         name: "Berg",
-        skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-orange.svg",
+        skin: "/dist/assets/people/drew-orange.svg",
         level: 8,
         maxHp: 75,
 
@@ -35,7 +35,7 @@ const people = {
     },
     punky: {
         name: "Punky",
-        skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/drew-blonde.svg",
+        skin: "/dist/assets/people/drew-blonde.svg",
         level: 2,
         maxHp: 20,
 
@@ -52,7 +52,7 @@ const people = {
     },
     jessie: {
         name: "Jessie",
-        skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/jessie.svg",
+        skin: "/dist/assets/people/jessie.svg",
         level: 4,
         maxHp: 39,
 
@@ -69,7 +69,7 @@ const people = {
     },
     marie: {
         name: "Marie",
-        skin: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/jessie-blue.svg",
+        skin: "/dist/assets/people/jessie-blue.svg",
         level: 6,
         maxHp: 52,
 

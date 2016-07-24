@@ -113,7 +113,7 @@ class Person extends React.Component {
         }
         return {
             /* This is the player! */
-            backgroundImage: `url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/21542/svJacob-2.svg)`
+            backgroundImage: `url(/dist/assets/people/svJacob-2.svg)`
         }
     }
 
