@@ -45,10 +45,8 @@ const people = {
         efficiencyStatPoints: 3,
 
         attacks: [
-            "action_attack_basic_001",
+            //"action_attack_basic_001",
             //Just for the demo: lots of CURLs
-            "action_attack_theft_001",
-            "action_attack_theft_001",
             "action_attack_theft_001"
             //"action_attack_repetitions_001"
         ]
