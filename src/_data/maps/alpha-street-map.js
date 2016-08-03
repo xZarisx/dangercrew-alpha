@@ -181,14 +181,14 @@ export default {
         "10x7": {type: "map-transition", playerDirection: 'up', useCoords:[5,8], mapName: "alphaCoffee"},
 
         //Battle Zones
-        "7x11": {type: "battle-zone"},
-        "7x10": {type: "battle-zone"},
-        "7x9": {type: "battle-zone"},
-        "7x8": {type: "battle-zone"}, /* left side, near The Hole */
-        "16x11": {type: "battle-zone"},
-        "16x10": {type: "battle-zone"},
-        "16x9": {type: "battle-zone"},
-        "16x8": {type: "battle-zone"}, /* right side, near Berg */
+        //"7x11": {type: "battle-zone"},
+        //"7x10": {type: "battle-zone"},
+        //"7x9": {type: "battle-zone"},
+        //"7x8": {type: "battle-zone"}, /* left side, near The Hole */
+        //"16x11": {type: "battle-zone"},
+        //"16x10": {type: "battle-zone"},
+        //"16x9": {type: "battle-zone"},
+        //"16x8": {type: "battle-zone"}, /* right side, near Berg */
         //
          "13x7": {type: "battle-zone"},
          "12x6": {type: "battle-zone"},

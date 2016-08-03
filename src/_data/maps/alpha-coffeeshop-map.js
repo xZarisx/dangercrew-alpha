@@ -108,18 +108,19 @@ export default {
         "6x8": {type: "map-transition", playerDirection: 'down', useCoords:[10,8], mapName: "alphaStreet"},
 
         //Battle Zones
-        "5x5": {type: "battle-zone"},
-        "4x5": {type: "battle-zone"},
-        "5x6": {type: "battle-zone"},
-        "4x6": {type: "battle-zone"},
+        //"5x5": {type: "battle-zone"},
+        //"4x5": {type: "battle-zone"},
+        //"5x6": {type: "battle-zone"},
+        //"4x6": {type: "battle-zone"},
 
         "2x2": {type: "battle-zone"},
         "1x2": {type: "battle-zone"},
+        "1x1": {type: "battle-zone"},
         "2x3": {type: "battle-zone"},
         "1x3": {type: "battle-zone"},
 
-        "0x7": {type: "battle-zone"},
-        "1x7": {type: "battle-zone"}
+        //"0x7": {type: "battle-zone"},
+        //"1x7": {type: "battle-zone"}
 
     },
 }
