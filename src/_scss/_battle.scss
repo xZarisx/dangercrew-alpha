@@ -71,7 +71,7 @@
 
 .battle-scoreboard-player {
     width: 30vw;
-    left: 55vw;
+    left: 51vw;
     &:after {
         content: '';
         position: absolute;
@@ -80,6 +80,12 @@
         border-top: 1.2vw solid transparent;
         border-bottom: 1.2vw solid transparent;
         border-right: 1.2vw solid #323232;
+    }
+}
+
+.viewport-1232 {
+    .battle-scoreboard-player {
+
     }
 }
 

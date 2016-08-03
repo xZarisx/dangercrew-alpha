@@ -37,7 +37,7 @@ const people = {
         name: "Punky",
         skin: "/dist/assets/people/drew-blonde.svg",
         level: 2,
-        maxHp: 20,
+        maxHp: 18,
 
         attackStatPoints: 1,
         defenseStatPoints: 0,
@@ -46,8 +46,11 @@ const people = {
 
         attacks: [
             "action_attack_basic_001",
+            //Just for the demo: lots of CURLs
             "action_attack_theft_001",
-            "action_attack_repetitions_001"
+            "action_attack_theft_001",
+            "action_attack_theft_001"
+            //"action_attack_repetitions_001"
         ]
     },
     jessie: {

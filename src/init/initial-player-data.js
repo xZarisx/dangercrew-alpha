@@ -13,7 +13,7 @@ export default {
     coins: 10,
 
     healthStatPoints: 3,
-    attackStatPoints: 3,  //3,
+    attackStatPoints: 5,//pumped for the demo  //3,
     defenseStatPoints: 3,
     speedStatPoints: 3,
     efficiencyStatPoints: 3,
