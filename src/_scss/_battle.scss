@@ -70,8 +70,10 @@
 }
 
 .battle-scoreboard-player {
-    width: 30vw;
-    left: 51vw;
+    //width: 30vw;
+    //left: 51vw;
+    width: 32%;
+    left: 55%;
     &:after {
         content: '';
         position: absolute;
@@ -85,7 +87,7 @@
 
 .viewport-1232 {
     .battle-scoreboard-player {
-        left: 49vw;
+        //left: 49vw;
     }
 }
 .viewport-1408 {
