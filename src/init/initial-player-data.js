@@ -20,6 +20,7 @@ export default {
 
     //For React Rally:
     attackModifier: 2,
+    speedModifier: 99,
     accuracyModifier: 1000, //be super accurate
 
     attacks: [
